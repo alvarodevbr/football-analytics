@@ -1,0 +1,29 @@
+﻿horizonte,abordagem,modelo,dif_RMSE_vs_CatBoost_global,IC95_inf,IC95_sup,significativo
+T+1,Global,CatBoost,0.00000,0.00000,0.00000,False
+T+1,Global,Ensemble (CatBoost + XGBoost + Ridge),-0.00633,-0.00986,-0.00286,True
+T+1,Global,Mediana do treino (ingênuo),0.02558,0.01637,0.03489,True
+T+1,Global,OLS,-0.00037,-0.00733,0.00647,False
+T+1,Global,Random Forest,-0.00088,-0.00639,0.00495,False
+T+1,Global,Ridge,-0.00140,-0.00833,0.00559,False
+T+1,Global,XGBoost,-0.00425,-0.00942,0.00093,False
+T+1,Global,Sem variação (V_{T+k} = V_T),0.10764,0.09567,0.11887,True
+T+1,Segmentado,CatBoost,0.00280,-0.00196,0.00744,False
+T+1,Segmentado,Mediana do treino (ingênuo),0.02558,0.01637,0.03489,True
+T+1,Segmentado,OLS,0.00897,0.00037,0.01750,True
+T+1,Segmentado,Random Forest,0.00392,-0.00182,0.00980,False
+T+1,Segmentado,Ridge,0.01367,0.00593,0.02138,True
+T+1,Segmentado,XGBoost,0.00688,0.00021,0.01346,True
+T+2,Global,CatBoost,0.00000,0.00000,0.00000,False
+T+2,Global,Ensemble (CatBoost + XGBoost + Ridge),-0.00808,-0.01172,-0.00425,True
+T+2,Global,Mediana do treino (ingênuo),0.04658,0.03130,0.06180,True
+T+2,Global,OLS,-0.00407,-0.01189,0.00444,False
+T+2,Global,Random Forest,0.00292,-0.00197,0.00799,False
+T+2,Global,Ridge,-0.00434,-0.01263,0.00472,False
+T+2,Global,XGBoost,-0.00480,-0.01050,0.00074,False
+T+2,Global,Sem variação (V_{T+k} = V_T),0.25295,0.23263,0.27310,True
+T+2,Segmentado,CatBoost,0.00954,0.00110,0.01788,True
+T+2,Segmentado,Mediana do treino (ingênuo),0.04658,0.03130,0.06180,True
+T+2,Segmentado,OLS,0.01362,0.00293,0.02448,True
+T+2,Segmentado,Random Forest,0.00593,-0.00212,0.01355,False
+T+2,Segmentado,Ridge,0.01910,0.00867,0.03055,True
+T+2,Segmentado,XGBoost,0.00534,-0.00364,0.01389,False

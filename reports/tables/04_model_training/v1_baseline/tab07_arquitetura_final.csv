@@ -1,0 +1,5 @@
+﻿horizonte,arquitetura,RMSE_log_validacao,RMSE_log,R2_log,spearman,MAE_pct,top10_hit_rate,base_hit_rate,escolhido
+T+1,Global — CatBoost,0.50698,0.51787,0.25743,0.49720,46.39258,0.55497,0.25523,True
+T+1,Segmentado (melhor por categoria),0.51349,0.52351,0.24118,0.47912,46.70899,0.54974,0.25523,False
+T+2,Global — CatBoost,0.73420,0.74030,0.35202,0.59486,82.01989,0.65591,0.26005,True
+T+2,Segmentado (melhor por categoria),0.73786,0.74916,0.33641,0.57553,83.05822,0.60215,0.26005,False

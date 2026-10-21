@@ -1,0 +1,339 @@
+{
+  "path": "shap_values_T2.parquet",
+  "source": "notebook 05: SHAP do ensemble global, T+2",
+  "n_rows": 9357,
+  "n_columns": 110,
+  "written_at": "2026-10-19T18:31:38",
+  "columns": {
+    "age": {
+      "dtype": "float64"
+    },
+    "age_sq": {
+      "dtype": "float64"
+    },
+    "height_cm": {
+      "dtype": "float64"
+    },
+    "is_left_footed": {
+      "dtype": "float64"
+    },
+    "is_two_footed": {
+      "dtype": "float64"
+    },
+    "is_uefa": {
+      "dtype": "float64"
+    },
+    "is_conmebol": {
+      "dtype": "float64"
+    },
+    "is_caf": {
+      "dtype": "float64"
+    },
+    "is_afc_concacaf": {
+      "dtype": "float64"
+    },
+    "has_eu_passport": {
+      "dtype": "float64"
+    },
+    "n_nationalities": {
+      "dtype": "float64"
+    },
+    "is_domestic": {
+      "dtype": "float64"
+    },
+    "tenure_years_T": {
+      "dtype": "float64"
+    },
+    "is_on_loan_T": {
+      "dtype": "float64"
+    },
+    "log_value_T": {
+      "dtype": "float64"
+    },
+    "log_club_value_T": {
+      "dtype": "float64"
+    },
+    "value_share_of_club": {
+      "dtype": "float64"
+    },
+    "club_value_rank_pct": {
+      "dtype": "float64"
+    },
+    "club_value_rank_in_league": {
+      "dtype": "float64"
+    },
+    "team_points_per_game": {
+      "dtype": "float64"
+    },
+    "market_log_return_lag1_T": {
+      "dtype": "float64"
+    },
+    "league_log_return_lag1_T": {
+      "dtype": "float64"
+    },
+    "minutes": {
+      "dtype": "float64"
+    },
+    "minutes_share_pct": {
+      "dtype": "float64"
+    },
+    "games": {
+      "dtype": "float64"
+    },
+    "starts_share_pct": {
+      "dtype": "float64"
+    },
+    "complete_games_share_pct": {
+      "dtype": "float64"
+    },
+    "n_clubs_big5": {
+      "dtype": "float64"
+    },
+    "goals_p90": {
+      "dtype": "float64"
+    },
+    "assists_p90": {
+      "dtype": "float64"
+    },
+    "npg_p90": {
+      "dtype": "float64"
+    },
+    "goals_assists_p90": {
+      "dtype": "float64"
+    },
+    "shots_p90": {
+      "dtype": "float64"
+    },
+    "shots_on_target_p90": {
+      "dtype": "float64"
+    },
+    "shot_accuracy_pct": {
+      "dtype": "float64"
+    },
+    "shot_conversion_pct": {
+      "dtype": "float64"
+    },
+    "xg_p90": {
+      "dtype": "float64"
+    },
+    "npxg_p90": {
+      "dtype": "float64"
+    },
+    "xa_p90": {
+      "dtype": "float64"
+    },
+    "xg_xa_p90": {
+      "dtype": "float64"
+    },
+    "xg_per_shot": {
+      "dtype": "float64"
+    },
+    "finishing_overperf_p90": {
+      "dtype": "float64"
+    },
+    "big_chances_missed_p90": {
+      "dtype": "float64"
+    },
+    "offsides_p90": {
+      "dtype": "float64"
+    },
+    "key_passes_p90": {
+      "dtype": "float64"
+    },
+    "big_chances_created_p90": {
+      "dtype": "float64"
+    },
+    "xg_chain_p90": {
+      "dtype": "float64"
+    },
+    "xg_buildup_p90": {
+      "dtype": "float64"
+    },
+    "passes_p90": {
+      "dtype": "float64"
+    },
+    "accurate_passes_p90": {
+      "dtype": "float64"
+    },
+    "pass_accuracy_pct": {
+      "dtype": "float64"
+    },
+    "long_balls_p90": {
+      "dtype": "float64"
+    },
+    "long_ball_accuracy_pct": {
+      "dtype": "float64"
+    },
+    "final_third_passes_p90": {
+      "dtype": "float64"
+    },
+    "crosses_p90": {
+      "dtype": "float64"
+    },
+    "accurate_crosses_p90": {
+      "dtype": "float64"
+    },
+    "dribbles_p90": {
+      "dtype": "float64"
+    },
+    "dribble_success_pct": {
+      "dtype": "float64"
+    },
+    "touches_p90": {
+      "dtype": "float64"
+    },
+    "possession_lost_p90": {
+      "dtype": "float64"
+    },
+    "dispossessed_p90": {
+      "dtype": "float64"
+    },
+    "fouled_p90": {
+      "dtype": "float64"
+    },
+    "tackles_p90": {
+      "dtype": "float64"
+    },
+    "tackles_won_p90": {
+      "dtype": "float64"
+    },
+    "interceptions_p90": {
+      "dtype": "float64"
+    },
+    "tackles_interceptions_p90": {
+      "dtype": "float64"
+    },
+    "clearances_p90": {
+      "dtype": "float64"
+    },
+    "dribbled_past_p90": {
+      "dtype": "float64"
+    },
+    "aerial_duels_won_p90": {
+      "dtype": "float64"
+    },
+    "aerial_duels_won_pct": {
+      "dtype": "float64"
+    },
+    "ground_duels_won_p90": {
+      "dtype": "float64"
+    },
+    "ground_duels_won_pct": {
+      "dtype": "float64"
+    },
+    "duels_won_pct": {
+      "dtype": "float64"
+    },
+    "errors_p90": {
+      "dtype": "float64"
+    },
+    "on_goals_against_p90": {
+      "dtype": "float64"
+    },
+    "plus_minus_p90": {
+      "dtype": "float64"
+    },
+    "yellow_cards_p90": {
+      "dtype": "float64"
+    },
+    "red_cards_p90": {
+      "dtype": "float64"
+    },
+    "fouls_p90": {
+      "dtype": "float64"
+    },
+    "sofascore_rating": {
+      "dtype": "float64"
+    },
+    "log_return_lag1": {
+      "dtype": "float64"
+    },
+    "log_return_lag2": {
+      "dtype": "float64"
+    },
+    "mkt_log_return_6m": {
+      "dtype": "float64"
+    },
+    "mkt_last_change": {
+      "dtype": "float64"
+    },
+    "mkt_days_since_change": {
+      "dtype": "float64"
+    },
+    "mkt_n_revisions_12m": {
+      "dtype": "float64"
+    },
+    "mkt_n_up_24m": {
+      "dtype": "float64"
+    },
+    "mkt_n_down_24m": {
+      "dtype": "float64"
+    },
+    "mkt_volatility_24m": {
+      "dtype": "float64"
+    },
+    "mkt_peak_gap": {
+      "dtype": "float64"
+    },
+    "fair_log_value_T": {
+      "dtype": "float64"
+    },
+    "value_gap_T": {
+      "dtype": "float64"
+    },
+    "has_big5_lag1": {
+      "dtype": "float64"
+    },
+    "lag1_minutes": {
+      "dtype": "float64"
+    },
+    "lag1_minutes_share_pct": {
+      "dtype": "float64"
+    },
+    "lag1_sofascore_rating": {
+      "dtype": "float64"
+    },
+    "lag1_goals_assists_p90": {
+      "dtype": "float64"
+    },
+    "lag1_xg_xa_p90": {
+      "dtype": "float64"
+    },
+    "lag1_key_passes_p90": {
+      "dtype": "float64"
+    },
+    "lag1_dribbles_p90": {
+      "dtype": "float64"
+    },
+    "lag1_tackles_interceptions_p90": {
+      "dtype": "float64"
+    },
+    "lag1_aerial_duels_won_p90": {
+      "dtype": "float64"
+    },
+    "lag1_pass_accuracy_pct": {
+      "dtype": "float64"
+    },
+    "delta_minutes_share_pct": {
+      "dtype": "float64"
+    },
+    "delta_sofascore_rating": {
+      "dtype": "float64"
+    },
+    "league": {
+      "dtype": "float64"
+    },
+    "age_band": {
+      "dtype": "float64"
+    },
+    "position_group": {
+      "dtype": "float64"
+    },
+    "season": {
+      "dtype": "object"
+    },
+    "fbref_player_id": {
+      "dtype": "object"
+    }
+  }
+}

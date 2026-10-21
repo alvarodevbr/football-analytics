@@ -1,0 +1,99 @@
+{
+  "path": "predictions_best.parquet",
+  "source": "notebook 04: previsões fora da amostra da arquitetura final de cada horizonte",
+  "n_rows": 13404,
+  "n_columns": 30,
+  "written_at": "2026-10-19T18:15:31",
+  "columns": {
+    "season": {
+      "dtype": "object"
+    },
+    "fbref_player_id": {
+      "dtype": "object"
+    },
+    "category": {
+      "dtype": "object"
+    },
+    "fold": {
+      "dtype": "int64"
+    },
+    "is_holdout": {
+      "dtype": "bool"
+    },
+    "y_true": {
+      "dtype": "float64"
+    },
+    "y_pred": {
+      "dtype": "float64"
+    },
+    "dv_pct_true": {
+      "dtype": "float64"
+    },
+    "dv_true": {
+      "dtype": "float64"
+    },
+    "value_T": {
+      "dtype": "float64"
+    },
+    "horizon": {
+      "dtype": "int64"
+    },
+    "scope": {
+      "dtype": "object"
+    },
+    "model": {
+      "dtype": "object"
+    },
+    "extra": {
+      "dtype": "object"
+    },
+    "approach": {
+      "dtype": "object"
+    },
+    "age_band": {
+      "dtype": "object"
+    },
+    "y_pred_cal": {
+      "dtype": "float64"
+    },
+    "smearing": {
+      "dtype": "float64"
+    },
+    "dv_pct_pred_median": {
+      "dtype": "float64"
+    },
+    "dv_pct_pred_mean": {
+      "dtype": "float64"
+    },
+    "q10": {
+      "dtype": "float64"
+    },
+    "q90": {
+      "dtype": "float64"
+    },
+    "q10_conf": {
+      "dtype": "float64"
+    },
+    "q90_conf": {
+      "dtype": "float64"
+    },
+    "conformal_adj": {
+      "dtype": "float64"
+    },
+    "fb_player": {
+      "dtype": "object"
+    },
+    "fb_team": {
+      "dtype": "object"
+    },
+    "league": {
+      "dtype": "object"
+    },
+    "position_group": {
+      "dtype": "object"
+    },
+    "dv_pct_pred": {
+      "dtype": "float64"
+    }
+  }
+}

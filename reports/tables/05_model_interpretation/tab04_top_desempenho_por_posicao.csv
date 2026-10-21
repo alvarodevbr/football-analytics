@@ -1,0 +1,31 @@
+﻿posicao,variavel,grupo,mean_abs_shap_T1,direcao
+Defensor,% dos minutos possíveis,Volume,0.01885,+
+Defensor,Nota Sofascore,Avaliação agregada,0.01361,+
+Defensor,% de jogos completos,Volume,0.01224,+
+Defensor,Partidas,Volume,0.01187,+
+Defensor,Finalizações /90,Ofensivo,0.01112,+
+Defensor,xG + xA /90,Ofensivo,0.01094,−
+Defensor,Minutos,Volume,0.01008,−
+Defensor,Dribles certos /90,Criação e posse,0.01007,+
+Defensor,xG /90,Ofensivo,0.00925,+
+Defensor,xA /90,Ofensivo,0.00913,+
+Meio-campista,% dos minutos possíveis,Volume,0.01821,+
+Meio-campista,Nota Sofascore,Avaliação agregada,0.01377,+
+Meio-campista,Partidas,Volume,0.01184,+
+Meio-campista,% de jogos completos,Volume,0.00985,+
+Meio-campista,xG + xA /90,Ofensivo,0.00975,−
+Meio-campista,Minutos,Volume,0.00970,−
+Meio-campista,Dribles certos /90,Criação e posse,0.00949,+
+Meio-campista,Vezes driblado /90,Defensivo,0.00934,−
+Meio-campista,xA /90,Ofensivo,0.00895,+
+Meio-campista,Finalizações /90,Ofensivo,0.00886,+
+Atacante,% dos minutos possíveis,Volume,0.01780,+
+Atacante,xG + xA /90,Ofensivo,0.01754,−
+Atacante,xG /90,Ofensivo,0.01741,+
+Atacante,npxG /90,Ofensivo,0.01681,+
+Atacante,Gols − npxG /90,Ofensivo,0.01675,+
+Atacante,Finalizações /90,Ofensivo,0.01647,+
+Atacante,Nota Sofascore,Avaliação agregada,0.01417,+
+Atacante,Gols sem pênaltis /90,Ofensivo,0.01382,−
+Atacante,Dribles certos /90,Criação e posse,0.01328,+
+Atacante,Partidas,Volume,0.01172,+

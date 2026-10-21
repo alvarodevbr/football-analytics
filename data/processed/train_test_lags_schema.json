@@ -1,0 +1,549 @@
+{
+  "path": "train_test_lags.parquet",
+  "source": "notebook 03: painel jogador–temporada (features em T, alvos em T+1/T+2)",
+  "n_rows": 9810,
+  "n_columns": 135,
+  "written_at": "2026-10-19T15:33:26",
+  "columns": {
+    "season": {
+      "dtype": "object",
+      "description": "Temporada de referência T (ex.: 2324 = 2023/24)"
+    },
+    "season_order": {
+      "dtype": "int64",
+      "description": "Ordem cronológica de T (0 = 2019/20), para a janela expandida"
+    },
+    "fbref_player_id": {
+      "dtype": "object",
+      "description": "Identificador longitudinal do atleta"
+    },
+    "tm_player_id": {
+      "dtype": "Int64",
+      "description": "Identificador do atleta no Transfermarkt"
+    },
+    "fb_player": {
+      "dtype": "object",
+      "description": "Nome do atleta"
+    },
+    "fb_team": {
+      "dtype": "object",
+      "description": "Clube principal em T (mais minutos)"
+    },
+    "fbref_team_id": {
+      "dtype": "object",
+      "description": "Identificador do clube principal em T"
+    },
+    "league": {
+      "dtype": "object",
+      "description": "Liga em T"
+    },
+    "position_group": {
+      "dtype": "object",
+      "description": "Posição de linha: DEF, MEI, ATA"
+    },
+    "age_band": {
+      "dtype": "object",
+      "description": "Faixa etária: 16–23, 24–28, 29–32, 33+"
+    },
+    "category": {
+      "dtype": "object",
+      "description": "Categoria C1–C12 (faixa etária × posição)"
+    },
+    "confederation": {
+      "dtype": "object",
+      "description": "Confederação da 1ª nacionalidade"
+    },
+    "value_T": {
+      "dtype": "float64",
+      "description": "Valor de mercado em T (V_T), para reconverter previsões"
+    },
+    "value_T1": {
+      "dtype": "float64",
+      "description": "Valor de mercado em T+1 (V_{T+1})"
+    },
+    "value_T2": {
+      "dtype": "float64",
+      "description": "Valor de mercado em T+2 (V_{T+2})"
+    },
+    "age": {
+      "dtype": "float64",
+      "description": "Idade em anos completos em 30/jun de T"
+    },
+    "age_sq": {
+      "dtype": "float64",
+      "description": "Idade ao quadrado (concavidade do ciclo de vida)"
+    },
+    "height_cm": {
+      "dtype": "float64",
+      "description": "Altura"
+    },
+    "is_left_footed": {
+      "dtype": "float64",
+      "description": "Canhoto"
+    },
+    "is_two_footed": {
+      "dtype": "float64",
+      "description": "Ambidestro"
+    },
+    "is_uefa": {
+      "dtype": "float64",
+      "description": "1ª nacionalidade da UEFA"
+    },
+    "is_conmebol": {
+      "dtype": "float64",
+      "description": "1ª nacionalidade da CONMEBOL"
+    },
+    "is_caf": {
+      "dtype": "float64",
+      "description": "1ª nacionalidade da CAF"
+    },
+    "is_afc_concacaf": {
+      "dtype": "float64",
+      "description": "1ª nacionalidade da AFC, CONCACAF ou OFC"
+    },
+    "has_eu_passport": {
+      "dtype": "float64",
+      "description": "Possui nacionalidade da UE (britânicos até 2019/20, pelo Brexit)"
+    },
+    "n_nationalities": {
+      "dtype": "float64",
+      "description": "Número de nacionalidades"
+    },
+    "is_domestic": {
+      "dtype": "float64",
+      "description": "Possui a nacionalidade do país da liga"
+    },
+    "contract_years_remaining_T": {
+      "dtype": "float64",
+      "description": "Tempo restante de contrato em 30/jun de T (observado ou estimado)"
+    },
+    "bosman_T": {
+      "dtype": "float64",
+      "description": "Último ano de contrato em T (≤ 1 ano restante)"
+    },
+    "tenure_years_T": {
+      "dtype": "float64",
+      "description": "Tempo de casa no clube em T"
+    },
+    "is_on_loan_T": {
+      "dtype": "float64",
+      "description": "Atuava emprestado em T"
+    },
+    "log_value_T": {
+      "dtype": "float64",
+      "description": "Logaritmo do valor de mercado em T"
+    },
+    "log_club_value_T": {
+      "dtype": "float64",
+      "description": "Logaritmo da soma de V_T do elenco do clube principal"
+    },
+    "value_share_of_club": {
+      "dtype": "float64",
+      "description": "V_T do atleta sobre o valor do elenco"
+    },
+    "club_value_rank_pct": {
+      "dtype": "float64",
+      "description": "Posição do valor do elenco entre os clubes das Big Five na temporada"
+    },
+    "club_value_rank_in_league": {
+      "dtype": "float64",
+      "description": "Posição do valor do elenco dentro da liga (1 = mais valioso)"
+    },
+    "market_log_return_lag1_T": {
+      "dtype": "float64",
+      "description": "Regime de mercado: log-retorno médio (aparado a 10%) T−1→T dos atletas das Big Five"
+    },
+    "league_log_return_lag1_T": {
+      "dtype": "float64",
+      "description": "Regime da liga: log-retorno médio (aparado a 10%) T−1→T dos atletas da liga"
+    },
+    "goals_p90": {
+      "dtype": "float64",
+      "description": "Gols"
+    },
+    "assists_p90": {
+      "dtype": "float64",
+      "description": "Assistências"
+    },
+    "npg_p90": {
+      "dtype": "float64",
+      "description": "Gols sem pênaltis"
+    },
+    "shots_p90": {
+      "dtype": "float64",
+      "description": "Finalizações"
+    },
+    "shots_on_target_p90": {
+      "dtype": "float64",
+      "description": "Finalizações no alvo"
+    },
+    "yellow_cards_p90": {
+      "dtype": "float64",
+      "description": "Cartões amarelos"
+    },
+    "red_cards_p90": {
+      "dtype": "float64",
+      "description": "Cartões vermelhos"
+    },
+    "fouls_p90": {
+      "dtype": "float64",
+      "description": "Faltas cometidas"
+    },
+    "fouled_p90": {
+      "dtype": "float64",
+      "description": "Faltas sofridas"
+    },
+    "offsides_p90": {
+      "dtype": "float64",
+      "description": "Impedimentos"
+    },
+    "crosses_p90": {
+      "dtype": "float64",
+      "description": "Cruzamentos"
+    },
+    "interceptions_p90": {
+      "dtype": "float64",
+      "description": "Interceptações"
+    },
+    "tackles_won_p90": {
+      "dtype": "float64",
+      "description": "Desarmes com recuperação da posse"
+    },
+    "on_goals_against_p90": {
+      "dtype": "float64",
+      "description": "Gols sofridos pela equipe com o atleta em campo (proxy de clean sheets)"
+    },
+    "plus_minus_p90": {
+      "dtype": "float64",
+      "description": "Saldo de gols da equipe com o atleta em campo"
+    },
+    "xg_p90": {
+      "dtype": "Float64",
+      "description": "Gols esperados (xG)"
+    },
+    "npxg_p90": {
+      "dtype": "Float64",
+      "description": "xG sem pênaltis"
+    },
+    "xa_p90": {
+      "dtype": "Float64",
+      "description": "Assistências esperadas (xA)"
+    },
+    "xg_chain_p90": {
+      "dtype": "Float64",
+      "description": "xG das posses com participação do atleta"
+    },
+    "xg_buildup_p90": {
+      "dtype": "Float64",
+      "description": "xGChain excluindo finalização e passe final"
+    },
+    "key_passes_p90": {
+      "dtype": "float64",
+      "description": "Passes para finalização"
+    },
+    "big_chances_created_p90": {
+      "dtype": "float64",
+      "description": "Grandes chances criadas"
+    },
+    "big_chances_missed_p90": {
+      "dtype": "float64",
+      "description": "Grandes chances desperdiçadas"
+    },
+    "passes_p90": {
+      "dtype": "float64",
+      "description": "Passes tentados"
+    },
+    "accurate_passes_p90": {
+      "dtype": "float64",
+      "description": "Passes certos"
+    },
+    "long_balls_p90": {
+      "dtype": "float64",
+      "description": "Bolas longas certas"
+    },
+    "final_third_passes_p90": {
+      "dtype": "float64",
+      "description": "Passes certos no terço final"
+    },
+    "accurate_crosses_p90": {
+      "dtype": "float64",
+      "description": "Cruzamentos certos"
+    },
+    "dribbles_p90": {
+      "dtype": "float64",
+      "description": "Dribles certos"
+    },
+    "touches_p90": {
+      "dtype": "float64",
+      "description": "Toques na bola"
+    },
+    "possession_lost_p90": {
+      "dtype": "float64",
+      "description": "Perdas de posse"
+    },
+    "dispossessed_p90": {
+      "dtype": "float64",
+      "description": "Desarmado pelo adversário"
+    },
+    "tackles_p90": {
+      "dtype": "float64",
+      "description": "Desarmes"
+    },
+    "clearances_p90": {
+      "dtype": "float64",
+      "description": "Cortes"
+    },
+    "dribbled_past_p90": {
+      "dtype": "float64",
+      "description": "Vezes driblado"
+    },
+    "aerial_duels_won_p90": {
+      "dtype": "float64",
+      "description": "Duelos aéreos ganhos"
+    },
+    "ground_duels_won_p90": {
+      "dtype": "float64",
+      "description": "Duelos no chão ganhos"
+    },
+    "errors_p90": {
+      "dtype": "float64",
+      "description": "Erros que levaram a finalização ou gol"
+    },
+    "tackles_interceptions_p90": {
+      "dtype": "float64",
+      "description": "Desarmes + interceptações"
+    },
+    "goals_assists_p90": {
+      "dtype": "float64",
+      "description": "Gols + assistências"
+    },
+    "xg_xa_p90": {
+      "dtype": "Float64",
+      "description": "xG + xA"
+    },
+    "finishing_overperf_p90": {
+      "dtype": "Float64",
+      "description": "Gols sem pênalti menos npxG"
+    },
+    "shot_accuracy_pct": {
+      "dtype": "float64",
+      "description": "Finalizações no alvo sobre finalizações"
+    },
+    "shot_conversion_pct": {
+      "dtype": "float64",
+      "description": "Gols sobre finalizações"
+    },
+    "xg_per_shot": {
+      "dtype": "Float64",
+      "description": "Qualidade média das finalizações"
+    },
+    "pass_accuracy_pct": {
+      "dtype": "float64",
+      "description": "Taxa de acerto de passes"
+    },
+    "long_ball_accuracy_pct": {
+      "dtype": "float64",
+      "description": "Acerto de bolas longas"
+    },
+    "dribble_success_pct": {
+      "dtype": "float64",
+      "description": "Taxa de sucesso no drible"
+    },
+    "aerial_duels_won_pct": {
+      "dtype": "float64",
+      "description": "Taxa de duelos aéreos ganhos"
+    },
+    "ground_duels_won_pct": {
+      "dtype": "float64",
+      "description": "Taxa de duelos no chão ganhos"
+    },
+    "duels_won_pct": {
+      "dtype": "float64",
+      "description": "Taxa de duelos ganhos"
+    },
+    "sofascore_rating": {
+      "dtype": "float64",
+      "description": "Nota média do Sofascore, ponderada por minutos"
+    },
+    "minutes": {
+      "dtype": "float64",
+      "description": "Minutos jogados em T (soma entre clubes)"
+    },
+    "minutes_share_pct": {
+      "dtype": "float64",
+      "description": "Minutos jogados sobre os minutos possíveis"
+    },
+    "games": {
+      "dtype": "float64",
+      "description": "Partidas disputadas"
+    },
+    "starts_share_pct": {
+      "dtype": "float64",
+      "description": "Partidas como titular sobre partidas disputadas"
+    },
+    "complete_games_share_pct": {
+      "dtype": "float64",
+      "description": "Partidas completas sobre partidas disputadas"
+    },
+    "team_points_per_game": {
+      "dtype": "float64",
+      "description": "Pontos por jogo do clube nas partidas do atleta"
+    },
+    "n_clubs_big5": {
+      "dtype": "int64",
+      "description": "Clubes das Big Five defendidos em T"
+    },
+    "log_return_lag1": {
+      "dtype": "float64",
+      "description": "Log-retorno do valor entre T−1 e T (momentum)"
+    },
+    "log_return_lag2": {
+      "dtype": "float64",
+      "description": "Log-retorno do valor entre T−2 e T"
+    },
+    "lag1_minutes": {
+      "dtype": "float64",
+      "description": "Minutos jogados em T−1"
+    },
+    "lag1_minutes_share_pct": {
+      "dtype": "float64",
+      "description": "Participação nos minutos em T−1"
+    },
+    "lag1_sofascore_rating": {
+      "dtype": "float64",
+      "description": "Nota média em T−1"
+    },
+    "lag1_goals_assists_p90": {
+      "dtype": "float64",
+      "description": "Gols + assistências em T−1"
+    },
+    "lag1_xg_xa_p90": {
+      "dtype": "Float64",
+      "description": "xG + xA em T−1"
+    },
+    "lag1_key_passes_p90": {
+      "dtype": "float64",
+      "description": "Passes para finalização em T−1"
+    },
+    "lag1_dribbles_p90": {
+      "dtype": "float64",
+      "description": "Dribles certos em T−1"
+    },
+    "lag1_tackles_interceptions_p90": {
+      "dtype": "float64",
+      "description": "Desarmes + interceptações em T−1"
+    },
+    "lag1_aerial_duels_won_p90": {
+      "dtype": "float64",
+      "description": "Duelos aéreos ganhos em T−1"
+    },
+    "lag1_pass_accuracy_pct": {
+      "dtype": "float64",
+      "description": "Acerto de passes em T−1"
+    },
+    "has_big5_lag1": {
+      "dtype": "float64",
+      "description": "Atuou nas Big Five em T−1"
+    },
+    "delta_minutes_share_pct": {
+      "dtype": "float64",
+      "description": "Variação da participação nos minutos (T − T−1)"
+    },
+    "delta_sofascore_rating": {
+      "dtype": "float64",
+      "description": "Variação da nota média (T − T−1)"
+    },
+    "mkt_log_return_6m": {
+      "dtype": "float64",
+      "description": "Log-retorno do valor nos 6 meses até T"
+    },
+    "mkt_last_change": {
+      "dtype": "float64",
+      "description": "Tamanho da última revisão de valor até T"
+    },
+    "mkt_days_since_change": {
+      "dtype": "float64",
+      "description": "Dias desde a última revisão de valor"
+    },
+    "mkt_n_revisions_12m": {
+      "dtype": "float64",
+      "description": "Avaliações publicadas nos 12 meses até T"
+    },
+    "mkt_n_up_24m": {
+      "dtype": "float64",
+      "description": "Revisões para cima nos 24 meses até T"
+    },
+    "mkt_n_down_24m": {
+      "dtype": "float64",
+      "description": "Revisões para baixo nos 24 meses até T"
+    },
+    "mkt_volatility_24m": {
+      "dtype": "float64",
+      "description": "Desvio-padrão das revisões nos 24 meses até T"
+    },
+    "mkt_peak_gap": {
+      "dtype": "float64",
+      "description": "Distância ao pico histórico: ln(V_T / máximo até T)"
+    },
+    "fair_log_value_T": {
+      "dtype": "float64",
+      "description": "Valor justo em T: ln(V) previsto pelo desempenho (corte transversal de T, validação cruzada)"
+    },
+    "value_gap_T": {
+      "dtype": "float64",
+      "description": "Gap de avaliação: ln(V_T) − valor justo (negativo = subavaliado)"
+    },
+    "delta_v_T1": {
+      "dtype": "float64",
+      "description": "ΔV em T+1: V_{T+1} − V_T"
+    },
+    "delta_v_pct_T1": {
+      "dtype": "float64",
+      "description": "ΔV% em T+1: (V_{T+1} − V_T)/V_T × 100"
+    },
+    "log_return_T1": {
+      "dtype": "float64",
+      "description": "Log-retorno em T+1: ln(V_{T+1}/V_T) — alvo de treino recomendado"
+    },
+    "delta_v_T2": {
+      "dtype": "float64",
+      "description": "ΔV em T+2: V_{T+2} − V_T"
+    },
+    "delta_v_pct_T2": {
+      "dtype": "float64",
+      "description": "ΔV% em T+2: (V_{T+2} − V_T)/V_T × 100"
+    },
+    "log_return_T2": {
+      "dtype": "float64",
+      "description": "Log-retorno em T+2: ln(V_{T+2}/V_T) — alvo de treino recomendado"
+    },
+    "has_target_T1": {
+      "dtype": "float64",
+      "description": "V_{T+1} observado"
+    },
+    "has_target_T2": {
+      "dtype": "float64",
+      "description": "V_{T+2} observado"
+    },
+    "contract_method": {
+      "dtype": "object",
+      "description": "Como o contrato em T foi obtido (usa informação posterior a T)"
+    },
+    "contract_is_estimated": {
+      "dtype": "bool",
+      "description": "Contrato em T estimado (usa informação posterior a T)"
+    },
+    "contract_expiry_T": {
+      "dtype": "datetime64[ns]",
+      "description": "Término do contrato vigente em T, quando observado"
+    },
+    "birth_date_is_estimated": {
+      "dtype": "bool",
+      "description": "Nascimento aproximado pelo ano do FBref"
+    },
+    "tm_value_date_T": {
+      "dtype": "datetime64[ns]",
+      "description": "Data da avaliação usada como V_T"
+    }
+  }
+}

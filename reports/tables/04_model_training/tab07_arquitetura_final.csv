@@ -1,0 +1,5 @@
+﻿horizonte,arquitetura,RMSE_log_validacao,RMSE_log,R2_log,spearman,MAE_pct,top10_hit_rate,base_hit_rate,escolhido
+T+1,Global — Ensemble (CatBoost + XGBoost + Ridge),0.50579,0.51039,0.27874,0.50571,46.20268,0.52880,0.25523,True
+T+1,Segmentado (melhor por categoria),0.51169,0.52035,0.25030,0.48082,46.75854,0.52880,0.25523,False
+T+2,Global — Ensemble (CatBoost + XGBoost + Ridge),0.73434,0.73171,0.36697,0.59468,81.56752,0.65591,0.26005,True
+T+2,Segmentado (melhor por categoria),0.73819,0.74137,0.35014,0.57717,82.42838,0.62903,0.26005,False

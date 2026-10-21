@@ -1,0 +1,5 @@
+﻿horizon,especificacao,RMSE_log,R2_log,spearman,top10_hit_rate
+1,Principal (sem contrato reconstruído),0.51247,0.27285,0.49876,0.51832
+1,Com contrato reconstruído,0.50972,0.28063,0.50765,0.53927
+2,Principal (sem contrato reconstruído),0.73499,0.36129,0.59010,0.62903
+2,Com contrato reconstruído,0.72927,0.37119,0.59634,0.66129

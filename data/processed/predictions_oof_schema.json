@@ -1,0 +1,75 @@
+{
+  "path": "predictions_oof.parquet",
+  "source": "notebook 04: previsões fora da amostra (janela expandida) de todos os modelos",
+  "n_rows": 174252,
+  "n_columns": 22,
+  "written_at": "2026-10-19T18:15:31",
+  "columns": {
+    "season": {
+      "dtype": "object"
+    },
+    "fbref_player_id": {
+      "dtype": "object"
+    },
+    "category": {
+      "dtype": "object"
+    },
+    "fold": {
+      "dtype": "int64"
+    },
+    "is_holdout": {
+      "dtype": "bool"
+    },
+    "y_true": {
+      "dtype": "float64"
+    },
+    "y_pred": {
+      "dtype": "float64"
+    },
+    "dv_pct_true": {
+      "dtype": "float64"
+    },
+    "dv_true": {
+      "dtype": "float64"
+    },
+    "value_T": {
+      "dtype": "float64"
+    },
+    "horizon": {
+      "dtype": "int64"
+    },
+    "scope": {
+      "dtype": "object"
+    },
+    "model": {
+      "dtype": "object"
+    },
+    "extra": {
+      "dtype": "object"
+    },
+    "approach": {
+      "dtype": "object"
+    },
+    "fb_player": {
+      "dtype": "object"
+    },
+    "fb_team": {
+      "dtype": "object"
+    },
+    "league": {
+      "dtype": "object"
+    },
+    "age_band": {
+      "dtype": "object"
+    },
+    "position_group": {
+      "dtype": "object"
+    },
+    "dv_pct_pred": {
+      "dtype": "float64"
+    },
+    "dv_pred": {
+      "dtype": "float64"
+    }
+  }
+}

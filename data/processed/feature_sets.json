@@ -1,0 +1,355 @@
+{
+  "numeric_features": [
+    "age",
+    "age_sq",
+    "height_cm",
+    "is_left_footed",
+    "is_two_footed",
+    "is_uefa",
+    "is_conmebol",
+    "is_caf",
+    "is_afc_concacaf",
+    "has_eu_passport",
+    "n_nationalities",
+    "is_domestic",
+    "tenure_years_T",
+    "is_on_loan_T",
+    "log_value_T",
+    "log_club_value_T",
+    "value_share_of_club",
+    "club_value_rank_pct",
+    "club_value_rank_in_league",
+    "team_points_per_game",
+    "market_log_return_lag1_T",
+    "league_log_return_lag1_T",
+    "minutes",
+    "minutes_share_pct",
+    "games",
+    "starts_share_pct",
+    "complete_games_share_pct",
+    "n_clubs_big5",
+    "goals_p90",
+    "assists_p90",
+    "npg_p90",
+    "goals_assists_p90",
+    "shots_p90",
+    "shots_on_target_p90",
+    "shot_accuracy_pct",
+    "shot_conversion_pct",
+    "xg_p90",
+    "npxg_p90",
+    "xa_p90",
+    "xg_xa_p90",
+    "xg_per_shot",
+    "finishing_overperf_p90",
+    "big_chances_missed_p90",
+    "offsides_p90",
+    "key_passes_p90",
+    "big_chances_created_p90",
+    "xg_chain_p90",
+    "xg_buildup_p90",
+    "passes_p90",
+    "accurate_passes_p90",
+    "pass_accuracy_pct",
+    "long_balls_p90",
+    "long_ball_accuracy_pct",
+    "final_third_passes_p90",
+    "crosses_p90",
+    "accurate_crosses_p90",
+    "dribbles_p90",
+    "dribble_success_pct",
+    "touches_p90",
+    "possession_lost_p90",
+    "dispossessed_p90",
+    "fouled_p90",
+    "tackles_p90",
+    "tackles_won_p90",
+    "interceptions_p90",
+    "tackles_interceptions_p90",
+    "clearances_p90",
+    "dribbled_past_p90",
+    "aerial_duels_won_p90",
+    "aerial_duels_won_pct",
+    "ground_duels_won_p90",
+    "ground_duels_won_pct",
+    "duels_won_pct",
+    "errors_p90",
+    "on_goals_against_p90",
+    "plus_minus_p90",
+    "yellow_cards_p90",
+    "red_cards_p90",
+    "fouls_p90",
+    "sofascore_rating",
+    "log_return_lag1",
+    "log_return_lag2",
+    "mkt_log_return_6m",
+    "mkt_last_change",
+    "mkt_days_since_change",
+    "mkt_n_revisions_12m",
+    "mkt_n_up_24m",
+    "mkt_n_down_24m",
+    "mkt_volatility_24m",
+    "mkt_peak_gap",
+    "fair_log_value_T",
+    "value_gap_T",
+    "has_big5_lag1",
+    "lag1_minutes",
+    "lag1_minutes_share_pct",
+    "lag1_sofascore_rating",
+    "lag1_goals_assists_p90",
+    "lag1_xg_xa_p90",
+    "lag1_key_passes_p90",
+    "lag1_dribbles_p90",
+    "lag1_tackles_interceptions_p90",
+    "lag1_aerial_duels_won_p90",
+    "lag1_pass_accuracy_pct",
+    "delta_minutes_share_pct",
+    "delta_sofascore_rating"
+  ],
+  "categorical_features": [
+    "league",
+    "position_group",
+    "age_band",
+    "category",
+    "confederation"
+  ],
+  "feature_groups": {
+    "Demográfico": [
+      "age",
+      "age_sq",
+      "height_cm",
+      "is_left_footed",
+      "is_two_footed",
+      "is_uefa",
+      "is_conmebol",
+      "is_caf",
+      "is_afc_concacaf",
+      "has_eu_passport",
+      "n_nationalities",
+      "is_domestic"
+    ],
+    "Contratual": [
+      "tenure_years_T",
+      "is_on_loan_T"
+    ],
+    "Mercado": [
+      "log_value_T",
+      "log_club_value_T",
+      "value_share_of_club",
+      "club_value_rank_pct",
+      "club_value_rank_in_league"
+    ],
+    "Contexto": [
+      "team_points_per_game",
+      "market_log_return_lag1_T",
+      "league_log_return_lag1_T"
+    ],
+    "Volume": [
+      "minutes",
+      "minutes_share_pct",
+      "games",
+      "starts_share_pct",
+      "complete_games_share_pct",
+      "n_clubs_big5"
+    ],
+    "Ofensivo": [
+      "goals_p90",
+      "assists_p90",
+      "npg_p90",
+      "goals_assists_p90",
+      "shots_p90",
+      "shots_on_target_p90",
+      "shot_accuracy_pct",
+      "shot_conversion_pct",
+      "xg_p90",
+      "npxg_p90",
+      "xa_p90",
+      "xg_xa_p90",
+      "xg_per_shot",
+      "finishing_overperf_p90",
+      "big_chances_missed_p90",
+      "offsides_p90"
+    ],
+    "Criação e posse": [
+      "key_passes_p90",
+      "big_chances_created_p90",
+      "xg_chain_p90",
+      "xg_buildup_p90",
+      "passes_p90",
+      "accurate_passes_p90",
+      "pass_accuracy_pct",
+      "long_balls_p90",
+      "long_ball_accuracy_pct",
+      "final_third_passes_p90",
+      "crosses_p90",
+      "accurate_crosses_p90",
+      "dribbles_p90",
+      "dribble_success_pct",
+      "touches_p90",
+      "possession_lost_p90",
+      "dispossessed_p90",
+      "fouled_p90"
+    ],
+    "Defensivo": [
+      "tackles_p90",
+      "tackles_won_p90",
+      "interceptions_p90",
+      "tackles_interceptions_p90",
+      "clearances_p90",
+      "dribbled_past_p90",
+      "aerial_duels_won_p90",
+      "aerial_duels_won_pct",
+      "ground_duels_won_p90",
+      "ground_duels_won_pct",
+      "duels_won_pct",
+      "errors_p90",
+      "on_goals_against_p90",
+      "plus_minus_p90"
+    ],
+    "Disciplina": [
+      "yellow_cards_p90",
+      "red_cards_p90",
+      "fouls_p90"
+    ],
+    "Avaliação agregada": [
+      "sofascore_rating"
+    ],
+    "Defasagem": [
+      "log_return_lag1",
+      "log_return_lag2",
+      "has_big5_lag1",
+      "lag1_minutes",
+      "lag1_minutes_share_pct",
+      "lag1_sofascore_rating",
+      "lag1_goals_assists_p90",
+      "lag1_xg_xa_p90",
+      "lag1_key_passes_p90",
+      "lag1_dribbles_p90",
+      "lag1_tackles_interceptions_p90",
+      "lag1_aerial_duels_won_p90",
+      "lag1_pass_accuracy_pct",
+      "delta_minutes_share_pct",
+      "delta_sofascore_rating"
+    ],
+    "Dinâmica de mercado": [
+      "mkt_log_return_6m",
+      "mkt_last_change",
+      "mkt_days_since_change",
+      "mkt_n_revisions_12m",
+      "mkt_n_up_24m",
+      "mkt_n_down_24m",
+      "mkt_volatility_24m",
+      "mkt_peak_gap"
+    ],
+    "Valor justo": [
+      "fair_log_value_T",
+      "value_gap_T"
+    ]
+  },
+  "targets": {
+    "T1": {
+      "log_return": "log_return_T1",
+      "delta_v_pct": "delta_v_pct_T1",
+      "delta_v": "delta_v_T1"
+    },
+    "T2": {
+      "log_return": "log_return_T2",
+      "delta_v_pct": "delta_v_pct_T2",
+      "delta_v": "delta_v_T2"
+    }
+  },
+  "primary_target": {
+    "T1": "log_return_T1",
+    "T2": "log_return_T2"
+  },
+  "target_available": {
+    "T1": "has_target_T1",
+    "T2": "has_target_T2"
+  },
+  "lookahead_features": [
+    "contract_years_remaining_T",
+    "bosman_T"
+  ],
+  "audit_columns": [
+    "contract_method",
+    "contract_is_estimated",
+    "contract_expiry_T",
+    "birth_date_is_estimated",
+    "tm_value_date_T"
+  ],
+  "segmentation": {
+    "category": "category",
+    "age_band": "age_band",
+    "position_group": "position_group"
+  },
+  "folds": {
+    "T1": [
+      {
+        "train": [
+          "1920"
+        ],
+        "purged": [],
+        "test": "2021"
+      },
+      {
+        "train": [
+          "1920",
+          "2021"
+        ],
+        "purged": [],
+        "test": "2122"
+      },
+      {
+        "train": [
+          "1920",
+          "2021",
+          "2122"
+        ],
+        "purged": [],
+        "test": "2223"
+      },
+      {
+        "train": [
+          "1920",
+          "2021",
+          "2122",
+          "2223"
+        ],
+        "purged": [],
+        "test": "2324"
+      }
+    ],
+    "T2": [
+      {
+        "train": [
+          "1920"
+        ],
+        "purged": [
+          "2021"
+        ],
+        "test": "2122"
+      },
+      {
+        "train": [
+          "1920",
+          "2021"
+        ],
+        "purged": [
+          "2122"
+        ],
+        "test": "2223"
+      },
+      {
+        "train": [
+          "1920",
+          "2021",
+          "2122"
+        ],
+        "purged": [
+          "2223"
+        ],
+        "test": "2324"
+      }
+    ]
+  }
+}

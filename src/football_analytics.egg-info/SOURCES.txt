@@ -1,0 +1,16 @@
+pyproject.toml
+src/football_analytics/__init__.py
+src/football_analytics/browser.py
+src/football_analytics/config.py
+src/football_analytics/fbref.py
+src/football_analytics/http.py
+src/football_analytics/io.py
+src/football_analytics/logging_utils.py
+src/football_analytics/sofascore.py
+src/football_analytics/text.py
+src/football_analytics/transfermarkt.py
+src/football_analytics/understat.py
+src/football_analytics.egg-info/PKG-INFO
+src/football_analytics.egg-info/SOURCES.txt
+src/football_analytics.egg-info/dependency_links.txt
+src/football_analytics.egg-info/top_level.txt

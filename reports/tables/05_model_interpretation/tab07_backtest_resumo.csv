@@ -1,0 +1,21 @@
+﻿,,,retorno_medio_pct,retorno_mediano_pct,roi_carteira_pct,taxa_valorizacao,taxa_perda_grave,roi_previsto_pct
+Todos os candidatos,T+1,Modelo,142.05473,27.85714,61.11465,0.57036,0.02970,53.34457
+Todos os candidatos,T+1,Modelo prudente,93.84086,16.24188,32.83555,0.54723,0.03105,31.40771
+Todos os candidatos,T+1,Momentum,56.16433,3.26705,28.10144,0.47611,0.04909,26.82589
+Todos os candidatos,T+1,Juventude,65.87821,,26.59557,0.46617,,
+Todos os candidatos,T+1,Aleatória,6.88084,,-2.58411,0.25678,,
+Todos os candidatos,T+2,Modelo,324.87090,72.22222,153.41955,0.66714,0.08314,102.66238
+Todos os candidatos,T+2,Modelo prudente,287.32083,59.02778,95.47944,0.63332,0.08136,65.18582
+Todos os candidatos,T+2,Momentum,136.19173,1.96078,49.33503,0.47598,0.14519,48.11192
+Todos os candidatos,T+2,Juventude,148.75097,,55.69477,0.53811,,
+Todos os candidatos,T+2,Aleatória,21.26591,,-4.09618,0.25894,,
+Faixa de € 2–15 mi,T+1,Modelo,69.45671,15.27778,58.59095,0.52714,0.03523,49.76166
+Faixa de € 2–15 mi,T+1,Modelo prudente,48.24904,6.85065,41.00303,0.50015,0.03516,35.09675
+Faixa de € 2–15 mi,T+1,Momentum,42.53479,5.72917,34.79286,0.46675,0.05391,27.82655
+Faixa de € 2–15 mi,T+1,Juventude,37.18346,,30.37181,0.43825,,
+Faixa de € 2–15 mi,T+1,Aleatória,-0.53463,,-1.89635,0.25141,,
+Faixa de € 2–15 mi,T+2,Modelo,127.12009,37.35450,112.95136,0.57771,0.11596,91.52582
+Faixa de € 2–15 mi,T+2,Modelo prudente,96.30068,10.77778,80.55255,0.49736,0.10202,59.54583
+Faixa de € 2–15 mi,T+2,Momentum,80.32827,0.00000,66.97409,0.45591,0.13809,51.77069
+Faixa de € 2–15 mi,T+2,Juventude,79.45073,,64.12492,0.49941,,
+Faixa de € 2–15 mi,T+2,Aleatória,1.48832,,-1.24516,0.24425,,

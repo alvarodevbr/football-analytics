@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+downloaded_files/
+logs/
+data/raw/
+data/interim/
+data/smoke_test/
+
+# caches e modelos treinados (regeneráveis pelo notebook 04)
+models/04_model_training/cache/

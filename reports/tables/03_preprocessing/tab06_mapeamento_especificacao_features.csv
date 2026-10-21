@@ -1,0 +1,14 @@
+﻿variavel_especificacao,features_no_painel,fonte,status
+Minutos jogados,"minutes, minutes_share_pct, starts_share_pct",FBref,disponível
+Gols e assistências (brutos e /90),"goals_p90, assists_p90, npg_p90, goals_assists_p90",FBref,disponível
+Passes tentados e taxa de acerto,"passes_p90, accurate_passes_p90, pass_accuracy_pct",Sofascore,disponível (fonte alternativa)
+Dribles certos e taxa de sucesso,"dribbles_p90, dribble_success_pct",Sofascore,disponível (fonte alternativa)
+Duelos aéreos vencidos e taxa,"aerial_duels_won_p90, aerial_duels_won_pct",Sofascore,disponível (fonte alternativa)
+Desarmes e interceptações,"tackles_p90, tackles_won_p90, interceptions_p90, tackles_interceptions_p90",Sofascore/FBref,disponível
+Clean sheets com o atleta em campo,"on_goals_against_p90, plus_minus_p90 (proxy)",FBref,proxy
+Cartões amarelos e vermelhos,"yellow_cards_p90, red_cards_p90",FBref,disponível
+Gols esperados (xG),"xg_p90, npxg_p90, xg_per_shot, finishing_overperf_p90",Understat,disponível (fonte alternativa)
+Ações de criação de chute (SCA),"key_passes_p90, big_chances_created_p90, xa_p90, xg_chain_p90",Sofascore/Understat,proxy
+Passes progressivos,"final_third_passes_p90, long_balls_p90, xg_buildup_p90",Sofascore/Understat,proxy
+Conduções progressivas,"dribbles_p90, touches_p90",Sofascore,proxy parcial
+Convocação para seleção; reputação internacional,—,—,não coletado

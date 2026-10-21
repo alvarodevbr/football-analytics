@@ -1,0 +1,109 @@
+﻿,T+1,T+2,grupo,variavel,rank_T+1
+age,0.12467,0.22512,Demográfico,Idade,1
+log_value_T,0.07254,0.07049,Mercado,log V_T,2
+age_sq,0.06601,0.14996,Demográfico,Idade²,3
+value_gap_T,0.04318,0.08936,Valor justo,Gap de avaliação,4
+mkt_log_return_6m,0.02752,0.02993,Dinâmica de mercado,Variação do valor em 6 meses,5
+team_points_per_game,0.02462,0.02312,Contexto,Pontos/jogo da equipe,6
+value_share_of_club,0.01991,0.03108,Mercado,% do valor do elenco,7
+delta_minutes_share_pct,0.01909,0.02419,Defasagem,Δ % dos minutos (T−1→T),8
+age_band,0.01885,0.03239,Demográfico,Faixa etária,9
+league,0.01861,0.02292,Contexto,Liga,10
+minutes_share_pct,0.01835,0.01097,Volume,% dos minutos possíveis,11
+club_value_rank_pct,0.01569,0.01329,Mercado,Ranking de valor do elenco (Big Five),12
+fair_log_value_T,0.01437,0.03829,Valor justo,Valor justo (log),13
+sofascore_rating,0.01382,0.01095,Avaliação agregada,Nota Sofascore,14
+market_log_return_lag1_T,0.01284,0.01598,Contexto,Regime de mercado,15
+xg_xa_p90,0.01243,0.00585,Ofensivo,xG + xA /90,16
+mkt_peak_gap,0.01216,0.00595,Dinâmica de mercado,Distância ao pico de valor,17
+shots_p90,0.01192,0.01250,Ofensivo,Finalizações /90,18
+games,0.01181,0.01370,Volume,Partidas,19
+mkt_n_down_24m,0.01140,0.01712,Dinâmica de mercado,Revisões para baixo (24 meses),20
+xg_p90,0.01127,0.00493,Ofensivo,xG /90,21
+complete_games_share_pct,0.01110,0.01523,Volume,% de jogos completos,22
+npxg_p90,0.01094,0.00569,Ofensivo,npxG /90,23
+dribbles_p90,0.01080,0.01478,Criação e posse,Dribles certos /90,24
+minutes,0.00978,0.00535,Volume,Minutos,25
+finishing_overperf_p90,0.00970,0.00546,Ofensivo,Gols − npxG /90,26
+xa_p90,0.00958,0.00628,Ofensivo,xA /90,27
+npg_p90,0.00909,0.00518,Ofensivo,Gols sem pênaltis /90,28
+log_club_value_T,0.00901,0.02847,Mercado,log valor do elenco,29
+dribbled_past_p90,0.00858,0.00732,Defensivo,Vezes driblado /90,30
+has_big5_lag1,0.00850,0.02522,Defasagem,Jogou nas Big Five em T−1,31
+touches_p90,0.00752,0.00252,Criação e posse,Toques na bola /90,32
+passes_p90,0.00746,0.00076,Criação e posse,Passes tentados /90,33
+aerial_duels_won_p90,0.00711,0.01740,Defensivo,Duelos aéreos ganhos /90,34
+dribble_success_pct,0.00697,0.00728,Criação e posse,Taxa de sucesso no drible,35
+big_chances_missed_p90,0.00651,0.01106,Ofensivo,Grandes chances perdidas /90,36
+is_domestic,0.00627,0.00628,Demográfico,Atleta nacional,37
+lag1_xg_xa_p90,0.00602,0.01139,Defasagem,xG + xA em T−1 /90,38
+shots_on_target_p90,0.00591,0.00182,Ofensivo,Finalizações no alvo /90,39
+mkt_last_change,0.00574,0.00526,Dinâmica de mercado,Última revisão de valor,40
+tackles_p90,0.00574,0.01523,Defensivo,Desarmes /90,41
+final_third_passes_p90,0.00557,0.00641,Criação e posse,Passes certos no terço final /90,42
+xg_chain_p90,0.00475,0.00063,Criação e posse,xGChain /90,43
+accurate_passes_p90,0.00446,0.00518,Criação e posse,Passes certos /90,44
+starts_share_pct,0.00417,0.00109,Volume,% como titular,45
+height_cm,0.00398,0.01635,Demográfico,Altura,46
+xg_buildup_p90,0.00381,0.00280,Criação e posse,xGBuildup /90,47
+interceptions_p90,0.00380,0.00810,Defensivo,Interceptações /90,48
+log_return_lag2,0.00376,0.00903,Defasagem,Momentum T−2→T,49
+position_group,0.00371,0.00306,Demográfico,Posição,50
+is_caf,0.00367,0.00923,Demográfico,1ª nacionalidade da CAF,51
+lag1_minutes,0.00352,0.00949,Defasagem,Minutos jogados em T−1,52
+goals_assists_p90,0.00345,0.00789,Ofensivo,Gols + assistências /90,53
+n_clubs_big5,0.00335,0.00384,Volume,Nº de clubes (Big Five),54
+ground_duels_won_pct,0.00329,0.00528,Defensivo,Taxa de duelos no chão ganhos,55
+shot_conversion_pct,0.00328,0.00832,Ofensivo,% conversão de finalizações,56
+shot_accuracy_pct,0.00327,0.00521,Ofensivo,% finalizações no alvo,57
+tenure_years_T,0.00324,0.00625,Contratual,Tempo de casa,58
+league_log_return_lag1_T,0.00304,0.00526,Contexto,Regime da liga,59
+key_passes_p90,0.00295,0.00360,Criação e posse,Passes para finalização /90,60
+ground_duels_won_p90,0.00290,0.00709,Defensivo,Duelos no chão ganhos /90,61
+plus_minus_p90,0.00281,0.00640,Defensivo,Saldo de gols em campo /90,62
+lag1_sofascore_rating,0.00280,0.00312,Defasagem,Nota média em T−1,63
+mkt_n_up_24m,0.00262,0.00360,Dinâmica de mercado,Revisões para cima (24 meses),64
+accurate_crosses_p90,0.00262,0.00440,Criação e posse,Cruzamentos certos /90,65
+log_return_lag1,0.00244,0.00149,Defasagem,Momentum T−1→T,66
+fouls_p90,0.00242,0.00747,Disciplina,Faltas cometidas /90,67
+big_chances_created_p90,0.00240,0.00047,Criação e posse,Grandes chances criadas /90,68
+mkt_days_since_change,0.00229,0.00335,Dinâmica de mercado,Dias desde a última revisão,69
+fouled_p90,0.00220,0.00659,Criação e posse,Faltas sofridas /90,70
+mkt_n_revisions_12m,0.00216,0.00115,Dinâmica de mercado,Nº de revisões (12 meses),71
+lag1_minutes_share_pct,0.00206,0.00173,Defasagem,Participação nos minutos em T−1,72
+pass_accuracy_pct,0.00194,0.00254,Criação e posse,Taxa de acerto de passes,73
+tackles_interceptions_p90,0.00174,0.00218,Defensivo,Desarmes + interceptações /90,74
+mkt_volatility_24m,0.00172,0.00783,Dinâmica de mercado,Volatilidade das revisões (24 meses),75
+dispossessed_p90,0.00168,0.00202,Criação e posse,Desarmado pelo adversário /90,76
+club_value_rank_in_league,0.00164,0.00269,Mercado,Ranking de valor do elenco (liga),77
+n_nationalities,0.00160,0.00370,Demográfico,Número de nacionalidades,78
+delta_sofascore_rating,0.00155,0.00916,Defasagem,Δ nota Sofascore (T−1→T),79
+clearances_p90,0.00141,0.00368,Defensivo,Cortes /90,80
+is_two_footed,0.00140,0.00350,Demográfico,Ambidestro,81
+on_goals_against_p90,0.00131,0.00542,Defensivo,Gols sofridos em campo /90,82
+xg_per_shot,0.00127,0.00113,Ofensivo,xG por finalização,83
+lag1_key_passes_p90,0.00114,0.00086,Defasagem,Passes para finalização em T−1 /90,84
+long_balls_p90,0.00113,0.00791,Criação e posse,Bolas longas certas /90,85
+is_left_footed,0.00105,0.00056,Demográfico,Canhoto,86
+lag1_aerial_duels_won_p90,0.00105,0.00319,Defasagem,Duelos aéreos ganhos em T−1 /90,87
+aerial_duels_won_pct,0.00104,0.00400,Defensivo,Taxa de duelos aéreos ganhos,88
+crosses_p90,0.00103,0.00216,Criação e posse,Cruzamentos /90,89
+is_conmebol,0.00102,0.00203,Demográfico,1ª nacionalidade da CONMEBOL,90
+lag1_goals_assists_p90,0.00102,0.00900,Defasagem,Gols + assistências em T−1 /90,91
+has_eu_passport,0.00099,0.00214,Demográfico,Passaporte UE,92
+duels_won_pct,0.00081,0.00336,Defensivo,Taxa de duelos ganhos,93
+errors_p90,0.00079,0.00109,Defensivo,Erros graves /90,94
+possession_lost_p90,0.00079,0.00110,Criação e posse,Perdas de posse /90,95
+lag1_dribbles_p90,0.00072,0.00356,Defasagem,Dribles certos em T−1 /90,96
+is_uefa,0.00070,0.00167,Demográfico,1ª nacionalidade da UEFA,97
+lag1_pass_accuracy_pct,0.00066,0.00260,Defasagem,Acerto de passes em T−1,98
+lag1_tackles_interceptions_p90,0.00065,0.00211,Defasagem,Desarmes + interceptações em T−1 /90,99
+is_on_loan_T,0.00058,0.00031,Contratual,Emprestado em T,100
+red_cards_p90,0.00043,0.00075,Disciplina,Cartões vermelhos /90,101
+goals_p90,0.00039,0.00194,Ofensivo,Gols /90,102
+tackles_won_p90,0.00030,0.00393,Defensivo,Desarmes ganhos (FBref) /90,103
+offsides_p90,0.00029,0.00050,Ofensivo,Impedimentos /90,104
+long_ball_accuracy_pct,0.00021,0.00051,Criação e posse,Acerto de bolas longas,105
+assists_p90,0.00020,0.00153,Ofensivo,Assistências /90,106
+is_afc_concacaf,0.00018,0.00032,Demográfico,"1ª nacionalidade da AFC, CONCACAF ou OFC",107
+yellow_cards_p90,0.00015,0.00201,Disciplina,Cartões amarelos /90,108

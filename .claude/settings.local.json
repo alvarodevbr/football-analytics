@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c ' *)",
+      "Bash(python3 -)",
+      "Bash(python3 /tmp/claude-1000/-home-alvaro-Documentos-TCC-soccer-analytics/0b82e95f-19a7-4fc7-a3cc-cfb407b6aa2c/scratchpad/build_nb01.py)",
+      "Bash(python3 build_nb01.py)",
+      "Bash(python3 build_nb02.py)",
+      "Bash(python3 build_nb03.py)",
+      "Bash(python3 build_nb04.py)"
+    ]
+  }
+}
