@@ -1,0 +1,27 @@
+﻿horizonte,avaliacao,especificacao,n_variaveis,RMSE_log,R2_log,spearman,top10_hit_rate,dif_RMSE_vs_completo,dif_R2_vs_completo,dif_spearman_vs_completo,p_valor,p_holm
+T+1,desenvolvimento,Sem demografia e idade,96,0.54028,0.17796,0.39784,0.57231,0.02113,-0.06303,-0.07570,0.00000,0.00000
+T+1,desenvolvimento,Sem nível de preço (tm),103,0.52134,0.23460,0.47178,0.59504,0.00218,-0.00638,-0.00176,0.00010,0.00051
+T+1,desenvolvimento,Sem contexto do clube,100,0.52259,0.23092,0.46935,0.58161,0.00343,-0.01006,-0.00419,0.00000,0.00001
+T+1,desenvolvimento,Sem trajetória do valor (tm),98,0.51556,0.25147,0.48639,0.58368,-0.00360,0.01049,0.01285,0.00001,0.00009
+T+1,desenvolvimento,Sem desempenho em t,50,0.51988,0.23887,0.47196,0.57851,0.00072,-0.00211,-0.00158,0.13816,0.27633
+T+1,desenvolvimento,Sem desempenho em t−1,95,0.52022,0.23789,0.47154,0.58161,0.00106,-0.00309,-0.00200,0.01295,0.03886
+T+1,desenvolvimento,Sem valor justo e gap,106,0.52230,0.23178,0.46773,0.59091,0.00314,-0.00921,-0.00581,0.00000,0.00003
+T+1,desenvolvimento,"Sem desempenho (T, T−1) e valor justo",35,0.52583,0.22137,0.44892,0.58058,0.00667,-0.01962,-0.02462,0.00000,0.00000
+T+1,desenvolvimento,M0: ciclo de vida + contexto,20,0.53755,0.18626,0.43581,0.56302,0.01839,-0.05473,-0.03773,0.00000,0.00000
+T+1,desenvolvimento,M1: M0 + nível de preço,25,0.52389,0.22708,0.45241,0.56715,0.00473,-0.01390,-0.02113,0.00051,0.00204
+T+1,desenvolvimento,M2: M1 + trajetória do valor,35,0.52583,0.22137,0.44892,0.58058,0.00667,-0.01962,-0.02462,0.00000,0.00000
+T+1,desenvolvimento,Fiel às specs: M1 + desempenho + valor justo,98,0.51556,0.25147,0.48639,0.58368,-0.00360,0.01049,0.01285,0.00001,0.00009
+T+1,desenvolvimento,Modelo completo,108,0.51916,0.24099,0.47354,0.58574,0.00000,0.00000,0.00000,,
+T+2,desenvolvimento,Sem demografia e idade,96,0.77910,0.21002,0.43093,0.61053,0.05690,-0.11118,-0.11928,0.00000,0.00000
+T+2,desenvolvimento,Sem nível de preço (tm),103,0.72455,0.31677,0.54909,0.65088,0.00235,-0.00443,-0.00112,0.04017,0.28117
+T+2,desenvolvimento,Sem contexto do clube,100,0.72450,0.31685,0.55118,0.65614,0.00231,-0.00435,0.00097,0.03095,0.24764
+T+2,desenvolvimento,Sem trajetória do valor (tm),98,0.72183,0.32189,0.55007,0.65439,-0.00037,0.00069,-0.00013,0.66445,1.00000
+T+2,desenvolvimento,Sem desempenho em t,50,0.72295,0.31977,0.54840,0.63860,0.00076,-0.00143,-0.00180,0.38384,1.00000
+T+2,desenvolvimento,Sem desempenho em t−1,95,0.72322,0.31928,0.54808,0.66667,0.00102,-0.00192,-0.00213,0.11945,0.59726
+T+2,desenvolvimento,Sem valor justo e gap,106,0.72422,0.31738,0.54637,0.65439,0.00203,-0.00382,-0.00384,0.06663,0.39975
+T+2,desenvolvimento,"Sem desempenho (T, T−1) e valor justo",35,0.73048,0.30554,0.53346,0.63860,0.00829,-0.01567,-0.01675,0.00002,0.00018
+T+2,desenvolvimento,M0: ciclo de vida + contexto,20,0.75079,0.26637,0.51311,0.60702,0.02860,-0.05483,-0.03710,0.00000,0.00000
+T+2,desenvolvimento,M1: M0 + nível de preço,25,0.73258,0.30154,0.52700,0.61228,0.01039,-0.01967,-0.02321,0.00003,0.00029
+T+2,desenvolvimento,M2: M1 + trajetória do valor,35,0.73048,0.30554,0.53346,0.63860,0.00829,-0.01567,-0.01675,0.00002,0.00018
+T+2,desenvolvimento,Fiel às specs: M1 + desempenho + valor justo,98,0.72183,0.32189,0.55007,0.65439,-0.00037,0.00069,-0.00013,0.66445,1.00000
+T+2,desenvolvimento,Modelo completo,108,0.72219,0.32120,0.55021,0.65263,0.00000,0.00000,0.00000,,

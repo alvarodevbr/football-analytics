@@ -66,18 +66,22 @@ class SofascoreCollector:
             self._client.__exit__(None, None, None)
             self._client = None
 
-    def season_id(self, league: League, season: Season) -> int:
-        payload = self._get(_seasons_url(league.sofascore_tournament_id),
-                            self.cache / "seasons" / f"{league.sofascore_tournament_id}.json")
+    def tournament_season_id(self, tournament_id: int, season: Season) -> int:
+        payload = self._get(_seasons_url(tournament_id), self.cache / "seasons" / f"{tournament_id}.json")
         for item in payload["seasons"]:
             if item["year"] == season.sofascore_year:
                 return int(item["id"])
-        raise KeyError(f"Sofascore: temporada {season.sofascore_year} ausente para {league.key}")
+        raise KeyError(f"Sofascore: temporada {season.sofascore_year} ausente no torneio {tournament_id}")
+
+    def tournament_teams(self, tournament_id: int, season_id: int) -> list[dict[str, Any]]:
+        payload = self._get(_teams_url(tournament_id, season_id), self.cache / "teams" / f"{tournament_id}_{season_id}.json")
+        return [{"id": int(t["id"]), "name": t["name"]} for t in payload["teams"]]
+
+    def season_id(self, league: League, season: Season) -> int:
+        return self.tournament_season_id(league.sofascore_tournament_id, season)
 
     def teams(self, league: League, season_id: int) -> list[dict[str, Any]]:
-        payload = self._get(_teams_url(league.sofascore_tournament_id, season_id),
-                            self.cache / "teams" / f"{league.sofascore_tournament_id}_{season_id}.json")
-        return [{"id": int(t["id"]), "name": t["name"]} for t in payload["teams"]]
+        return self.tournament_teams(league.sofascore_tournament_id, season_id)
 
     def team_stats(self, league: League, season_id: int, team_id: int) -> list[dict[str, Any]]:
         path = self.cache / "stats" / f"{league.sofascore_tournament_id}_{season_id}_{team_id}.json"

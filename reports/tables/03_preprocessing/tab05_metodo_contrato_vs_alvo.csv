@@ -1,8 +1,9 @@
 ﻿metodo,n,mediana_log_retorno_T1,pct_valorizou_T1
-Estimado: emprestado em T,270,-0.1542,37.7358
-Estimado: renovação não registrada,123,-0.0690,34.9593
-Estimado: renovação posterior a T,673,-0.0645,38.3358
-Estimado: sem dado contratual,66,-0.2231,22.2222
-Estimado: venda após T,4119,-0.0351,38.8402
-Observado: contrato atual já vigente em T,243,-0.1823,25.6198
-Observado: saída livre após T,4316,-0.3773,14.2413
+Estimado: emprestado em T,297,-0.1771,36.5248
+Estimado: renovação não registrada,191,-0.1054,33.8583
+Estimado: renovação posterior a T,904,-0.1054,36.9231
+Estimado: sem dado contratual,93,-0.2231,25.3731
+Estimado: venda após T,5506,-0.1054,36.1745
+Observado: contrato atual já vigente em T,662,-0.1823,25.6198
+Observado: saída livre após T,5629,-0.3773,13.0804
+Sem coleta: histórico de transferências não coletado (bloqueio do Transfermarkt),466,-0.2231,22.3684

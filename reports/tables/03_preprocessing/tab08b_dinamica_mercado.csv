@@ -1,9 +1,9 @@
 ﻿,% preenchido,rho_log_retorno_T1,rho_log_retorno_T2
-Log-retorno do valor nos 6 meses até T,99.2864,0.2921,0.2832
-Tamanho da última revisão de valor até T,100.0000,0.2657,0.2710
-Dias desde a última revisão de valor,99.4088,0.0323,0.0235
-Avaliações publicadas nos 12 meses até T,100.0000,0.0875,0.0921
-Revisões para cima nos 24 meses até T,100.0000,0.2711,0.2851
-Revisões para baixo nos 24 meses até T,100.0000,-0.2927,-0.3113
-Desvio-padrão das revisões nos 24 meses até T,99.0316,0.2350,0.2701
-Distância ao pico histórico: ln(V_T / máximo até T),100.0000,0.3456,0.3699
+Variação do valor em 6 meses,99.2144,0.2789,0.2749
+Última revisão de valor,100.0000,0.2510,0.2612
+Dias desde a última revisão,99.3599,0.0214,0.0160
+Nº de revisões (12 meses),100.0000,0.0851,0.0909
+Revisões para cima (24 meses),100.0000,0.2504,0.2703
+Revisões para baixo (24 meses),100.0000,-0.2544,-0.2817
+Volatilidade das revisões (24 meses),98.9744,0.2162,0.2609
+Distância ao pico de valor,100.0000,0.3137,0.3449

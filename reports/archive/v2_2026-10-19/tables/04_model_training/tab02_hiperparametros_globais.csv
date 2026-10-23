@@ -1,0 +1,9 @@
+﻿horizonte,modelo,n_estimators,max_depth,min_samples_split,min_samples_leaf,max_features,depth,learning_rate,l2_leaf_reg,iterations,subsample,colsample_bytree,gamma,reg_alpha,reg_lambda,alpha
+T+1,Random Forest,143.00000,24.00000,10.00000,5.00000,0.3,,,,,,,,,,
+T+2,Random Forest,491.00000,24.00000,10.00000,5.00000,sqrt,,,,,,,,,,
+T+1,CatBoost,,,,,,8.00000,0.01350,9.79436,202.00000,,,,,,
+T+2,CatBoost,,,,,,7.00000,0.03080,7.59948,200.00000,,,,,,
+T+1,XGBoost,100.00000,7.00000,,,,,0.03605,,,0.81593,0.97625,2.96520,10.00000,0.01279,
+T+2,XGBoost,800.00000,10.00000,,,,,0.01000,,,0.60000,0.76585,5.00000,0.00100,10.00000,
+T+1,Ridge,,,,,,,,,,,,,,,18.33963
+T+2,Ridge,,,,,,,,,,,,,,,61.17573

@@ -56,4 +56,5 @@ def test_smoke_config_isolates_data(tmp_path):
     assert smoke.paths.raw != cfg.paths.raw
     assert smoke.paths.external == cfg.paths.external
     assert [s.code for s in smoke.seasons] == ["2324"]
-    assert [s.code for s in cfg.seasons] == ["1819", "1920", "2021", "2122", "2223", "2324"]
+    assert [s.code for s in cfg.seasons] == ["1718", "1819", "1920", "2021", "2122", "2223", "2324", "2425"]
+    assert cfg.target_seasons(2)[-1] == "2324" and cfg.target_seasons(1)[-1] == "2425"

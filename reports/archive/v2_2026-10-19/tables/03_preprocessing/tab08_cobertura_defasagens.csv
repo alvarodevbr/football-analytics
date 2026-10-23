@@ -1,0 +1,18 @@
+﻿,% preenchido
+value_lag1,96.4628
+log_return_lag1,96.4628
+value_lag2,91.4169
+log_return_lag2,91.4169
+lag1_minutes,72.5892
+lag1_minutes_share_pct,72.4669
+lag1_sofascore_rating,72.4669
+lag1_goals_assists_p90,72.5892
+lag1_xg_xa_p90,72.2936
+lag1_key_passes_p90,72.4669
+lag1_dribbles_p90,72.4669
+lag1_tackles_interceptions_p90,72.4669
+lag1_aerial_duels_won_p90,72.4669
+lag1_pass_accuracy_pct,72.3445
+has_big5_lag1,100.0000
+delta_minutes_share_pct,72.4669
+delta_sofascore_rating,72.4669

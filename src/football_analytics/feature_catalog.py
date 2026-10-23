@@ -23,7 +23,7 @@ _P90 = "por 90 min"
 CATALOG: dict[str, Var] = {
     # identificação e metadados
     "season": Var("meta", "Identificação", "—", "código", "Temporada de referência T (ex.: 2324 = 2023/24)"),
-    "season_order": Var("meta", "Identificação", "—", "índice", "Ordem cronológica de T (0 = 2019/20), para a janela expandida"),
+    "season_order": Var("meta", "Identificação", "—", "índice", "Ordem cronológica de T (0 = 2018/19), para a janela expandida"),
     "fbref_player_id": Var("id", "Identificação", "FBref", "—", "Identificador longitudinal do atleta"),
     "tm_player_id": Var("id", "Identificação", "Transfermarkt", "—", "Identificador do atleta no Transfermarkt"),
     "fb_player": Var("meta", "Identificação", "FBref", "—", "Nome do atleta"),
@@ -37,9 +37,11 @@ CATALOG: dict[str, Var] = {
     "position_group": Var("categorical", "Demográfico", "Transfermarkt/FBref", "—", "Posição de linha: DEF, MEI, ATA"),
     "age_band": Var("categorical", "Demográfico", "Transfermarkt", "—", "Faixa etária: 16–23, 24–28, 29–32, 33+"),
     "category": Var("categorical", "Demográfico", "Transfermarkt", "—", "Categoria C1–C12 (faixa etária × posição)"),
+    "age_band_3x3": Var("categorical", "Demográfico", "Transfermarkt", "—", "Faixa etária da matriz 3 × 3 de Khalife et al. (2025): 16–23, 24–29, 30+"),
+    "category_3x3": Var("categorical", "Demográfico", "Transfermarkt", "—", "Categoria K1–K9 da matriz 3 × 3 (faixa etária × posição)"),
     "confederation": Var("categorical", "Demográfico", "Transfermarkt", "—", "Confederação da 1ª nacionalidade"),
     # demográficas
-    "age": Var("feature", "Demográfico", "Transfermarkt", "anos", "Idade em anos completos em 30/jun de T"),
+    "age": Var("feature", "Demográfico", "Transfermarkt", "anos", "Idade em anos, com fração decimal, em 30/jun de T"),
     "age_sq": Var("feature", "Demográfico", "Transfermarkt", "anos²", "Idade ao quadrado (concavidade do ciclo de vida)"),
     "height_cm": Var("feature", "Demográfico", "Transfermarkt", "cm", "Altura"),
     "is_left_footed": Var("feature", "Demográfico", "Transfermarkt", "0/1", "Canhoto"),
@@ -65,6 +67,13 @@ CATALOG: dict[str, Var] = {
     "team_points_per_game": Var("feature", "Contexto", "FBref", "pontos/jogo", "Pontos por jogo do clube nas partidas do atleta"),
     "market_log_return_lag1_T": Var("feature", "Contexto", "Transfermarkt", "ln", "Regime de mercado: log-retorno médio (aparado a 10%) T−1→T dos atletas das Big Five"),
     "league_log_return_lag1_T": Var("feature", "Contexto", "Transfermarkt", "ln", "Regime da liga: log-retorno médio (aparado a 10%) T−1→T dos atletas da liga"),
+    "league_rank_pct_T": Var("feature", "Contexto", "Transfermarkt", "0–1", "Posição final do clube na liga em T, normalizada (0 = campeão, 1 = último)"),
+    "league_gd_per_match_T": Var("feature", "Contexto", "Transfermarkt", "gols/jogo", "Saldo de gols por jogo do clube na liga em T"),
+    "promoted_T": Var("feature", "Contexto", "Transfermarkt", "0/1", "Clube recém-promovido: não estava nas Big Five em T−1"),
+    "relegated_T": Var("feature", "Contexto", "Transfermarkt", "0/1", "Clube rebaixado ao fim de T (decidido até a âncora; não está nas Big Five em T+1)"),
+    "europe_T": Var("feature", "Contexto", "Transfermarkt", "0–3", "Maior competição UEFA disputada em T: 0 nenhuma, 1 Conferência, 2 Liga Europa, 3 Liga dos Campeões"),
+    "club_elo_T": Var("feature", "Contexto", "ClubElo", "pontos Elo", "Elo do clube em 30/jun de T"),
+    "club_elo_change_T": Var("feature", "Contexto", "ClubElo", "pontos Elo", "Variação do Elo do clube entre 01/ago e 30/jun de T"),
     # volume
     "minutes": Var("feature", "Volume", "FBref", "minutos", "Minutos jogados em T (soma entre clubes)"),
     "minutes_share_pct": Var("feature", "Volume", "FBref", "%", "Minutos jogados sobre os minutos possíveis"),
@@ -170,7 +179,29 @@ CATALOG: dict[str, Var] = {
     "contract_expiry_T": Var("audit", "Auditoria", "Transfermarkt", "data", "Término do contrato vigente em T, quando observado"),
     "birth_date_is_estimated": Var("audit", "Auditoria", "FBref", "0/1", "Nascimento aproximado pelo ano do FBref"),
     "tm_value_date_T": Var("audit", "Auditoria", "Transfermarkt", "data", "Data da avaliação usada como V_T"),
+    "value_T1_last_obs": Var("audit", "Auditoria", "Transfermarkt", "€", "Último valor publicado até 30/jun de T+1, sem limite de defasagem (limite otimista do backtest)"),
+    "value_T2_last_obs": Var("audit", "Auditoria", "Transfermarkt", "€", "Último valor publicado até 30/jun de T+2, sem limite de defasagem (limite otimista do backtest)"),
 }
+
+# Features cuja fonte pode estar incompleta: saem do vetor se a cobertura for baixa em alguma
+# temporada, para não criar um padrão de ausência próprio de uma temporada. Em out/2026, a API do
+# ClubElo estava fora do ar e o Transfermarkt bloqueou a coleta do histórico de transferências dos
+# atletas novos de 2024/25 (fonte do tempo de casa e do empréstimo em T).
+OPTIONAL_FEATURES: tuple[str, ...] = ("club_elo_T", "club_elo_change_T", "tenure_years_T", "is_on_loan_T")
+
+
+def _add_raw_twins() -> None:
+    """Versões cruas (sem encolhimento empírico-bayesiano) das taxas: papel `audit`, usadas só na
+    comparação crua × encolhida do notebook 04."""
+    from .features import SHRUNK_FEATURES
+
+    for name in SHRUNK_FEATURES:
+        v = CATALOG[name]
+        CATALOG[f"{name}_raw"] = Var("audit", v.group, v.source, v.unit,
+                                     f"{v.description} — versão crua, sem encolhimento")
+
+
+_add_raw_twins()
 
 
 # Rótulos curtos para gráficos, quando a descrição é longa demais para um eixo.
@@ -203,6 +234,8 @@ SHORT_LABELS: dict[str, str] = {
 
 def label(name: str) -> str:
     """Rótulo legível de uma variável: curto se houver, senão a descrição (+ "/90" nas taxas)."""
+    if name.endswith("_raw") and name[:-4] in CATALOG:
+        return f"{label(name[:-4])} (cru)"
     if name in SHORT_LABELS:
         return SHORT_LABELS[name]
     var = CATALOG[name]
@@ -214,6 +247,9 @@ def by_role(role: str) -> list[str]:
 
 
 def dictionary_frame(columns: list[str] | None = None) -> pd.DataFrame:
+    from .features import SHRUNK_FEATURES
+
     rows = [{"variavel": k, "papel": v.role, "grupo": v.group, "fonte": v.source, "unidade": v.unit,
-             "descricao": v.description} for k, v in CATALOG.items() if columns is None or k in columns]
+             "encolhida": k in SHRUNK_FEATURES, "descricao": v.description}
+            for k, v in CATALOG.items() if columns is None or k in columns]
     return pd.DataFrame(rows)

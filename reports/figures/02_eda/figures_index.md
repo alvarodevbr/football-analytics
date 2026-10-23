@@ -24,7 +24,7 @@ Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfer
 
 **Figura 6 – Proporção de valores ausentes por variável e temporada na amostra analítica (%)**  
 `fig06_ausentes.png`  
-Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026).
+Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Células vazias: V_{T+1} de 2024/25 (teste pré-registrado, oculto) e V_{T+2} de 2024/25 (ainda não publicado).
 
 **Figura 7 – Distribuição da amostra analítica na matriz de 12 categorias (faixa etária × posição)**  
 `fig07_matriz_12_categorias.png`  

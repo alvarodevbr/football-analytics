@@ -1,9 +1,25 @@
-﻿horizonte,modelo,n_estimators,max_depth,min_samples_split,min_samples_leaf,max_features,depth,learning_rate,l2_leaf_reg,iterations,subsample,colsample_bytree,gamma,reg_alpha,reg_lambda,alpha
-T+1,Random Forest,143.00000,24.00000,10.00000,5.00000,0.3,,,,,,,,,,
-T+2,Random Forest,491.00000,24.00000,10.00000,5.00000,sqrt,,,,,,,,,,
-T+1,CatBoost,,,,,,8.00000,0.01350,9.79436,202.00000,,,,,,
-T+2,CatBoost,,,,,,7.00000,0.03080,7.59948,200.00000,,,,,,
-T+1,XGBoost,100.00000,7.00000,,,,,0.03605,,,0.81593,0.97625,2.96520,10.00000,0.01279,
-T+2,XGBoost,800.00000,10.00000,,,,,0.01000,,,0.60000,0.76585,5.00000,0.00100,10.00000,
-T+1,Ridge,,,,,,,,,,,,,,,18.33963
-T+2,Ridge,,,,,,,,,,,,,,,61.17573
+﻿horizonte,modelo,hiperparametro,valor,na_fronteira
+T+1,Random Forest,max_depth,18,False
+T+1,Random Forest,min_samples_leaf,1,True
+T+1,Random Forest,max_features,0.2,False
+T+2,Random Forest,max_depth,25,True
+T+2,Random Forest,min_samples_leaf,6,False
+T+2,Random Forest,max_features,0.2,False
+T+1,CatBoost,depth,3,True
+T+1,CatBoost,l2_leaf_reg,12.267470770584321,False
+T+1,CatBoost,random_strength,0.018713557824311947,False
+T+2,CatBoost,depth,4,False
+T+2,CatBoost,l2_leaf_reg,98.87319849018947,False
+T+2,CatBoost,random_strength,0.04222636629483079,False
+T+1,XGBoost,max_depth,4,False
+T+1,XGBoost,min_child_weight,82.70215105903179,False
+T+1,XGBoost,reg_lambda,37.94222246894935,False
+T+1,XGBoost,subsample,0.510135715529913,False
+T+1,XGBoost,colsample_bytree,0.37802895057236474,False
+T+2,XGBoost,max_depth,2,True
+T+2,XGBoost,min_child_weight,1.0,True
+T+2,XGBoost,reg_lambda,100.0,True
+T+2,XGBoost,subsample,0.8489108829821522,False
+T+2,XGBoost,colsample_bytree,1.0,True
+T+1,Ridge,alpha,273.57872155267825,False
+T+2,Ridge,alpha,120.07693250465137,False

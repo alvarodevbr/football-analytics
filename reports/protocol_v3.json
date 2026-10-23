@@ -1,0 +1,226 @@
+{
+  "versao": "v3",
+  "painel_md5": "667144f5f2",
+  "n_variaveis": 108,
+  "variaveis_sha1": "fa76f39bb046",
+  "fora_do_vetor": {
+    "club_elo_T": "cobertura mínima por temporada de 0% (< 90%)",
+    "club_elo_change_T": "cobertura mínima por temporada de 0% (< 90%)",
+    "tenure_years_T": "cobertura mínima por temporada de 80% (< 90%)",
+    "is_on_loan_T": "cobertura mínima por temporada de 80% (< 90%)"
+  },
+  "dobras": {
+    "T1": [
+      [
+        [
+          "1819"
+        ],
+        [],
+        "1920"
+      ],
+      [
+        [
+          "1819",
+          "1920"
+        ],
+        [],
+        "2021"
+      ],
+      [
+        [
+          "1819",
+          "1920",
+          "2021"
+        ],
+        [],
+        "2122"
+      ],
+      [
+        [
+          "1819",
+          "1920",
+          "2021",
+          "2122"
+        ],
+        [],
+        "2223"
+      ],
+      [
+        [
+          "1819",
+          "1920",
+          "2021",
+          "2122",
+          "2223"
+        ],
+        [],
+        "2324"
+      ],
+      [
+        [
+          "1819",
+          "1920",
+          "2021",
+          "2122",
+          "2223",
+          "2324"
+        ],
+        [],
+        "2425"
+      ]
+    ],
+    "T2": [
+      [
+        [
+          "1819"
+        ],
+        [
+          "1920"
+        ],
+        "2021"
+      ],
+      [
+        [
+          "1819",
+          "1920"
+        ],
+        [
+          "2021"
+        ],
+        "2122"
+      ],
+      [
+        [
+          "1819",
+          "1920",
+          "2021"
+        ],
+        [
+          "2122"
+        ],
+        "2223"
+      ],
+      [
+        [
+          "1819",
+          "1920",
+          "2021",
+          "2122"
+        ],
+        [
+          "2223"
+        ],
+        "2324"
+      ]
+    ]
+  },
+  "dobras_de_otimizacao": {
+    "T1": [
+      "2122",
+      "2223",
+      "2324"
+    ],
+    "T2": [
+      "2021",
+      "2122",
+      "2223"
+    ]
+  },
+  "teste_final": {
+    "T1": "2425",
+    "T2": "2324"
+  },
+  "otimizacao": {
+    "metodo": "skopt.gp_minimize",
+    "avaliacoes": {
+      "global": 20,
+      "ridge": 15,
+      "segment": 10
+    },
+    "taxa_de_aprendizado": 0.05,
+    "parada_antecipada": "última temporada do treino (purga de 1 em T+2), paciência 40, até 1.000 árvores"
+  },
+  "hiperparametros": {
+    "T1": {
+      "ridge": {
+        "alpha": 273.5787215527
+      },
+      "rf": {
+        "max_depth": 18,
+        "min_samples_leaf": 1,
+        "max_features": "0.2"
+      },
+      "xgb": {
+        "max_depth": 4,
+        "min_child_weight": 82.702151059,
+        "reg_lambda": 37.9422224689,
+        "subsample": 0.5101357155,
+        "colsample_bytree": 0.3780289506
+      },
+      "cat": {
+        "depth": 3,
+        "l2_leaf_reg": 12.2674707706,
+        "random_strength": 0.0187135578
+      }
+    },
+    "T2": {
+      "ridge": {
+        "alpha": 120.0769325047
+      },
+      "rf": {
+        "max_depth": 25,
+        "min_samples_leaf": 6,
+        "max_features": "0.2"
+      },
+      "xgb": {
+        "max_depth": 2,
+        "min_child_weight": 1.0,
+        "reg_lambda": 100.0,
+        "subsample": 0.848910883,
+        "colsample_bytree": 1.0
+      },
+      "cat": {
+        "depth": 4,
+        "l2_leaf_reg": 98.8731984902,
+        "random_strength": 0.0422263663
+      }
+    }
+  },
+  "ensemble": [
+    "cat",
+    "xgb",
+    "ridge"
+  ],
+  "arquitetura_final": {
+    "T1": {
+      "approach": "Global",
+      "model": "ens"
+    },
+    "T2": {
+      "approach": "Pooling 3 × 3",
+      "model": "pool"
+    }
+  },
+  "pooling_kappa": {
+    "4 × 3 T+1": 3200.0,
+    "4 × 3 T+2": 800.0,
+    "3 × 3 T+1": 3200.0,
+    "3 × 3 T+2": 800.0
+  },
+  "codigo_sha1": "4880677d1ec1",
+  "camada_de_magnitude": "recalibração linear + smearing de Duan por faixa etária, só com dobras anteriores, excluída a 1ª dobra (aquecimento: treino com uma só temporada)",
+  "intervalos": "CatBoost quantílico P10/P90 conformalizado sequencialmente (nominal 80%), com o histórico da camada de magnitude",
+  "hipoteses": {
+    "H1": "No teste final, retirar o bloco desempenho em T e T−1 + valor justo aumenta a RMSE, com p de Holm < 0,05 (teste pareado por cluster; família: as especificações da ablação).",
+    "H2": "No teste final, o conjunto de confiança dos modelos (MCS, 10%) contém uma arquitetura 4 × 3 (segmentada ou pooling) e exclui o ensemble global e as arquiteturas 3 × 3.",
+    "H3": "No teste final, a mediana de ΔV% do quintil mais subavaliado do gap supera a do mais sobreavaliado, com ICs de 95% (bootstrap por cluster) disjuntos.",
+    "H4": "No cenário principal (custos de 10% na compra e na venda; quem sai da base vale zero; todos os candidatos), a carteira do decil superior previsto supera a aleatória em todas as temporadas de T+1 (teste do sinal, p = 0,016) e, na média das temporadas, as heurísticas de momentum e juventude.",
+    "H5": "No SHAP do ensemble global final, a participação do desempenho no |SHAP| é maior na faixa 24–28 que na 33+, com IC de 95% da diferença (bootstrap por cluster) acima de zero."
+  },
+  "regras": [
+    "Arquitetura final = ensemble global, salvo alternativa com RMSE de validação menor e p de Holm < 0,05 no teste pareado por cluster (família de Holm: as 6 alternativas de cada horizonte); entre as que passam, a de menor RMSE.",
+    "Taxas por 90 com encolhimento empírico-bayesiano no vetor principal; as cruas entram só na robustez.",
+    "Membros do ensemble fixados a priori (CatBoost, XGBoost, Ridge), média simples.",
+    "Nenhuma métrica do teste final de T+1 (2024/25) é calculada antes do commit deste arquivo."
+  ]
+}

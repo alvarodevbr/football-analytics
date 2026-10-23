@@ -1,0 +1,37 @@
+﻿atleta,variavel,shap
+Yoel Lago,Idade,0.29991
+Yoel Lago,% do valor do elenco,0.25655
+Yoel Lago,log V_T,0.22896
+Yoel Lago,Gap de avaliação,0.18228
+Yoel Lago,Idade²,0.13126
+Yoel Lago,Valor justo (log),0.03595
+Yoel Lago,Passes tentados /90,0.02941
+Yoel Lago,Distância ao pico de valor,0.02830
+Yoel Lago,Demais variáveis,0.09995
+Antonios Papadopoulos,% do valor do elenco,0.16707
+Antonios Papadopoulos,log V_T,0.12171
+Antonios Papadopoulos,Idade,0.12032
+Antonios Papadopoulos,Gap de avaliação,0.05907
+Antonios Papadopoulos,Idade²,0.05205
+Antonios Papadopoulos,Pontos/jogo da equipe,0.04164
+Antonios Papadopoulos,Variação do valor em 6 meses,0.03596
+Antonios Papadopoulos,% dos minutos possíveis,-0.02816
+Antonios Papadopoulos,Demais variáveis,0.12308
+Emil Krafth,Idade,-0.14526
+Emil Krafth,Gap de avaliação,0.13021
+Emil Krafth,Idade²,-0.05575
+Emil Krafth,log V_T,0.04455
+Emil Krafth,Liga,0.03597
+Emil Krafth,% do valor do elenco,0.02905
+Emil Krafth,Faixa etária,-0.02759
+Emil Krafth,Ranking de valor do elenco (Big Five),0.02661
+Emil Krafth,Demais variáveis,-0.04848
+Cristian Herrera,Idade,-0.25514
+Cristian Herrera,log V_T,0.21439
+Cristian Herrera,Gap de avaliação,0.13203
+Cristian Herrera,Idade²,-0.12633
+Cristian Herrera,% do valor do elenco,0.05760
+Cristian Herrera,npxG /90,0.04216
+Cristian Herrera,xG /90,0.03918
+Cristian Herrera,Gols sem pênaltis /90,-0.03612
+Cristian Herrera,Demais variáveis,-0.11811

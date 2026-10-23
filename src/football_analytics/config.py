@@ -84,15 +84,30 @@ BIG5_LEAGUES: tuple[League, ...] = (
 )
 
 # Temporadas de referência T do estudo (CLAUDE.md §1) e a temporada anterior, coletada apenas
-# para permitir a construção de lags de desempenho de T = 2019/20 no notebook 03.
-FEATURE_SEASONS: tuple[str, ...] = ("1920", "2021", "2122", "2223", "2324")
-LAG_ONLY_SEASONS: tuple[str, ...] = ("1819",)
+# para permitir a construção de lags de desempenho de T = 2018/19 no notebook 03.
+FEATURE_SEASONS: tuple[str, ...] = ("1819", "1920", "2021", "2122", "2223", "2324", "2425")
+LAG_ONLY_SEASONS: tuple[str, ...] = ("1718",)
+
+# Última data-âncora com valor de mercado já observado na coleta (out/2026): o alvo de T+k só existe
+# se 30/jun de T+k for até esta data. Com ela, 2024/25 tem alvo em T+1 (30/06/2026), mas não em T+2.
+VALUE_CUTOFF: date = date(2026, 6, 30)
+# Teste final de cada horizonte. O de T+1 é pré-registrado: nenhuma decisão de modelagem pode usar
+# seus alvos antes do commit de `reports/protocol_v3.json`. O de T+2 é semi-independente (consultado
+# nas versões 1 e 2 do estudo).
+HOLDOUT_SEASONS: dict[int, str] = {1: "2425", 2: "2324"}
+
+
+def target_available(season: str, horizon: int, cutoff: date = VALUE_CUTOFF) -> bool:
+    """O valor em T+k da temporada já foi observado até `cutoff`?"""
+    return Season(season).offset(horizon).end_anchor <= cutoff
 
 # Páginas do FBref que ainda carregam valores após a remoção dos dados Opta (jan/2026).
 FBREF_PAGES: tuple[str, ...] = ("standard", "shooting", "playing_time", "misc")
 # Páginas que o FBref ainda publica, mas com todas as colunas avançadas vazias. São baixadas
 # para uma única temporada apenas para documentar a ausência (seção de Metodologia).
 FBREF_EMPTY_PROBE_PAGES: tuple[str, ...] = ("passing", "defense", "possession", "gca")
+# Temporada usada para documentar as páginas vazias (já em cache desde a v1).
+FBREF_PROBE_SEASON = "2324"
 
 # Métricas solicitadas à API de estatísticas por temporada do Sofascore.
 SOFASCORE_FIELDS: tuple[str, ...] = (
@@ -189,6 +204,7 @@ class ExtractionConfig:
     lag_only_seasons: tuple[str, ...] = LAG_ONLY_SEASONS
     fbref_pages: tuple[str, ...] = FBREF_PAGES
     fbref_empty_probe_pages: tuple[str, ...] = FBREF_EMPTY_PROBE_PAGES
+    fbref_probe_season: str = FBREF_PROBE_SEASON
     sofascore_fields: tuple[str, ...] = SOFASCORE_FIELDS
     # Cloudflare (FBref) e o anti-bot do Sofascore reprovam o Chrome headless.
     browser_headless: bool = False
@@ -200,6 +216,8 @@ class ExtractionConfig:
     max_fetches_per_run: int | None = None
     # Validade máxima (dias) do último valor de mercado anterior à data-âncora.
     value_max_staleness_days: int = 183
+    value_cutoff: date = VALUE_CUTOFF
+    holdout_seasons: dict[int, str] = field(default_factory=lambda: dict(HOLDOUT_SEASONS))
     smoke_test: bool = False
     smoke_max_players: int = 40
     user_agent: str = (
@@ -212,6 +230,10 @@ class ExtractionConfig:
     def seasons(self) -> tuple[Season, ...]:
         codes = sorted(set(self.feature_seasons) | set(self.lag_only_seasons))
         return tuple(Season(c) for c in codes)
+
+    def target_seasons(self, horizon: int) -> tuple[str, ...]:
+        """Temporadas de referência cujo alvo em T+k já é observável."""
+        return tuple(s for s in sorted(self.feature_seasons) if target_available(s, horizon, self.value_cutoff))
 
     @property
     def league_keys(self) -> tuple[str, ...]:
@@ -241,6 +263,8 @@ class ExtractionConfig:
             "seasons": [s.code for s in self.seasons],
             "feature_seasons": list(self.feature_seasons),
             "lag_only_seasons": list(self.lag_only_seasons),
+            "value_cutoff": self.value_cutoff.isoformat(),
+            "holdout_seasons": {f"T+{k}": v for k, v in self.holdout_seasons.items()},
             "fbref_pages": list(self.fbref_pages),
             "smoke_test": self.smoke_test,
             "max_fetches_per_run": self.max_fetches_per_run,

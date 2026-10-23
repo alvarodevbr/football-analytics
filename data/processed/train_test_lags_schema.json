@@ -1,9 +1,9 @@
 {
   "path": "train_test_lags.parquet",
   "source": "notebook 03: painel jogador–temporada (features em T, alvos em T+1/T+2)",
-  "n_rows": 9810,
-  "n_columns": 135,
-  "written_at": "2026-10-19T15:33:26",
+  "n_rows": 13748,
+  "n_columns": 198,
+  "written_at": "2026-10-22T23:00:34",
   "columns": {
     "season": {
       "dtype": "object",
@@ -11,7 +11,7 @@
     },
     "season_order": {
       "dtype": "int64",
-      "description": "Ordem cronológica de T (0 = 2019/20), para a janela expandida"
+      "description": "Ordem cronológica de T (0 = 2018/19), para a janela expandida"
     },
     "fbref_player_id": {
       "dtype": "object",
@@ -49,6 +49,14 @@
       "dtype": "object",
       "description": "Categoria C1–C12 (faixa etária × posição)"
     },
+    "age_band_3x3": {
+      "dtype": "object",
+      "description": "Faixa etária da matriz 3 × 3 de Khalife et al. (2025): 16–23, 24–29, 30+"
+    },
+    "category_3x3": {
+      "dtype": "object",
+      "description": "Categoria K1–K9 da matriz 3 × 3 (faixa etária × posição)"
+    },
     "confederation": {
       "dtype": "object",
       "description": "Confederação da 1ª nacionalidade"
@@ -67,7 +75,7 @@
     },
     "age": {
       "dtype": "float64",
-      "description": "Idade em anos completos em 30/jun de T"
+      "description": "Idade em anos, com fração decimal, em 30/jun de T"
     },
     "age_sq": {
       "dtype": "float64",
@@ -157,6 +165,34 @@
       "dtype": "float64",
       "description": "Regime da liga: log-retorno médio (aparado a 10%) T−1→T dos atletas da liga"
     },
+    "league_rank_pct_T": {
+      "dtype": "float64",
+      "description": "Posição final do clube na liga em T, normalizada (0 = campeão, 1 = último)"
+    },
+    "league_gd_per_match_T": {
+      "dtype": "float64",
+      "description": "Saldo de gols por jogo do clube na liga em T"
+    },
+    "promoted_T": {
+      "dtype": "float64",
+      "description": "Clube recém-promovido: não estava nas Big Five em T−1"
+    },
+    "relegated_T": {
+      "dtype": "float64",
+      "description": "Clube rebaixado ao fim de T (decidido até a âncora; não está nas Big Five em T+1)"
+    },
+    "europe_T": {
+      "dtype": "float64",
+      "description": "Maior competição UEFA disputada em T: 0 nenhuma, 1 Conferência, 2 Liga Europa, 3 Liga dos Campeões"
+    },
+    "club_elo_T": {
+      "dtype": "float64",
+      "description": "Elo do clube em 30/jun de T"
+    },
+    "club_elo_change_T": {
+      "dtype": "float64",
+      "description": "Variação do Elo do clube entre 01/ago e 30/jun de T"
+    },
     "goals_p90": {
       "dtype": "float64",
       "description": "Gols"
@@ -218,23 +254,23 @@
       "description": "Saldo de gols da equipe com o atleta em campo"
     },
     "xg_p90": {
-      "dtype": "Float64",
+      "dtype": "float64",
       "description": "Gols esperados (xG)"
     },
     "npxg_p90": {
-      "dtype": "Float64",
+      "dtype": "float64",
       "description": "xG sem pênaltis"
     },
     "xa_p90": {
-      "dtype": "Float64",
+      "dtype": "float64",
       "description": "Assistências esperadas (xA)"
     },
     "xg_chain_p90": {
-      "dtype": "Float64",
+      "dtype": "float64",
       "description": "xG das posses com participação do atleta"
     },
     "xg_buildup_p90": {
-      "dtype": "Float64",
+      "dtype": "float64",
       "description": "xGChain excluindo finalização e passe final"
     },
     "key_passes_p90": {
@@ -318,11 +354,11 @@
       "description": "Gols + assistências"
     },
     "xg_xa_p90": {
-      "dtype": "Float64",
+      "dtype": "float64",
       "description": "xG + xA"
     },
     "finishing_overperf_p90": {
-      "dtype": "Float64",
+      "dtype": "float64",
       "description": "Gols sem pênalti menos npxG"
     },
     "shot_accuracy_pct": {
@@ -332,10 +368,6 @@
     "shot_conversion_pct": {
       "dtype": "float64",
       "description": "Gols sobre finalizações"
-    },
-    "xg_per_shot": {
-      "dtype": "Float64",
-      "description": "Qualidade média das finalizações"
     },
     "pass_accuracy_pct": {
       "dtype": "float64",
@@ -360,6 +392,10 @@
     "duels_won_pct": {
       "dtype": "float64",
       "description": "Taxa de duelos ganhos"
+    },
+    "xg_per_shot": {
+      "dtype": "float64",
+      "description": "Qualidade média das finalizações"
     },
     "sofascore_rating": {
       "dtype": "float64",
@@ -393,6 +429,214 @@
       "dtype": "int64",
       "description": "Clubes das Big Five defendidos em T"
     },
+    "goals_p90_raw": {
+      "dtype": "float64",
+      "description": "Gols — versão crua, sem encolhimento"
+    },
+    "assists_p90_raw": {
+      "dtype": "float64",
+      "description": "Assistências — versão crua, sem encolhimento"
+    },
+    "npg_p90_raw": {
+      "dtype": "float64",
+      "description": "Gols sem pênaltis — versão crua, sem encolhimento"
+    },
+    "shots_p90_raw": {
+      "dtype": "float64",
+      "description": "Finalizações — versão crua, sem encolhimento"
+    },
+    "shots_on_target_p90_raw": {
+      "dtype": "float64",
+      "description": "Finalizações no alvo — versão crua, sem encolhimento"
+    },
+    "yellow_cards_p90_raw": {
+      "dtype": "float64",
+      "description": "Cartões amarelos — versão crua, sem encolhimento"
+    },
+    "red_cards_p90_raw": {
+      "dtype": "float64",
+      "description": "Cartões vermelhos — versão crua, sem encolhimento"
+    },
+    "fouls_p90_raw": {
+      "dtype": "float64",
+      "description": "Faltas cometidas — versão crua, sem encolhimento"
+    },
+    "fouled_p90_raw": {
+      "dtype": "float64",
+      "description": "Faltas sofridas — versão crua, sem encolhimento"
+    },
+    "offsides_p90_raw": {
+      "dtype": "float64",
+      "description": "Impedimentos — versão crua, sem encolhimento"
+    },
+    "crosses_p90_raw": {
+      "dtype": "float64",
+      "description": "Cruzamentos — versão crua, sem encolhimento"
+    },
+    "interceptions_p90_raw": {
+      "dtype": "float64",
+      "description": "Interceptações — versão crua, sem encolhimento"
+    },
+    "tackles_won_p90_raw": {
+      "dtype": "float64",
+      "description": "Desarmes com recuperação da posse — versão crua, sem encolhimento"
+    },
+    "on_goals_against_p90_raw": {
+      "dtype": "float64",
+      "description": "Gols sofridos pela equipe com o atleta em campo (proxy de clean sheets) — versão crua, sem encolhimento"
+    },
+    "xg_p90_raw": {
+      "dtype": "Float64",
+      "description": "Gols esperados (xG) — versão crua, sem encolhimento"
+    },
+    "npxg_p90_raw": {
+      "dtype": "Float64",
+      "description": "xG sem pênaltis — versão crua, sem encolhimento"
+    },
+    "xa_p90_raw": {
+      "dtype": "Float64",
+      "description": "Assistências esperadas (xA) — versão crua, sem encolhimento"
+    },
+    "xg_chain_p90_raw": {
+      "dtype": "Float64",
+      "description": "xG das posses com participação do atleta — versão crua, sem encolhimento"
+    },
+    "xg_buildup_p90_raw": {
+      "dtype": "Float64",
+      "description": "xGChain excluindo finalização e passe final — versão crua, sem encolhimento"
+    },
+    "key_passes_p90_raw": {
+      "dtype": "float64",
+      "description": "Passes para finalização — versão crua, sem encolhimento"
+    },
+    "big_chances_created_p90_raw": {
+      "dtype": "float64",
+      "description": "Grandes chances criadas — versão crua, sem encolhimento"
+    },
+    "big_chances_missed_p90_raw": {
+      "dtype": "float64",
+      "description": "Grandes chances desperdiçadas — versão crua, sem encolhimento"
+    },
+    "passes_p90_raw": {
+      "dtype": "float64",
+      "description": "Passes tentados — versão crua, sem encolhimento"
+    },
+    "accurate_passes_p90_raw": {
+      "dtype": "float64",
+      "description": "Passes certos — versão crua, sem encolhimento"
+    },
+    "long_balls_p90_raw": {
+      "dtype": "float64",
+      "description": "Bolas longas certas — versão crua, sem encolhimento"
+    },
+    "final_third_passes_p90_raw": {
+      "dtype": "float64",
+      "description": "Passes certos no terço final — versão crua, sem encolhimento"
+    },
+    "accurate_crosses_p90_raw": {
+      "dtype": "float64",
+      "description": "Cruzamentos certos — versão crua, sem encolhimento"
+    },
+    "dribbles_p90_raw": {
+      "dtype": "float64",
+      "description": "Dribles certos — versão crua, sem encolhimento"
+    },
+    "touches_p90_raw": {
+      "dtype": "float64",
+      "description": "Toques na bola — versão crua, sem encolhimento"
+    },
+    "possession_lost_p90_raw": {
+      "dtype": "float64",
+      "description": "Perdas de posse — versão crua, sem encolhimento"
+    },
+    "dispossessed_p90_raw": {
+      "dtype": "float64",
+      "description": "Desarmado pelo adversário — versão crua, sem encolhimento"
+    },
+    "tackles_p90_raw": {
+      "dtype": "float64",
+      "description": "Desarmes — versão crua, sem encolhimento"
+    },
+    "clearances_p90_raw": {
+      "dtype": "float64",
+      "description": "Cortes — versão crua, sem encolhimento"
+    },
+    "dribbled_past_p90_raw": {
+      "dtype": "float64",
+      "description": "Vezes driblado — versão crua, sem encolhimento"
+    },
+    "aerial_duels_won_p90_raw": {
+      "dtype": "float64",
+      "description": "Duelos aéreos ganhos — versão crua, sem encolhimento"
+    },
+    "ground_duels_won_p90_raw": {
+      "dtype": "float64",
+      "description": "Duelos no chão ganhos — versão crua, sem encolhimento"
+    },
+    "errors_p90_raw": {
+      "dtype": "float64",
+      "description": "Erros que levaram a finalização ou gol — versão crua, sem encolhimento"
+    },
+    "tackles_interceptions_p90_raw": {
+      "dtype": "float64",
+      "description": "Desarmes + interceptações — versão crua, sem encolhimento"
+    },
+    "goals_assists_p90_raw": {
+      "dtype": "float64",
+      "description": "Gols + assistências — versão crua, sem encolhimento"
+    },
+    "xg_xa_p90_raw": {
+      "dtype": "Float64",
+      "description": "xG + xA — versão crua, sem encolhimento"
+    },
+    "plus_minus_p90_raw": {
+      "dtype": "float64",
+      "description": "Saldo de gols da equipe com o atleta em campo — versão crua, sem encolhimento"
+    },
+    "finishing_overperf_p90_raw": {
+      "dtype": "Float64",
+      "description": "Gols sem pênalti menos npxG — versão crua, sem encolhimento"
+    },
+    "shot_accuracy_pct_raw": {
+      "dtype": "float64",
+      "description": "Finalizações no alvo sobre finalizações — versão crua, sem encolhimento"
+    },
+    "shot_conversion_pct_raw": {
+      "dtype": "float64",
+      "description": "Gols sobre finalizações — versão crua, sem encolhimento"
+    },
+    "pass_accuracy_pct_raw": {
+      "dtype": "float64",
+      "description": "Taxa de acerto de passes — versão crua, sem encolhimento"
+    },
+    "long_ball_accuracy_pct_raw": {
+      "dtype": "float64",
+      "description": "Acerto de bolas longas — versão crua, sem encolhimento"
+    },
+    "dribble_success_pct_raw": {
+      "dtype": "float64",
+      "description": "Taxa de sucesso no drible — versão crua, sem encolhimento"
+    },
+    "aerial_duels_won_pct_raw": {
+      "dtype": "float64",
+      "description": "Taxa de duelos aéreos ganhos — versão crua, sem encolhimento"
+    },
+    "ground_duels_won_pct_raw": {
+      "dtype": "float64",
+      "description": "Taxa de duelos no chão ganhos — versão crua, sem encolhimento"
+    },
+    "duels_won_pct_raw": {
+      "dtype": "float64",
+      "description": "Taxa de duelos ganhos — versão crua, sem encolhimento"
+    },
+    "xg_per_shot_raw": {
+      "dtype": "Float64",
+      "description": "Qualidade média das finalizações — versão crua, sem encolhimento"
+    },
+    "sofascore_rating_raw": {
+      "dtype": "float64",
+      "description": "Nota média do Sofascore, ponderada por minutos — versão crua, sem encolhimento"
+    },
     "log_return_lag1": {
       "dtype": "float64",
       "description": "Log-retorno do valor entre T−1 e T (momentum)"
@@ -418,7 +662,7 @@
       "description": "Gols + assistências em T−1"
     },
     "lag1_xg_xa_p90": {
-      "dtype": "Float64",
+      "dtype": "float64",
       "description": "xG + xA em T−1"
     },
     "lag1_key_passes_p90": {
@@ -544,6 +788,14 @@
     "tm_value_date_T": {
       "dtype": "datetime64[ns]",
       "description": "Data da avaliação usada como V_T"
+    },
+    "value_T1_last_obs": {
+      "dtype": "float64",
+      "description": "Último valor publicado até 30/jun de T+1, sem limite de defasagem (limite otimista do backtest)"
+    },
+    "value_T2_last_obs": {
+      "dtype": "float64",
+      "description": "Último valor publicado até 30/jun de T+2, sem limite de defasagem (limite otimista do backtest)"
     }
   }
 }

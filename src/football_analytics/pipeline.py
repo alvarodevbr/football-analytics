@@ -12,6 +12,7 @@ from typing import Any
 
 import pandas as pd
 
+from . import club_context as cc
 from . import entity_resolution as er
 from . import fbref, sofascore, transfermarkt, understat
 from .config import BIG5_LEAGUES, ExtractionConfig, Season
@@ -38,7 +39,7 @@ def run_fbref(cfg: ExtractionConfig) -> tuple[pd.DataFrame, pd.DataFrame]:
     try:
         table = fbref.build_player_season_table(fetcher, cfg.seasons, cfg.fbref_pages, comp_to_league,
                                                 cfg.league_keys)
-        probe_season = Season(cfg.feature_seasons[-1])
+        probe_season = Season(cfg.fbref_probe_season)
         fill = []
         for page in cfg.fbref_empty_probe_pages:
             rates = fbref.column_fill_rates(fbref.parse_player_table(fetcher.fetch(probe_season, page), page))
@@ -221,7 +222,13 @@ def match_report(fb: pd.DataFrame, match: pd.DataFrame, id_col: str, min_minutes
 # 6. Transfermarkt — dados por jogador
 # ----------------------------------------------------------------------------------------------
 def players_to_fetch(cfg: ExtractionConfig, tm_match: pd.DataFrame, squads: pd.DataFrame) -> pd.DataFrame:
-    ids = tm_match["tm_player_id"].dropna().astype("int64").unique()
+    """Jogadores do Transfermarkt a consultar: só os casados em temporadas de referência.
+
+    As temporadas só de defasagem precisam apenas do desempenho (FBref, Understat, Sofascore); os
+    valores passados dos atletas de referência vêm do histórico completo de cada um.
+    """
+    in_scope = tm_match["season"].isin(cfg.feature_seasons) if "season" in tm_match else True
+    ids = tm_match.loc[in_scope, "tm_player_id"].dropna().astype("int64").unique()
     players = (squads[squads["tm_player_id"].isin(ids)]
                .drop_duplicates("tm_player_id")[["tm_player_id", "tm_player_slug", "tm_player"]]
                .sort_values("tm_player_id").reset_index(drop=True))
@@ -252,14 +259,85 @@ def run_tm_players(cfg: ExtractionConfig, players: pd.DataFrame) -> dict[str, pd
     profiles_df = pd.DataFrame([{k: v for k, v in p.items() if k != "raw_fields"} for p in profiles.values()])
     transfers_long = pd.DataFrame([{"tm_player_id": pid, **row} for pid, rows in transfers.items() for row in rows])
 
+    # Quem tem cada recurso coletado: distingue "sem transferências" de "transferências não coletadas"
+    status = pd.DataFrame({"tm_player_id": players["tm_player_id"].astype("int64")})
+    for kind, got in (("market_values", values), ("profiles", profiles), ("transfers", transfers)):
+        status[f"has_{kind}"] = status["tm_player_id"].isin(list(got))
     save_table(mv_long, interim(cfg, "tm_market_values_long"), source="transfermarkt ceapi/marketValueDevelopment")
     save_table(profiles_df, interim(cfg, "tm_profiles"), source="transfermarkt /profil/ (contrato ATUAL)")
     save_table(transfers_long, interim(cfg, "tm_transfers_long"), source="transfermarkt ceapi/transferHistory")
-    return {"market_values": mv_long, "profiles": profiles_df, "transfers": transfers_long}
+    save_table(status, interim(cfg, "tm_fetch_status"), source="cobertura da coleta por jogador no Transfermarkt")
+    return {"market_values": mv_long, "profiles": profiles_df, "transfers": transfers_long, "status": status}
 
 
 # ----------------------------------------------------------------------------------------------
-# 7. Fusão
+# 7. Contexto do clube em T (classificação, promoção/rebaixamento, Europa, ClubElo)
+# ----------------------------------------------------------------------------------------------
+def _sofascore_team_ids(fb: pd.DataFrame, ss: pd.DataFrame, matches: MatchOutputs) -> pd.DataFrame:
+    """Id do clube no Sofascore de cada (season, fbref_team_id): a moda entre os atletas pareados."""
+    m = matches.sofascore.dropna(subset=["right_index"])
+    fb_rows = fb.reset_index(drop=True).loc[m["left_index"].astype(int)]
+    ss_rows = ss.reset_index(drop=True).loc[m["right_index"].astype(int)]
+    link = pd.DataFrame({"season": fb_rows["season"].to_numpy(), "fbref_team_id": fb_rows["fbref_team_id"].to_numpy(),
+                         "sofascore_team_id": ss_rows["sofascore_team_id"].to_numpy()})
+    return (link.groupby(["season", "fbref_team_id"])["sofascore_team_id"]
+            .agg(lambda v: v.mode().iloc[0]).reset_index())
+
+
+def run_club_context(cfg: ExtractionConfig, fb: pd.DataFrame, ss: pd.DataFrame, matches: MatchOutputs) -> pd.DataFrame:
+    """Contexto de cada clube-temporada de referência; ver `club_context` para fontes e não antecipação."""
+    import soccerdata as sd
+
+    seasons = [Season(c) for c in sorted(cfg.feature_seasons)]
+    after = seasons[-1].offset(1)
+    fb_teams = (fb[["league", "season", "fb_team", "fbref_team_id"]].drop_duplicates()
+                .rename(columns={"fb_team": "team"}))
+    us_map = matches.team_maps[matches.team_maps["source"] == "understat"]
+
+    # classificação a partir dos resultados (Understat), inclusive a temporada seguinte à última
+    reader = sd.Understat(leagues=list(cfg.league_keys), seasons=[s.code for s in seasons] + [after.code],
+                          data_dir=cfg.paths.soccerdata_dir / "Understat")
+    schedule = reader.read_schedule().reset_index()
+    schedule["season"] = schedule["season"].astype(str)
+    table = cc.standings(schedule[schedule["season"].isin(cfg.feature_seasons)])
+
+    # pertencimento às Big Five: FBref nas temporadas coletadas; Understat na seguinte à última
+    member = fb[["season", "fbref_team_id"]].drop_duplicates().rename(columns={"fbref_team_id": "club"})
+    after_teams = set(schedule.loc[schedule["season"] == after.code, ["home_team", "away_team"]].stack())
+    last = fb_teams[fb_teams["season"] == seasons[-1].code].merge(us_map, on=["league", "season", "team"])
+    if after_teams:
+        member = pd.concat([member, pd.DataFrame({"season": after.code,
+                                                  "club": last.loc[last["target_team"].isin(after_teams), "fbref_team_id"]})])
+    membership = cc.membership_flags(member, [s.code for s in seasons])
+
+    # participação europeia em T (Sofascore, pelo id do clube)
+    collector = sofascore.SofascoreCollector(cfg)
+    rows = []
+    try:
+        for s in seasons:
+            for _, tid, level in cc.tournaments_for(s.code):
+                sid = collector.tournament_season_id(tid, s)
+                rows += [{"season": s.code, "sofascore_team_id": t["id"], "level": level}
+                         for t in collector.tournament_teams(tid, sid)]
+    finally:
+        collector.close()
+    ids = _sofascore_team_ids(fb, ss, matches)
+    participants = pd.DataFrame(rows).merge(ids, on=["season", "sofascore_team_id"]).rename(columns={"fbref_team_id": "club"})
+    europe = cc.europe_levels(participants)
+
+    elo = cc.read_clubelo([s.code for s in seasons], sd.ClubElo().read_by_date)
+    target = fb_teams[fb_teams["season"].isin(cfg.feature_seasons)]
+    elo_map = cc.map_clubelo(target, elo, er.load_aliases(cfg.paths.external / "team_aliases.csv", "clubelo"))
+    context = cc.build_club_context(target, us_map, table, membership, europe, elo, elo_map)
+
+    save_table(context, interim(cfg, "club_context"),
+               source="Understat (resultados), FBref (pertencimento às ligas), Sofascore (competições UEFA), ClubElo")
+    save_table(table, interim(cfg, "club_context_standings"), source="classificação calculada dos resultados do Understat")
+    return context
+
+
+# ----------------------------------------------------------------------------------------------
+# 8. Fusão
 # ----------------------------------------------------------------------------------------------
 TM_STATIC = ["tm_player", "tm_player_slug", "tm_birth_date", "tm_height_cm", "tm_foot", "tm_nationalities"]
 TM_SEASONAL = ["tm_team", "tm_club_id", "tm_position", "tm_joined_date_raw", "tm_signed_from", "tm_squad_value_eur"]
@@ -276,6 +354,7 @@ def build_dataset(
     ss: pd.DataFrame,
     matches: MatchOutputs,
     tm_players: dict[str, pd.DataFrame],
+    club_context: pd.DataFrame | None = None,
 ) -> pd.DataFrame:
     """Dataset bruto unificado: uma linha por (temporada, jogador FBref, clube FBref)."""
     base = fb.reset_index(drop=True).copy()
@@ -323,6 +402,12 @@ def build_dataset(
         base[f"{keep_prefix}match_score"] = m["match_score"].reindex(base.index)
         base[f"{keep_prefix}is_season_aggregate"] = m["is_season_aggregate"].reindex(base.index).fillna(False).astype(bool)
 
+    # Contexto do clube na temporada (prefixo ctx_): uma linha por clube-temporada de referência
+    if club_context is not None and not club_context.empty:
+        ctx = club_context[["season", "fbref_team_id", "league_rank_T", "league_points_T", *cc.CONTEXT_FEATURES]]
+        base = base.merge(ctx.rename(columns={c: f"ctx_{c}" for c in ctx.columns if c not in ("season", "fbref_team_id")}),
+                          on=["season", "fbref_team_id"], how="left")
+
     key = ["season", "fbref_player_id", "fbref_team_id"]
     if base.duplicated(key).any():
         raise ValueError("chave (season, fbref_player_id, fbref_team_id) duplicada após a fusão")
@@ -335,7 +420,8 @@ def build_dataset(
 
 
 def column_dictionary(df: pd.DataFrame) -> dict[str, str]:
-    source = {"fb_": "FBref", "us_": "Understat", "ss_": "Sofascore", "tm_profile_": "Transfermarkt (perfil, contrato ATUAL)",
+    source = {"fb_": "FBref", "us_": "Understat", "ss_": "Sofascore", "ctx_": "Contexto do clube em T (Transfermarkt + ClubElo)",
+              "tm_profile_": "Transfermarkt (perfil, contrato ATUAL)",
               "tm_value_": "Transfermarkt (histórico de valores; último valor ≤ 30/jun de T+k)", "tm_": "Transfermarkt (elenco)"}
     out = {}
     for col in df.columns:

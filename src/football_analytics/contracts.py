@@ -29,7 +29,8 @@ WITHOUT_CLUB_IDS = {515, 123}  # "Without Club", "Retired"
 NO_CLUB_NAMES = {"Without Club", "Retired", "Career break"}
 
 OBSERVED_METHODS = ("current_contract", "free_exit")
-ESTIMATED_METHODS = ("extension_after_T", "transfer_exit", "on_loan", "unrecorded_extension", "no_contract_data")
+ESTIMATED_METHODS = ("extension_after_T", "transfer_exit", "on_loan", "unrecorded_extension", "no_contract_data",
+                     "not_collected")
 METHOD_LABELS: dict[str, str] = {
     "current_contract": "Observado: contrato atual já vigente em T",
     "free_exit": "Observado: saída livre após T",
@@ -38,6 +39,7 @@ METHOD_LABELS: dict[str, str] = {
     "on_loan": "Estimado: emprestado em T",
     "unrecorded_extension": "Estimado: renovação não registrada",
     "no_contract_data": "Estimado: sem dado contratual",
+    "not_collected": "Sem coleta: histórico de transferências não coletado (bloqueio do Transfermarkt)",
 }
 
 
@@ -45,7 +47,7 @@ METHOD_LABELS: dict[str, str] = {
 class ContractAtT:
     club_id: float
     tenure_start: pd.Timestamp | None
-    on_loan: bool
+    on_loan: bool | float              # NaN quando o histórico de transferências não foi coletado
     expiry: pd.Timestamp | None
     method: str
 
@@ -108,12 +110,15 @@ def tenure_bucket(years: pd.Series) -> pd.Series:
 
 
 def contracts_at_anchor(
-    rows: pd.DataFrame, transfers: pd.DataFrame, profiles: pd.DataFrame
+    rows: pd.DataFrame, transfers: pd.DataFrame, profiles: pd.DataFrame, fetched: set[int] | None = None
 ) -> pd.DataFrame:
     """Contrato em T para cada linha (``tm_player_id``, ``anchor_date_T``, ``age_band``).
 
     Devolve, no mesmo índice: clube e tempo de casa em T, empréstimo, data de término, anos
     restantes, método (auditoria), flag de estimativa e status Bosman (último ano de contrato).
+    `fetched` é o conjunto de atletas cujo histórico de transferências foi coletado: sem ele, um
+    atleta não coletado pareceria ter "nenhuma transferência" (tempo de casa ausente e empréstimo
+    igual a zero); com ele, tempo de casa e empréstimo ficam ausentes (método ``not_collected``).
     """
     tr = transfers.copy()
     tr["transfer_date"] = pd.to_datetime(tr["transfer_date"], errors="coerce")
@@ -128,6 +133,9 @@ def contracts_at_anchor(
             records.append((idx, ContractAtT(np.nan, None, False, None, "no_contract_data")))
             continue
         pid = int(pid)
+        if fetched is not None and pid not in fetched:
+            records.append((idx, ContractAtT(np.nan, None, np.nan, None, "not_collected")))
+            continue
         moves = by_player.get(pid, tr.iloc[0:0])
         profile = prof.loc[pid] if pid in prof.index else None
         records.append((idx, contract_for(anchor, moves, profile)))

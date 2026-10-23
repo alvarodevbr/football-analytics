@@ -1,13 +1,16 @@
-﻿escopo,modelo,T+1,T+2
-Categoria,CatBoost,104.78355,66.67684
-Categoria,Mediana do treino (ingênuo),0.02266,0.01895
-Categoria,OLS,0.41742,0.31770
-Categoria,Random Forest,38.16837,21.96654
-Categoria,Ridge,15.10817,10.65777
-Categoria,XGBoost,11.69624,9.56038
-Global,CatBoost,17.04716,11.89957
-Global,Mediana do treino (ingênuo),0.00308,0.00242
-Global,OLS,0.04354,0.02878
-Global,Random Forest,42.20252,19.79257
-Global,Ridge,2.20065,1.45262
-Global,XGBoost,3.74202,3.86880
+﻿escopo,tipo,modelo,T+1,T+2
+3 × 3,otimizado,CatBoost,58.62499,40.87975
+3 × 3,otimizado,Mediana do treino (ingênuo),0.02678,0.02415
+3 × 3,otimizado,Ridge,12.31871,11.42390
+4 × 3,otimizado,CatBoost,68.48631,53.79571
+4 × 3,otimizado,Mediana do treino (ingênuo),0.03585,0.02555
+4 × 3,otimizado,Ridge,15.92260,14.64854
+Global,fixo,CatBoost,10.03670,5.01494
+Global,fixo,Ridge,3.10480,1.80582
+Global,fixo,XGBoost,9.43946,3.83813
+Global,otimizado,CatBoost,18.85405,9.75588
+Global,otimizado,Mediana do treino (ingênuo),0.00562,0.00365
+Global,otimizado,OLS,0.06125,0.03633
+Global,otimizado,Random Forest,56.46528,26.13192
+Global,otimizado,Ridge,2.40322,2.17034
+Global,otimizado,XGBoost,9.70121,4.92020

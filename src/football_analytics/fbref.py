@@ -12,6 +12,8 @@ todas as células vazias, inclusive nas temporadas antigas. `column_fill_rates` 
 
 from __future__ import annotations
 
+import importlib.util
+
 import re
 from collections.abc import Iterable
 from pathlib import Path
@@ -135,6 +137,19 @@ def column_fill_rates(df: pd.DataFrame) -> pd.Series:
     return df[stat_cols].notna().mean().sort_values()
 
 
+def _reconnect_through_challenge(reader) -> None:  # noqa: ANN001 - leitor do soccerdata
+    """Alternativa ao clique por GUI no desafio do Cloudflare.
+
+    O soccerdata tenta clicar na caixa de verificação com o pyautogui do seleniumbase, que, sem o
+    pacote de sistema `python3-tk`, encerra o processo com SystemExit. Aqui a página é reaberta com o
+    driver desconectado (modo UC), o que costuma liberar o desafio gerenciado sem clique, como no
+    Sofascore (`browser.BrowserJsonClient`).
+    """
+    driver = reader._driver  # noqa: SLF001
+    driver.uc_open_with_reconnect(driver.current_url, 8)
+    driver.sleep(4)
+
+
 class FBrefFetcher:
     """Busca páginas Big 5 com cache em disco; o Chrome só é aberto se faltar alguma página."""
 
@@ -156,6 +171,8 @@ class FBrefFetcher:
                 path_to_browser=find_chrome(),
                 headless=self.cfg.browser_headless,
             )
+            if importlib.util.find_spec("tkinter") is None:
+                self._reader.solve_captcha = lambda: _reconnect_through_challenge(self._reader)
         return self._reader
 
     def fetch(self, season: Season, page: str) -> str:

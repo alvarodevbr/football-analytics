@@ -1,0 +1,27 @@
+﻿modelo,p_mcs,no_conjunto,horizonte,avaliacao
+OLS,1.00000,True,T+1,desenvolvimento
+Pooling 3 × 3 — Pooling parcial,0.84920,True,T+1,desenvolvimento
+Pooling 4 × 3 — Pooling parcial,0.84920,True,T+1,desenvolvimento
+Ensemble (CatBoost + XGBoost + Ridge),0.34000,True,T+1,desenvolvimento
+Ridge,0.04680,False,T+1,desenvolvimento
+CatBoost,0.00960,False,T+1,desenvolvimento
+Random Forest,0.00960,False,T+1,desenvolvimento
+Seg. 3 × 3 — CatBoost,0.00000,False,T+1,desenvolvimento
+Seg. 3 × 3 — Ridge,0.00000,False,T+1,desenvolvimento
+Mediana do treino (ingênuo),0.00000,False,T+1,desenvolvimento
+Seg. 4 × 3 — Ridge,0.00000,False,T+1,desenvolvimento
+XGBoost,0.00000,False,T+1,desenvolvimento
+Seg. 4 × 3 — CatBoost,0.00000,False,T+1,desenvolvimento
+Pooling 3 × 3 — Pooling parcial,1.00000,True,T+2,desenvolvimento
+Pooling 4 × 3 — Pooling parcial,0.25580,True,T+2,desenvolvimento
+Ensemble (CatBoost + XGBoost + Ridge),0.03780,False,T+2,desenvolvimento
+OLS,0.01000,False,T+2,desenvolvimento
+CatBoost,0.00080,False,T+2,desenvolvimento
+Seg. 4 × 3 — CatBoost,0.00000,False,T+2,desenvolvimento
+Seg. 3 × 3 — CatBoost,0.00000,False,T+2,desenvolvimento
+Seg. 4 × 3 — Ridge,0.00000,False,T+2,desenvolvimento
+Seg. 3 × 3 — Ridge,0.00000,False,T+2,desenvolvimento
+Mediana do treino (ingênuo),0.00000,False,T+2,desenvolvimento
+XGBoost,0.00000,False,T+2,desenvolvimento
+Ridge,0.00000,False,T+2,desenvolvimento
+Random Forest,0.00000,False,T+2,desenvolvimento

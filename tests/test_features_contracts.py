@@ -104,3 +104,20 @@ def test_expanding_window_folds_with_purge():
     f2 = expanding_window_folds(seasons, horizon=2)
     assert [(f.train, f.purged, f.test) for f in f2][0] == (("1920",), ("2021",), "2122")
     assert len(f2) == 3 and all(len(f.purged) == 1 for f in f2)
+
+
+def test_contracts_mark_uncollected_history_as_missing():
+    import numpy as np
+    import pandas as pd
+
+    from football_analytics import contracts as ct
+
+    rows = pd.DataFrame({"tm_player_id": [1, 2], "anchor_date_T": pd.to_datetime(["2025-06-30"] * 2),
+                         "age_band": ["24–28", "24–28"]})
+    transfers = pd.DataFrame(columns=["tm_player_id", "transfer_date", "upcoming", "to_club_id", "from_club_id",
+                                      "is_loan", "is_end_of_loan", "fee_text", "to_club"])
+    profiles = pd.DataFrame(columns=["tm_player_id"])
+    out = ct.contracts_at_anchor(rows, transfers, profiles, fetched={1})
+    assert out.loc[0, "contract_method"] == "no_contract_data" and out.loc[0, "is_on_loan_T"] == 0.0
+    assert out.loc[1, "contract_method"] == "not_collected" and np.isnan(out.loc[1, "is_on_loan_T"])
+    assert np.isnan(out.loc[1, "tenure_years_T"])

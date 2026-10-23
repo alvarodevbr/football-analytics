@@ -1,14 +1,17 @@
 {
   "path": "predictions_oof.parquet",
-  "source": "notebook 04: previsões fora da amostra (janela expandida) de todos os modelos",
-  "n_rows": 174252,
-  "n_columns": 22,
-  "written_at": "2026-10-19T18:15:31",
+  "source": "notebook 04: previsões fora da amostra (janela expandida) de todos os modelos e variantes",
+  "n_rows": 369459,
+  "n_columns": 26,
+  "written_at": "2026-10-23T00:30:38",
   "columns": {
     "season": {
       "dtype": "object"
     },
     "fbref_player_id": {
+      "dtype": "object"
+    },
+    "fbref_team_id": {
       "dtype": "object"
     },
     "category": {
@@ -18,6 +21,9 @@
       "dtype": "int64"
     },
     "is_holdout": {
+      "dtype": "bool"
+    },
+    "has_target": {
       "dtype": "bool"
     },
     "y_true": {
@@ -41,6 +47,9 @@
     "scope": {
       "dtype": "object"
     },
+    "scope_col": {
+      "dtype": "object"
+    },
     "model": {
       "dtype": "object"
     },
@@ -49,6 +58,9 @@
     },
     "approach": {
       "dtype": "object"
+    },
+    "dev": {
+      "dtype": "bool"
     },
     "fb_player": {
       "dtype": "object"
@@ -65,10 +77,10 @@
     "position_group": {
       "dtype": "object"
     },
-    "dv_pct_pred": {
-      "dtype": "float64"
+    "category_3x3": {
+      "dtype": "object"
     },
-    "dv_pred": {
+    "dv_pct_pred": {
       "dtype": "float64"
     }
   }

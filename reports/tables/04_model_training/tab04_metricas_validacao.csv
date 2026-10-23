@@ -1,0 +1,33 @@
+﻿horizonte,approach,modelo,RMSE_log_validacao,R2_log_validacao,spearman_validacao,top10_hit_rate_validacao
+T+1,Global,CatBoost,0.52113,0.23245,0.50049,0.61151
+T+1,Global,Ensemble (CatBoost + XGBoost + Ridge),0.51830,0.24073,0.50898,0.61356
+T+1,Global,Mediana do treino (ingênuo),0.55820,0.12035,0.41789,0.51786
+T+1,Global,OLS,0.51865,0.23793,0.48537,0.60109
+T+1,Global,Random Forest,0.52258,0.22778,0.48578,0.62396
+T+1,Global,Ridge,0.52086,0.23192,0.50157,0.61873
+T+1,Global,Sem variação,0.61598,-0.07413,,0.29202
+T+1,Global,XGBoost,0.52418,0.22332,0.49457,0.61760
+T+1,Pooling 3 × 3,Pooling parcial,0.51806,0.24156,0.50968,0.62292
+T+1,Pooling 4 × 3,Pooling parcial,0.51801,0.24167,0.51020,0.62085
+T+1,Seg. 3 × 3,CatBoost,0.52810,0.21163,0.46508,0.60484
+T+1,Seg. 3 × 3,Mediana do treino (ingênuo),0.55974,0.11562,0.40924,0.52421
+T+1,Seg. 3 × 3,Ridge,0.53021,0.20547,0.46728,0.59488
+T+1,Seg. 4 × 3,CatBoost,0.52805,0.21166,0.46468,0.60590
+T+1,Seg. 4 × 3,Mediana do treino (ingênuo),0.55820,0.12035,0.41789,0.52421
+T+1,Seg. 4 × 3,Ridge,0.53019,0.20529,0.46564,0.59587
+T+2,Global,CatBoost,0.72479,0.31356,0.55211,0.65072
+T+2,Global,Ensemble (CatBoost + XGBoost + Ridge),0.72219,0.31819,0.55661,0.64370
+T+2,Global,Mediana do treino (ingênuo),0.77151,0.22309,0.47835,0.52973
+T+2,Global,OLS,0.72884,0.30565,0.53988,0.62972
+T+2,Global,Random Forest,0.72811,0.30703,0.54751,0.65420
+T+2,Global,Ridge,0.73117,0.30074,0.54441,0.65425
+T+2,Global,Sem variação,0.96036,-0.20326,,0.20710
+T+2,Global,XGBoost,0.72634,0.31035,0.54996,0.65248
+T+2,Pooling 3 × 3,Pooling parcial,0.72003,0.32229,0.56097,0.65426
+T+2,Pooling 4 × 3,Pooling parcial,0.72056,0.32140,0.55994,0.65601
+T+2,Seg. 3 × 3,CatBoost,0.73078,0.30162,0.54204,0.63317
+T+2,Seg. 3 × 3,Mediana do treino (ingênuo),0.77569,0.21447,0.46531,0.52973
+T+2,Seg. 3 × 3,Ridge,0.74645,0.27134,0.51393,0.62438
+T+2,Seg. 4 × 3,CatBoost,0.73150,0.30050,0.53599,0.63317
+T+2,Seg. 4 × 3,Mediana do treino (ingênuo),0.77151,0.22309,0.47835,0.52973
+T+2,Seg. 4 × 3,Ridge,0.74498,0.27436,0.51529,0.62790

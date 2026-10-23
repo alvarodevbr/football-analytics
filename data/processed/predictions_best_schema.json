@@ -1,14 +1,17 @@
 {
   "path": "predictions_best.parquet",
-  "source": "notebook 04: previsões fora da amostra da arquitetura final de cada horizonte",
-  "n_rows": 13404,
-  "n_columns": 30,
-  "written_at": "2026-10-19T18:15:31",
+  "source": "notebook 04: previsões fora da amostra da arquitetura final (inclui atletas sem V_{T+k})",
+  "n_rows": 15885,
+  "n_columns": 39,
+  "written_at": "2026-10-23T00:30:39",
   "columns": {
     "season": {
       "dtype": "object"
     },
     "fbref_player_id": {
+      "dtype": "object"
+    },
+    "fbref_team_id": {
       "dtype": "object"
     },
     "category": {
@@ -18,6 +21,9 @@
       "dtype": "int64"
     },
     "is_holdout": {
+      "dtype": "bool"
+    },
+    "has_target": {
       "dtype": "bool"
     },
     "y_true": {
@@ -41,6 +47,9 @@
     "scope": {
       "dtype": "object"
     },
+    "scope_col": {
+      "dtype": "object"
+    },
     "model": {
       "dtype": "object"
     },
@@ -49,6 +58,9 @@
     },
     "approach": {
       "dtype": "object"
+    },
+    "dev": {
+      "dtype": "bool"
     },
     "age_band": {
       "dtype": "object"
@@ -80,6 +92,9 @@
     "conformal_adj": {
       "dtype": "float64"
     },
+    "y_pred_global": {
+      "dtype": "float64"
+    },
     "fb_player": {
       "dtype": "object"
     },
@@ -91,6 +106,18 @@
     },
     "position_group": {
       "dtype": "object"
+    },
+    "category_3x3": {
+      "dtype": "object"
+    },
+    "value_T1_last_obs": {
+      "dtype": "float64"
+    },
+    "value_T2_last_obs": {
+      "dtype": "float64"
+    },
+    "value_last_obs": {
+      "dtype": "float64"
     },
     "dv_pct_pred": {
       "dtype": "float64"

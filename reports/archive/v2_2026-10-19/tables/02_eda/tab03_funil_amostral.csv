@@ -1,0 +1,8 @@
+﻿etapa,observacoes,atletas_unicos,retencao_etapa_pct,retencao_acumulada_pct,especificacao
+Registros FBref (jogador–clube–temporada),14217,5483,,,≈ 21.200 (N₀)
+Jogador–temporada,13544,5483,95.2662,100.0000,—
+Pareados com o Transfermarkt,13514,5462,99.7785,99.7785,≈ 18.500 (N₁)
+Exclusão de goleiros,12496,5049,92.4671,92.2623,≈ 16.800 (N₂)
+Minutagem ≥ 90 min em T,10966,4248,87.7561,80.9657,≈ 12.400 (N₃)
+Com valor de mercado em T,10824,4180,98.7051,79.9173,—
+Corte p90 de V_T,9810,4084,90.6319,72.4306,10.350 obs.; 4.217 atletas

@@ -25,4 +25,6 @@ xgboost==2.1.4
 catboost==1.2.8
 scikit-optimize==0.10.2   # otimização bayesiana com processo gaussiano (gp_minimize)
 shap==0.47.2
+arch==7.2.0               # Model Confidence Set (Hansen, Lunde e Nason, 2011)
+statsmodels==0.15.0       # dependência do arch
 joblib==1.4.2

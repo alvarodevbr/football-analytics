@@ -5,7 +5,8 @@
 * **Core Business Model:** *Buy-Low / Sell-High* (Estratégia de *Player Trading* voltada para clubes médios e desenvolvedores focada na identificação de ativos subavaliados com alto potencial de valorização).
 * **Temporal Horizons:** Previsão da variação de valor nos horizontes $T+1$ (1 temporada) e $T+2$ (2 temporadas) com base em atributos e métricas consolidadas no momento de referência $T$.
 * **Scope & Sample Filters:**
-  * **Ligas:** Premier League, La Liga, Serie A, Bundesliga e Ligue 1 (Temporadas 2019/20 a 2023/24).
+  * **Ligas:** Premier League, La Liga, Serie A, Bundesliga e Ligue 1 (Temporadas de referência 2018/19 a 2024/25; 2017/18 coletada só para defasagens).
+  * **Holdout pré-registrado (v3):** 2024/25 é o teste final de $T+1$ (alvo em 30/06/2026) e não pode orientar nenhuma decisão de modelagem antes do commit de `reports/protocol_v3.json`; o teste final de $T+2$ segue em 2023/24 (semi-independente, consultado nas versões 1 e 2).
   * **Filtro de Custo ($p90$):** Restrição estrita aos **90% atletas de menor valor de mercado** em $T$ (exclusão dos 10% mais caros / superestrelas para eliminar ruídos de *branding* e cláusulas atípicas).
   * **Filtro de Minutagem:** Mínimo de **90 minutos jogados** na temporada $T$ no FBref.
   * **Exclusão Técnica:** Goleiros excluídos (análise focada exclusivamente em jogadores de linha).
@@ -31,7 +32,7 @@
 ### `01_data_extraction.ipynb`
 * **Objetivo:** Coleta, extração e fusão inicial das fontes de dados.
 * **Ações:**
-  1. *Scraping* / Extração de métricas tático-técnicas do **FBref** (relatórios de passes, ações defensivas, criação de chances, xG, etc.) para as *Big Five* (2019/20 a 2023/24).
+  1. *Scraping* / Extração de métricas tático-técnicas do **FBref** (relatórios de passes, ações defensivas, criação de chances, xG, etc.) para as *Big Five* (2018/19 a 2024/25, mais 2017/18 para defasagens).
   2. *Scraping* / Extração do **Transfermarkt** (histórico de valor de mercado, data de término de contrato, data de nascimento, posição).
   3. Resolução de entidades (*Entity Resolution*) unificando atletas via alinhamento difuso de strings (`rapidfuzz`).
 * **Saída:** Dataset bruto consolidado (`data/raw/football_raw_dataset.csv` / `.parquet`).

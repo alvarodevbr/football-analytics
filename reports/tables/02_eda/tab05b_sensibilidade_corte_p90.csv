@@ -1,5 +1,5 @@
 ﻿cenario,limiar,obs_mantidas,pct_mantido,pct_premier_league_na_amostra,mediana_dvpct_T1_mantidos,mediana_dvpct_T1_excluidos,pct_valorizou_T1_mantidos,pct_valorizou_T1_excluidos
-p90 por temporada (adotado),€27–32 mi,9810,90.6319,17.1560,-20.0000,-11.1111,27.6327,31.5582
-p90 único (temporadas agrupadas),€30 mi,9851,91.0107,17.1759,-20.0000,-10.7143,27.6809,31.2436
-"Limiar fixo de €18 mi (Müller et al., 2017)",€18 mi,8799,81.2916,14.8994,-20.0000,-11.1111,27.1559,31.6362
-p90 por liga e temporada,€16–55 mi,9865,91.1401,19.6553,-20.0000,-10.7143,27.5350,32.7766
+p90 por temporada (adotado),€27–32 mi,13748,90.5427,17.1298,-20.0000,-13.5802,25.7261,27.8917
+p90 único (temporadas agrupadas),€30 mi,13776,90.7271,17.0949,-20.0000,-13.2456,25.7731,27.5042
+"Limiar fixo de €18 mi (Müller et al., 2017)",€18 mi,12266,80.7824,14.7318,-20.0000,-15.0000,25.3648,28.3429
+p90 por liga e temporada,€15–55 mi,13815,90.9839,19.6308,-20.0000,-14.2857,25.6713,28.5347

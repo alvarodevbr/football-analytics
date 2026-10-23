@@ -41,6 +41,16 @@ AGE_BANDS: tuple[tuple[str, int, int], ...] = (
     ("33+", 33, 200),
 )
 AGE_BAND_LABELS: tuple[str, ...] = tuple(b[0] for b in AGE_BANDS)
+# Matriz 3 × 3 de Khalife et al. (2025), usada só no teste da hipótese H2 (4 × 3 contra 3 × 3).
+AGE_BANDS_3X3: tuple[tuple[str, int, int], ...] = (
+    ("16–23", 0, 23),
+    ("24–29", 24, 29),
+    ("30+", 30, 200),
+)
+AGE_BAND_3X3_LABELS: tuple[str, ...] = tuple(b[0] for b in AGE_BANDS_3X3)
+TARGET_COLUMNS: dict[int, tuple[str, ...]] = {
+    k: (f"tm_value_T{k}", f"delta_v_T{k}", f"delta_v_pct_T{k}", f"log_return_T{k}") for k in (1, 2)
+}
 
 LEAGUE_LABELS: dict[str, str] = {
     "ENG-Premier League": "Premier League",
@@ -72,30 +82,52 @@ def completed_years(birth: pd.Series, reference: pd.Series) -> pd.Series:
     return (years - before_birthday.astype(int)).where(birth.notna() & reference.notna()).astype("Int64")
 
 
-def age_band(age: pd.Series) -> pd.Series:
+def age_band(age: pd.Series, bands: tuple[tuple[str, int, int], ...] = AGE_BANDS) -> pd.Series:
     out = pd.Series(pd.NA, index=age.index, dtype="object")
-    for label, low, high in AGE_BANDS:
+    for label, low, high in bands:
         out[(age >= low) & (age <= high)] = label
-    return pd.Categorical(out, categories=AGE_BAND_LABELS, ordered=True)
+    return pd.Categorical(out, categories=[b[0] for b in bands], ordered=True)
 
 
-def category_id(band: pd.Series, position: pd.Series) -> pd.Series:
-    """C1–C12 na ordem da Tabela 5.2: faixa etária (linhas) × DEF/MEI/ATA (colunas)."""
-    band_idx = pd.Series(pd.Categorical(band, categories=AGE_BAND_LABELS).codes, index=band.index)
+def category_id(band: pd.Series, position: pd.Series, labels: tuple[str, ...] = AGE_BAND_LABELS,
+                prefix: str = "C") -> pd.Series:
+    """C1–C12 na ordem da Tabela 5.2: faixa etária (linhas) × DEF/MEI/ATA (colunas).
+
+    Com as faixas 3 × 3 e `prefix="K"`, gera K1–K9 na mesma ordem.
+    """
+    band_idx = pd.Series(pd.Categorical(band, categories=labels).codes, index=band.index)
     pos_idx = position.map({p: i for i, p in enumerate(POSITIONS)})
     valid = (band_idx >= 0) & pos_idx.notna()
     number = band_idx * len(POSITIONS) + pos_idx.fillna(0).astype(int) + 1
-    return ("C" + number.astype(str)).where(valid)
+    return (prefix + number.astype(str)).where(valid)
 
 
-def category_labels() -> dict[str, str]:
-    """``{"C1": "C1 · DEF 16–23", ...}``."""
-    labels = {}
-    for b, band in enumerate(AGE_BAND_LABELS):
+def category_labels(labels: tuple[str, ...] = AGE_BAND_LABELS, prefix: str = "C") -> dict[str, str]:
+    """``{"C1": "C1 · DEF 16–23", ...}`` (ou ``{"K1": "K1 · DEF 16–23", ...}`` na matriz 3 × 3)."""
+    out = {}
+    for b, band in enumerate(labels):
         for p, pos in enumerate(POSITIONS):
-            cid = f"C{b * len(POSITIONS) + p + 1}"
-            labels[cid] = f"{cid} · {pos} {band}"
-    return labels
+            cid = f"{prefix}{b * len(POSITIONS) + p + 1}"
+            out[cid] = f"{cid} · {pos} {band}"
+    return out
+
+
+def decimal_years(birth: pd.Series, reference: pd.Series) -> pd.Series:
+    """Idade em anos com fração (dias / 365,25): evita o degrau do aniversário nas features."""
+    return ((reference - birth).dt.days / 365.25).where(birth.notna() & reference.notna())
+
+
+def mask_holdout_targets(df: pd.DataFrame, holdouts: dict[int, str]) -> pd.DataFrame:
+    """Cópia com os alvos do teste pré-registrado ocultos (NaN), para as análises exploratórias.
+
+    `holdouts` mapeia o horizonte à temporada cujo alvo não pode ser examinado antes do commit do
+    protocolo (por exemplo, ``{1: "2425"}``). As colunas ausentes no frame são ignoradas.
+    """
+    out = df.copy()
+    for k, season in holdouts.items():
+        cols = [c for c in TARGET_COLUMNS[k] if c in out.columns]
+        out.loc[out["season"] == season, cols] = np.nan
+    return out
 
 
 def to_player_season(rows: pd.DataFrame, sum_cols: tuple[str, ...] = ("fb_minutes",)) -> pd.DataFrame:
@@ -124,8 +156,12 @@ def add_demographics(df: pd.DataFrame) -> pd.DataFrame:
     out["birth_date_is_estimated"] = birth.isna() & fallback.notna()
     out["birth_date"] = birth.fillna(fallback)
     out["age_T"] = completed_years(out["birth_date"], out["anchor_date_T"])
+    out["age_decimal_T"] = decimal_years(out["birth_date"], out["anchor_date_T"])
     out["age_band"] = age_band(out["age_T"])
     out["category"] = category_id(pd.Series(out["age_band"], index=out.index), out["position_group"])
+    out["age_band_3x3"] = age_band(out["age_T"], AGE_BANDS_3X3)
+    out["category_3x3"] = category_id(pd.Series(out["age_band_3x3"], index=out.index), out["position_group"],
+                                      AGE_BAND_3X3_LABELS, prefix="K")
     return out
 
 
