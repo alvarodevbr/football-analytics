@@ -1,9 +1,9 @@
 {
   "path": "predictions_oof.parquet",
   "source": "notebook 04: previsões fora da amostra (janela expandida) de todos os modelos e variantes",
-  "n_rows": 369459,
+  "n_rows": 463587,
   "n_columns": 26,
-  "written_at": "2026-10-23T00:30:38",
+  "written_at": "2026-10-23T00:36:55",
   "columns": {
     "season": {
       "dtype": "object"

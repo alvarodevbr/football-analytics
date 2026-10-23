@@ -1,9 +1,9 @@
 {
   "path": "shap_values_T2.parquet",
   "source": "notebook 05: SHAP do ensemble global, T+2",
-  "n_rows": 9357,
-  "n_columns": 110,
-  "written_at": "2026-10-19T18:31:38",
+  "n_rows": 11214,
+  "n_columns": 113,
+  "written_at": "2026-10-23T14:14:02",
   "columns": {
     "age": {
       "dtype": "float64"
@@ -41,12 +41,6 @@
     "is_domestic": {
       "dtype": "float64"
     },
-    "tenure_years_T": {
-      "dtype": "float64"
-    },
-    "is_on_loan_T": {
-      "dtype": "float64"
-    },
     "log_value_T": {
       "dtype": "float64"
     },
@@ -69,6 +63,21 @@
       "dtype": "float64"
     },
     "league_log_return_lag1_T": {
+      "dtype": "float64"
+    },
+    "league_rank_pct_T": {
+      "dtype": "float64"
+    },
+    "league_gd_per_match_T": {
+      "dtype": "float64"
+    },
+    "promoted_T": {
+      "dtype": "float64"
+    },
+    "relegated_T": {
+      "dtype": "float64"
+    },
+    "europe_T": {
       "dtype": "float64"
     },
     "minutes": {

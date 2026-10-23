@@ -4,46 +4,58 @@ T+1,Sem variação,2020/21,0.56875
 T+1,Sem variação,2021/22,0.60429
 T+1,Sem variação,2022/23,0.61888
 T+1,Sem variação,2023/24,0.62350
+T+1,Sem variação,2024/25,0.67255
 T+1,Mediana do treino (ingênuo),2019/20,0.63631
 T+1,Mediana do treino (ingênuo),2020/21,0.50620
 T+1,Mediana do treino (ingênuo),2021/22,0.53818
 T+1,Mediana do treino (ingênuo),2022/23,0.56001
 T+1,Mediana do treino (ingênuo),2023/24,0.55027
+T+1,Mediana do treino (ingênuo),2024/25,0.61418
 T+1,Ridge,2019/20,0.58204
 T+1,Ridge,2020/21,0.49376
 T+1,Ridge,2021/22,0.50137
 T+1,Ridge,2022/23,0.51930
 T+1,Ridge,2023/24,0.50781
+T+1,Ridge,2024/25,0.54449
 T+1,XGBoost,2019/20,0.60520
 T+1,XGBoost,2020/21,0.48907
 T+1,XGBoost,2021/22,0.50105
 T+1,XGBoost,2022/23,0.51607
 T+1,XGBoost,2023/24,0.50952
+T+1,XGBoost,2024/25,0.54555
 T+1,CatBoost,2019/20,0.59632
 T+1,CatBoost,2020/21,0.48418
 T+1,CatBoost,2021/22,0.49948
 T+1,CatBoost,2022/23,0.51756
 T+1,CatBoost,2023/24,0.50809
+T+1,CatBoost,2024/25,0.54771
 T+1,Ensemble (CatBoost + XGBoost + Ridge),2019/20,0.59144
 T+1,Ensemble (CatBoost + XGBoost + Ridge),2020/21,0.48146
 T+1,Ensemble (CatBoost + XGBoost + Ridge),2021/22,0.49739
 T+1,Ensemble (CatBoost + XGBoost + Ridge),2022/23,0.51525
 T+1,Ensemble (CatBoost + XGBoost + Ridge),2023/24,0.50596
+T+1,Ensemble (CatBoost + XGBoost + Ridge),2024/25,0.54329
 T+2,Sem variação,2020/21,0.93615
 T+2,Sem variação,2021/22,0.96444
 T+2,Sem variação,2022/23,0.98050
+T+2,Sem variação,2023/24,0.99156
 T+2,Mediana do treino (ingênuo),2020/21,0.75623
 T+2,Mediana do treino (ingênuo),2021/22,0.77976
 T+2,Mediana do treino (ingênuo),2022/23,0.77854
+T+2,Mediana do treino (ingênuo),2023/24,0.78888
 T+2,Ridge,2020/21,0.73644
 T+2,Ridge,2021/22,0.72505
 T+2,Ridge,2022/23,0.73204
+T+2,Ridge,2023/24,0.72822
 T+2,XGBoost,2020/21,0.72663
 T+2,XGBoost,2021/22,0.72452
 T+2,XGBoost,2022/23,0.72788
+T+2,XGBoost,2023/24,0.72767
 T+2,CatBoost,2020/21,0.72207
 T+2,CatBoost,2021/22,0.72245
 T+2,CatBoost,2022/23,0.72985
+T+2,CatBoost,2023/24,0.72951
 T+2,Ensemble (CatBoost + XGBoost + Ridge),2020/21,0.72281
 T+2,Ensemble (CatBoost + XGBoost + Ridge),2021/22,0.71911
 T+2,Ensemble (CatBoost + XGBoost + Ridge),2022/23,0.72467
+T+2,Ensemble (CatBoost + XGBoost + Ridge),2023/24,0.72425

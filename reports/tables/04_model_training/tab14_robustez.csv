@@ -5,9 +5,21 @@ T+1,desenvolvimento,Taxas cruas (sem encolhimento),9682,0.52006,0.23835,0.47185,
 T+1,desenvolvimento,Sem 2018/19 no treino,7798,0.51778,0.20424,0.46563,0.53787,0.00000
 T+1,desenvolvimento,XGBoost principal,9682,0.52522,0.22316,0.45208,0.58368,0.00000
 T+1,desenvolvimento,XGBoost + contrato reconstruído (look-ahead),9682,0.52066,0.23658,0.46927,0.59194,0.10722
+T+1,teste final,Ensemble principal,1952,0.54329,0.32895,0.55995,0.70769,
+T+1,teste final,Hiperparâmetros-padrão,1952,0.54156,0.33321,0.56159,0.70769,0.11785
+T+1,teste final,Taxas cruas (sem encolhimento),1952,0.54269,0.33042,0.55981,0.72308,0.51090
+T+1,teste final,Sem 2018/19 no treino,1952,0.54442,0.32616,0.55919,0.70256,0.17839
+T+1,teste final,XGBoost principal,1952,0.54555,0.32335,0.55053,0.69231,0.16485
+T+1,teste final,XGBoost + contrato reconstruído (look-ahead),1952,0.54316,0.32926,0.55853,0.71795,0.94848
 T+2,desenvolvimento,Ensemble principal,5709,0.72219,0.32120,0.55021,0.65263,
 T+2,desenvolvimento,Hiperparâmetros-padrão,5709,0.72200,0.32157,0.54986,0.64912,0.86312
 T+2,desenvolvimento,Taxas cruas (sem encolhimento),5709,0.72243,0.32076,0.55003,0.65789,0.63637
 T+2,desenvolvimento,Sem 2018/19 no treino,3819,0.73558,0.32364,0.56160,0.66142,0.00000
 T+2,desenvolvimento,XGBoost principal,5709,0.72634,0.31338,0.54271,0.64386,0.00010
 T+2,desenvolvimento,XGBoost + contrato reconstruído (look-ahead),5709,0.72149,0.32252,0.54835,0.65789,0.61407
+T+2,teste final,Ensemble principal,1879,0.72425,0.37762,0.60394,0.64171,
+T+2,teste final,Hiperparâmetros-padrão,1879,0.72375,0.37849,0.60305,0.62032,0.65138
+T+2,teste final,Taxas cruas (sem encolhimento),1879,0.72489,0.37652,0.60360,0.65241,0.27802
+T+2,teste final,Sem 2018/19 no treino,1879,0.72872,0.36991,0.60036,0.63102,0.00488
+T+2,teste final,XGBoost principal,1879,0.72767,0.37173,0.59986,0.65241,0.04693
+T+2,teste final,XGBoost + contrato reconstruído (look-ahead),1879,0.72336,0.37915,0.60483,0.65775,0.73567

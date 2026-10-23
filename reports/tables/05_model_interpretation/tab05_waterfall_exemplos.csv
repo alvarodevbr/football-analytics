@@ -1,37 +1,37 @@
 ﻿atleta,variavel,shap
-Yoel Lago,Idade,0.29991
-Yoel Lago,% do valor do elenco,0.25655
-Yoel Lago,log V_T,0.22896
-Yoel Lago,Gap de avaliação,0.18228
-Yoel Lago,Idade²,0.13126
-Yoel Lago,Valor justo (log),0.03595
-Yoel Lago,Passes tentados /90,0.02941
-Yoel Lago,Distância ao pico de valor,0.02830
-Yoel Lago,Demais variáveis,0.09995
-Antonios Papadopoulos,% do valor do elenco,0.16707
-Antonios Papadopoulos,log V_T,0.12171
-Antonios Papadopoulos,Idade,0.12032
-Antonios Papadopoulos,Gap de avaliação,0.05907
-Antonios Papadopoulos,Idade²,0.05205
-Antonios Papadopoulos,Pontos/jogo da equipe,0.04164
-Antonios Papadopoulos,Variação do valor em 6 meses,0.03596
-Antonios Papadopoulos,% dos minutos possíveis,-0.02816
-Antonios Papadopoulos,Demais variáveis,0.12308
-Emil Krafth,Idade,-0.14526
-Emil Krafth,Gap de avaliação,0.13021
-Emil Krafth,Idade²,-0.05575
-Emil Krafth,log V_T,0.04455
-Emil Krafth,Liga,0.03597
-Emil Krafth,% do valor do elenco,0.02905
-Emil Krafth,Faixa etária,-0.02759
-Emil Krafth,Ranking de valor do elenco (Big Five),0.02661
-Emil Krafth,Demais variáveis,-0.04848
-Cristian Herrera,Idade,-0.25514
-Cristian Herrera,log V_T,0.21439
-Cristian Herrera,Gap de avaliação,0.13203
-Cristian Herrera,Idade²,-0.12633
-Cristian Herrera,% do valor do elenco,0.05760
-Cristian Herrera,npxG /90,0.04216
-Cristian Herrera,xG /90,0.03918
-Cristian Herrera,Gols sem pênaltis /90,-0.03612
-Cristian Herrera,Demais variáveis,-0.11811
+Kyllian Antonio,Idade,0.29948
+Kyllian Antonio,Gap de avaliação,0.28869
+Kyllian Antonio,% do valor do elenco,0.23345
+Kyllian Antonio,Idade²,0.21818
+Kyllian Antonio,log V_T,0.14063
+Kyllian Antonio,Distância ao pico de valor,0.03394
+Kyllian Antonio,Faixa etária,0.03149
+Kyllian Antonio,Valor justo (log),0.03031
+Kyllian Antonio,Demais variáveis,0.10909
+Edmond-Paris Maghoma,Gap de avaliação,0.26860
+Edmond-Paris Maghoma,% do valor do elenco,0.21226
+Edmond-Paris Maghoma,Idade,0.08978
+Edmond-Paris Maghoma,Variação do valor em 6 meses,0.08789
+Edmond-Paris Maghoma,log V_T,0.07646
+Edmond-Paris Maghoma,Idade²,0.06769
+Edmond-Paris Maghoma,Distância ao pico de valor,0.03288
+Edmond-Paris Maghoma,Jogou nas Big Five em T−1,0.02658
+Edmond-Paris Maghoma,Demais variáveis,0.09538
+Denis Vavro,Gap de avaliação,0.10873
+Denis Vavro,Idade,-0.08647
+Denis Vavro,Variação do valor em 6 meses,0.06252
+Denis Vavro,Idade²,-0.05913
+Denis Vavro,Faixa etária,-0.04208
+Denis Vavro,Nota Sofascore,0.03986
+Denis Vavro,Jogou nas Big Five em T−1,0.02631
+Denis Vavro,Valor justo (log),-0.02323
+Denis Vavro,Demais variáveis,0.05404
+Dante,Gap de avaliação,0.24720
+Dante,Idade,-0.22622
+Dante,Idade²,-0.19562
+Dante,% do valor do elenco,0.11829
+Dante,log V_T,0.08620
+Dante,Δ % dos minutos (T−1→T),-0.04063
+Dante,Distância ao pico de valor,-0.02835
+Dante,Faixa etária,-0.02020
+Dante,Demais variáveis,0.09868

@@ -18,26 +18,34 @@ Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfer
 `fig04_top5_por_categoria.png`  
 Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Linhas: faixas etárias (16–23, 24–28, 29–32, 33+). Colunas: defensores, meio-campistas e atacantes.
 
-**Figura 5 – As dez métricas tático-técnicas com maior contribuição para a valorização em T+1, por posição**  
+**Figura 5 – Participação da idade e do desempenho tático-técnico na explicação SHAP, por faixa etária**  
+`fig03b_participacao_faixa_ic95.png`  
+Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Hastes: IC de 95% por bootstrap de clubes × temporada (1.000 reamostragens).
+
+**Figura 6 – As dez métricas tático-técnicas com maior contribuição para a valorização em T+1, por posição**  
 `fig05_desempenho_por_posicao.png`  
 Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: (+): valores altos da métrica elevam a valorização prevista; (−): reduzem.
 
-**Figura 6 – Gráficos de dependência SHAP das principais variáveis para a valorização em T+1**  
+**Figura 7 – Gráficos de dependência SHAP das principais variáveis para a valorização em T+1**  
 `fig06_dependencia_shap.png`  
 Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Cada ponto é um atleta–temporada; extremos (1% de cada lado) omitidos.
 
-**Figura 7 – Decomposição SHAP da previsão de valorização em T+1 para o atleta de maior valorização esperada em cada faixa etária (2023/24)**  
+**Figura 8 – Participação dos grupos de variáveis na explicação SHAP do modelo de cada dobra, por temporada de teste**  
+`fig11_estabilidade_shap_dobras.png`  
+Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Modelos reajustados no treino de cada dobra, com os hiperparâmetros do modelo final; SHAP na temporada de teste.
+
+**Figura 9 – Decomposição SHAP da previsão de valorização em T+1 para o atleta de maior valorização esperada em cada faixa etária (2024/25)**  
 `fig07_waterfall_exemplos.png`  
-Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Previsões fora da amostra do teste final; contribuições do modelo final. Valores em log-retorno.
+Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Modelo da dobra do teste final, o mesmo que gerou a previsão. Valores em log-retorno.
 
-**Figura 8 – ROI realizado das carteiras de recrutamento por estratégia e temporada de decisão (backtest fora da amostra)**  
+**Figura 10 – ROI realizado das carteiras de recrutamento por estratégia e temporada de decisão (backtest fora da amostra)**  
 `fig08_backtest_estrategias.png`  
-Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Carteiras com 10% dos candidatos de cada temporada e universo. ROI = ΣΔV / ΣV_T. Haste na estratégia aleatória: intervalo de 5% a 95% de 2.000 sorteios.
+Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Cenário principal: compra por V_T × 1,10, venda por V_{T+k} × 0,90 e atletas sem V_{T+k} valendo zero. Carteiras com 10% dos candidatos. Haste na estratégia aleatória: intervalo de 5% a 95% de 2.000 sorteios.
 
-**Figura 9 – Distribuição do ROI de carteiras com orçamento de € 40 milhões: modelo versus ordem de compra aleatória**  
+**Figura 11 – Distribuição do ROI de carteiras com orçamento de € 40 milhões: modelo versus ordem de compra aleatória**  
 `fig09_orcamento_risco.png`  
-Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Até 6 atletas com V_T entre € 2 e € 15 milhões. Histograma: 2.000 sorteios por temporada, temporadas agrupadas.
+Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Até 6 atletas com V_T entre € 2 e € 15 milhões, no máximo 2 por posição e 3 por faixa etária; compra por V_T × 1,10 e venda por V_{T+k} × 0,90, atletas sem V_{T+k} valendo zero. Histograma: 2.000 sorteios por temporada.
 
-**Figura 10 – Mapa de oportunidades de recrutamento em 30/06/2024: retorno esperado versus cenário pessimista em T+1**  
+**Figura 12 – Mapa de oportunidades de recrutamento em 30/06/2025: retorno esperado versus cenário pessimista em T+1**  
 `fig10_mapa_oportunidades.png`  
 Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Tamanho do ponto proporcional a V_T. Rótulos: oito maiores retornos esperados na faixa de € 2–15 milhões. Previsões fora da amostra.

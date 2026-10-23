@@ -1,9 +1,9 @@
 {
   "path": "predictions_best.parquet",
   "source": "notebook 04: previsões fora da amostra da arquitetura final (inclui atletas sem V_{T+k})",
-  "n_rows": 15885,
+  "n_rows": 19807,
   "n_columns": 39,
-  "written_at": "2026-10-23T00:30:39",
+  "written_at": "2026-10-23T00:36:55",
   "columns": {
     "season": {
       "dtype": "object"

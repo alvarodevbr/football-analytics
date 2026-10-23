@@ -1,295 +1,295 @@
 ﻿horizonte,particao,categoria,arquitetura,n,RMSE_log,R2_log,spearman
-T+1,4 × 3,C1 · DEF 16–23,Global — Ensemble (CatBoost + XGBoost + Ridge),969,0.65394,0.09950,0.28890
-T+1,4 × 3,C10 · DEF 33+,Global — Ensemble (CatBoost + XGBoost + Ridge),345,0.43879,0.04947,0.29188
-T+1,4 × 3,C11 · MEI 33+,Global — Ensemble (CatBoost + XGBoost + Ridge),264,0.36357,0.01171,0.25269
-T+1,4 × 3,C12 · ATA 33+,Global — Ensemble (CatBoost + XGBoost + Ridge),239,0.43193,0.01856,0.22347
-T+1,4 × 3,C2 · MEI 16–23,Global — Ensemble (CatBoost + XGBoost + Ridge),844,0.68956,0.12731,0.31130
-T+1,4 × 3,C3 · ATA 16–23,Global — Ensemble (CatBoost + XGBoost + Ridge),826,0.65542,0.10121,0.24204
-T+1,4 × 3,C4 · DEF 24–28,Global — Ensemble (CatBoost + XGBoost + Ridge),1582,0.48073,0.03009,0.24544
-T+1,4 × 3,C5 · MEI 24–28,Global — Ensemble (CatBoost + XGBoost + Ridge),1227,0.47805,0.01118,0.19408
-T+1,4 × 3,C6 · ATA 24–28,Global — Ensemble (CatBoost + XGBoost + Ridge),1081,0.51534,0.02238,0.17694
-T+1,4 × 3,C7 · DEF 29–32,Global — Ensemble (CatBoost + XGBoost + Ridge),980,0.38231,0.11321,0.33546
-T+1,4 × 3,C8 · MEI 29–32,Global — Ensemble (CatBoost + XGBoost + Ridge),723,0.40071,0.06834,0.27122
-T+1,4 × 3,C9 · ATA 29–32,Global — Ensemble (CatBoost + XGBoost + Ridge),602,0.40894,0.07288,0.27163
-T+1,3 × 3,K1 · DEF 16–23,Global — Ensemble (CatBoost + XGBoost + Ridge),969,0.65394,0.09950,0.28890
-T+1,3 × 3,K2 · MEI 16–23,Global — Ensemble (CatBoost + XGBoost + Ridge),844,0.68956,0.12731,0.31130
-T+1,3 × 3,K3 · ATA 16–23,Global — Ensemble (CatBoost + XGBoost + Ridge),826,0.65542,0.10121,0.24204
-T+1,3 × 3,K4 · DEF 24–29,Global — Ensemble (CatBoost + XGBoost + Ridge),1875,0.47060,0.06692,0.29752
-T+1,3 × 3,K5 · MEI 24–29,Global — Ensemble (CatBoost + XGBoost + Ridge),1438,0.47058,0.04771,0.25092
-T+1,3 × 3,K6 · ATA 24–29,Global — Ensemble (CatBoost + XGBoost + Ridge),1263,0.50436,0.07051,0.24831
-T+1,3 × 3,K7 · DEF 30+,Global — Ensemble (CatBoost + XGBoost + Ridge),1032,0.39379,0.08134,0.28878
-T+1,3 × 3,K8 · MEI 30+,Global — Ensemble (CatBoost + XGBoost + Ridge),776,0.38155,0.02167,0.22778
-T+1,3 × 3,K9 · ATA 30+,Global — Ensemble (CatBoost + XGBoost + Ridge),659,0.41054,0.05064,0.24848
-T+1,4 × 3,C1 · DEF 16–23,Seg. 4 × 3 — CatBoost,969,0.66061,0.08102,0.24175
-T+1,4 × 3,C10 · DEF 33+,Seg. 4 × 3 — CatBoost,345,0.44672,0.01478,0.19058
-T+1,4 × 3,C11 · MEI 33+,Seg. 4 × 3 — CatBoost,264,0.36363,0.01140,0.13499
-T+1,4 × 3,C12 · ATA 33+,Seg. 4 × 3 — CatBoost,239,0.43707,-0.00493,0.16931
-T+1,4 × 3,C2 · MEI 16–23,Seg. 4 × 3 — CatBoost,844,0.70710,0.08234,0.23767
-T+1,4 × 3,C3 · ATA 16–23,Seg. 4 × 3 — CatBoost,826,0.66466,0.07570,0.21171
-T+1,4 × 3,C4 · DEF 24–28,Seg. 4 × 3 — CatBoost,1582,0.49344,-0.02184,0.16763
-T+1,4 × 3,C5 · MEI 24–28,Seg. 4 × 3 — CatBoost,1227,0.48817,-0.03111,0.04619
-T+1,4 × 3,C6 · ATA 24–28,Seg. 4 × 3 — CatBoost,1081,0.52071,0.00188,0.12935
-T+1,4 × 3,C7 · DEF 29–32,Seg. 4 × 3 — CatBoost,980,0.39485,0.05407,0.24114
-T+1,4 × 3,C8 · MEI 29–32,Seg. 4 × 3 — CatBoost,723,0.40980,0.02563,0.17835
-T+1,4 × 3,C9 · ATA 29–32,Seg. 4 × 3 — CatBoost,602,0.41761,0.03317,0.19362
-T+1,3 × 3,K1 · DEF 16–23,Seg. 4 × 3 — CatBoost,969,0.66061,0.08102,0.24175
-T+1,3 × 3,K2 · MEI 16–23,Seg. 4 × 3 — CatBoost,844,0.70710,0.08234,0.23767
-T+1,3 × 3,K3 · ATA 16–23,Seg. 4 × 3 — CatBoost,826,0.66466,0.07570,0.21171
-T+1,3 × 3,K4 · DEF 24–29,Seg. 4 × 3 — CatBoost,1875,0.48405,0.01282,0.22064
-T+1,3 × 3,K5 · MEI 24–29,Seg. 4 × 3 — CatBoost,1438,0.48161,0.00253,0.13596
-T+1,3 × 3,K6 · ATA 24–29,Seg. 4 × 3 — CatBoost,1263,0.51057,0.04747,0.21890
-T+1,3 × 3,K7 · DEF 30+,Seg. 4 × 3 — CatBoost,1032,0.40288,0.03841,0.20365
-T+1,3 × 3,K8 · MEI 30+,Seg. 4 × 3 — CatBoost,776,0.38528,0.00245,0.13433
-T+1,3 × 3,K9 · ATA 30+,Seg. 4 × 3 — CatBoost,659,0.41685,0.02124,0.18602
-T+1,4 × 3,C1 · DEF 16–23,Seg. 4 × 3 — Ridge,969,0.67138,0.05083,0.25162
-T+1,4 × 3,C10 · DEF 33+,Seg. 4 × 3 — Ridge,345,0.45105,-0.00439,0.00402
-T+1,4 × 3,C11 · MEI 33+,Seg. 4 × 3 — Ridge,264,0.36420,0.00829,0.13641
-T+1,4 × 3,C12 · ATA 33+,Seg. 4 × 3 — Ridge,239,0.44056,-0.02101,0.04776
-T+1,4 × 3,C2 · MEI 16–23,Seg. 4 × 3 — Ridge,844,0.70949,0.07613,0.23771
-T+1,4 × 3,C3 · ATA 16–23,Seg. 4 × 3 — Ridge,826,0.67211,0.05487,0.21434
-T+1,4 × 3,C4 · DEF 24–28,Seg. 4 × 3 — Ridge,1582,0.48290,0.02134,0.21071
-T+1,4 × 3,C5 · MEI 24–28,Seg. 4 × 3 — Ridge,1227,0.48625,-0.02299,0.11882
-T+1,4 × 3,C6 · ATA 24–28,Seg. 4 × 3 — Ridge,1081,0.52738,-0.02383,0.07637
-T+1,4 × 3,C7 · DEF 29–32,Seg. 4 × 3 — Ridge,980,0.39874,0.03537,0.19740
-T+1,4 × 3,C8 · MEI 29–32,Seg. 4 × 3 — Ridge,723,0.40903,0.02927,0.19063
-T+1,4 × 3,C9 · ATA 29–32,Seg. 4 × 3 — Ridge,602,0.42138,0.01565,0.12279
-T+1,3 × 3,K1 · DEF 16–23,Seg. 4 × 3 — Ridge,969,0.67138,0.05083,0.25162
-T+1,3 × 3,K2 · MEI 16–23,Seg. 4 × 3 — Ridge,844,0.70949,0.07613,0.23771
-T+1,3 × 3,K3 · ATA 16–23,Seg. 4 × 3 — Ridge,826,0.67211,0.05487,0.21434
-T+1,3 × 3,K4 · DEF 24–29,Seg. 4 × 3 — Ridge,1875,0.47579,0.04621,0.25714
-T+1,3 × 3,K5 · MEI 24–29,Seg. 4 × 3 — Ridge,1438,0.47846,0.01551,0.20168
-T+1,3 × 3,K6 · ATA 24–29,Seg. 4 × 3 — Ridge,1263,0.51641,0.02555,0.17822
-T+1,3 × 3,K7 · DEF 30+,Seg. 4 × 3 — Ridge,1032,0.40641,0.02149,0.12846
-T+1,3 × 3,K8 · MEI 30+,Seg. 4 × 3 — Ridge,776,0.38811,-0.01223,0.13138
-T+1,3 × 3,K9 · ATA 30+,Seg. 4 × 3 — Ridge,659,0.42156,-0.00102,0.09308
-T+1,4 × 3,C1 · DEF 16–23,Seg. 3 × 3 — CatBoost,969,0.66061,0.08102,0.24175
-T+1,4 × 3,C10 · DEF 33+,Seg. 3 × 3 — CatBoost,345,0.44947,0.00261,0.16792
-T+1,4 × 3,C11 · MEI 33+,Seg. 3 × 3 — CatBoost,264,0.35479,0.05884,0.24307
-T+1,4 × 3,C12 · ATA 33+,Seg. 3 × 3 — CatBoost,239,0.43438,0.00739,0.11368
-T+1,4 × 3,C2 · MEI 16–23,Seg. 3 × 3 — CatBoost,844,0.70710,0.08234,0.23767
-T+1,4 × 3,C3 · ATA 16–23,Seg. 3 × 3 — CatBoost,826,0.66466,0.07570,0.21171
-T+1,4 × 3,C4 · DEF 24–28,Seg. 3 × 3 — CatBoost,1582,0.49058,-0.01005,0.19846
-T+1,4 × 3,C5 · MEI 24–28,Seg. 3 × 3 — CatBoost,1227,0.49309,-0.05197,0.04093
-T+1,4 × 3,C6 · ATA 24–28,Seg. 3 × 3 — CatBoost,1081,0.52138,-0.00070,0.13823
-T+1,4 × 3,C7 · DEF 29–32,Seg. 3 × 3 — CatBoost,980,0.39166,0.06929,0.27229
-T+1,4 × 3,C8 · MEI 29–32,Seg. 3 × 3 — CatBoost,723,0.41108,0.01954,0.22041
-T+1,4 × 3,C9 · ATA 29–32,Seg. 3 × 3 — CatBoost,602,0.42077,0.01848,0.19655
-T+1,3 × 3,K1 · DEF 16–23,Seg. 3 × 3 — CatBoost,969,0.66061,0.08102,0.24175
-T+1,3 × 3,K2 · MEI 16–23,Seg. 3 × 3 — CatBoost,844,0.70710,0.08234,0.23767
-T+1,3 × 3,K3 · ATA 16–23,Seg. 3 × 3 — CatBoost,826,0.66466,0.07570,0.21171
-T+1,3 × 3,K4 · DEF 24–29,Seg. 3 × 3 — CatBoost,1875,0.48115,0.02459,0.23174
-T+1,3 × 3,K5 · MEI 24–29,Seg. 3 × 3 — CatBoost,1438,0.48803,-0.02426,0.08396
-T+1,3 × 3,K6 · ATA 24–29,Seg. 3 × 3 — CatBoost,1263,0.51206,0.04192,0.20201
-T+1,3 × 3,K7 · DEF 30+,Seg. 3 × 3 — CatBoost,1032,0.40190,0.04307,0.22344
-T+1,3 × 3,K8 · MEI 30+,Seg. 3 × 3 — CatBoost,776,0.37861,0.03671,0.19801
-T+1,3 × 3,K9 · ATA 30+,Seg. 3 × 3 — CatBoost,659,0.41661,0.02234,0.16358
-T+1,4 × 3,C1 · DEF 16–23,Seg. 3 × 3 — Ridge,969,0.67138,0.05083,0.25162
-T+1,4 × 3,C10 · DEF 33+,Seg. 3 × 3 — Ridge,345,0.44884,0.00541,0.14909
-T+1,4 × 3,C11 · MEI 33+,Seg. 3 × 3 — Ridge,264,0.36213,0.01953,0.16257
-T+1,4 × 3,C12 · ATA 33+,Seg. 3 × 3 — Ridge,239,0.43870,-0.01242,0.02398
-T+1,4 × 3,C2 · MEI 16–23,Seg. 3 × 3 — Ridge,844,0.70949,0.07613,0.23771
-T+1,4 × 3,C3 · ATA 16–23,Seg. 3 × 3 — Ridge,826,0.67211,0.05487,0.21434
-T+1,4 × 3,C4 · DEF 24–28,Seg. 3 × 3 — Ridge,1582,0.48433,0.01554,0.24141
-T+1,4 × 3,C5 · MEI 24–28,Seg. 3 × 3 — Ridge,1227,0.48725,-0.02722,0.18130
-T+1,4 × 3,C6 · ATA 24–28,Seg. 3 × 3 — Ridge,1081,0.52664,-0.02097,0.10963
-T+1,4 × 3,C7 · DEF 29–32,Seg. 3 × 3 — Ridge,980,0.39655,0.04592,0.23316
-T+1,4 × 3,C8 · MEI 29–32,Seg. 3 × 3 — Ridge,723,0.40667,0.04044,0.19367
-T+1,4 × 3,C9 · ATA 29–32,Seg. 3 × 3 — Ridge,602,0.42692,-0.01041,0.16225
-T+1,3 × 3,K1 · DEF 16–23,Seg. 3 × 3 — Ridge,969,0.67138,0.05083,0.25162
-T+1,3 × 3,K2 · MEI 16–23,Seg. 3 × 3 — Ridge,844,0.70949,0.07613,0.23771
-T+1,3 × 3,K3 · ATA 16–23,Seg. 3 × 3 — Ridge,826,0.67211,0.05487,0.21434
-T+1,3 × 3,K4 · DEF 24–29,Seg. 3 × 3 — Ridge,1875,0.47451,0.05133,0.27788
-T+1,3 × 3,K5 · MEI 24–29,Seg. 3 × 3 — Ridge,1438,0.47969,0.01045,0.21309
-T+1,3 × 3,K6 · ATA 24–29,Seg. 3 × 3 — Ridge,1263,0.51853,0.01753,0.15781
-T+1,3 × 3,K7 · DEF 30+,Seg. 3 × 3 — Ridge,1032,0.40887,0.00959,0.13992
-T+1,3 × 3,K8 · MEI 30+,Seg. 3 × 3 — Ridge,776,0.38430,0.00751,0.10716
-T+1,3 × 3,K9 · ATA 30+,Seg. 3 × 3 — Ridge,659,0.41944,0.00901,0.11332
-T+1,4 × 3,C1 · DEF 16–23,Pooling 4 × 3 — Pooling parcial,969,0.65350,0.10072,0.28704
-T+1,4 × 3,C10 · DEF 33+,Pooling 4 × 3 — Pooling parcial,345,0.43820,0.05199,0.29416
-T+1,4 × 3,C11 · MEI 33+,Pooling 4 × 3 — Pooling parcial,264,0.36289,0.01542,0.25222
-T+1,4 × 3,C12 · ATA 33+,Pooling 4 × 3 — Pooling parcial,239,0.43143,0.02085,0.22366
-T+1,4 × 3,C2 · MEI 16–23,Pooling 4 × 3 — Pooling parcial,844,0.68986,0.12655,0.30810
-T+1,4 × 3,C3 · ATA 16–23,Pooling 4 × 3 — Pooling parcial,826,0.65495,0.10251,0.24428
-T+1,4 × 3,C4 · DEF 24–28,Pooling 4 × 3 — Pooling parcial,1582,0.48080,0.02982,0.24119
-T+1,4 × 3,C5 · MEI 24–28,Pooling 4 × 3 — Pooling parcial,1227,0.47747,0.01359,0.18427
-T+1,4 × 3,C6 · ATA 24–28,Pooling 4 × 3 — Pooling parcial,1081,0.51492,0.02395,0.17424
-T+1,4 × 3,C7 · DEF 29–32,Pooling 4 × 3 — Pooling parcial,980,0.38224,0.11353,0.33820
-T+1,4 × 3,C8 · MEI 29–32,Pooling 4 × 3 — Pooling parcial,723,0.40054,0.06917,0.27024
-T+1,4 × 3,C9 · ATA 29–32,Pooling 4 × 3 — Pooling parcial,602,0.40806,0.07686,0.27571
-T+1,3 × 3,K1 · DEF 16–23,Pooling 4 × 3 — Pooling parcial,969,0.65350,0.10072,0.28704
-T+1,3 × 3,K2 · MEI 16–23,Pooling 4 × 3 — Pooling parcial,844,0.68986,0.12655,0.30810
-T+1,3 × 3,K3 · ATA 16–23,Pooling 4 × 3 — Pooling parcial,826,0.65495,0.10251,0.24428
-T+1,3 × 3,K4 · DEF 24–29,Pooling 4 × 3 — Pooling parcial,1875,0.47075,0.06629,0.29448
-T+1,3 × 3,K5 · MEI 24–29,Pooling 4 × 3 — Pooling parcial,1438,0.47015,0.04941,0.24511
-T+1,3 × 3,K6 · ATA 24–29,Pooling 4 × 3 — Pooling parcial,1263,0.50382,0.07247,0.24965
-T+1,3 × 3,K7 · DEF 30+,Pooling 4 × 3 — Pooling parcial,1032,0.39329,0.08366,0.29336
-T+1,3 × 3,K8 · MEI 30+,Pooling 4 × 3 — Pooling parcial,776,0.38096,0.02469,0.22705
-T+1,3 × 3,K9 · ATA 30+,Pooling 4 × 3 — Pooling parcial,659,0.40995,0.05336,0.25099
-T+1,4 × 3,C1 · DEF 16–23,Pooling 3 × 3 — Pooling parcial,969,0.65350,0.10072,0.28704
-T+1,4 × 3,C10 · DEF 33+,Pooling 3 × 3 — Pooling parcial,345,0.43886,0.04916,0.28934
-T+1,4 × 3,C11 · MEI 33+,Pooling 3 × 3 — Pooling parcial,264,0.36118,0.02466,0.25831
-T+1,4 × 3,C12 · ATA 33+,Pooling 3 × 3 — Pooling parcial,239,0.43107,0.02248,0.21830
-T+1,4 × 3,C2 · MEI 16–23,Pooling 3 × 3 — Pooling parcial,844,0.68986,0.12655,0.30810
-T+1,4 × 3,C3 · ATA 16–23,Pooling 3 × 3 — Pooling parcial,826,0.65495,0.10251,0.24428
-T+1,4 × 3,C4 · DEF 24–28,Pooling 3 × 3 — Pooling parcial,1582,0.48064,0.03049,0.24540
-T+1,4 × 3,C5 · MEI 24–28,Pooling 3 × 3 — Pooling parcial,1227,0.47807,0.01114,0.18027
-T+1,4 × 3,C6 · ATA 24–28,Pooling 3 × 3 — Pooling parcial,1081,0.51518,0.02299,0.17593
-T+1,4 × 3,C7 · DEF 29–32,Pooling 3 × 3 — Pooling parcial,980,0.38186,0.11527,0.33943
-T+1,4 × 3,C8 · MEI 29–32,Pooling 3 × 3 — Pooling parcial,723,0.40039,0.06983,0.27232
-T+1,4 × 3,C9 · ATA 29–32,Pooling 3 × 3 — Pooling parcial,602,0.40890,0.07306,0.27420
-T+1,3 × 3,K1 · DEF 16–23,Pooling 3 × 3 — Pooling parcial,969,0.65350,0.10072,0.28704
-T+1,3 × 3,K2 · MEI 16–23,Pooling 3 × 3 — Pooling parcial,844,0.68986,0.12655,0.30810
-T+1,3 × 3,K3 · ATA 16–23,Pooling 3 × 3 — Pooling parcial,826,0.65495,0.10251,0.24428
-T+1,3 × 3,K4 · DEF 24–29,Pooling 3 × 3 — Pooling parcial,1875,0.47055,0.06710,0.29426
-T+1,3 × 3,K5 · MEI 24–29,Pooling 3 × 3 — Pooling parcial,1438,0.47077,0.04693,0.23747
-T+1,3 × 3,K6 · ATA 24–29,Pooling 3 × 3 — Pooling parcial,1263,0.50434,0.07058,0.24711
-T+1,3 × 3,K7 · DEF 30+,Pooling 3 × 3 — Pooling parcial,1032,0.39332,0.08350,0.29303
-T+1,3 × 3,K8 · MEI 30+,Pooling 3 × 3 — Pooling parcial,776,0.38005,0.02937,0.23000
-T+1,3 × 3,K9 · ATA 30+,Pooling 3 × 3 — Pooling parcial,659,0.40989,0.05365,0.24925
-T+2,4 × 3,C1 · DEF 16–23,Global — Ensemble (CatBoost + XGBoost + Ridge),605,0.89681,0.12842,0.34009
-T+2,4 × 3,C10 · DEF 33+,Global — Ensemble (CatBoost + XGBoost + Ridge),171,0.60369,0.01013,0.22591
-T+2,4 × 3,C11 · MEI 33+,Global — Ensemble (CatBoost + XGBoost + Ridge),139,0.56409,-0.09494,0.12921
-T+2,4 × 3,C12 · ATA 33+,Global — Ensemble (CatBoost + XGBoost + Ridge),122,0.60265,-0.06272,0.16310
-T+2,4 × 3,C2 · MEI 16–23,Global — Ensemble (CatBoost + XGBoost + Ridge),502,0.91521,0.16038,0.34439
-T+2,4 × 3,C3 · ATA 16–23,Global — Ensemble (CatBoost + XGBoost + Ridge),493,0.88340,0.13059,0.31143
-T+2,4 × 3,C4 · DEF 24–28,Global — Ensemble (CatBoost + XGBoost + Ridge),936,0.64511,0.09149,0.29920
-T+2,4 × 3,C5 · MEI 24–28,Global — Ensemble (CatBoost + XGBoost + Ridge),741,0.68102,0.05654,0.25199
-T+2,4 × 3,C6 · ATA 24–28,Global — Ensemble (CatBoost + XGBoost + Ridge),646,0.75172,0.08406,0.29707
-T+2,4 × 3,C7 · DEF 29–32,Global — Ensemble (CatBoost + XGBoost + Ridge),577,0.53819,0.09707,0.33222
-T+2,4 × 3,C8 · MEI 29–32,Global — Ensemble (CatBoost + XGBoost + Ridge),415,0.59450,0.04715,0.23261
-T+2,4 × 3,C9 · ATA 29–32,Global — Ensemble (CatBoost + XGBoost + Ridge),362,0.58265,0.04563,0.22209
-T+2,3 × 3,K1 · DEF 16–23,Global — Ensemble (CatBoost + XGBoost + Ridge),605,0.89681,0.12842,0.34009
-T+2,3 × 3,K2 · MEI 16–23,Global — Ensemble (CatBoost + XGBoost + Ridge),502,0.91521,0.16038,0.34439
-T+2,3 × 3,K3 · ATA 16–23,Global — Ensemble (CatBoost + XGBoost + Ridge),493,0.88340,0.13059,0.31143
-T+2,3 × 3,K4 · DEF 24–29,Global — Ensemble (CatBoost + XGBoost + Ridge),1115,0.63318,0.10571,0.33222
-T+2,3 × 3,K5 · MEI 24–29,Global — Ensemble (CatBoost + XGBoost + Ridge),867,0.66900,0.10491,0.31532
-T+2,3 × 3,K6 · ATA 24–29,Global — Ensemble (CatBoost + XGBoost + Ridge),749,0.73292,0.13599,0.36894
-T+2,3 × 3,K7 · DEF 30+,Global — Ensemble (CatBoost + XGBoost + Ridge),569,0.54973,0.03534,0.23214
-T+2,3 × 3,K8 · MEI 30+,Global — Ensemble (CatBoost + XGBoost + Ridge),428,0.58513,-0.04015,0.14248
-T+2,3 × 3,K9 · ATA 30+,Global — Ensemble (CatBoost + XGBoost + Ridge),381,0.58392,0.00655,0.20926
-T+2,4 × 3,C1 · DEF 16–23,Seg. 4 × 3 — CatBoost,605,0.90274,0.11686,0.30970
-T+2,4 × 3,C10 · DEF 33+,Seg. 4 × 3 — CatBoost,171,0.59611,0.03482,0.13308
-T+2,4 × 3,C11 · MEI 33+,Seg. 4 × 3 — CatBoost,139,0.53296,0.02255,0.13271
-T+2,4 × 3,C12 · ATA 33+,Seg. 4 × 3 — CatBoost,122,0.59008,-0.01884,-0.12762
-T+2,4 × 3,C2 · MEI 16–23,Seg. 4 × 3 — CatBoost,502,0.92705,0.13850,0.32660
-T+2,4 × 3,C3 · ATA 16–23,Seg. 4 × 3 — CatBoost,493,0.89909,0.09944,0.28481
-T+2,4 × 3,C4 · DEF 24–28,Seg. 4 × 3 — CatBoost,936,0.65393,0.06647,0.27388
-T+2,4 × 3,C5 · MEI 24–28,Seg. 4 × 3 — CatBoost,741,0.69727,0.01098,0.14233
-T+2,4 × 3,C6 · ATA 24–28,Seg. 4 × 3 — CatBoost,646,0.76155,0.05996,0.26023
-T+2,4 × 3,C7 · DEF 29–32,Seg. 4 × 3 — CatBoost,577,0.53931,0.09332,0.28980
-T+2,4 × 3,C8 · MEI 29–32,Seg. 4 × 3 — CatBoost,415,0.61044,-0.00463,0.04222
-T+2,4 × 3,C9 · ATA 29–32,Seg. 4 × 3 — CatBoost,362,0.60256,-0.02071,0.05520
-T+2,3 × 3,K1 · DEF 16–23,Seg. 4 × 3 — CatBoost,605,0.90274,0.11686,0.30970
-T+2,3 × 3,K2 · MEI 16–23,Seg. 4 × 3 — CatBoost,502,0.92705,0.13850,0.32660
-T+2,3 × 3,K3 · ATA 16–23,Seg. 4 × 3 — CatBoost,493,0.89909,0.09944,0.28481
-T+2,3 × 3,K4 · DEF 24–29,Seg. 4 × 3 — CatBoost,1115,0.63903,0.08913,0.31091
-T+2,3 × 3,K5 · MEI 24–29,Seg. 4 × 3 — CatBoost,867,0.69060,0.04616,0.23337
-T+2,3 × 3,K6 · ATA 24–29,Seg. 4 × 3 — CatBoost,749,0.74626,0.10426,0.33998
-T+2,3 × 3,K7 · DEF 30+,Seg. 4 × 3 — CatBoost,569,0.55224,0.02649,0.16092
-T+2,3 × 3,K8 · MEI 30+,Seg. 4 × 3 — CatBoost,428,0.57375,-0.00009,0.05912
-T+2,3 × 3,K9 · ATA 30+,Seg. 4 × 3 — CatBoost,381,0.58737,-0.00523,0.04134
-T+2,4 × 3,C1 · DEF 16–23,Seg. 4 × 3 — Ridge,605,0.91049,0.10162,0.30341
-T+2,4 × 3,C10 · DEF 33+,Seg. 4 × 3 — Ridge,171,0.61175,-0.01649,0.00773
-T+2,4 × 3,C11 · MEI 33+,Seg. 4 × 3 — Ridge,139,0.53379,0.01950,0.09736
-T+2,4 × 3,C12 · ATA 33+,Seg. 4 × 3 — Ridge,122,0.59151,-0.02380,-0.03500
-T+2,4 × 3,C2 · MEI 16–23,Seg. 4 × 3 — Ridge,502,0.94730,0.10047,0.27006
-T+2,4 × 3,C3 · ATA 16–23,Seg. 4 × 3 — Ridge,493,0.93377,0.02861,0.21945
-T+2,4 × 3,C4 · DEF 24–28,Seg. 4 × 3 — Ridge,936,0.66713,0.02841,0.17931
-T+2,4 × 3,C5 · MEI 24–28,Seg. 4 × 3 — Ridge,741,0.69843,0.00770,0.11483
-T+2,4 × 3,C6 · ATA 24–28,Seg. 4 × 3 — Ridge,646,0.78639,-0.00236,0.14005
-T+2,4 × 3,C7 · DEF 29–32,Seg. 4 × 3 — Ridge,577,0.55544,0.03828,0.19327
-T+2,4 × 3,C8 · MEI 29–32,Seg. 4 × 3 — Ridge,415,0.61143,-0.00787,0.01480
-T+2,4 × 3,C9 · ATA 29–32,Seg. 4 × 3 — Ridge,362,0.59869,-0.00765,0.11033
-T+2,3 × 3,K1 · DEF 16–23,Seg. 4 × 3 — Ridge,605,0.91049,0.10162,0.30341
-T+2,3 × 3,K2 · MEI 16–23,Seg. 4 × 3 — Ridge,502,0.94730,0.10047,0.27006
-T+2,3 × 3,K3 · ATA 16–23,Seg. 4 × 3 — Ridge,493,0.93377,0.02861,0.21945
-T+2,3 × 3,K4 · DEF 24–29,Seg. 4 × 3 — Ridge,1115,0.65771,0.03508,0.23030
-T+2,3 × 3,K5 · MEI 24–29,Seg. 4 × 3 — Ridge,867,0.69199,0.04233,0.21281
-T+2,3 × 3,K6 · ATA 24–29,Seg. 4 × 3 — Ridge,749,0.76644,0.05515,0.25253
-T+2,3 × 3,K7 · DEF 30+,Seg. 4 × 3 — Ridge,569,0.55655,0.01122,0.10830
-T+2,3 × 3,K8 · MEI 30+,Seg. 4 × 3 — Ridge,428,0.57406,-0.00116,0.02907
-T+2,3 × 3,K9 · ATA 30+,Seg. 4 × 3 — Ridge,381,0.58847,-0.00899,0.06819
-T+2,4 × 3,C1 · DEF 16–23,Seg. 3 × 3 — CatBoost,605,0.90274,0.11686,0.30970
-T+2,4 × 3,C10 · DEF 33+,Seg. 3 × 3 — CatBoost,171,0.60029,0.02124,0.14098
-T+2,4 × 3,C11 · MEI 33+,Seg. 3 × 3 — CatBoost,139,0.54146,-0.00886,0.06585
-T+2,4 × 3,C12 · ATA 33+,Seg. 3 × 3 — CatBoost,122,0.60443,-0.06900,0.03052
-T+2,4 × 3,C2 · MEI 16–23,Seg. 3 × 3 — CatBoost,502,0.92705,0.13850,0.32660
-T+2,4 × 3,C3 · ATA 16–23,Seg. 3 × 3 — CatBoost,493,0.89909,0.09944,0.28481
-T+2,4 × 3,C4 · DEF 24–28,Seg. 3 × 3 — CatBoost,936,0.65252,0.07051,0.28133
-T+2,4 × 3,C5 · MEI 24–28,Seg. 3 × 3 — CatBoost,741,0.69232,0.02499,0.18408
-T+2,4 × 3,C6 · ATA 24–28,Seg. 3 × 3 — CatBoost,646,0.75887,0.06656,0.27159
-T+2,4 × 3,C7 · DEF 29–32,Seg. 3 × 3 — CatBoost,577,0.53648,0.10278,0.31731
-T+2,4 × 3,C8 · MEI 29–32,Seg. 3 × 3 — CatBoost,415,0.61195,-0.00959,0.14445
-T+2,4 × 3,C9 · ATA 29–32,Seg. 3 × 3 — CatBoost,362,0.60295,-0.02202,0.13401
-T+2,3 × 3,K1 · DEF 16–23,Seg. 3 × 3 — CatBoost,605,0.90274,0.11686,0.30970
-T+2,3 × 3,K2 · MEI 16–23,Seg. 3 × 3 — CatBoost,502,0.92705,0.13850,0.32660
-T+2,3 × 3,K3 · ATA 16–23,Seg. 3 × 3 — CatBoost,493,0.89909,0.09944,0.28481
-T+2,3 × 3,K4 · DEF 24–29,Seg. 3 × 3 — CatBoost,1115,0.63629,0.09691,0.31701
-T+2,3 × 3,K5 · MEI 24–29,Seg. 3 × 3 — CatBoost,867,0.68594,0.05901,0.23847
-T+2,3 × 3,K6 · ATA 24–29,Seg. 3 × 3 — CatBoost,749,0.74280,0.11254,0.34479
-T+2,3 × 3,K7 · DEF 30+,Seg. 3 × 3 — CatBoost,569,0.55424,0.01941,0.18704
-T+2,3 × 3,K8 · MEI 30+,Seg. 3 × 3 — CatBoost,428,0.57881,-0.01780,0.02729
-T+2,3 × 3,K9 · ATA 30+,Seg. 3 × 3 — CatBoost,381,0.59510,-0.03188,0.10253
-T+2,4 × 3,C1 · DEF 16–23,Seg. 3 × 3 — Ridge,605,0.91049,0.10162,0.30341
-T+2,4 × 3,C10 · DEF 33+,Seg. 3 × 3 — Ridge,171,0.61346,-0.02218,-0.04203
-T+2,4 × 3,C11 · MEI 33+,Seg. 3 × 3 — Ridge,139,0.54214,-0.01138,0.01037
-T+2,4 × 3,C12 · ATA 33+,Seg. 3 × 3 — Ridge,122,0.59393,-0.03219,-0.10669
-T+2,4 × 3,C2 · MEI 16–23,Seg. 3 × 3 — Ridge,502,0.94730,0.10047,0.27006
-T+2,4 × 3,C3 · ATA 16–23,Seg. 3 × 3 — Ridge,493,0.93377,0.02861,0.21945
-T+2,4 × 3,C4 · DEF 24–28,Seg. 3 × 3 — Ridge,936,0.67196,0.01429,0.17448
-T+2,4 × 3,C5 · MEI 24–28,Seg. 3 × 3 — Ridge,741,0.70181,-0.00193,0.15994
-T+2,4 × 3,C6 · ATA 24–28,Seg. 3 × 3 — Ridge,646,0.78351,0.00496,0.19286
-T+2,4 × 3,C7 · DEF 29–32,Seg. 3 × 3 — Ridge,577,0.55716,0.03229,0.18178
-T+2,4 × 3,C8 · MEI 29–32,Seg. 3 × 3 — Ridge,415,0.60305,0.01955,0.15549
-T+2,4 × 3,C9 · ATA 29–32,Seg. 3 × 3 — Ridge,362,0.61444,-0.06137,0.10769
-T+2,3 × 3,K1 · DEF 16–23,Seg. 3 × 3 — Ridge,605,0.91049,0.10162,0.30341
-T+2,3 × 3,K2 · MEI 16–23,Seg. 3 × 3 — Ridge,502,0.94730,0.10047,0.27006
-T+2,3 × 3,K3 · ATA 16–23,Seg. 3 × 3 — Ridge,493,0.93377,0.02861,0.21945
-T+2,3 × 3,K4 · DEF 24–29,Seg. 3 × 3 — Ridge,1115,0.65617,0.03960,0.21125
-T+2,3 × 3,K5 · MEI 24–29,Seg. 3 × 3 — Ridge,867,0.69193,0.04251,0.23051
-T+2,3 × 3,K6 · ATA 24–29,Seg. 3 × 3 — Ridge,749,0.76859,0.04985,0.24671
-T+2,3 × 3,K7 · DEF 30+,Seg. 3 × 3 — Ridge,569,0.57178,-0.04363,-0.06344
-T+2,3 × 3,K8 · MEI 30+,Seg. 3 × 3 — Ridge,428,0.57531,-0.00552,0.01517
-T+2,3 × 3,K9 · ATA 30+,Seg. 3 × 3 — Ridge,381,0.59265,-0.02337,0.06370
-T+2,4 × 3,C1 · DEF 16–23,Pooling 4 × 3 — Pooling parcial,605,0.89395,0.13398,0.34370
-T+2,4 × 3,C10 · DEF 33+,Pooling 4 × 3 — Pooling parcial,171,0.59825,0.02788,0.23192
-T+2,4 × 3,C11 · MEI 33+,Pooling 4 × 3 — Pooling parcial,139,0.55939,-0.07677,0.13189
-T+2,4 × 3,C12 · ATA 33+,Pooling 4 × 3 — Pooling parcial,122,0.59957,-0.05186,0.15508
-T+2,4 × 3,C2 · MEI 16–23,Pooling 4 × 3 — Pooling parcial,502,0.91330,0.16388,0.35961
-T+2,4 × 3,C3 · ATA 16–23,Pooling 4 × 3 — Pooling parcial,493,0.88129,0.13475,0.32073
-T+2,4 × 3,C4 · DEF 24–28,Pooling 4 × 3 — Pooling parcial,936,0.64516,0.09135,0.29740
-T+2,4 × 3,C5 · MEI 24–28,Pooling 4 × 3 — Pooling parcial,741,0.68237,0.05280,0.23620
-T+2,4 × 3,C6 · ATA 24–28,Pooling 4 × 3 — Pooling parcial,646,0.75114,0.08547,0.30199
-T+2,4 × 3,C7 · DEF 29–32,Pooling 4 × 3 — Pooling parcial,577,0.53326,0.11354,0.34640
-T+2,4 × 3,C8 · MEI 29–32,Pooling 4 × 3 — Pooling parcial,415,0.59247,0.05366,0.22832
-T+2,4 × 3,C9 · ATA 29–32,Pooling 4 × 3 — Pooling parcial,362,0.57961,0.05554,0.22366
-T+2,3 × 3,K1 · DEF 16–23,Pooling 4 × 3 — Pooling parcial,605,0.89395,0.13398,0.34370
-T+2,3 × 3,K2 · MEI 16–23,Pooling 4 × 3 — Pooling parcial,502,0.91330,0.16388,0.35961
-T+2,3 × 3,K3 · ATA 16–23,Pooling 4 × 3 — Pooling parcial,493,0.88129,0.13475,0.32073
-T+2,3 × 3,K4 · DEF 24–29,Pooling 4 × 3 — Pooling parcial,1115,0.63193,0.10927,0.32952
-T+2,3 × 3,K5 · MEI 24–29,Pooling 4 × 3 — Pooling parcial,867,0.67093,0.09974,0.30440
-T+2,3 × 3,K6 · ATA 24–29,Pooling 4 × 3 — Pooling parcial,749,0.73198,0.13822,0.37745
-T+2,3 × 3,K7 · DEF 30+,Pooling 4 × 3 — Pooling parcial,569,0.54599,0.04841,0.24019
-T+2,3 × 3,K8 · MEI 30+,Pooling 4 × 3 — Pooling parcial,428,0.57989,-0.02161,0.13902
-T+2,3 × 3,K9 · ATA 30+,Pooling 4 × 3 — Pooling parcial,381,0.58109,0.01615,0.20680
-T+2,4 × 3,C1 · DEF 16–23,Pooling 3 × 3 — Pooling parcial,605,0.89395,0.13398,0.34370
-T+2,4 × 3,C10 · DEF 33+,Pooling 3 × 3 — Pooling parcial,171,0.59595,0.03534,0.22405
-T+2,4 × 3,C11 · MEI 33+,Pooling 3 × 3 — Pooling parcial,139,0.55283,-0.05168,0.11779
-T+2,4 × 3,C12 · ATA 33+,Pooling 3 × 3 — Pooling parcial,122,0.59851,-0.04817,0.14405
-T+2,4 × 3,C2 · MEI 16–23,Pooling 3 × 3 — Pooling parcial,502,0.91330,0.16388,0.35961
-T+2,4 × 3,C3 · ATA 16–23,Pooling 3 × 3 — Pooling parcial,493,0.88129,0.13475,0.32073
-T+2,4 × 3,C4 · DEF 24–28,Pooling 3 × 3 — Pooling parcial,936,0.64491,0.09205,0.30200
-T+2,4 × 3,C5 · MEI 24–28,Pooling 3 × 3 — Pooling parcial,741,0.68105,0.05646,0.24409
-T+2,4 × 3,C6 · ATA 24–28,Pooling 3 × 3 — Pooling parcial,646,0.75073,0.08649,0.30255
-T+2,4 × 3,C7 · DEF 29–32,Pooling 3 × 3 — Pooling parcial,577,0.52960,0.12565,0.35623
-T+2,4 × 3,C8 · MEI 29–32,Pooling 3 × 3 — Pooling parcial,415,0.59227,0.05428,0.22454
-T+2,4 × 3,C9 · ATA 29–32,Pooling 3 × 3 — Pooling parcial,362,0.58345,0.04302,0.20552
-T+2,3 × 3,K1 · DEF 16–23,Pooling 3 × 3 — Pooling parcial,605,0.89395,0.13398,0.34370
-T+2,3 × 3,K2 · MEI 16–23,Pooling 3 × 3 — Pooling parcial,502,0.91330,0.16388,0.35961
-T+2,3 × 3,K3 · ATA 16–23,Pooling 3 × 3 — Pooling parcial,493,0.88129,0.13475,0.32073
-T+2,3 × 3,K4 · DEF 24–29,Pooling 3 × 3 — Pooling parcial,1115,0.63008,0.11445,0.33615
-T+2,3 × 3,K5 · MEI 24–29,Pooling 3 × 3 — Pooling parcial,867,0.66942,0.10379,0.30541
-T+2,3 × 3,K6 · ATA 24–29,Pooling 3 × 3 — Pooling parcial,749,0.73227,0.13753,0.37581
-T+2,3 × 3,K7 · DEF 30+,Pooling 3 × 3 — Pooling parcial,569,0.54532,0.05076,0.24077
-T+2,3 × 3,K8 · MEI 30+,Pooling 3 × 3 — Pooling parcial,428,0.57851,-0.01674,0.12978
-T+2,3 × 3,K9 · ATA 30+,Pooling 3 × 3 — Pooling parcial,381,0.58274,0.01057,0.20123
+T+1,4 × 3,C1 · DEF 16–23,Global — Ensemble (CatBoost + XGBoost + Ridge),1178,0.68137,0.11591,0.31720
+T+1,4 × 3,C10 · DEF 33+,Global — Ensemble (CatBoost + XGBoost + Ridge),414,0.42608,0.04203,0.28525
+T+1,4 × 3,C11 · MEI 33+,Global — Ensemble (CatBoost + XGBoost + Ridge),312,0.37425,0.01012,0.24452
+T+1,4 × 3,C12 · ATA 33+,Global — Ensemble (CatBoost + XGBoost + Ridge),276,0.41424,0.01954,0.22026
+T+1,4 × 3,C2 · MEI 16–23,Global — Ensemble (CatBoost + XGBoost + Ridge),1022,0.69268,0.16152,0.35179
+T+1,4 × 3,C3 · ATA 16–23,Global — Ensemble (CatBoost + XGBoost + Ridge),991,0.67501,0.11001,0.26042
+T+1,4 × 3,C4 · DEF 24–28,Global — Ensemble (CatBoost + XGBoost + Ridge),1909,0.47272,0.04747,0.25755
+T+1,4 × 3,C5 · MEI 24–28,Global — Ensemble (CatBoost + XGBoost + Ridge),1465,0.46771,0.03902,0.22650
+T+1,4 × 3,C6 · ATA 24–28,Global — Ensemble (CatBoost + XGBoost + Ridge),1319,0.52598,0.02885,0.18878
+T+1,4 × 3,C7 · DEF 29–32,Global — Ensemble (CatBoost + XGBoost + Ridge),1167,0.37562,0.11156,0.33607
+T+1,4 × 3,C8 · MEI 29–32,Global — Ensemble (CatBoost + XGBoost + Ridge),864,0.39287,0.07838,0.28956
+T+1,4 × 3,C9 · ATA 29–32,Global — Ensemble (CatBoost + XGBoost + Ridge),717,0.41032,0.06762,0.25827
+T+1,3 × 3,K1 · DEF 16–23,Global — Ensemble (CatBoost + XGBoost + Ridge),1178,0.68137,0.11591,0.31720
+T+1,3 × 3,K2 · MEI 16–23,Global — Ensemble (CatBoost + XGBoost + Ridge),1022,0.69268,0.16152,0.35179
+T+1,3 × 3,K3 · ATA 16–23,Global — Ensemble (CatBoost + XGBoost + Ridge),991,0.67501,0.11001,0.26042
+T+1,3 × 3,K4 · DEF 24–29,Global — Ensemble (CatBoost + XGBoost + Ridge),2252,0.46237,0.07912,0.30508
+T+1,3 × 3,K5 · MEI 24–29,Global — Ensemble (CatBoost + XGBoost + Ridge),1722,0.46007,0.07492,0.27841
+T+1,3 × 3,K6 · ATA 24–29,Global — Ensemble (CatBoost + XGBoost + Ridge),1535,0.51446,0.07121,0.25278
+T+1,3 × 3,K7 · DEF 30+,Global — Ensemble (CatBoost + XGBoost + Ridge),1238,0.38653,0.07578,0.29313
+T+1,3 × 3,K8 · MEI 30+,Global — Ensemble (CatBoost + XGBoost + Ridge),919,0.38048,0.02902,0.23622
+T+1,3 × 3,K9 · ATA 30+,Global — Ensemble (CatBoost + XGBoost + Ridge),777,0.40381,0.05741,0.25443
+T+1,4 × 3,C1 · DEF 16–23,Seg. 4 × 3 — CatBoost,1178,0.68491,0.10669,0.27917
+T+1,4 × 3,C10 · DEF 33+,Seg. 4 × 3 — CatBoost,414,0.43291,0.01108,0.18169
+T+1,4 × 3,C11 · MEI 33+,Seg. 4 × 3 — CatBoost,312,0.37516,0.00527,0.13806
+T+1,4 × 3,C12 · ATA 33+,Seg. 4 × 3 — CatBoost,276,0.41680,0.00738,0.20173
+T+1,4 × 3,C2 · MEI 16–23,Seg. 4 × 3 — CatBoost,1022,0.71564,0.10500,0.26475
+T+1,4 × 3,C3 · ATA 16–23,Seg. 4 × 3 — CatBoost,991,0.68692,0.07831,0.22738
+T+1,4 × 3,C4 · DEF 24–28,Seg. 4 × 3 — CatBoost,1909,0.48563,-0.00528,0.17504
+T+1,4 × 3,C5 · MEI 24–28,Seg. 4 × 3 — CatBoost,1465,0.47976,-0.01115,0.08983
+T+1,4 × 3,C6 · ATA 24–28,Seg. 4 × 3 — CatBoost,1319,0.53191,0.00680,0.13210
+T+1,4 × 3,C7 · DEF 29–32,Seg. 4 × 3 — CatBoost,1167,0.38689,0.05744,0.25071
+T+1,4 × 3,C8 · MEI 29–32,Seg. 4 × 3 — CatBoost,864,0.40300,0.03025,0.18299
+T+1,4 × 3,C9 · ATA 29–32,Seg. 4 × 3 — CatBoost,717,0.41898,0.02786,0.17145
+T+1,3 × 3,K1 · DEF 16–23,Seg. 4 × 3 — CatBoost,1178,0.68491,0.10669,0.27917
+T+1,3 × 3,K2 · MEI 16–23,Seg. 4 × 3 — CatBoost,1022,0.71564,0.10500,0.26475
+T+1,3 × 3,K3 · ATA 16–23,Seg. 4 × 3 — CatBoost,991,0.68692,0.07831,0.22738
+T+1,3 × 3,K4 · DEF 24–29,Seg. 4 × 3 — CatBoost,2252,0.47579,0.02489,0.22807
+T+1,3 × 3,K5 · MEI 24–29,Seg. 4 × 3 — CatBoost,1722,0.47299,0.02224,0.17127
+T+1,3 × 3,K6 · ATA 24–29,Seg. 4 × 3 — CatBoost,1535,0.52072,0.04849,0.21891
+T+1,3 × 3,K7 · DEF 30+,Seg. 4 × 3 — CatBoost,1238,0.39453,0.03713,0.21513
+T+1,3 × 3,K8 · MEI 30+,Seg. 4 × 3 — CatBoost,919,0.38497,0.00598,0.13556
+T+1,3 × 3,K9 · ATA 30+,Seg. 4 × 3 — CatBoost,777,0.41027,0.02705,0.19984
+T+1,4 × 3,C1 · DEF 16–23,Seg. 4 × 3 — Ridge,1178,0.69278,0.08604,0.27650
+T+1,4 × 3,C10 · DEF 33+,Seg. 4 × 3 — Ridge,414,0.43613,-0.00371,0.00832
+T+1,4 × 3,C11 · MEI 33+,Seg. 4 × 3 — Ridge,312,0.37230,0.02038,0.18094
+T+1,4 × 3,C12 · ATA 33+,Seg. 4 × 3 — Ridge,276,0.42209,-0.01800,0.07292
+T+1,4 × 3,C2 · MEI 16–23,Seg. 4 × 3 — Ridge,1022,0.71529,0.10587,0.28420
+T+1,4 × 3,C3 · ATA 16–23,Seg. 4 × 3 — Ridge,991,0.68575,0.08146,0.23189
+T+1,4 × 3,C4 · DEF 24–28,Seg. 4 × 3 — Ridge,1909,0.47753,0.02797,0.20724
+T+1,4 × 3,C5 · MEI 24–28,Seg. 4 × 3 — Ridge,1465,0.47595,0.00484,0.16038
+T+1,4 × 3,C6 · ATA 24–28,Seg. 4 × 3 — Ridge,1319,0.53825,-0.01701,0.09770
+T+1,4 × 3,C7 · DEF 29–32,Seg. 4 × 3 — Ridge,1167,0.39038,0.04038,0.21217
+T+1,4 × 3,C8 · MEI 29–32,Seg. 4 × 3 — Ridge,864,0.40315,0.02952,0.19178
+T+1,4 × 3,C9 · ATA 29–32,Seg. 4 × 3 — Ridge,717,0.42204,0.01359,0.10148
+T+1,3 × 3,K1 · DEF 16–23,Seg. 4 × 3 — Ridge,1178,0.69278,0.08604,0.27650
+T+1,3 × 3,K2 · MEI 16–23,Seg. 4 × 3 — Ridge,1022,0.71529,0.10587,0.28420
+T+1,3 × 3,K3 · ATA 16–23,Seg. 4 × 3 — Ridge,991,0.68575,0.08146,0.23189
+T+1,3 × 3,K4 · DEF 24–29,Seg. 4 × 3 — Ridge,2252,0.46929,0.05136,0.25636
+T+1,3 × 3,K5 · MEI 24–29,Seg. 4 × 3 — Ridge,1722,0.46832,0.04146,0.23488
+T+1,3 × 3,K6 · ATA 24–29,Seg. 4 × 3 — Ridge,1535,0.52640,0.02763,0.19208
+T+1,3 × 3,K7 · DEF 30+,Seg. 4 × 3 — Ridge,1238,0.39786,0.02082,0.14558
+T+1,3 × 3,K8 · MEI 30+,Seg. 4 × 3 — Ridge,919,0.38733,-0.00622,0.14179
+T+1,3 × 3,K9 · ATA 30+,Seg. 4 × 3 — Ridge,777,0.41478,0.00552,0.11098
+T+1,4 × 3,C1 · DEF 16–23,Seg. 3 × 3 — CatBoost,1178,0.68491,0.10669,0.27917
+T+1,4 × 3,C10 · DEF 33+,Seg. 3 × 3 — CatBoost,414,0.43474,0.00270,0.17548
+T+1,4 × 3,C11 · MEI 33+,Seg. 3 × 3 — CatBoost,312,0.36594,0.05359,0.24672
+T+1,4 × 3,C12 · ATA 33+,Seg. 3 × 3 — CatBoost,276,0.41613,0.01052,0.11863
+T+1,4 × 3,C2 · MEI 16–23,Seg. 3 × 3 — CatBoost,1022,0.71564,0.10500,0.26475
+T+1,4 × 3,C3 · ATA 16–23,Seg. 3 × 3 — CatBoost,991,0.68692,0.07831,0.22738
+T+1,4 × 3,C4 · DEF 24–28,Seg. 3 × 3 — CatBoost,1909,0.48212,0.00923,0.20858
+T+1,4 × 3,C5 · MEI 24–28,Seg. 3 × 3 — CatBoost,1465,0.48223,-0.02159,0.09439
+T+1,4 × 3,C6 · ATA 24–28,Seg. 3 × 3 — CatBoost,1319,0.53277,0.00361,0.14520
+T+1,4 × 3,C7 · DEF 29–32,Seg. 3 × 3 — CatBoost,1167,0.38290,0.07680,0.29168
+T+1,4 × 3,C8 · MEI 29–32,Seg. 3 × 3 — CatBoost,864,0.40483,0.02144,0.21086
+T+1,4 × 3,C9 · ATA 29–32,Seg. 3 × 3 — CatBoost,717,0.42203,0.01365,0.17525
+T+1,3 × 3,K1 · DEF 16–23,Seg. 3 × 3 — CatBoost,1178,0.68491,0.10669,0.27917
+T+1,3 × 3,K2 · MEI 16–23,Seg. 3 × 3 — CatBoost,1022,0.71564,0.10500,0.26475
+T+1,3 × 3,K3 · ATA 16–23,Seg. 3 × 3 — CatBoost,991,0.68692,0.07831,0.22738
+T+1,3 × 3,K4 · DEF 24–29,Seg. 3 × 3 — CatBoost,2252,0.47208,0.04003,0.24374
+T+1,3 × 3,K5 · MEI 24–29,Seg. 3 × 3 — CatBoost,1722,0.47715,0.00493,0.13551
+T+1,3 × 3,K6 · ATA 24–29,Seg. 3 × 3 — CatBoost,1535,0.52236,0.04249,0.20804
+T+1,3 × 3,K7 · DEF 30+,Seg. 3 × 3 — CatBoost,1238,0.39297,0.04471,0.23957
+T+1,3 × 3,K8 · MEI 30+,Seg. 3 × 3 — CatBoost,919,0.37899,0.03663,0.19082
+T+1,3 × 3,K9 · ATA 30+,Seg. 3 × 3 — CatBoost,777,0.41067,0.02511,0.16650
+T+1,4 × 3,C1 · DEF 16–23,Seg. 3 × 3 — Ridge,1178,0.69278,0.08604,0.27650
+T+1,4 × 3,C10 · DEF 33+,Seg. 3 × 3 — Ridge,414,0.43362,0.00783,0.16863
+T+1,4 × 3,C11 · MEI 33+,Seg. 3 × 3 — Ridge,312,0.37076,0.02849,0.19732
+T+1,4 × 3,C12 · ATA 33+,Seg. 3 × 3 — Ridge,276,0.42055,-0.01061,0.03777
+T+1,4 × 3,C2 · MEI 16–23,Seg. 3 × 3 — Ridge,1022,0.71529,0.10587,0.28420
+T+1,4 × 3,C3 · ATA 16–23,Seg. 3 × 3 — Ridge,991,0.68575,0.08146,0.23189
+T+1,4 × 3,C4 · DEF 24–28,Seg. 3 × 3 — Ridge,1909,0.47706,0.02992,0.23971
+T+1,4 × 3,C5 · MEI 24–28,Seg. 3 × 3 — Ridge,1465,0.47699,0.00051,0.20917
+T+1,4 × 3,C6 · ATA 24–28,Seg. 3 × 3 — Ridge,1319,0.53792,-0.01577,0.12582
+T+1,4 × 3,C7 · DEF 29–32,Seg. 3 × 3 — Ridge,1167,0.38877,0.04828,0.24567
+T+1,4 × 3,C8 · MEI 29–32,Seg. 3 × 3 — Ridge,864,0.40183,0.03587,0.18096
+T+1,4 × 3,C9 · ATA 29–32,Seg. 3 × 3 — Ridge,717,0.42835,-0.01613,0.13599
+T+1,3 × 3,K1 · DEF 16–23,Seg. 3 × 3 — Ridge,1178,0.69278,0.08604,0.27650
+T+1,3 × 3,K2 · MEI 16–23,Seg. 3 × 3 — Ridge,1022,0.71529,0.10587,0.28420
+T+1,3 × 3,K3 · ATA 16–23,Seg. 3 × 3 — Ridge,991,0.68575,0.08146,0.23189
+T+1,3 × 3,K4 · DEF 24–29,Seg. 3 × 3 — Ridge,2252,0.46703,0.06048,0.27450
+T+1,3 × 3,K5 · MEI 24–29,Seg. 3 × 3 — Ridge,1722,0.46986,0.03514,0.23930
+T+1,3 × 3,K6 · ATA 24–29,Seg. 3 × 3 — Ridge,1535,0.52882,0.01865,0.16921
+T+1,3 × 3,K7 · DEF 30+,Seg. 3 × 3 — Ridge,1238,0.39940,0.01320,0.16038
+T+1,3 × 3,K8 · MEI 30+,Seg. 3 × 3 — Ridge,919,0.38406,0.01071,0.10857
+T+1,3 × 3,K9 · ATA 30+,Seg. 3 × 3 — Ridge,777,0.41338,0.01225,0.11536
+T+1,4 × 3,C1 · DEF 16–23,Pooling 4 × 3 — Pooling parcial,1178,0.68013,0.11911,0.31656
+T+1,4 × 3,C10 · DEF 33+,Pooling 4 × 3 — Pooling parcial,414,0.42533,0.04541,0.28711
+T+1,4 × 3,C11 · MEI 33+,Pooling 4 × 3 — Pooling parcial,312,0.37356,0.01376,0.24494
+T+1,4 × 3,C12 · ATA 33+,Pooling 4 × 3 — Pooling parcial,276,0.41350,0.02300,0.22264
+T+1,4 × 3,C2 · MEI 16–23,Pooling 4 × 3 — Pooling parcial,1022,0.69464,0.15678,0.34520
+T+1,4 × 3,C3 · ATA 16–23,Pooling 4 × 3 — Pooling parcial,991,0.67535,0.10911,0.26174
+T+1,4 × 3,C4 · DEF 24–28,Pooling 4 × 3 — Pooling parcial,1909,0.47327,0.04525,0.24881
+T+1,4 × 3,C5 · MEI 24–28,Pooling 4 × 3 — Pooling parcial,1465,0.46775,0.03884,0.21744
+T+1,4 × 3,C6 · ATA 24–28,Pooling 4 × 3 — Pooling parcial,1319,0.52587,0.02923,0.18302
+T+1,4 × 3,C7 · DEF 29–32,Pooling 4 × 3 — Pooling parcial,1167,0.37546,0.11232,0.33847
+T+1,4 × 3,C8 · MEI 29–32,Pooling 4 × 3 — Pooling parcial,864,0.39294,0.07807,0.28698
+T+1,4 × 3,C9 · ATA 29–32,Pooling 4 × 3 — Pooling parcial,717,0.40957,0.07104,0.26076
+T+1,3 × 3,K1 · DEF 16–23,Pooling 4 × 3 — Pooling parcial,1178,0.68013,0.11911,0.31656
+T+1,3 × 3,K2 · MEI 16–23,Pooling 4 × 3 — Pooling parcial,1022,0.69464,0.15678,0.34520
+T+1,3 × 3,K3 · ATA 16–23,Pooling 4 × 3 — Pooling parcial,991,0.67535,0.10911,0.26174
+T+1,3 × 3,K4 · DEF 24–29,Pooling 4 × 3 — Pooling parcial,2252,0.46293,0.07688,0.29860
+T+1,3 × 3,K5 · MEI 24–29,Pooling 4 × 3 — Pooling parcial,1722,0.46025,0.07419,0.27263
+T+1,3 × 3,K6 · ATA 24–29,Pooling 4 × 3 — Pooling parcial,1535,0.51415,0.07234,0.25267
+T+1,3 × 3,K7 · DEF 30+,Pooling 4 × 3 — Pooling parcial,1238,0.38592,0.07869,0.29801
+T+1,3 × 3,K8 · MEI 30+,Pooling 4 × 3 — Pooling parcial,919,0.38000,0.03150,0.23403
+T+1,3 × 3,K9 · ATA 30+,Pooling 4 × 3 — Pooling parcial,777,0.40340,0.05937,0.25676
+T+1,4 × 3,C1 · DEF 16–23,Pooling 3 × 3 — Pooling parcial,1178,0.68013,0.11911,0.31656
+T+1,4 × 3,C10 · DEF 33+,Pooling 3 × 3 — Pooling parcial,414,0.42570,0.04373,0.28499
+T+1,4 × 3,C11 · MEI 33+,Pooling 3 × 3 — Pooling parcial,312,0.37166,0.02376,0.25415
+T+1,4 × 3,C12 · ATA 33+,Pooling 3 × 3 — Pooling parcial,276,0.41321,0.02439,0.21705
+T+1,4 × 3,C2 · MEI 16–23,Pooling 3 × 3 — Pooling parcial,1022,0.69464,0.15678,0.34520
+T+1,4 × 3,C3 · ATA 16–23,Pooling 3 × 3 — Pooling parcial,991,0.67535,0.10911,0.26174
+T+1,4 × 3,C4 · DEF 24–28,Pooling 3 × 3 — Pooling parcial,1909,0.47286,0.04693,0.25519
+T+1,4 × 3,C5 · MEI 24–28,Pooling 3 × 3 — Pooling parcial,1465,0.46798,0.03790,0.21451
+T+1,4 × 3,C6 · ATA 24–28,Pooling 3 × 3 — Pooling parcial,1319,0.52627,0.02777,0.18562
+T+1,4 × 3,C7 · DEF 29–32,Pooling 3 × 3 — Pooling parcial,1167,0.37466,0.11612,0.34492
+T+1,4 × 3,C8 · MEI 29–32,Pooling 3 × 3 — Pooling parcial,864,0.39315,0.07708,0.28497
+T+1,4 × 3,C9 · ATA 29–32,Pooling 3 × 3 — Pooling parcial,717,0.41043,0.06712,0.25832
+T+1,3 × 3,K1 · DEF 16–23,Pooling 3 × 3 — Pooling parcial,1178,0.68013,0.11911,0.31656
+T+1,3 × 3,K2 · MEI 16–23,Pooling 3 × 3 — Pooling parcial,1022,0.69464,0.15678,0.34520
+T+1,3 × 3,K3 · ATA 16–23,Pooling 3 × 3 — Pooling parcial,991,0.67535,0.10911,0.26174
+T+1,3 × 3,K4 · DEF 24–29,Pooling 3 × 3 — Pooling parcial,2252,0.46238,0.07906,0.30070
+T+1,3 × 3,K5 · MEI 24–29,Pooling 3 × 3 — Pooling parcial,1722,0.46067,0.07250,0.26698
+T+1,3 × 3,K6 · ATA 24–29,Pooling 3 × 3 — Pooling parcial,1535,0.51479,0.07005,0.25082
+T+1,3 × 3,K7 · DEF 30+,Pooling 3 × 3 — Pooling parcial,1238,0.38573,0.07962,0.29867
+T+1,3 × 3,K8 · MEI 30+,Pooling 3 × 3 — Pooling parcial,919,0.37906,0.03627,0.23806
+T+1,3 × 3,K9 · ATA 30+,Pooling 3 × 3 — Pooling parcial,777,0.40338,0.05946,0.25511
+T+2,4 × 3,C1 · DEF 16–23,Global — Ensemble (CatBoost + XGBoost + Ridge),781,0.88608,0.14519,0.33913
+T+2,4 × 3,C10 · DEF 33+,Global — Ensemble (CatBoost + XGBoost + Ridge),220,0.62685,0.00779,0.22428
+T+2,4 × 3,C11 · MEI 33+,Global — Ensemble (CatBoost + XGBoost + Ridge),172,0.57078,-0.11027,0.09259
+T+2,4 × 3,C12 · ATA 33+,Global — Ensemble (CatBoost + XGBoost + Ridge),167,0.61483,-0.06645,0.11878
+T+2,4 × 3,C2 · MEI 16–23,Global — Ensemble (CatBoost + XGBoost + Ridge),689,0.92450,0.17278,0.35448
+T+2,4 × 3,C3 · ATA 16–23,Global — Ensemble (CatBoost + XGBoost + Ridge),671,0.90358,0.11983,0.29539
+T+2,4 × 3,C4 · DEF 24–28,Global — Ensemble (CatBoost + XGBoost + Ridge),1256,0.64400,0.11730,0.34197
+T+2,4 × 3,C5 · MEI 24–28,Global — Ensemble (CatBoost + XGBoost + Ridge),990,0.67461,0.05869,0.25620
+T+2,4 × 3,C6 · ATA 24–28,Global — Ensemble (CatBoost + XGBoost + Ridge),865,0.74734,0.08450,0.28076
+T+2,4 × 3,C7 · DEF 29–32,Global — Ensemble (CatBoost + XGBoost + Ridge),767,0.52958,0.10353,0.32901
+T+2,4 × 3,C8 · MEI 29–32,Global — Ensemble (CatBoost + XGBoost + Ridge),545,0.57576,0.07120,0.27337
+T+2,4 × 3,C9 · ATA 29–32,Global — Ensemble (CatBoost + XGBoost + Ridge),465,0.58166,0.05718,0.24195
+T+2,3 × 3,K1 · DEF 16–23,Global — Ensemble (CatBoost + XGBoost + Ridge),781,0.88608,0.14519,0.33913
+T+2,3 × 3,K2 · MEI 16–23,Global — Ensemble (CatBoost + XGBoost + Ridge),689,0.92450,0.17278,0.35448
+T+2,3 × 3,K3 · ATA 16–23,Global — Ensemble (CatBoost + XGBoost + Ridge),671,0.90358,0.11983,0.29539
+T+2,3 × 3,K4 · DEF 24–29,Global — Ensemble (CatBoost + XGBoost + Ridge),1488,0.63496,0.14667,0.38153
+T+2,3 × 3,K5 · MEI 24–29,Global — Ensemble (CatBoost + XGBoost + Ridge),1161,0.66126,0.10852,0.32483
+T+2,3 × 3,K6 · ATA 24–29,Global — Ensemble (CatBoost + XGBoost + Ridge),1002,0.73100,0.12892,0.34574
+T+2,3 × 3,K7 · DEF 30+,Global — Ensemble (CatBoost + XGBoost + Ridge),755,0.54291,0.04089,0.23628
+T+2,3 × 3,K8 · MEI 30+,Global — Ensemble (CatBoost + XGBoost + Ridge),546,0.57350,-0.01707,0.17797
+T+2,3 × 3,K9 · ATA 30+,Global — Ensemble (CatBoost + XGBoost + Ridge),495,0.58282,0.01318,0.19068
+T+2,4 × 3,C1 · DEF 16–23,Seg. 4 × 3 — CatBoost,781,0.89630,0.12534,0.30324
+T+2,4 × 3,C10 · DEF 33+,Seg. 4 × 3 — CatBoost,220,0.62122,0.02555,0.10885
+T+2,4 × 3,C11 · MEI 33+,Seg. 4 × 3 — CatBoost,172,0.53603,0.02081,0.15502
+T+2,4 × 3,C12 · ATA 33+,Seg. 4 × 3 — CatBoost,167,0.60043,-0.01708,-0.09220
+T+2,4 × 3,C2 · MEI 16–23,Seg. 4 × 3 — CatBoost,689,0.93962,0.14549,0.33375
+T+2,4 × 3,C3 · ATA 16–23,Seg. 4 × 3 — CatBoost,671,0.92169,0.08419,0.26733
+T+2,4 × 3,C4 · DEF 24–28,Seg. 4 × 3 — CatBoost,1256,0.65481,0.08742,0.31833
+T+2,4 × 3,C5 · MEI 24–28,Seg. 4 × 3 — CatBoost,990,0.69052,0.01376,0.14569
+T+2,4 × 3,C6 · ATA 24–28,Seg. 4 × 3 — CatBoost,865,0.75715,0.06032,0.24491
+T+2,4 × 3,C7 · DEF 29–32,Seg. 4 × 3 — CatBoost,767,0.53302,0.09187,0.28573
+T+2,4 × 3,C8 · MEI 29–32,Seg. 4 × 3 — CatBoost,545,0.59619,0.00411,0.06438
+T+2,4 × 3,C9 · ATA 29–32,Seg. 4 × 3 — CatBoost,465,0.60366,-0.01547,0.02624
+T+2,3 × 3,K1 · DEF 16–23,Seg. 4 × 3 — CatBoost,781,0.89630,0.12534,0.30324
+T+2,3 × 3,K2 · MEI 16–23,Seg. 4 × 3 — CatBoost,689,0.93962,0.14549,0.33375
+T+2,3 × 3,K3 · ATA 16–23,Seg. 4 × 3 — CatBoost,671,0.92169,0.08419,0.26733
+T+2,3 × 3,K4 · DEF 24–29,Seg. 4 × 3 — CatBoost,1488,0.64345,0.12371,0.36333
+T+2,3 × 3,K5 · MEI 24–29,Seg. 4 × 3 — CatBoost,1161,0.68096,0.05461,0.24279
+T+2,3 × 3,K6 · ATA 24–29,Seg. 4 × 3 — CatBoost,1002,0.74365,0.09853,0.31967
+T+2,3 × 3,K7 · DEF 30+,Seg. 4 × 3 — CatBoost,755,0.54625,0.02907,0.15969
+T+2,3 × 3,K8 · MEI 30+,Seg. 4 × 3 — CatBoost,546,0.56908,-0.00144,0.06354
+T+2,3 × 3,K9 · ATA 30+,Seg. 4 × 3 — CatBoost,495,0.58848,-0.00608,-0.00219
+T+2,4 × 3,C1 · DEF 16–23,Seg. 4 × 3 — Ridge,781,0.90065,0.11684,0.31708
+T+2,4 × 3,C10 · DEF 33+,Seg. 4 × 3 — Ridge,220,0.63228,-0.00947,0.05742
+T+2,4 × 3,C11 · MEI 33+,Seg. 4 × 3 — Ridge,172,0.53693,0.01752,0.12723
+T+2,4 × 3,C12 · ATA 33+,Seg. 4 × 3 — Ridge,167,0.60104,-0.01914,-0.00939
+T+2,4 × 3,C2 · MEI 16–23,Seg. 4 × 3 — Ridge,689,0.96066,0.10680,0.27117
+T+2,4 × 3,C3 · ATA 16–23,Seg. 4 × 3 — Ridge,671,0.94720,0.03280,0.21299
+T+2,4 × 3,C4 · DEF 24–28,Seg. 4 × 3 — Ridge,1256,0.66865,0.04843,0.23558
+T+2,4 × 3,C5 · MEI 24–28,Seg. 4 × 3 — Ridge,990,0.68745,0.02251,0.14620
+T+2,4 × 3,C6 · ATA 24–28,Seg. 4 × 3 — Ridge,865,0.78041,0.00170,0.11726
+T+2,4 × 3,C7 · DEF 29–32,Seg. 4 × 3 — Ridge,767,0.54782,0.04072,0.19358
+T+2,4 × 3,C8 · MEI 29–32,Seg. 4 × 3 — Ridge,545,0.59778,-0.00123,0.03621
+T+2,4 × 3,C9 · ATA 29–32,Seg. 4 × 3 — Ridge,465,0.59676,0.00761,0.12992
+T+2,3 × 3,K1 · DEF 16–23,Seg. 4 × 3 — Ridge,781,0.90065,0.11684,0.31708
+T+2,3 × 3,K2 · MEI 16–23,Seg. 4 × 3 — Ridge,689,0.96066,0.10680,0.27117
+T+2,3 × 3,K3 · ATA 16–23,Seg. 4 × 3 — Ridge,671,0.94720,0.03280,0.21299
+T+2,3 × 3,K4 · DEF 24–29,Seg. 4 × 3 — Ridge,1488,0.66088,0.07558,0.29253
+T+2,3 × 3,K5 · MEI 24–29,Seg. 4 × 3 — Ridge,1161,0.67877,0.06070,0.24333
+T+2,3 × 3,K6 · ATA 24–29,Seg. 4 × 3 — Ridge,1002,0.76219,0.05300,0.22604
+T+2,3 × 3,K7 · DEF 30+,Seg. 4 × 3 — Ridge,755,0.55167,0.00969,0.11038
+T+2,3 × 3,K8 · MEI 30+,Seg. 4 × 3 — Ridge,546,0.56985,-0.00417,0.04262
+T+2,3 × 3,K9 · ATA 30+,Seg. 4 × 3 — Ridge,495,0.58713,-0.00149,0.07825
+T+2,4 × 3,C1 · DEF 16–23,Seg. 3 × 3 — CatBoost,781,0.89630,0.12534,0.30324
+T+2,4 × 3,C10 · DEF 33+,Seg. 3 × 3 — CatBoost,220,0.62590,0.01079,0.13158
+T+2,4 × 3,C11 · MEI 33+,Seg. 3 × 3 — CatBoost,172,0.54207,-0.00138,0.05087
+T+2,4 × 3,C12 · ATA 33+,Seg. 3 × 3 — CatBoost,167,0.61307,-0.06036,-0.01733
+T+2,4 × 3,C2 · MEI 16–23,Seg. 3 × 3 — CatBoost,689,0.93962,0.14549,0.33375
+T+2,4 × 3,C3 · ATA 16–23,Seg. 3 × 3 — CatBoost,671,0.92169,0.08419,0.26733
+T+2,4 × 3,C4 · DEF 24–28,Seg. 3 × 3 — CatBoost,1256,0.65421,0.08908,0.32079
+T+2,4 × 3,C5 · MEI 24–28,Seg. 3 × 3 — CatBoost,990,0.68470,0.03033,0.18943
+T+2,4 × 3,C6 · ATA 24–28,Seg. 3 × 3 — CatBoost,865,0.75276,0.07116,0.26254
+T+2,4 × 3,C7 · DEF 29–32,Seg. 3 × 3 — CatBoost,767,0.53300,0.09191,0.29823
+T+2,4 × 3,C8 · MEI 29–32,Seg. 3 × 3 — CatBoost,545,0.60308,-0.01906,0.14272
+T+2,4 × 3,C9 · ATA 29–32,Seg. 3 × 3 — CatBoost,465,0.59896,0.00029,0.16491
+T+2,3 × 3,K1 · DEF 16–23,Seg. 3 × 3 — CatBoost,781,0.89630,0.12534,0.30324
+T+2,3 × 3,K2 · MEI 16–23,Seg. 3 × 3 — CatBoost,689,0.93962,0.14549,0.33375
+T+2,3 × 3,K3 · ATA 16–23,Seg. 3 × 3 — CatBoost,671,0.92169,0.08419,0.26733
+T+2,3 × 3,K4 · DEF 24–29,Seg. 3 × 3 — CatBoost,1488,0.64293,0.12513,0.36214
+T+2,3 × 3,K5 · MEI 24–29,Seg. 3 × 3 — CatBoost,1161,0.67794,0.06298,0.25315
+T+2,3 × 3,K6 · ATA 24–29,Seg. 3 × 3 — CatBoost,1002,0.73811,0.11191,0.32852
+T+2,3 × 3,K7 · DEF 30+,Seg. 3 × 3 — CatBoost,755,0.54781,0.02349,0.18200
+T+2,3 × 3,K8 · MEI 30+,Seg. 3 × 3 — CatBoost,546,0.57302,-0.01536,0.01307
+T+2,3 × 3,K9 · ATA 30+,Seg. 3 × 3 — CatBoost,495,0.59264,-0.02036,0.07437
+T+2,4 × 3,C1 · DEF 16–23,Seg. 3 × 3 — Ridge,781,0.90065,0.11684,0.31708
+T+2,4 × 3,C10 · DEF 33+,Seg. 3 × 3 — Ridge,220,0.63452,-0.01662,-0.02957
+T+2,4 × 3,C11 · MEI 33+,Seg. 3 × 3 — Ridge,172,0.54242,-0.00268,-0.03363
+T+2,4 × 3,C12 · ATA 33+,Seg. 3 × 3 — Ridge,167,0.60173,-0.02148,-0.06637
+T+2,4 × 3,C2 · MEI 16–23,Seg. 3 × 3 — Ridge,689,0.96066,0.10680,0.27117
+T+2,4 × 3,C3 · ATA 16–23,Seg. 3 × 3 — Ridge,671,0.94720,0.03280,0.21299
+T+2,4 × 3,C4 · DEF 24–28,Seg. 3 × 3 — Ridge,1256,0.67095,0.04188,0.23665
+T+2,4 × 3,C5 · MEI 24–28,Seg. 3 × 3 — Ridge,990,0.68795,0.02109,0.19207
+T+2,4 × 3,C6 · ATA 24–28,Seg. 3 × 3 — Ridge,865,0.77856,0.00641,0.16814
+T+2,4 × 3,C7 · DEF 29–32,Seg. 3 × 3 — Ridge,767,0.55590,0.01222,0.17052
+T+2,4 × 3,C8 · MEI 29–32,Seg. 3 × 3 — Ridge,545,0.59025,0.02386,0.17044
+T+2,4 × 3,C9 · ATA 29–32,Seg. 3 × 3 — Ridge,465,0.61518,-0.05461,0.12502
+T+2,3 × 3,K1 · DEF 16–23,Seg. 3 × 3 — Ridge,781,0.90065,0.11684,0.31708
+T+2,3 × 3,K2 · MEI 16–23,Seg. 3 × 3 — Ridge,689,0.96066,0.10680,0.27117
+T+2,3 × 3,K3 · ATA 16–23,Seg. 3 × 3 — Ridge,671,0.94720,0.03280,0.21299
+T+2,3 × 3,K4 · DEF 24–29,Seg. 3 × 3 — Ridge,1488,0.66183,0.07293,0.27612
+T+2,3 × 3,K5 · MEI 24–29,Seg. 3 × 3 — Ridge,1161,0.67692,0.06580,0.26612
+T+2,3 × 3,K6 · ATA 24–29,Seg. 3 × 3 — Ridge,1002,0.76667,0.04185,0.21949
+T+2,3 × 3,K7 · DEF 30+,Seg. 3 × 3 — Ridge,755,0.56292,-0.03110,-0.03439
+T+2,3 × 3,K8 · MEI 30+,Seg. 3 × 3 — Ridge,546,0.56941,-0.00263,0.00882
+T+2,3 × 3,K9 · ATA 30+,Seg. 3 × 3 — Ridge,495,0.58916,-0.00841,0.04557
+T+2,4 × 3,C1 · DEF 16–23,Pooling 4 × 3 — Pooling parcial,781,0.88494,0.14738,0.33967
+T+2,4 × 3,C10 · DEF 33+,Pooling 4 × 3 — Pooling parcial,220,0.62102,0.02618,0.22921
+T+2,4 × 3,C11 · MEI 33+,Pooling 4 × 3 — Pooling parcial,172,0.56459,-0.08633,0.10402
+T+2,4 × 3,C12 · ATA 33+,Pooling 4 × 3 — Pooling parcial,167,0.61089,-0.05283,0.11016
+T+2,4 × 3,C2 · MEI 16–23,Pooling 4 × 3 — Pooling parcial,689,0.92464,0.17253,0.36555
+T+2,4 × 3,C3 · ATA 16–23,Pooling 4 × 3 — Pooling parcial,671,0.90401,0.11899,0.30248
+T+2,4 × 3,C4 · DEF 24–28,Pooling 4 × 3 — Pooling parcial,1256,0.64584,0.11226,0.34103
+T+2,4 × 3,C5 · MEI 24–28,Pooling 4 × 3 — Pooling parcial,990,0.67634,0.05387,0.23669
+T+2,4 × 3,C6 · ATA 24–28,Pooling 4 × 3 — Pooling parcial,865,0.74732,0.08456,0.28280
+T+2,4 × 3,C7 · DEF 29–32,Pooling 4 × 3 — Pooling parcial,767,0.52592,0.11589,0.33911
+T+2,4 × 3,C8 · MEI 29–32,Pooling 4 × 3 — Pooling parcial,545,0.57570,0.07137,0.26531
+T+2,4 × 3,C9 · ATA 29–32,Pooling 4 × 3 — Pooling parcial,465,0.57955,0.06404,0.23880
+T+2,3 × 3,K1 · DEF 16–23,Pooling 4 × 3 — Pooling parcial,781,0.88494,0.14738,0.33967
+T+2,3 × 3,K2 · MEI 16–23,Pooling 4 × 3 — Pooling parcial,689,0.92464,0.17253,0.36555
+T+2,3 × 3,K3 · ATA 16–23,Pooling 4 × 3 — Pooling parcial,671,0.90401,0.11899,0.30248
+T+2,3 × 3,K4 · DEF 24–29,Pooling 4 × 3 — Pooling parcial,1488,0.63564,0.14484,0.38078
+T+2,3 × 3,K5 · MEI 24–29,Pooling 4 × 3 — Pooling parcial,1161,0.66308,0.10362,0.31181
+T+2,3 × 3,K6 · ATA 24–29,Pooling 4 × 3 — Pooling parcial,1002,0.73044,0.13026,0.35248
+T+2,3 × 3,K7 · DEF 30+,Pooling 4 × 3 — Pooling parcial,755,0.53939,0.05329,0.23968
+T+2,3 × 3,K8 · MEI 30+,Pooling 4 × 3 — Pooling parcial,546,0.57074,-0.00729,0.16667
+T+2,3 × 3,K9 · ATA 30+,Pooling 4 × 3 — Pooling parcial,495,0.58081,0.01996,0.18060
+T+2,4 × 3,C1 · DEF 16–23,Pooling 3 × 3 — Pooling parcial,781,0.88494,0.14738,0.33967
+T+2,4 × 3,C10 · DEF 33+,Pooling 3 × 3 — Pooling parcial,220,0.62062,0.02743,0.22035
+T+2,4 × 3,C11 · MEI 33+,Pooling 3 × 3 — Pooling parcial,172,0.55637,-0.05492,0.09130
+T+2,4 × 3,C12 · ATA 33+,Pooling 3 × 3 — Pooling parcial,167,0.60907,-0.04654,0.09869
+T+2,4 × 3,C2 · MEI 16–23,Pooling 3 × 3 — Pooling parcial,689,0.92464,0.17253,0.36555
+T+2,4 × 3,C3 · ATA 16–23,Pooling 3 × 3 — Pooling parcial,671,0.90401,0.11899,0.30248
+T+2,4 × 3,C4 · DEF 24–28,Pooling 3 × 3 — Pooling parcial,1256,0.64616,0.11136,0.34179
+T+2,4 × 3,C5 · MEI 24–28,Pooling 3 × 3 — Pooling parcial,990,0.67440,0.05927,0.24670
+T+2,4 × 3,C6 · ATA 24–28,Pooling 3 × 3 — Pooling parcial,865,0.74579,0.08830,0.28801
+T+2,4 × 3,C7 · DEF 29–32,Pooling 3 × 3 — Pooling parcial,767,0.52472,0.11992,0.34611
+T+2,4 × 3,C8 · MEI 29–32,Pooling 3 × 3 — Pooling parcial,545,0.57894,0.06088,0.25209
+T+2,4 × 3,C9 · ATA 29–32,Pooling 3 × 3 — Pooling parcial,465,0.58102,0.05927,0.23681
+T+2,3 × 3,K1 · DEF 16–23,Pooling 3 × 3 — Pooling parcial,781,0.88494,0.14738,0.33967
+T+2,3 × 3,K2 · MEI 16–23,Pooling 3 × 3 — Pooling parcial,689,0.92464,0.17253,0.36555
+T+2,3 × 3,K3 · ATA 16–23,Pooling 3 × 3 — Pooling parcial,671,0.90401,0.11899,0.30248
+T+2,3 × 3,K4 · DEF 24–29,Pooling 3 × 3 — Pooling parcial,1488,0.63548,0.14529,0.38237
+T+2,3 × 3,K5 · MEI 24–29,Pooling 3 × 3 — Pooling parcial,1161,0.66256,0.10503,0.31297
+T+2,3 × 3,K6 · ATA 24–29,Pooling 3 × 3 — Pooling parcial,1002,0.72939,0.13276,0.35404
+T+2,3 × 3,K7 · DEF 30+,Pooling 3 × 3 — Pooling parcial,755,0.53910,0.05429,0.24116
+T+2,3 × 3,K8 · MEI 30+,Pooling 3 × 3 — Pooling parcial,546,0.56861,0.00021,0.15896
+T+2,3 × 3,K9 · ATA 30+,Pooling 3 × 3 — Pooling parcial,495,0.58079,0.02004,0.18149

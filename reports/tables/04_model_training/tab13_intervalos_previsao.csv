@@ -1,5 +1,9 @@
 ﻿horizonte,intervalo,avaliacao,n,cobertura,cobertura_nominal,largura_mediana_pp,abaixo_do_inferior,acima_do_superior,pinball_q10,pinball_q90
 T+1,bruto,dobras de desenvolvimento ≥ 3,5831.00000,0.77843,0.80000,95.12874,0.11336,0.10821,0.08314,0.09416
+T+1,bruto,teste final,1952.00000,0.79457,0.80000,95.60530,0.09170,0.11373,0.08720,0.09545
 T+1,conformalizado,dobras de desenvolvimento ≥ 3,5831.00000,0.81650,0.80000,106.77595,0.09295,0.09055,0.08310,0.09422
+T+1,conformalizado,teste final,1952.00000,0.82428,0.80000,103.71741,0.07736,0.09836,0.08789,0.09521
 T+2,bruto,dobras de desenvolvimento ≥ 3,1905.00000,0.79318,0.80000,128.30194,0.10656,0.10026,0.12563,0.12988
+T+2,bruto,teste final,1879.00000,0.79617,0.80000,123.82435,0.11123,0.09260,0.12560,0.12352
 T+2,conformalizado,dobras de desenvolvimento ≥ 3,1905.00000,0.83360,0.80000,147.72615,0.08504,0.08136,0.12602,0.13072
+T+2,conformalizado,teste final,1879.00000,0.82278,0.80000,134.93609,0.09580,0.08143,0.12540,0.12423

@@ -232,18 +232,23 @@ def budget_greedy(cands: pd.DataFrame, score: str, budget: float, max_price: flo
     "age_band": 3}``: no máximo dois atletas por posição e três por faixa etária.
     """
     pool = cands if max_price is None else cands[cands["value_T"] <= max_price]
+    caps = max_per_group or {}
+    floor = float(pool["value_T"].min()) if len(pool) else 0.0
     chosen, spent = [], 0.0
     counts: dict[tuple[str, object], int] = {}
-    for idx, row in pool.sort_values(score, ascending=False).iterrows():
-        price = row["value_T"]
+    ordered = pool.sort_values(score, ascending=False)[["value_T", *caps]]
+    for idx, price, *levels in ordered.itertuples(name=None):
+        if spent + floor > budget:   # nenhum candidato restante cabe no orçamento
+            break
         if spent + price > budget:
             continue
-        if max_per_group and any(counts.get((col, row[col]), 0) >= cap for col, cap in max_per_group.items()):
+        keys = list(zip(caps, levels))
+        if any(counts.get(key, 0) >= caps[key[0]] for key in keys):
             continue
         chosen.append(idx)
         spent += price
-        for col in (max_per_group or {}):
-            counts[(col, row[col])] = counts.get((col, row[col]), 0) + 1
+        for key in keys:
+            counts[key] = counts.get(key, 0) + 1
         if max_players and len(chosen) >= max_players:
             break
     return cands.loc[chosen]
