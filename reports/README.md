@@ -16,7 +16,7 @@ quais resultados, e apontam para as figuras e tabelas exportadas, que estão pro
 | [02 — Verificação dos dados](02_verificacao_dos_dados.md) | `02_eda.ipynb` | Funil amostral, corte $p_{90}$, minutagem, ausentes, atrito, 12 categorias, distribuição dos alvos |
 | [03 — Engenharia de *features*](03_engenharia_de_features.md) | `03_preprocessing.ipynb` | Painel jogador–temporada, encolhimento empírico-bayesiano, contrato em T, contexto, valor justo, janela expandida |
 | [04 — Modelagem e avaliação](04_modelagem_e_avaliacao.md) | `04_model_training.ipynb` | Protocolo pré-registrado, 6 algoritmos, segmentação 4 × 3 e 3 × 3, *pooling*, ablação (H1, H2), magnitude, intervalos |
-| [05 — Interpretação e simulação](05_interpretacao_e_simulacao.md) | `05_model_interpretation.ipynb` | SHAP e estabilidade (H5), gap de avaliação (H3), *backtest buy-low / sell-high* com custos (H4), risco, lista prospectiva |
+| [05 — Interpretação e simulação](05_interpretacao_e_simulacao.md) | `05_model_interpretation.ipynb` | SHAP e estabilidade (H5), gap de avaliação (H3), *backtest buy-low / sell-high* com custos (H4), risco, o modelo como regra de compra, lista prospectiva |
 | [06 — Decisões, hipóteses e limitações](06_decisoes_limitacoes_proximos_passos.md) | — | Vereditos H1–H5, desvios das especificações, limitações, ameaças à validade, referências |
 
 ## Resumo executivo
@@ -57,6 +57,8 @@ atletas**, 40% a mais que a versão 2.
 | $R^2$ em ΔV (€) | 0,19 | 0,21 |
 | Erro absoluto mediano em $\Delta V\%$ | 21,5 p.p. | 25,9 p.p. |
 | Atletas do decil superior previsto que se valorizaram | 71% (média: 28%) | 66% (média: 26%) |
+| AUC: separar quem paga custos de 10% + 10% ($\Delta V\%$ > 22,2%) | 0,82 (10% mais jovens: 0,80) | 0,83 (10% mais jovens: 0,84) |
+| Decil superior previsto que pagou esses custos | 67% (média: 22%) | 62% (média: 21%) |
 | Cobertura do intervalo de 80% | 82% | 82% |
 
 **Hipóteses** (critérios fixados no protocolo; relatório 06):
@@ -72,6 +74,11 @@ atletas**, 40% a mais que a versão 2.
 **Principais achados**
 1. **A variação futura do valor é parcialmente previsível**, e o maior valor do modelo está em
    **ordenar** os atletas. No decil inferior previsto, 1–2% se valorizam; no superior, 63–66%.
+   - **Como regra de compra**, o modelo separa quem se valoriza o bastante para pagar custos de 10% +
+     10% com AUC de 0,82–0,83 no teste (análise secundária; relatório 05, §9.2).
+   - **Peso da idade:** boa parte dessa separação vem da idade, já que comprar os 10% mais jovens dá
+     0,80–0,84.
+   - **Vantagem própria do modelo:** aparece no auge da carreira e no retorno.
 2. **O desempenho em campo agrega informação** que o Transfermarkt ainda não incorporou. O ganho é
    modesto e significativo: +0,03 de $R^2$ em $T+1$. Diante dele, a trajetória do valor no Transfermarkt é
    redundante.
@@ -87,7 +94,8 @@ atletas**, 40% a mais que a versão 2.
    O desempenho pesa 10 p.p. mais no auge (24–28 anos) que nos veteranos, nos quais a idade domina.
 5. **Simulação fora da amostra.** No cenário principal (custos de 10% na compra e na venda; quem sai da
    base vale zero), as carteiras do modelo rendem ROI médio de **46% em $T+1$** e **89% em $T+2$**. As
-   referências ficam em −19% e −24% (acaso) e em 6–22% (heurísticas de *momentum* e juventude). No teste
+   referências ficam em −19% e −24% (acaso), em 6–22% (heurísticas de *momentum* e juventude) e em 26% e
+   55% (os 10% mais jovens, referência acrescentada depois do teste). No teste
    pré-registrado, o ROI foi de 87%. O risco de carteiras concentradas permanece, e as melhores
    oportunidades concentram-se em promessas de clubes de elite, cujo preço real tende a superar o $V_T$.
 

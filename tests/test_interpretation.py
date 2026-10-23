@@ -94,3 +94,45 @@ def test_random_portfolios_apply_costs_and_missing():
     assert np.allclose(excl["roi_carteira_pct"], (3e6 - 2e6) / 2e6 * 100)
     cost = it.random_portfolios(cands, 2, 5, rng, buy_cost=0.1, sell_cost=0.1)
     assert np.allclose(cost["roi_carteira_pct"], (3e6 * 0.9 - 2e6 * 1.1) / 2.2e6 * 100)
+
+
+def test_break_even_and_pays_costs():
+    assert np.isclose(it.break_even_return(0.10, 0.10), 1.10 / 0.90 - 1)
+    dv_pct = pd.Series([22.0, 22.3, np.nan, -100.0, 50.0, (11 / 9 - 1) * 100])
+    # 9 → 11 mi é exatamente o equilíbrio de 10% + 10% (9,9 = 9,9): não conta como lucro
+    assert it.pays_costs(dv_pct, 0.10, 0.10).tolist() == [0, 1, 0, 0, 1, 0]
+    assert it.pays_costs(pd.Series([0.0, 0.1, -5.0])).tolist() == [0, 1, 0]
+
+
+def test_auc_and_decision_metrics():
+    from sklearn.metrics import roc_auc_score
+
+    rng = np.random.default_rng(0)
+    y, s = rng.integers(0, 2, 500), rng.normal(size=500).round(1)        # com empates
+    assert np.isclose(it.auc(y, s), roc_auc_score(y, s))
+    label = pd.Series([1, 1, 0, 0, 0, 0, 0, 0, 0, 0] * 10)
+    score = pd.Series(np.where(label == 1, 2.0, 1.0) + np.linspace(0, 0.1, 100))
+    m = it.decision_metrics(label, score)
+    assert m["auc"] == 1.0 and m["acerto_topo"] == 1.0 and m["acerto_base"] == 0.0 and np.isclose(m["taxa_base"], 0.2)
+    assert it.decision_metrics(label, score.where(score.index >= 50))["n"] == 50   # sem escore: fora
+
+
+def test_exceedance_probability_uses_only_past_folds():
+    rng = np.random.default_rng(1)
+    n = 400
+    pred = pd.DataFrame({"fold": np.repeat([1, 2, 3, 4], n), "score": rng.normal(size=4 * n)})
+    pred["label"] = (pred["score"] + rng.normal(size=4 * n) > 0.5).astype(int)
+    out = it.exceedance_probability(pred, "score", "label")
+    assert out.loc[pred["fold"] <= 2, "prob"].isna().all()                  # dobra 1: aquecimento; 2: sem histórico
+    assert out.loc[pred["fold"] >= 3, "prob"].between(0, 1).all()
+    f3 = pred["fold"] == 3
+    assert np.isclose(out.loc[f3, "clim"].iloc[0], pred.loc[pred["fold"] == 2, "label"].mean())
+    order = pred.loc[f3, "score"].sort_values().index
+    assert out.loc[order, "prob"].is_monotonic_increasing
+    # mudar rótulos da própria dobra, das seguintes ou da dobra de aquecimento não altera a dobra 3
+    shuffled = pred.copy()
+    later = shuffled["fold"] != 2
+    shuffled.loc[later, "label"] = rng.permutation(shuffled.loc[later, "label"].to_numpy())
+    assert np.allclose(it.exceedance_probability(shuffled, "score", "label").loc[f3, "prob"], out.loc[f3, "prob"])
+    table = it.reliability_table(out["prob"], pred["label"])
+    assert table["n"].sum() == 2 * n and table["freq_observada"].between(0, 1).all()

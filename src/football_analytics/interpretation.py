@@ -12,6 +12,7 @@ coerentes com a previsão exibida).
 from __future__ import annotations
 
 import json
+from collections.abc import Sequence
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -20,6 +21,7 @@ import numpy as np
 import pandas as pd
 
 from .logging_utils import get_logger
+from .modeling import BURN_IN_FOLDS
 
 log = get_logger("interpretation")
 
@@ -275,3 +277,88 @@ def var_cvar(returns: np.ndarray, alpha: float = 0.05) -> tuple[float, float]:
     """Value-at-Risk e Conditional VaR no nível `alpha` (retornos em %, perda = cauda esquerda)."""
     q = float(np.quantile(returns, alpha))
     return q, float(returns[returns <= q].mean())
+
+
+# --------------------------------------------------------------------------------------------
+# Avaliação de decisão: a valorização paga a operação?
+# --------------------------------------------------------------------------------------------
+def break_even_return(buy_cost: float = 0.0, sell_cost: float = 0.0) -> float:
+    """ΔV% (fração de V_T) acima do qual comprar por V_T(1 + b) e vender por V_{T+k}(1 − s) dá lucro."""
+    return (1 + buy_cost) / (1 - sell_cost) - 1
+
+
+def pays_costs(dv_pct: pd.Series, buy_cost: float = 0.0, sell_cost: float = 0.0) -> pd.Series:
+    """1 se a valorização realizada (ΔV%, em %) supera o ponto de equilíbrio dos custos, senão 0.
+
+    Atletas sem V_{T+k} contam como prejuízo total, como no cenário principal do *backtest* (quem sai
+    da base vale zero). A tolerância evita que um ΔV% exatamente no equilíbrio conte como lucro.
+    """
+    net = (1 + dv_pct.fillna(-100.0) / 100) * (1 - sell_cost) / (1 + buy_cost) - 1
+    return (net > 1e-9).astype(int)
+
+
+def auc(label: np.ndarray | pd.Series, score: np.ndarray | pd.Series) -> float:
+    """Área sob a curva ROC pela estatística de Mann–Whitney (empates valem meio); ignora escores ausentes."""
+    from scipy.stats import rankdata
+
+    y, s = np.asarray(label, dtype=float), np.asarray(score, dtype=float)
+    ok = np.isfinite(s)
+    y, s = y[ok], s[ok]
+    pos = y.sum()
+    neg = len(y) - pos
+    if pos == 0 or neg == 0:
+        return np.nan
+    ranks = rankdata(s)
+    return float((ranks[y == 1].sum() - pos * (pos + 1) / 2) / (pos * neg))
+
+
+def decision_metrics(label: pd.Series, score: pd.Series, top: float = 0.10) -> dict[str, float]:
+    """Qualidade de um escore como regra de compra.
+
+    Discriminação (AUC), precisão média (AP) e acerto nos extremos: a fração dos `top` maiores e dos
+    `top` menores escores cujo rótulo é 1. O tamanho dos extremos segue o *backtest*
+    (``len // 10`` com ``top = 0,10``); candidatos sem escore ficam de fora.
+    """
+    from sklearn.metrics import average_precision_score
+
+    ok = score.notna()
+    y, s = label[ok].to_numpy(dtype=float), score[ok].to_numpy(dtype=float)
+    n = max(1, int(len(s) * top))
+    order = np.argsort(-s, kind="stable")
+    return {"n": len(s), "taxa_base": float(y.mean()), "auc": auc(y, s),
+            "ap": float(average_precision_score(y, s)) if 0 < y.sum() < len(y) else np.nan,
+            "acerto_topo": float(y[order[:n]].mean()), "acerto_base": float(y[order[-n:]].mean())}
+
+
+def exceedance_probability(pred: pd.DataFrame, score: str, label: str, min_prev: int = 200,
+                           burn_in: int = BURN_IN_FOLDS) -> pd.DataFrame:
+    """Probabilidade fora da amostra de `label` = 1 dado `score`, por regressão isotônica.
+
+    `pred` é de um só horizonte. A dobra f é calibrada só com as dobras anteriores, sem as `burn_in`
+    primeiras: a mesma regra de histórico da camada de magnitude e dos intervalos conformalizados. Com
+    menos de `min_prev` observações no histórico, a dobra fica sem probabilidade. Retorna ``prob`` e
+    ``clim``, a taxa-base do mesmo histórico (a referência do escore de Brier).
+    """
+    from sklearn.isotonic import IsotonicRegression
+
+    out = pd.DataFrame({"prob": np.nan, "clim": np.nan}, index=pred.index)
+    for fold in sorted(pred["fold"].unique()):
+        hist = pred[(pred["fold"] < fold) & (pred["fold"] > burn_in) & pred[score].notna()]
+        if len(hist) < min_prev:
+            continue
+        iso = IsotonicRegression(y_min=0.0, y_max=1.0, out_of_bounds="clip").fit(hist[score], hist[label])
+        cur = (pred["fold"] == fold) & pred[score].notna()
+        out.loc[cur, "prob"] = iso.predict(pred.loc[cur, score])
+        out.loc[cur, "clim"] = hist[label].mean()
+    return out
+
+
+def reliability_table(prob: pd.Series, label: pd.Series,
+                      bins: Sequence[float] = (0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1.0)) -> pd.DataFrame:
+    """Diagrama de confiabilidade: probabilidade média prevista × frequência observada por faixa."""
+    ok = prob.notna()
+    frame = pd.DataFrame({"p": prob[ok], "y": label[ok],
+                          "faixa": pd.cut(prob[ok], list(bins), include_lowest=True)})
+    g = frame.groupby("faixa", observed=True)
+    table = pd.DataFrame({"n": g.size(), "prob_prevista": g["p"].mean(), "freq_observada": g["y"].mean()})
+    return table.reset_index().assign(faixa=lambda t: t["faixa"].astype(str))

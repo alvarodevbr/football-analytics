@@ -1,8 +1,8 @@
 # 05 — Interpretação (XAI) e Simulação *Buy-Low / Sell-High*
 
 **Notebook:** `notebooks/05_model_interpretation.ipynb` · **Código:** `src/football_analytics/interpretation.py`
-**Saídas:** `data/processed/shap_values_T{1,2}.parquet`, 12 figuras em
-`figures/05_model_interpretation/` e 19 tabelas em `tables/05_model_interpretation/`
+**Saídas:** `data/processed/shap_values_T{1,2}.parquet`, 13 figuras em
+`figures/05_model_interpretation/` e 26 tabelas em `tables/05_model_interpretation/`
 
 [← Índice](README.md)
 
@@ -210,18 +210,21 @@ O **cenário principal** tem custos de 10% na compra e na venda, e quem sai da b
 
 ![Backtest](figures/05_model_interpretation/fig08_backtest_estrategias.png)
 
-| ROI médio das temporadas, cenário principal | Modelo | Modelo prudente (P10) | *Momentum* | Juventude | Aleatória |
-|---|---|---|---|---|---|
-| $T+1$, todos os candidatos | **46%** | 19% | 9% | 6,5% | −19% |
-| $T+1$, faixa de € 2–15 mi | **40%** | 21% | 16% | 10% | −19% |
-| $T+2$, todos os candidatos | **89%** | 54% | 15% | 22% | −24% |
-| $T+2$, faixa de € 2–15 mi | **70%** | 50% | 28% | 29% | −22% |
+| ROI médio das temporadas, cenário principal | Modelo | Modelo prudente (P10) | *Momentum* | Mais jovens | Juventude | Aleatória |
+|---|---|---|---|---|---|---|
+| $T+1$, todos os candidatos | **46%** | 19% | 9% | 26% | 6,5% | −19% |
+| $T+1$, faixa de € 2–15 mi | **40%** | 21% | 16% | 26% | 10% | −19% |
+| $T+2$, todos os candidatos | **89%** | 54% | 15% | 55% | 22% | −24% |
+| $T+2$, faixa de € 2–15 mi | **70%** | 50% | 28% | 56% | 29% | −22% |
 
 - **Teste do sinal.** O modelo vence a carteira aleatória e o *momentum* em 6 de 6 temporadas de $T+1$
   ($p$ = 0,016) e em 4 de 4 de $T+2$ ($p$ = 0,063). Isso vale em todos os cenários de custo e de
   tratamento dos ausentes.
-- **Teste pré-registrado (2024/25):** ROI de 87%, contra −16% ao acaso, 20% do *momentum* e 14,5% da
-  juventude.
+- **Mais jovens** (os 10% de menor idade). É a heurística mais forte, porque a idade é a variável mais
+  importante do modelo. O modelo também a vence em 6 de 6 e em 4 de 4 temporadas, em todos os cenários.
+  Como foi acrescentada depois da revelação do teste (seção 9.2), ela não entra no veredito da H4.
+- **Teste pré-registrado (2024/25):** ROI de 87%, contra −16% ao acaso, 20% do *momentum*, 14,5% da
+  juventude e 41% dos mais jovens.
 - **Custos.**
   - Sem custos, o ROI médio é de 79% ($T+1$) e 131% ($T+2$).
   - Com ágio de 25% na compra, é de 29% e 66%.
@@ -268,6 +271,74 @@ Em $T+2$, o modelo fica entre os percentis 75 e 100: −10% (2020/21), +555%, +1
 atletas continua exposta a choques. A probabilidade de perda chega a 22–43% nos anos fracos de $T+1$ e a
 60% em $T+2$ (2020/21, logo após a revisão de valores da pandemia). A recomendação combina a previsão com
 o intervalo de 80% e com diversificação.
+
+### 9.2 O modelo como regra de compra (análise secundária)
+
+O uso gerencial do modelo é decidir **quem comprar**, e não acertar quanto cada atleta vai valorizar.
+Esta seção avalia as mesmas previsões fora da amostra como regra de decisão, sem nenhum ajuste novo.
+
+**Valorização significativa** é a que paga a operação. Comprar por $V_T(1+c_b)$ e vender por
+$V_{T+k}(1-c_v)$ só dá lucro se $\Delta V\% > (1+c_b)/(1-c_v) - 1$.
+- **Limiar:** no cenário principal ($c_b = c_v = 10\%$), é de **22,2%**. Ele decorre dos custos
+  fixados no protocolo, e não dos resultados.
+- **Quem sai da base** conta como prejuízo total.
+- **Taxa-base:** cerca de 21% dos atletas passam do limiar em cada temporada.
+
+*Status:* a análise foi definida depois da revelação do teste de 2024/25 e, portanto, **não foi
+pré-registrada**. Ela não altera modelos, previsões nem o veredito da H4.
+
+![Regra de compra](figures/05_model_interpretation/fig12_regra_de_compra.png)
+
+| Pagar custos de 10% + 10% | $T+1$ desenv. | $T+1$ teste | $T+2$ desenv. | $T+2$ teste |
+|---|---|---|---|---|
+| Taxa-base | 21% | 22% | 20% | 21% |
+| AUC do modelo | 0,79 | **0,82** [0,80; 0,84] | 0,82 | **0,83** [0,81; 0,86] |
+| AUC dos 10% mais jovens | 0,76 | 0,80 | 0,81 | 0,84 |
+| AUC do *momentum* | 0,68 | 0,68 | 0,67 | 0,68 |
+| Decil superior do modelo: % que pagou | 55% | **67%** | 59% | **62%** |
+| 10% mais jovens: % que pagou | 50% | 56% | 55% | 63% |
+| Decil inferior do modelo: % que pagou | 1% | 0% | 1% | 0% |
+
+- **Discriminação** (`tab13`). No teste, em 82–83% dos pares formados por um atleta que pagou a
+  operação e outro que não pagou, o modelo põe o primeiro à frente. O decil superior paga a operação
+  cerca de três vezes a taxa-base; o inferior, praticamente nunca. Os outros limiares dão o mesmo quadro: AUC
+  de 0,81–0,83 para "valorizou" e de 0,83 para custos de 25% + 10%.
+- **O peso da idade** (`tab13c`). Comprar os 10% mais jovens já separa bem quem paga a operação. No
+  teste, o modelo supera essa heurística em $T+1$: +0,020 de AUC [0,009; 0,031] e 67% contra 56% de
+  acerto. Em $T+2$, empata: −0,002 [−0,013; 0,009] e 62% contra 63%. A vantagem sobre o *momentum* é
+  ampla nos dois horizontes (+0,13 e +0,15).
+- **Dentro das faixas etárias** (`tab14`). O modelo mantém vantagem sobretudo no auge:
+  - **24–28 anos ($T+1$):** 42% (desenvolvimento) e 39% (teste) do decil superior pagaram a operação,
+    contra 25% e 19% dos mais jovens da faixa e uma taxa-base de 20–22%;
+  - **16–23 anos:** a vantagem aparece no desenvolvimento (70% contra 55%) e some no teste de $T+1$ (67%
+    contra 71%);
+  - **acima de 29 anos:** quase ninguém paga a operação (0–4%).
+- **Retorno.** É onde o modelo mais se distingue da idade. Na seção 9, a carteira do modelo rende 46%
+  ($T+1$) e 89% ($T+2$) no cenário principal, contra 26% e 55% dos mais jovens, e vence essa heurística
+  em todas as temporadas.
+- **Probabilidade calibrada** (`tab15`, `tab15b`). Ajustada por regressão isotônica só com as temporadas
+  anteriores, a probabilidade de pagar a operação é confiável em $T+1$. No teste, quem recebeu de 40% a
+  50% pagou em 43% dos casos, e quem recebeu mais de 60%, em 70%. O escore de Brier melhora sobre a
+  taxa-base:
+  - 18–23% em $T+1$, com pelo menos duas temporadas de histórico (5% em 2021/22, com uma só);
+  - 15–21% em $T+2$, onde a probabilidade é otimista: acima de 60% previstos, 62–64% observados, contra
+    79–80% previstos.
+- **Regra por limiar** (`tab15c`). Comprar quando a probabilidade passa de 60%:
+  - **$T+1$:** seleciona de 0,1% a 5% dos candidatos (3 a 92 atletas), com acerto de 67–80%, contra
+    52–67% do decil superior. A carteira acompanha o mercado em vez de ter tamanho fixo, mas fica
+    pequena e concentrada em promessas de clubes de elite.
+  - **$T+2$:** como a probabilidade é otimista, a regra seleciona 7–12% dos candidatos sem acertar mais
+    que o decil superior.
+
+**Implicação.** O modelo responde bem à pergunta "este atleta vai se valorizar o bastante para pagar a
+operação?", mas boa parte da resposta vem da idade. A contribuição própria do modelo está em três
+pontos:
+- ordenar os atletas no auge da carreira;
+- descartar quem não tem chance;
+- escolher, entre os jovens, os de maior valorização, o que aparece no retorno.
+
+Por isso, a regressão do log-retorno continua sendo o motor da decisão: a magnitude prevista é o que
+separa o modelo da regra "compre os jovens".
 
 ## 10. Mapa de oportunidades e lista de observação (teste 2024/25)
 
@@ -319,7 +390,10 @@ o *commit* `5573d7e`, para conferência quando o Transfermarkt publicar os valor
 4. **A estratégia baseada no modelo supera heurísticas e o acaso** em todas as temporadas, líquida de
    custos e incluindo quem sai da base (H4 sustentada), com ROI de valor de mercado de 46% em $T+1$ e 89%
    em $T+2$ no cenário principal.
-5. **O risco de carteiras concentradas permanece**, e as melhores oportunidades concentram-se em
+5. **Como regra de compra, o modelo separa quem paga a operação** (AUC de 0,82–0,83 no teste), mas boa
+   parte dessa separação vem da idade. A vantagem própria do modelo aparece no auge da carreira e no
+   retorno (análise secundária, seção 9.2).
+6. **O risco de carteiras concentradas permanece**, e as melhores oportunidades concentram-se em
    promessas de clubes de elite, cujo preço real tende a superar o $V_T$.
 
 **Ressalvas.** O SHAP descreve o modelo, não relações causais. O ROI é de **valor de mercado**: os custos

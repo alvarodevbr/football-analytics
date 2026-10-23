@@ -39,6 +39,20 @@ Os critérios de cada hipótese foram fixados no protocolo (`reports/protocol_v3
   não a incerteza do ajuste. Nos modelos reajustados em cada dobra, a diferença fica entre 6,8 e 10,7
   p.p. (relatório 05, §6): o padrão não depende de uma temporada nem do modelo final.
 
+**Análise secundária, não pré-registrada: o modelo como regra de compra** (relatório 05, §9.2). O uso
+gerencial do modelo é decidir quem comprar. Por isso, a "valorização significativa" foi definida como a
+que paga os custos do cenário principal ($\Delta V\%$ > 22,2%). O limiar decorre dos custos fixados no
+protocolo, mas a análise foi definida depois da revelação do teste.
+- **Discriminação.** No teste, o modelo separa quem paga a operação com AUC de 0,82 ($T+1$) e 0,83
+  ($T+2$). Do seu decil superior, 67% e 62% pagaram a operação, contra uma taxa-base de 21–22%.
+- **Idade.** Comprar os 10% mais jovens já atinge AUC de 0,80 e 0,84. O modelo supera essa heurística
+  em $T+1$ (+0,020 [0,009; 0,031]) e empata em $T+2$ (−0,002 [−0,013; 0,009]). A pergunta "vai se
+  valorizar?" é respondida em boa parte pela idade.
+- **Contribuição própria do modelo.** Aparece no auge da carreira e no retorno. Contra os mais jovens,
+  o ROI do cenário principal é de 46% contra 26% em $T+1$ e de 89% contra 55% em $T+2$, com vitória em
+  todas as temporadas. A H4 pré-registrada não incluía essa referência, mais forte que a juventude
+  sorteada; com ela, a conclusão se mantém.
+
 ## 2. Protocolo pré-registrado
 
 O teste final de $T+1$ (2024/25, alvo em 30/06/2026) foi tratado como **pré-registrado**:
@@ -84,6 +98,7 @@ versões 1 e 2, e o alvo de $T+2$ de 2024/25 (30/06/2027) ainda não existe.
 | 19 | Camada de magnitude com todas as dobras anteriores (v2) | Sem a 1ª dobra no histórico | A 1ª dobra treina com uma só temporada e tem erro de nível estrutural | Relatório 04, §10 |
 | 20 | *Backtest* sem custos, condicionado à sobrevivência (v2) | Custos de transação, intenção de tratar e teste do sinal | Realismo e honestidade sobre perdas | Relatório 05, §9 |
 | 21 | Premissa: o rendimento operacional governa o valor dos veteranos | Não confirmada | Nos atletas de 33+, a idade responde por 39–46% do $\vert\phi\vert$, e o desempenho pesa 10 p.p. menos que no auge (H5) | Relatório 05, §3 |
+| 22 | Avaliação por erro de previsão ($R^2$, RMSE e MAE; Tabela 6.1) | Avaliação também como regra de compra: AUC, acerto do decil superior e probabilidade calibrada de pagar os custos ($\Delta V\%$ > 22,2%), com os 10% mais jovens como referência adicional | O objetivo gerencial é decidir quem comprar, e não acertar a magnitude de cada atleta; análise secundária, definida depois da revelação do teste | Relatório 05, §9.2 |
 
 **Inconsistência nas especificações.** A numeração C1–C12 da Tabela 3.1 (*Metodologia*) é por coluna,
 e a das Tabelas 5.2 e 6.2, por linha. Foi adotada a das Tabelas 5.2 e 6.2.
@@ -126,6 +141,9 @@ e a das Tabelas 5.2 e 6.2, por linha. Foi adotada a das Tabelas 5.2 e 6.2.
 - **ROI de valor de mercado, não de caixa.** Os custos de transação entram como cenário. Salários e a
   diferença entre valor estimado e preço efetivo não entram.
 - **Carteiras retrospectivas**, salvo a lista prospectiva para 30/06/2027.
+- **Regra de compra avaliada depois da revelação do teste.** Os rótulos de decisão, as métricas e a
+  referência "Mais jovens" não constam do protocolo. Em $T+2$, a probabilidade de pagar a operação é
+  otimista: acima de 60% previstos, 62–64% observados.
 
 ## 5. Ameaças à validade
 
@@ -142,6 +160,7 @@ e a das Tabelas 5.2 e 6.2, por linha. Foi adotada a das Tabelas 5.2 e 6.2.
 | Conclusão estatística | Comparações múltiplas | Correção de Holm por família; MCS para o conjunto de modelos | Análises exploratórias (SHAP por categoria) sem correção formal |
 | Conclusão estatística | Seleção do $\kappa$ do *pooling* nas mesmas dobras do teste de decisão | Regra de decisão pré-declarada; confirmação no teste final | O $p$ de validação é otimista: a vantagem do *pooling* em $T+2$ não se repetiu no teste |
 | Conclusão estatística | Poucas temporadas para o *backtest* | Teste do sinal entre temporadas e reamostragem dentro delas | Seis decisões em $T+1$ e quatro em $T+2$: poder limitado |
+| Conclusão estatística | Avaliação de decisão definida depois da revelação do teste | Limiar derivado dos custos pré-registrados; nenhum modelo ou previsão alterado; a referência acrescentada (10% mais jovens) só torna a comparação mais difícil | A escolha dos rótulos e das métricas de decisão não foi pré-registrada |
 
 ## 6. Próximos passos
 
@@ -165,6 +184,9 @@ e a das Tabelas 5.2 e 6.2, por linha. Foi adotada a das Tabelas 5.2 e 6.2.
 7. **Modelo em duas etapas para saltos de valor:** a probabilidade de uma revisão forte combinada com a
    magnitude condicional, com eventos de transferência tratados como cenários.
 8. **Restrições monotônicas** (idade, gap) para a plausibilidade das explicações.
+9. **Pré-registrar a avaliação de decisão** no protocolo da próxima versão: rótulo de pagar os custos,
+   AUC, acerto do decil superior, calibração da probabilidade e a referência dos 10% mais jovens como
+   critério da H4.
 
 ## 7. Referências metodológicas incluídas na versão 3
 

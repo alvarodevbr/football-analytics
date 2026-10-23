@@ -40,12 +40,16 @@ Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfer
 
 **Figura 10 – ROI realizado das carteiras de recrutamento por estratégia e temporada de decisão (backtest fora da amostra)**  
 `fig08_backtest_estrategias.png`  
-Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Cenário principal: compra por V_T × 1,10, venda por V_{T+k} × 0,90 e atletas sem V_{T+k} valendo zero. Carteiras com 10% dos candidatos. Haste na estratégia aleatória: intervalo de 5% a 95% de 2.000 sorteios.
+Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Cenário principal: compra por V_T × 1,10, venda por V_{T+k} × 0,90 e atletas sem V_{T+k} valendo zero. Carteiras com 10% dos candidatos; Mais jovens: os 10% de menor idade. Haste na estratégia aleatória: intervalo de 5% a 95% de 2.000 sorteios.
 
 **Figura 11 – Distribuição do ROI de carteiras com orçamento de € 40 milhões: modelo versus ordem de compra aleatória**  
 `fig09_orcamento_risco.png`  
 Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Até 6 atletas com V_T entre € 2 e € 15 milhões, no máximo 2 por posição e 3 por faixa etária; compra por V_T × 1,10 e venda por V_{T+k} × 0,90, atletas sem V_{T+k} valendo zero. Histograma: 2.000 sorteios por temporada.
 
-**Figura 12 – Mapa de oportunidades de recrutamento em 30/06/2025: retorno esperado versus cenário pessimista em T+1**  
+**Figura 12 – Desempenho do modelo como regra de compra: acerto das carteiras e calibração da probabilidade de a valorização pagar os custos da operação**  
+`fig12_regra_de_compra.png`  
+Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Pagar a operação: valorização realizada acima do ponto de equilíbrio de custos de 10% na compra e 10% na venda (ΔV% > 22,2%); atletas sem V_{T+k} contam como prejuízo. (a) Carteiras com os 10% de maior retorno esperado (Modelo), de menor idade (Mais jovens) ou de maior valorização passada (Momentum); média das temporadas de desenvolvimento (desenv.) e teste final (2024/25 em T+1; 2023/24 em T+2). (b) Probabilidade calibrada por regressão isotônica só com as temporadas anteriores, a partir da 3ª dobra; área dos marcadores proporcional ao número de atletas.
+
+**Figura 13 – Mapa de oportunidades de recrutamento em 30/06/2025: retorno esperado versus cenário pessimista em T+1**  
 `fig10_mapa_oportunidades.png`  
 Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Tamanho do ponto proporcional a V_T. Rótulos: oito maiores retornos esperados na faixa de € 2–15 milhões. Previsões fora da amostra.

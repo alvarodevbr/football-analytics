@@ -3,7 +3,7 @@
   "source": "notebook 05: SHAP do ensemble global, T+2",
   "n_rows": 11214,
   "n_columns": 113,
-  "written_at": "2026-10-23T14:14:02",
+  "written_at": "2026-10-23T19:33:22",
   "columns": {
     "age": {
       "dtype": "float64"
