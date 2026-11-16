@@ -10,3 +10,10 @@ data/smoke_test/
 
 # caches e modelos treinados (regeneráveis pelo notebook 04)
 models/04_model_training/cache/
+
+# artigo: auxiliares do LaTeX (o PDF e o .docx são versionados) e travas do LibreOffice
+article/build/
+*.synctex.gz
+.~lock.*#
+
+documents/

@@ -113,6 +113,26 @@ Saídas:
 - `data/processed/shap_values_T{1,2}.parquet`;
 - `reports/figures/05_model_interpretation/` e `reports/tables/05_model_interpretation/`.
 
+## Artigo
+
+`article/artigo.tex` é a fonte única do artigo:
+- classe abnTeX2;
+- formatação ABNT do `CLAUDE.md` (§4) em `article/abntartigo.sty`;
+- referências em `article/referencias.bib`, com citações e lista pelo biblatex-abnt.
+
+```bash
+(cd article && latexmk)                     # PDF (LuaLaTeX + biber); auxiliares em article/build/
+.venv/bin/python article/build_docx.py      # .docx do mesmo artigo.tex, com equações nativas do Word
+```
+
+Para compilar, é preciso uma distribuição LaTeX (MiKTeX ou TeX Live) com LuaLaTeX, biber, latexmk,
+abntex2 e biblatex-abnt. No VS Code, a extensão LaTeX Workshop compila ao salvar, com a receita de
+`.vscode/settings.json`. Sem a Arial instalada, o PDF usa Liberation Sans ou Arimo, que têm as mesmas
+métricas.
+
+O gerador de .docx aceita o subconjunto de LaTeX descrito em `article/latex_reader.py`. Diante de
+qualquer outro comando, ele para e informa o nome.
+
 ## Código e testes
 
 | Módulo (`src/football_analytics/`) | Responsabilidade |

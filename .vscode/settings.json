@@ -1,0 +1,12 @@
+{
+  // LaTeX Workshop: compila o artigo com o latexmk de article/.latexmkrc (LuaLaTeX + biber),
+  // em vez da receita padrão com pdflatex
+  "latex-workshop.latex.recipes": [
+    { "name": "latexmk (LuaLaTeX + biber)", "tools": ["latexmk-artigo"] }
+  ],
+  "latex-workshop.latex.tools": [
+    { "name": "latexmk-artigo", "command": "latexmk", "args": ["%DOC%"], "env": {} }
+  ],
+  "latex-workshop.latex.outDir": "%DIR%",
+  "latex-workshop.view.pdf.viewer": "tab"
+}

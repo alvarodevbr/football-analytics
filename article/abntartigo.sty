@@ -1,0 +1,202 @@
+% abntartigo.sty: formatação ABNT do artigo (CLAUDE.md, §4) sobre a classe abntex2.
+%
+% Exige LuaLaTeX (ou XeLaTeX) e biber; em article/, `latexmk` compila tudo (ver .latexmkrc).
+% O mesmo artigo.tex gera o .docx com article/build_docx.py, que reproduz estas regras no Word.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{abntartigo}[2026/10/24 Formatacao ABNT do artigo]
+
+\RequirePackage{iftex}
+\ifPDFTeX
+  \PackageError{abntartigo}{Compile com LuaLaTeX: rode `latexmk' na pasta article/}{}
+\fi
+
+% ---------------------------------------------------------------------------------------------
+% Fonte: Arial 12; sem a Arial instalada, Liberation Sans ou Arimo, de métricas idênticas
+% ---------------------------------------------------------------------------------------------
+\RequirePackage{fontspec}
+\RequirePackage{amsmath}
+\RequirePackage{unicode-math}
+
+% \artigo@fontes{família}{opções do fontspec}{itálico}: texto e fórmulas na mesma família; nas
+% fórmulas, letras, algarismos e operadores simples vêm dela, e o restante, da Latin Modern Math
+\newcommand{\artigo@fontes}[3]{%
+  \setmainfont{#1}[#2]\setsansfont{#1}[#2]%
+  \setmathfont{latinmodern-math.otf}%
+  \setmathfont{#1}[#2, range={up/{num,latin,Latin,greek,Greek},"002B,"003D,"003C,"003E,"0028,
+    "0029,"005B,"005D,"002E,"002F,"0025,"2212}]%
+  \setmathfont{#3}[range={it/{latin,Latin,greek}->up}]%
+}
+\IfFontExistsTF{Arial}{%
+  \artigo@fontes{Arial}{}{Arial Italic}%
+}{%
+  \IfFontExistsTF{Liberation Sans}{%
+    \artigo@fontes{Liberation Sans}{}{Liberation Sans Italic}%
+  }{%
+    \artigo@fontes{Arimo}{Extension=.ttf, UprightFont=*-Regular, BoldFont=*-Bold,
+      ItalicFont=*-Italic, BoldItalicFont=*-BoldItalic}{Arimo-Italic.ttf}%
+  }%
+  \PackageWarningNoLine{abntartigo}{Arial nao encontrada: usando uma fonte de metricas
+    identicas (Liberation Sans ou Arimo)}%
+}
+\renewcommand{\familydefault}{\rmdefault}
+\AtBeginDocument{\let\phi\varphi}   % a Arial não tem o ϕ (U+03D5); φ é a forma usada também no .docx
+
+\RequirePackage{icomma}               % vírgula decimal nas fórmulas: $0,05$
+\RequirePackage{graphicx}
+\RequirePackage{array}
+\RequirePackage{booktabs}
+\RequirePackage{tabularx}
+\RequirePackage{indentfirst}          % recuo também no primeiro parágrafo de cada seção
+\RequirePackage[protrusion=false]{microtype}   % nada avança sobre as margens
+\RequirePackage{csquotes}
+
+% ---------------------------------------------------------------------------------------------
+% Página: A4, margens superior e esquerda de 3 cm e inferior e direita de 2 cm; número da
+% página no canto superior direito, a 2 cm da borda
+% ---------------------------------------------------------------------------------------------
+\setlrmarginsandblock{3cm}{2cm}{*}
+\setulmarginsandblock{3cm}{2cm}{*}
+\setheadfoot{17pt}{1cm}
+\setheaderspaces{*}{1cm}{*}
+\checkandfixthelayout[fixed]          % sem arredondar a altura do texto: margem inferior de 2 cm exatos
+
+\makepagestyle{artigo}
+\makeoddhead{artigo}{}{}{\ABNTEXfontereduzida\thepage}
+\makeevenhead{artigo}{}{}{\ABNTEXfontereduzida\thepage}
+\pagestyle{artigo}
+\aliaspagestyle{chapter}{artigo}
+
+% ---------------------------------------------------------------------------------------------
+% Texto: espaçamento de 1,5 linha como no Word (1,5 × 13,8 pt da Arial 12 = 20,7 pt), 0 pt
+% entre parágrafos e recuo de 1 cm na primeira linha
+% ---------------------------------------------------------------------------------------------
+\setSpacing{1.43}
+\setlength{\parindent}{1cm}
+\setlength{\parskip}{0pt}
+\newlength{\artigolinha}
+\setlength{\artigolinha}{20.7pt}      % uma linha em branco
+% espaço simples como no Word: 1,15 × o corpo da Arial (13,8 pt em 12 pt; 11,5 pt em 10 pt)
+\newcommand{\artigosimples}{\SingleSpacing\fontsize{12pt}{13.8pt}\selectfont}
+\renewcommand{\ABNTEXfontereduzida}{\fontsize{10pt}{11.5pt}\selectfont}
+
+% Títulos: 14 pt, negrito; seções primárias em maiúsculas (opção section=TITLE da classe) e
+% uma linha em branco antes e depois
+\renewcommand{\ABNTEXchapterfont}{\normalfont\bfseries}
+\renewcommand{\ABNTEXsectionfont}{\normalfont\bfseries}
+\renewcommand{\ABNTEXsectionfontsize}{\fontsize{14pt}{20.7pt}\selectfont}
+\renewcommand{\ABNTEXsubsectionfont}{\normalfont\bfseries}
+\renewcommand{\ABNTEXsubsectionfontsize}{\fontsize{14pt}{20.7pt}\selectfont}
+\setbeforesecskip{\artigolinha}
+\setaftersecskip{\artigolinha}
+\setbeforesubsecskip{\artigolinha}
+\setaftersubsecskip{\artigolinha}
+
+% ---------------------------------------------------------------------------------------------
+% Ilustrações: legenda acima (10 pt, "Figura 1 – Título"), fonte e nota abaixo (\fonte e
+% \nota da classe), espaço simples; tabelas no padrão IBGE (booktabs) e quadros fechados
+% ---------------------------------------------------------------------------------------------
+\newfloat{quadro}{loq}{Quadro}
+\captionnamefont{\ABNTEXfontereduzida}
+\captiontitlefont{\ABNTEXfontereduzida}
+\captionstyle[\raggedright]{\raggedright}
+\setlength{\abovecaptionskip}{0pt}
+\setlength{\belowcaptionskip}{3pt}
+\setfloatadjustment{figure}{\SingleSpacing\centering}
+\setfloatadjustment{table}{\SingleSpacing\centering\ABNTEXfontereduzida}
+\setfloatadjustment{quadro}{\SingleSpacing\centering\ABNTEXfontereduzida
+  \renewcommand{\arraystretch}{1.25}}
+\setlength{\intextsep}{\artigolinha}
+\setlength{\textfloatsep}{\artigolinha}
+\setlength{\floatsep}{\artigolinha}
+% ilustrações junto do texto, sem páginas só de figuras com espaço sobrando
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.8}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+
+% Citação longa: 10 pt, espaço simples, recuo de 4 cm e 6 pt antes e depois
+\renewenvironment*{citacao}{%
+  \par\vspace{6pt}%
+  \begin{SingleSpace}%
+  \ABNTEXfontereduzida
+  \setlength{\leftskip}{\ABNTEXcitacaorecuo}%
+  \noindent\ignorespaces
+}{%
+  \par\end{SingleSpace}%
+  \vspace{6pt}%
+}
+
+% Alíneas: a), b), ...; itens com rótulo próprio usam \begin{alineas}[label=H\arabic*:]
+\setlist[alineas,1]{label={\alph*)}, topsep=0pt, itemsep=0pt, parsep=0pt,
+  labelindent=\parindent, labelsep=0.4em, leftmargin=*, align=left}
+
+% Notas de rodapé: 10 pt, espaço simples
+\renewcommand{\foottextfont}{\ABNTEXfontereduzida}
+
+% ---------------------------------------------------------------------------------------------
+% Pré-texto: título, autores, orientação, resumo e palavras-chave
+% ---------------------------------------------------------------------------------------------
+\newcommand*{\artigo@autores}{}
+\newcommand*{\artigo@nomes}{}
+\newcommand*{\artigo@orientacao}{}
+\newcommand*{\artigo@palavraschave}{}
+
+% \adicionarautor{Nome}; com nota de rodapé (formação, vínculo, contato): \adicionarautor[Nota]{Nome}
+\newcommand{\adicionarautor}[2][]{%
+  \g@addto@macro\artigo@autores{#2\artigo@nota{#1}\par}%
+  \ifx\artigo@nomes\@empty\gdef\artigo@nomes{#2}\else\g@addto@macro\artigo@nomes{; #2}\fi}
+% \orientacao{Orientadora}{Profa. Ma. Nome}; com nota: \orientacao[Nota]{Orientadora}{Profa. Ma. Nome}
+\newcommand{\orientacao}[3][]{%
+  \gdef\artigo@orientacao{#2: #3\artigo@nota{#1}\par}}
+\newcommand{\artigo@nota}[1]{\if\relax\detokenize{#1}\relax\else\footnote{#1}\fi}
+\newcommand{\palavraschave}[1]{\gdef\artigo@palavraschave{#1}}
+
+\newcommand{\imprimircabecalho}{%
+  \thispagestyle{artigo}%
+  {\centering\ABNTEXsectionfont\ABNTEXsectionfontsize\imprimirtitulo\par}%
+  \vspace{\artigolinha}%
+  {\raggedleft\artigo@autores\artigo@orientacao}%
+  \vspace{\artigolinha}%
+}
+
+% resumo em 1,5, como o texto (a NBR 14724 não o inclui entre as exceções de espaço simples)
+\renewenvironment{resumo}{%
+  {\centering\ABNTEXsectionfont\ABNTEXsectionfontsize RESUMO\par}%
+  \vspace{\artigolinha}%
+  \noindent\ignorespaces
+}{%
+  \par
+  \vspace{\artigolinha}%
+  \noindent\textbf{Palavras-chave:} \artigo@palavraschave\par
+  \vspace{\artigolinha}%
+}
+
+% ---------------------------------------------------------------------------------------------
+% Referências (NBR 6023:2018) e citações autor-data (NBR 10520:2023: "(Müller et al., 2017)",
+% "Müller et al. (2017)"); et al. a partir de três autores na citação e de quatro na lista
+% ---------------------------------------------------------------------------------------------
+\RequirePackage[backend=biber, style=abnt, maxcitenames=2, mincitenames=1, maxbibnames=3,
+                minbibnames=1, giveninits=true, uniquename=init, uniquelist=false,
+                oldspacing]{biblatex}  % oldspacing: 6 pt entre referências (CLAUDE.md), não 1 linha
+\setlength{\bibitemsep}{6pt}
+% eventos: "Proceedings [...]" ou "Anais [...]", com a supressão fora do negrito (NBR 6023:2018)
+\DeclareFieldFormat[inproceedings]{booktitle}{\mkbibbold{#1}\addspace\mkbibbrackets{\ldots}}
+\setlength{\bibhang}{0pt}
+\AtBeginBibliography{\artigosimples\raggedright}
+\defbibheading{referencias}[\refname]{%
+  \par\needspace{4\artigolinha}\vspace{\artigolinha}%
+  \phantomsection\addcontentsline{toc}{section}{#1}%
+  {\centering\ABNTEXsectionfont\ABNTEXsectionfontsize\MakeTextUppercase{#1}\par}%
+  \vspace{\artigolinha}%
+}
+
+\hypersetup{hidelinks}
+\pdfstringdefDisableCommands{\let\textit\@firstofone\let\emph\@firstofone}
+\AtBeginDocument{\hypersetup{pdftitle={\@title}, pdfauthor={\artigo@nomes}}}
+
+\endinput
