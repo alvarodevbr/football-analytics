@@ -112,7 +112,7 @@ FA_REVEAL_HOLDOUT=1 ../.venv/bin/jupyter nbconvert --to notebook --execute 04_mo
 **Custos.**
 - **Notebook 04:** cerca de 100 minutos a frio, com cache em `models/04_model_training/cache/`.
 - **Notebook 05:** cerca de 40 minutos.
-- **Testes:** `.venv/bin/pytest`, 134 testes.
+- **Testes:** `.venv/bin/pytest`, 135 testes.
 - **Modo de teste:** `FA_SMOKE_TEST=1` roda os notebooks 04 e 05 com 15% das linhas.
 
 ## Mapa de artefatos
