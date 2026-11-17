@@ -1,5 +1,16 @@
 # 02 — Verificação dos Dados e Análise Exploratória
 
+> **Versão 4 (17/11/2026).** A amostra é a mesma da v3 (13.748 observações, 5.007 atletas). Na v4:
+> - o funil do artigo (`tab03b_funil_artigo`) traz a ponte entre os 22.419 registros brutos (com os 2.692
+>   de 2017/18, só para defasagens) e os 19.727 de 2018/19 a 2024/25, e as observações com alvo:
+>   13.483 em $T+1$ (1.952 no teste) e 11.214 em $T+2$ (1.879);
+> - a defasagem mediana de $V_T$ é de 25 dias, e o intervalo entre as avaliações de $T$ e $T+1$ tem
+>   mediana de 365 dias (302–427);
+> - dos 265 atletas sem $V_{T+1}$, 152 se aposentaram, ficaram sem clube ou pararam a carreira, e 113
+>   seguem avaliados com valor mais antigo que 183 dias (notebook 03, `tab10b`).
+>
+> O texto abaixo é o da v3; os números de amostra não mudaram.
+
 **Notebook:** `notebooks/02_eda.ipynb` · **Código:** `src/football_analytics/sample.py`
 **Saídas:** 14 figuras em `figures/02_eda/` e 19 tabelas em `tables/02_eda/`
 

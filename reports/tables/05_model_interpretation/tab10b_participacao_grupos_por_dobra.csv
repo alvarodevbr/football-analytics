@@ -1,121 +1,131 @@
 ﻿horizonte,temporada_teste,grupo,participacao_pct
-T+1,2019/20,Avaliação agregada,1.53799
-T+1,2019/20,Contexto,7.31548
-T+1,2019/20,Criação e posse,7.91977
-T+1,2019/20,Defasagem,11.04753
-T+1,2019/20,Defensivo,6.34978
-T+1,2019/20,Demográfico,23.74802
-T+1,2019/20,Dinâmica de mercado,13.33132
-T+1,2019/20,Disciplina,2.05719
-T+1,2019/20,Mercado,7.26673
-T+1,2019/20,Ofensivo,6.03147
-T+1,2019/20,Valor justo,8.36876
-T+1,2019/20,Volume,5.02598
-T+1,2020/21,Avaliação agregada,2.63474
-T+1,2020/21,Contexto,9.36504
-T+1,2020/21,Criação e posse,5.04662
-T+1,2020/21,Defasagem,11.64708
-T+1,2020/21,Defensivo,6.02761
-T+1,2020/21,Demográfico,26.27910
-T+1,2020/21,Dinâmica de mercado,10.03355
-T+1,2020/21,Disciplina,1.46363
-T+1,2020/21,Mercado,7.68624
-T+1,2020/21,Ofensivo,5.94879
-T+1,2020/21,Valor justo,10.13348
-T+1,2020/21,Volume,3.73411
-T+1,2021/22,Avaliação agregada,2.63053
-T+1,2021/22,Contexto,11.79779
-T+1,2021/22,Criação e posse,4.68129
-T+1,2021/22,Defasagem,11.55604
-T+1,2021/22,Defensivo,4.74612
-T+1,2021/22,Demográfico,28.63242
-T+1,2021/22,Dinâmica de mercado,6.82054
-T+1,2021/22,Disciplina,0.44036
-T+1,2021/22,Mercado,8.30022
-T+1,2021/22,Ofensivo,6.29242
-T+1,2021/22,Valor justo,10.69818
-T+1,2021/22,Volume,3.40411
-T+1,2022/23,Avaliação agregada,2.60577
-T+1,2022/23,Contexto,9.60920
-T+1,2022/23,Criação e posse,4.03668
-T+1,2022/23,Defasagem,11.15123
-T+1,2022/23,Defensivo,6.12921
-T+1,2022/23,Demográfico,28.13068
-T+1,2022/23,Dinâmica de mercado,8.12812
-T+1,2022/23,Disciplina,0.57039
-T+1,2022/23,Mercado,8.94300
-T+1,2022/23,Ofensivo,6.65407
-T+1,2022/23,Valor justo,10.89851
-T+1,2022/23,Volume,3.14316
-T+1,2023/24,Avaliação agregada,2.46267
-T+1,2023/24,Contexto,10.21339
-T+1,2023/24,Criação e posse,4.99623
-T+1,2023/24,Defasagem,9.43830
-T+1,2023/24,Defensivo,6.31522
-T+1,2023/24,Demográfico,28.66873
-T+1,2023/24,Dinâmica de mercado,7.71792
-T+1,2023/24,Disciplina,0.63344
-T+1,2023/24,Mercado,9.48872
-T+1,2023/24,Ofensivo,6.14946
-T+1,2023/24,Valor justo,10.58621
-T+1,2023/24,Volume,3.32971
-T+1,2024/25,Avaliação agregada,2.36200
-T+1,2024/25,Contexto,9.17573
-T+1,2024/25,Criação e posse,4.05255
-T+1,2024/25,Defasagem,8.90320
-T+1,2024/25,Defensivo,6.22171
-T+1,2024/25,Demográfico,30.07354
-T+1,2024/25,Dinâmica de mercado,8.61983
-T+1,2024/25,Disciplina,0.43325
-T+1,2024/25,Mercado,9.45626
-T+1,2024/25,Ofensivo,6.43848
-T+1,2024/25,Valor justo,10.81126
-T+1,2024/25,Volume,3.45219
-T+2,2020/21,Avaliação agregada,1.86085
-T+2,2020/21,Contexto,8.95337
-T+2,2020/21,Criação e posse,6.13287
-T+2,2020/21,Defasagem,7.04118
-T+2,2020/21,Defensivo,7.33668
-T+2,2020/21,Demográfico,32.96400
-T+2,2020/21,Dinâmica de mercado,8.68571
-T+2,2020/21,Disciplina,2.23633
-T+2,2020/21,Mercado,8.08539
-T+2,2020/21,Ofensivo,6.16992
-T+2,2020/21,Valor justo,7.57425
-T+2,2020/21,Volume,2.95945
-T+2,2021/22,Avaliação agregada,1.49636
-T+2,2021/22,Contexto,8.40279
-T+2,2021/22,Criação e posse,5.15422
-T+2,2021/22,Defasagem,9.51728
-T+2,2021/22,Defensivo,6.75656
-T+2,2021/22,Demográfico,32.66310
-T+2,2021/22,Dinâmica de mercado,7.70754
-T+2,2021/22,Disciplina,0.58562
-T+2,2021/22,Mercado,9.33888
-T+2,2021/22,Ofensivo,5.15869
-T+2,2021/22,Valor justo,9.58778
-T+2,2021/22,Volume,3.63118
-T+2,2022/23,Avaliação agregada,1.87008
-T+2,2022/23,Contexto,7.05259
-T+2,2022/23,Criação e posse,4.68684
-T+2,2022/23,Defasagem,9.61116
-T+2,2022/23,Defensivo,6.44271
-T+2,2022/23,Demográfico,33.45393
-T+2,2022/23,Dinâmica de mercado,6.31451
-T+2,2022/23,Disciplina,0.71135
-T+2,2022/23,Mercado,9.62780
-T+2,2022/23,Ofensivo,6.82482
-T+2,2022/23,Valor justo,10.21053
-T+2,2022/23,Volume,3.19368
-T+2,2023/24,Avaliação agregada,1.56443
-T+2,2023/24,Contexto,7.57726
-T+2,2023/24,Criação e posse,4.61534
-T+2,2023/24,Defasagem,9.30698
-T+2,2023/24,Defensivo,6.07330
-T+2,2023/24,Demográfico,32.55316
-T+2,2023/24,Dinâmica de mercado,6.28875
-T+2,2023/24,Disciplina,0.85002
-T+2,2023/24,Mercado,10.15596
-T+2,2023/24,Ofensivo,6.98060
-T+2,2023/24,Valor justo,10.21053
-T+2,2023/24,Volume,3.82367
+T+1,2019/20,Avaliação agregada,1.61636
+T+1,2019/20,Contexto,6.68315
+T+1,2019/20,Criação e posse,7.66007
+T+1,2019/20,Defasagem,8.75330
+T+1,2019/20,Defensivo,5.45535
+T+1,2019/20,Demográfico,23.96879
+T+1,2019/20,Dinâmica de mercado,14.94617
+T+1,2019/20,Disciplina,1.26878
+T+1,2019/20,Disponibilidade física,3.33726
+T+1,2019/20,Mercado,6.72528
+T+1,2019/20,Ofensivo,5.78882
+T+1,2019/20,Valor justo,9.60859
+T+1,2019/20,Volume,4.18806
+T+1,2020/21,Avaliação agregada,2.97150
+T+1,2020/21,Contexto,8.31671
+T+1,2020/21,Criação e posse,4.56003
+T+1,2020/21,Defasagem,12.82820
+T+1,2020/21,Defensivo,5.13144
+T+1,2020/21,Demográfico,25.65613
+T+1,2020/21,Dinâmica de mercado,12.33974
+T+1,2020/21,Disciplina,0.81512
+T+1,2020/21,Disponibilidade física,2.98654
+T+1,2020/21,Mercado,6.92456
+T+1,2020/21,Ofensivo,6.13579
+T+1,2020/21,Valor justo,8.95225
+T+1,2020/21,Volume,2.38199
+T+1,2021/22,Avaliação agregada,2.50817
+T+1,2021/22,Contexto,10.38799
+T+1,2021/22,Criação e posse,5.09537
+T+1,2021/22,Defasagem,11.57353
+T+1,2021/22,Defensivo,5.60210
+T+1,2021/22,Demográfico,26.80519
+T+1,2021/22,Dinâmica de mercado,7.83843
+T+1,2021/22,Disciplina,0.45464
+T+1,2021/22,Disponibilidade física,3.71585
+T+1,2021/22,Mercado,8.08588
+T+1,2021/22,Ofensivo,6.05342
+T+1,2021/22,Valor justo,9.08317
+T+1,2021/22,Volume,2.79624
+T+1,2022/23,Avaliação agregada,2.46996
+T+1,2022/23,Contexto,9.13659
+T+1,2022/23,Criação e posse,4.10664
+T+1,2022/23,Defasagem,11.56668
+T+1,2022/23,Defensivo,6.10881
+T+1,2022/23,Demográfico,27.18339
+T+1,2022/23,Dinâmica de mercado,8.76917
+T+1,2022/23,Disciplina,0.40482
+T+1,2022/23,Disponibilidade física,3.44698
+T+1,2022/23,Mercado,8.52318
+T+1,2022/23,Ofensivo,6.79722
+T+1,2022/23,Valor justo,9.22931
+T+1,2022/23,Volume,2.25726
+T+1,2023/24,Avaliação agregada,2.17239
+T+1,2023/24,Contexto,9.49544
+T+1,2023/24,Criação e posse,4.66603
+T+1,2023/24,Defasagem,9.78636
+T+1,2023/24,Defensivo,5.48382
+T+1,2023/24,Demográfico,28.06327
+T+1,2023/24,Dinâmica de mercado,8.69966
+T+1,2023/24,Disciplina,0.24048
+T+1,2023/24,Disponibilidade física,3.59067
+T+1,2023/24,Mercado,9.37214
+T+1,2023/24,Ofensivo,7.02744
+T+1,2023/24,Valor justo,9.16976
+T+1,2023/24,Volume,2.23254
+T+1,2024/25,Avaliação agregada,2.24875
+T+1,2024/25,Contexto,8.51816
+T+1,2024/25,Criação e posse,4.49272
+T+1,2024/25,Defasagem,8.89770
+T+1,2024/25,Defensivo,5.84743
+T+1,2024/25,Demográfico,29.01060
+T+1,2024/25,Dinâmica de mercado,8.97737
+T+1,2024/25,Disciplina,0.29365
+T+1,2024/25,Disponibilidade física,4.20929
+T+1,2024/25,Mercado,9.72086
+T+1,2024/25,Ofensivo,7.39822
+T+1,2024/25,Valor justo,8.16332
+T+1,2024/25,Volume,2.22193
+T+2,2020/21,Avaliação agregada,1.18334
+T+2,2020/21,Contexto,8.25163
+T+2,2020/21,Criação e posse,6.56200
+T+2,2020/21,Defasagem,6.82385
+T+2,2020/21,Defensivo,7.09147
+T+2,2020/21,Demográfico,30.61808
+T+2,2020/21,Dinâmica de mercado,10.37316
+T+2,2020/21,Disciplina,2.10403
+T+2,2020/21,Disponibilidade física,2.85375
+T+2,2020/21,Mercado,6.97836
+T+2,2020/21,Ofensivo,5.51321
+T+2,2020/21,Valor justo,7.94119
+T+2,2020/21,Volume,3.70593
+T+2,2021/22,Avaliação agregada,1.14527
+T+2,2021/22,Contexto,7.16890
+T+2,2021/22,Criação e posse,5.43985
+T+2,2021/22,Defasagem,9.32491
+T+2,2021/22,Defensivo,6.08215
+T+2,2021/22,Demográfico,32.76621
+T+2,2021/22,Dinâmica de mercado,10.82166
+T+2,2021/22,Disciplina,0.53892
+T+2,2021/22,Disponibilidade física,3.19895
+T+2,2021/22,Mercado,8.34447
+T+2,2021/22,Ofensivo,4.91115
+T+2,2021/22,Valor justo,7.75233
+T+2,2021/22,Volume,2.50523
+T+2,2022/23,Avaliação agregada,1.40731
+T+2,2022/23,Contexto,6.66146
+T+2,2022/23,Criação e posse,5.40339
+T+2,2022/23,Defasagem,9.72280
+T+2,2022/23,Defensivo,6.40207
+T+2,2022/23,Demográfico,32.92410
+T+2,2022/23,Dinâmica de mercado,7.88123
+T+2,2022/23,Disciplina,0.75694
+T+2,2022/23,Disponibilidade física,3.35816
+T+2,2022/23,Mercado,8.76812
+T+2,2022/23,Ofensivo,6.35014
+T+2,2022/23,Valor justo,8.24033
+T+2,2022/23,Volume,2.12392
+T+2,2023/24,Avaliação agregada,1.20177
+T+2,2023/24,Contexto,7.52797
+T+2,2023/24,Criação e posse,5.12121
+T+2,2023/24,Defasagem,9.66088
+T+2,2023/24,Defensivo,5.73244
+T+2,2023/24,Demográfico,32.30271
+T+2,2023/24,Dinâmica de mercado,7.75494
+T+2,2023/24,Disciplina,0.61886
+T+2,2023/24,Disponibilidade física,2.48422
+T+2,2023/24,Mercado,9.38169
+T+2,2023/24,Ofensivo,6.83369
+T+2,2023/24,Valor justo,8.82251
+T+2,2023/24,Volume,2.55711

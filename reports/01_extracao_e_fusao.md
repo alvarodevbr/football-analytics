@@ -1,5 +1,19 @@
 # 01 — Extração e Fusão das Fontes de Dados
 
+> **Versão 4 (17/11/2026).** O restante deste relatório descreve a coleta da v3, que continua valendo.
+> A v4 acrescentou:
+> - **Histórico de lesões do Transfermarkt** (`/verletzungen/`, `transfermarkt.parse_injuries`):
+>   - os 5.136 atletas do universo-alvo (jogador de linha com ao menos 90 minutos numa temporada de
+>     referência), 51.284 lesões;
+>   - nove sessões de 800 requisições, sem bloqueio do WAF;
+>   - saída em `tm_injuries_long` e `tm_injuries_status`.
+> - **Escalações por partida do Understat** (`understat.read_player_matches`, `getMatchData`):
+>   implementadas, mas não coletadas. O site esteve em manutenção durante toda a janela da v4 e
+>   respondia com uma página HTML. O leitor apaga o cache inválido e para.
+> - **Convocações para seleções:** não coletadas. As datas só existem numa API interna do Transfermarkt.
+> - **Modo offline** (`FA_OFFLINE=1`): reexecuta o notebook só com o cache, sem requisições novas nem
+>   ClubElo, e reproduz os dados congelados no protocolo v4.
+
 **Notebook:** `notebooks/01_data_extraction.ipynb` ·
 **Código:** `src/football_analytics/{fbref,understat,sofascore,transfermarkt,http,browser,entity_resolution,valuation,club_context,pipeline}.py`
 **Saída:** `data/raw/football_raw_dataset.parquet` (+ `.csv`, `_schema.json`) e tabelas intermediárias em `data/interim/`

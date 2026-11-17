@@ -99,7 +99,9 @@ class SofascoreCollector:
                     sid = self.season_id(league, season)
                     teams = self.teams(league, sid)
                     for team in teams:
-                        if (self.cfg.max_fetches_per_run is not None
+                        # o limite vale só para requisições de rede: o que já está em cache é sempre lido
+                        stats_path = self.cache / "stats" / f"{league.sofascore_tournament_id}_{sid}_{team['id']}.json"
+                        if (not stats_path.exists() and self.cfg.max_fetches_per_run is not None
                                 and self.network_fetches >= self.cfg.max_fetches_per_run):
                             log.warning("limite de requisições atingido; reexecute para continuar")
                             return _to_frame(rows, self.cfg.sofascore_fields)

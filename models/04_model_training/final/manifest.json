@@ -1,5 +1,5 @@
 {
-  "created": "2026-11-17T14:02:05",
+  "created": "2026-11-17T14:41:47",
   "target": "log-retorno ln(V_{T+k}/V_T)",
   "numeric_features": [
     "age",
@@ -130,7 +130,7 @@
   ],
   "data_tag": "9bfdbda6da",
   "protocol": "protocol_v4.json",
-  "holdout_revealed": false,
+  "holdout_revealed": true,
   "horizons": {
     "T1": {
       "approach": "Global com interações",
@@ -1385,13 +1385,13 @@
       "magnitude_layer": {
         "method": "mq_shape",
         "label": "Locação do ensemble + forma multiquantil",
-        "a": 0.0248742305,
-        "b": 1.0355767407,
+        "a": 0.039553091,
+        "b": 1.0925289318,
         "smearing_by_age_band": {
-          "16–23": 1.3043,
-          "24–28": 1.124,
-          "29–32": 1.0654,
-          "33+": 1.0471
+          "16–23": 1.3272,
+          "24–28": 1.1188,
+          "29–32": 1.0739,
+          "33+": 1.046
         },
         "conformal_adj": 0.0540868944
       },
@@ -2634,13 +2634,13 @@
       "magnitude_layer": {
         "method": "hetero",
         "label": "Fator heterocedástico (decil × tercil × faixa)",
-        "a": 0.0754917609,
-        "b": 1.0906543345,
+        "a": 0.0709182065,
+        "b": 1.1155340659,
         "smearing_by_age_band": {
-          "16–23": 1.6639,
-          "24–28": 1.2031,
-          "29–32": 1.2081,
-          "33+": 1.1128
+          "16–23": 1.6533,
+          "24–28": 1.2166,
+          "29–32": 1.1956,
+          "33+": 1.0995
         },
         "conformal_adj": 0.0490128504
       },

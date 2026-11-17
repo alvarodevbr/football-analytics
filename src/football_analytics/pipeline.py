@@ -364,7 +364,9 @@ def run_club_context(cfg: ExtractionConfig, fb: pd.DataFrame, ss: pd.DataFrame, 
     participants = pd.DataFrame(rows).merge(ids, on=["season", "sofascore_team_id"]).rename(columns={"fbref_team_id": "club"})
     europe = cc.europe_levels(participants)
 
-    elo = cc.read_clubelo([s.code for s in seasons], sd.ClubElo().read_by_date)
+    # offline: reexecução só com o cache, sem consultar o ClubElo (o Elo estava fora do ar na coleta)
+    elo = (pd.DataFrame(columns=cc.ELO_COLUMNS) if cfg.extra.get("offline")
+           else cc.read_clubelo([s.code for s in seasons], sd.ClubElo().read_by_date))
     target = fb_teams[fb_teams["season"].isin(cfg.feature_seasons)]
     elo_map = cc.map_clubelo(target, elo, er.load_aliases(cfg.paths.external / "team_aliases.csv", "clubelo"))
     context = cc.build_club_context(target, us_map, table, membership, europe, elo, elo_map)

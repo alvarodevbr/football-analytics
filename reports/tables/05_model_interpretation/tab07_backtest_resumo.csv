@@ -1,217 +1,337 @@
-﻿universo,horizonte,custo_compra,custo_venda,ausentes,estrategia,retorno_medio_pct,retorno_mediano_pct,roi_carteira_pct,taxa_valorizacao,taxa_perda_grave,roi_previsto_pct
-Faixa de € 2–15 mi,T+1,0.00000,0.00000,exclude,Aleatória,1.29317,,-0.42961,0.26815,,
-Faixa de € 2–15 mi,T+1,0.00000,0.00000,exclude,Juventude,42.65024,,34.19107,0.46766,,
-Faixa de € 2–15 mi,T+1,0.00000,0.00000,exclude,Mais jovens,66.57079,18.27160,54.01097,0.52284,0.05822,38.08770
-Faixa de € 2–15 mi,T+1,0.00000,0.00000,exclude,Modelo,84.06637,28.85802,70.85412,0.58959,0.03030,49.92759
-Faixa de € 2–15 mi,T+1,0.00000,0.00000,exclude,Modelo prudente,63.14109,15.07937,48.46240,0.53566,0.04142,36.33077
-Faixa de € 2–15 mi,T+1,0.00000,0.00000,exclude,Momentum,51.49152,12.03704,41.49855,0.51343,0.05374,26.99664
-Faixa de € 2–15 mi,T+1,0.00000,0.00000,last,Aleatória,1.06663,,-0.63513,0.26688,,
-Faixa de € 2–15 mi,T+1,0.00000,0.00000,last,Juventude,42.59011,,34.14077,0.46721,,
-Faixa de € 2–15 mi,T+1,0.00000,0.00000,last,Mais jovens,66.57079,18.27160,54.01097,0.52284,0.05822,38.08770
-Faixa de € 2–15 mi,T+1,0.00000,0.00000,last,Modelo,84.06637,28.85802,70.85412,0.58959,0.03030,49.92759
-Faixa de € 2–15 mi,T+1,0.00000,0.00000,last,Modelo prudente,63.14109,15.07937,48.46240,0.53566,0.04142,36.33077
-Faixa de € 2–15 mi,T+1,0.00000,0.00000,last,Momentum,51.49152,12.03704,41.49855,0.51343,0.05374,26.99664
-Faixa de € 2–15 mi,T+1,0.00000,0.00000,zero,Aleatória,0.64354,,-0.84317,0.26654,,
-Faixa de € 2–15 mi,T+1,0.00000,0.00000,zero,Juventude,42.58713,,34.17288,0.46653,,
-Faixa de € 2–15 mi,T+1,0.00000,0.00000,zero,Mais jovens,66.57079,18.27160,54.01097,0.52284,0.05822,38.08770
-Faixa de € 2–15 mi,T+1,0.00000,0.00000,zero,Modelo,84.06637,28.85802,70.85412,0.58959,0.03030,49.92759
-Faixa de € 2–15 mi,T+1,0.00000,0.00000,zero,Modelo prudente,63.14109,15.07937,48.46240,0.53566,0.04142,36.33077
-Faixa de € 2–15 mi,T+1,0.00000,0.00000,zero,Momentum,51.49152,12.03704,41.49855,0.51343,0.05374,26.99664
-Faixa de € 2–15 mi,T+1,0.10000,0.10000,exclude,Aleatória,-17.04897,,-18.42667,0.20759,,
-Faixa de € 2–15 mi,T+1,0.10000,0.10000,exclude,Juventude,17.09342,,10.09160,0.39638,,
-Faixa de € 2–15 mi,T+1,0.10000,0.10000,exclude,Mais jovens,36.28519,-3.23232,26.00898,0.46157,0.13500,38.08770
-Faixa de € 2–15 mi,T+1,0.10000,0.10000,exclude,Modelo,50.59975,5.42929,39.78973,0.53248,0.08358,49.92759
-Faixa de € 2–15 mi,T+1,0.10000,0.10000,exclude,Modelo prudente,33.47907,-5.84416,21.46924,0.45376,0.10173,36.33077
-Faixa de € 2–15 mi,T+1,0.10000,0.10000,exclude,Momentum,23.94761,-8.33333,15.77154,0.44107,0.11011,26.99664
-Faixa de € 2–15 mi,T+1,0.10000,0.10000,last,Aleatória,-17.29313,,-18.58253,0.20693,,
-Faixa de € 2–15 mi,T+1,0.10000,0.10000,last,Juventude,16.66262,,9.79168,0.39494,,
-Faixa de € 2–15 mi,T+1,0.10000,0.10000,last,Mais jovens,36.28519,-3.23232,26.00898,0.46157,0.13500,38.08770
-Faixa de € 2–15 mi,T+1,0.10000,0.10000,last,Modelo,50.59975,5.42929,39.78973,0.53248,0.08358,49.92759
-Faixa de € 2–15 mi,T+1,0.10000,0.10000,last,Modelo prudente,33.47907,-5.84416,21.46924,0.45376,0.10173,36.33077
-Faixa de € 2–15 mi,T+1,0.10000,0.10000,last,Momentum,23.94761,-8.33333,15.77154,0.44107,0.11011,26.99664
-Faixa de € 2–15 mi,T+1,0.10000,0.10000,zero,Aleatória,-17.65543,,-18.92617,0.20630,,
-Faixa de € 2–15 mi,T+1,0.10000,0.10000,zero,Juventude,16.74326,,9.84253,0.39532,,
-Faixa de € 2–15 mi,T+1,0.10000,0.10000,zero,Mais jovens,36.28519,-3.23232,26.00898,0.46157,0.13500,38.08770
-Faixa de € 2–15 mi,T+1,0.10000,0.10000,zero,Modelo,50.59975,5.42929,39.78973,0.53248,0.08358,49.92759
-Faixa de € 2–15 mi,T+1,0.10000,0.10000,zero,Modelo prudente,33.47907,-5.84416,21.46924,0.45376,0.10173,36.33077
-Faixa de € 2–15 mi,T+1,0.10000,0.10000,zero,Momentum,23.94761,-8.33333,15.77154,0.44107,0.11011,26.99664
-Faixa de € 2–15 mi,T+1,0.25000,0.10000,exclude,Aleatória,-27.00350,,-28.23020,0.16750,,
-Faixa de € 2–15 mi,T+1,0.25000,0.10000,exclude,Juventude,2.85203,,-3.29686,0.33586,,
-Faixa de € 2–15 mi,T+1,0.25000,0.10000,exclude,Mais jovens,19.93097,-14.84444,10.88790,0.41164,0.17900,38.08770
-Faixa de € 2–15 mi,T+1,0.25000,0.10000,exclude,Modelo,32.52778,-7.22222,23.01497,0.47868,0.11936,49.92759
-Faixa de € 2–15 mi,T+1,0.25000,0.10000,exclude,Modelo prudente,17.46159,-17.14286,6.89293,0.39720,0.14335,36.33077
-Faixa de € 2–15 mi,T+1,0.25000,0.10000,exclude,Momentum,9.07390,-19.33333,1.87896,0.38863,0.17587,26.99664
-Faixa de € 2–15 mi,T+1,0.25000,0.10000,last,Aleatória,-27.22307,,-28.46288,0.16611,,
-Faixa de € 2–15 mi,T+1,0.25000,0.10000,last,Juventude,2.72404,,-3.35745,0.33514,,
-Faixa de € 2–15 mi,T+1,0.25000,0.10000,last,Mais jovens,19.93097,-14.84444,10.88790,0.41164,0.17900,38.08770
-Faixa de € 2–15 mi,T+1,0.25000,0.10000,last,Modelo,32.52778,-7.22222,23.01497,0.47868,0.11936,49.92759
-Faixa de € 2–15 mi,T+1,0.25000,0.10000,last,Modelo prudente,17.46159,-17.14286,6.89293,0.39720,0.14335,36.33077
-Faixa de € 2–15 mi,T+1,0.25000,0.10000,last,Momentum,9.07390,-19.33333,1.87896,0.38863,0.17587,26.99664
-Faixa de € 2–15 mi,T+1,0.25000,0.10000,zero,Aleatória,-27.64785,,-28.71152,0.16571,,
-Faixa de € 2–15 mi,T+1,0.25000,0.10000,zero,Juventude,2.72341,,-3.38862,0.33515,,
-Faixa de € 2–15 mi,T+1,0.25000,0.10000,zero,Mais jovens,19.93097,-14.84444,10.88790,0.41164,0.17900,38.08770
-Faixa de € 2–15 mi,T+1,0.25000,0.10000,zero,Modelo,32.52778,-7.22222,23.01497,0.47868,0.11936,49.92759
-Faixa de € 2–15 mi,T+1,0.25000,0.10000,zero,Modelo prudente,17.46159,-17.14286,6.89293,0.39720,0.14335,36.33077
-Faixa de € 2–15 mi,T+1,0.25000,0.10000,zero,Momentum,9.07390,-19.33333,1.87896,0.38863,0.17587,26.99664
-Faixa de € 2–15 mi,T+2,0.00000,0.00000,exclude,Aleatória,-1.07781,,-3.43179,0.24489,,
-Faixa de € 2–15 mi,T+2,0.00000,0.00000,exclude,Juventude,70.79732,,57.47855,0.48233,,
-Faixa de € 2–15 mi,T+2,0.00000,0.00000,exclude,Mais jovens,115.27184,28.54167,91.04935,0.56202,0.16533,58.43440
-Faixa de € 2–15 mi,T+2,0.00000,0.00000,exclude,Modelo,124.86391,31.04167,108.21310,0.57040,0.11618,75.90460
-Faixa de € 2–15 mi,T+2,0.00000,0.00000,exclude,Modelo prudente,105.46205,21.56250,83.87988,0.53983,0.11613,46.51033
-Faixa de € 2–15 mi,T+2,0.00000,0.00000,exclude,Momentum,69.71724,-3.28125,56.87268,0.44398,0.15495,32.54660
-Faixa de € 2–15 mi,T+2,0.00000,0.00000,last,Aleatória,-2.25650,,-4.31082,0.24068,,
-Faixa de € 2–15 mi,T+2,0.00000,0.00000,last,Juventude,70.85676,,57.70821,0.48342,,
-Faixa de € 2–15 mi,T+2,0.00000,0.00000,last,Mais jovens,115.27184,28.54167,91.04935,0.56202,0.16533,58.43440
-Faixa de € 2–15 mi,T+2,0.00000,0.00000,last,Modelo,124.86391,31.04167,108.21310,0.57040,0.11618,75.90460
-Faixa de € 2–15 mi,T+2,0.00000,0.00000,last,Modelo prudente,105.46205,21.56250,83.87988,0.53983,0.11613,46.51033
-Faixa de € 2–15 mi,T+2,0.00000,0.00000,last,Momentum,69.71724,-3.28125,56.87268,0.44398,0.15495,32.54660
-Faixa de € 2–15 mi,T+2,0.00000,0.00000,zero,Aleatória,-2.62804,,-4.71297,0.24053,,
-Faixa de € 2–15 mi,T+2,0.00000,0.00000,zero,Juventude,70.71120,,57.44757,0.48271,,
-Faixa de € 2–15 mi,T+2,0.00000,0.00000,zero,Mais jovens,115.27184,28.54167,91.04935,0.56202,0.16533,58.43440
-Faixa de € 2–15 mi,T+2,0.00000,0.00000,zero,Modelo,124.86391,31.04167,108.21310,0.57040,0.11618,75.90460
-Faixa de € 2–15 mi,T+2,0.00000,0.00000,zero,Modelo prudente,105.46205,21.56250,83.87988,0.53983,0.11613,46.51033
-Faixa de € 2–15 mi,T+2,0.00000,0.00000,zero,Momentum,69.71724,-3.28125,56.87268,0.44398,0.15495,32.54660
-Faixa de € 2–15 mi,T+2,0.10000,0.10000,exclude,Aleatória,-19.18770,,-21.06765,0.20761,,
-Faixa de € 2–15 mi,T+2,0.10000,0.10000,exclude,Juventude,39.82291,,29.14114,0.43502,,
-Faixa de € 2–15 mi,T+2,0.10000,0.10000,exclude,Mais jovens,76.13150,5.17045,56.31310,0.51316,0.24675,58.43440
-Faixa de € 2–15 mi,T+2,0.10000,0.10000,exclude,Modelo,83.97956,7.21591,70.35617,0.51533,0.22625,75.90460
-Faixa de € 2–15 mi,T+2,0.10000,0.10000,exclude,Modelo prudente,68.10531,-0.53977,50.44718,0.50117,0.22201,46.51033
-Faixa de € 2–15 mi,T+2,0.10000,0.10000,exclude,Momentum,38.85956,-20.86648,28.35038,0.40935,0.27129,32.54660
-Faixa de € 2–15 mi,T+2,0.10000,0.10000,last,Aleatória,-20.02460,,-21.67655,0.20477,,
-Faixa de € 2–15 mi,T+2,0.10000,0.10000,last,Juventude,39.81218,,29.07013,0.43473,,
-Faixa de € 2–15 mi,T+2,0.10000,0.10000,last,Mais jovens,76.13150,5.17045,56.31310,0.51316,0.24675,58.43440
-Faixa de € 2–15 mi,T+2,0.10000,0.10000,last,Modelo,83.97956,7.21591,70.35617,0.51533,0.22625,75.90460
-Faixa de € 2–15 mi,T+2,0.10000,0.10000,last,Modelo prudente,68.10531,-0.53977,50.44718,0.50117,0.22201,46.51033
-Faixa de € 2–15 mi,T+2,0.10000,0.10000,last,Momentum,38.85956,-20.86648,28.35038,0.40935,0.27129,32.54660
-Faixa de € 2–15 mi,T+2,0.10000,0.10000,zero,Aleatória,-20.22041,,-21.88159,0.20562,,
-Faixa de € 2–15 mi,T+2,0.10000,0.10000,zero,Juventude,39.88398,,28.99419,0.43529,,
-Faixa de € 2–15 mi,T+2,0.10000,0.10000,zero,Mais jovens,76.13150,5.17045,56.31310,0.51316,0.24675,58.43440
-Faixa de € 2–15 mi,T+2,0.10000,0.10000,zero,Modelo,83.97956,7.21591,70.35617,0.51533,0.22625,75.90460
-Faixa de € 2–15 mi,T+2,0.10000,0.10000,zero,Modelo prudente,68.10531,-0.53977,50.44718,0.50117,0.22201,46.51033
-Faixa de € 2–15 mi,T+2,0.10000,0.10000,zero,Momentum,38.85956,-20.86648,28.35038,0.40935,0.27129,32.54660
-Faixa de € 2–15 mi,T+2,0.25000,0.10000,exclude,Aleatória,-28.65386,,-30.39425,0.17754,,
-Faixa de € 2–15 mi,T+2,0.25000,0.10000,exclude,Juventude,22.92332,,13.41587,0.38312,,
-Faixa de € 2–15 mi,T+2,0.25000,0.10000,exclude,Mais jovens,54.99572,-7.45000,37.55553,0.46002,0.28746,58.43440
-Faixa de € 2–15 mi,T+2,0.25000,0.10000,exclude,Modelo,61.90202,-5.65000,49.91343,0.46631,0.26068,75.90460
-Faixa de € 2–15 mi,T+2,0.25000,0.10000,exclude,Modelo prudente,47.93268,-12.47500,32.39352,0.43988,0.27468,46.51033
-Faixa de € 2–15 mi,T+2,0.25000,0.10000,exclude,Momentum,22.19641,-30.36250,12.94833,0.36248,0.33211,32.54660
-Faixa de € 2–15 mi,T+2,0.25000,0.10000,last,Aleatória,-29.69952,,-31.30692,0.17438,,
-Faixa de € 2–15 mi,T+2,0.25000,0.10000,last,Juventude,23.00599,,13.59140,0.38369,,
-Faixa de € 2–15 mi,T+2,0.25000,0.10000,last,Mais jovens,54.99572,-7.45000,37.55553,0.46002,0.28746,58.43440
-Faixa de € 2–15 mi,T+2,0.25000,0.10000,last,Modelo,61.90202,-5.65000,49.91343,0.46631,0.26068,75.90460
-Faixa de € 2–15 mi,T+2,0.25000,0.10000,last,Modelo prudente,47.93268,-12.47500,32.39352,0.43988,0.27468,46.51033
-Faixa de € 2–15 mi,T+2,0.25000,0.10000,last,Momentum,22.19641,-30.36250,12.94833,0.36248,0.33211,32.54660
-Faixa de € 2–15 mi,T+2,0.25000,0.10000,zero,Aleatória,-29.82174,,-31.32625,0.17411,,
-Faixa de € 2–15 mi,T+2,0.25000,0.10000,zero,Juventude,23.02094,,13.40776,0.38338,,
-Faixa de € 2–15 mi,T+2,0.25000,0.10000,zero,Mais jovens,54.99572,-7.45000,37.55553,0.46002,0.28746,58.43440
-Faixa de € 2–15 mi,T+2,0.25000,0.10000,zero,Modelo,61.90202,-5.65000,49.91343,0.46631,0.26068,75.90460
-Faixa de € 2–15 mi,T+2,0.25000,0.10000,zero,Modelo prudente,47.93268,-12.47500,32.39352,0.43988,0.27468,46.51033
-Faixa de € 2–15 mi,T+2,0.25000,0.10000,zero,Momentum,22.19641,-30.36250,12.94833,0.36248,0.33211,32.54660
-Todos os candidatos,T+1,0.00000,0.00000,exclude,Aleatória,12.23124,,-0.78259,0.27666,,
-Todos os candidatos,T+1,0.00000,0.00000,exclude,Juventude,82.05056,,30.28002,0.50053,,
-Todos os candidatos,T+1,0.00000,0.00000,exclude,Mais jovens,156.07071,26.20370,53.93644,0.57898,0.05129,39.02348
-Todos os candidatos,T+1,0.00000,0.00000,exclude,Modelo,185.68991,43.30357,78.75401,0.63125,0.02366,54.79541
-Todos os candidatos,T+1,0.00000,0.00000,exclude,Modelo prudente,154.20780,22.88360,45.70812,0.58585,0.02871,35.78830
-Todos os candidatos,T+1,0.00000,0.00000,exclude,Momentum,71.78690,9.68254,33.55961,0.51370,0.05152,25.76897
-Todos os candidatos,T+1,0.00000,0.00000,last,Aleatória,10.43468,,-1.15946,0.27253,,
-Todos os candidatos,T+1,0.00000,0.00000,last,Juventude,81.73098,,30.27632,0.49984,,
-Todos os candidatos,T+1,0.00000,0.00000,last,Mais jovens,156.00071,26.20370,53.93588,0.57861,0.05120,39.02348
-Todos os candidatos,T+1,0.00000,0.00000,last,Modelo,185.42823,42.85714,78.74557,0.63101,0.02360,54.79541
-Todos os candidatos,T+1,0.00000,0.00000,last,Modelo prudente,154.12254,22.88360,45.70715,0.58544,0.02866,35.78830
-Todos os candidatos,T+1,0.00000,0.00000,last,Momentum,71.41469,9.68254,33.49952,0.51248,0.05309,25.76897
-Todos os candidatos,T+1,0.00000,0.00000,zero,Aleatória,10.19709,,-1.26951,0.27264,,
-Todos os candidatos,T+1,0.00000,0.00000,zero,Juventude,81.34025,,30.14454,0.49908,,
-Todos os candidatos,T+1,0.00000,0.00000,zero,Mais jovens,155.91779,26.20370,53.93282,0.57861,0.05202,39.02348
-Todos os candidatos,T+1,0.00000,0.00000,zero,Modelo,185.23791,42.85714,78.72782,0.63014,0.02530,54.79541
-Todos os candidatos,T+1,0.00000,0.00000,zero,Modelo prudente,154.03962,22.88360,45.70369,0.58544,0.02949,35.78830
-Todos os candidatos,T+1,0.00000,0.00000,zero,Momentum,71.35941,9.68254,33.48531,0.51248,0.05392,25.76897
-Todos os candidatos,T+1,0.10000,0.10000,exclude,Aleatória,-8.29217,,-18.85945,0.21207,,
-Todos os candidatos,T+1,0.10000,0.10000,exclude,Juventude,48.85982,,6.63267,0.41934,,
-Todos os candidatos,T+1,0.10000,0.10000,exclude,Mais jovens,109.51240,3.25758,25.94799,0.50679,0.11616,39.02348
-Todos os candidatos,T+1,0.10000,0.10000,exclude,Modelo,133.74629,17.24838,46.25328,0.57342,0.06908,54.79541
-Todos os candidatos,T+1,0.10000,0.10000,exclude,Modelo prudente,107.98820,0.54113,19.21573,0.49924,0.07247,35.78830
-Todos os candidatos,T+1,0.10000,0.10000,exclude,Momentum,40.55291,-10.25974,9.27604,0.43562,0.11826,25.76897
-Todos os candidatos,T+1,0.10000,0.10000,last,Aleatória,-9.52417,,-19.05947,0.20951,,
-Todos os candidatos,T+1,0.10000,0.10000,last,Juventude,48.46770,,6.54866,0.41850,,
-Todos os candidatos,T+1,0.10000,0.10000,last,Mais jovens,109.45512,3.25758,25.94754,0.50649,0.11597,39.02348
-Todos os candidatos,T+1,0.10000,0.10000,last,Modelo,133.53219,16.88312,46.24637,0.57332,0.06895,54.79541
-Todos os candidatos,T+1,0.10000,0.10000,last,Modelo prudente,107.91844,0.54113,19.21494,0.49890,0.07237,35.78830
-Todos os candidatos,T+1,0.10000,0.10000,last,Momentum,40.24838,-10.25974,9.22688,0.43458,0.11964,25.76897
-Todos os candidatos,T+1,0.10000,0.10000,zero,Aleatória,-9.75324,,-19.20573,0.20904,,
-Todos os candidatos,T+1,0.10000,0.10000,zero,Juventude,48.25793,,6.49312,0.41794,,
-Todos os candidatos,T+1,0.10000,0.10000,zero,Mais jovens,109.38728,3.25758,25.94503,0.50649,0.11680,39.02348
-Todos os candidatos,T+1,0.10000,0.10000,zero,Modelo,133.37648,16.88312,46.23186,0.57245,0.07065,54.79541
-Todos os candidatos,T+1,0.10000,0.10000,zero,Modelo prudente,107.85060,0.54113,19.21211,0.49890,0.07320,35.78830
-Todos os candidatos,T+1,0.10000,0.10000,zero,Momentum,40.20315,-10.25974,9.21525,0.43458,0.12047,25.76897
-Todos os candidatos,T+1,0.25000,0.10000,exclude,Aleatória,-19.39798,,-28.66199,0.16695,,
-Todos os candidatos,T+1,0.25000,0.10000,exclude,Juventude,30.97773,,-6.21544,0.35449,,
-Todos os candidatos,T+1,0.25000,0.10000,exclude,Mais jovens,84.37091,-9.13333,10.83424,0.44987,0.15591,39.02348
-Todos os candidatos,T+1,0.25000,0.10000,exclude,Modelo,105.69674,3.17857,28.70289,0.50978,0.10202,54.79541
-Todos os candidatos,T+1,0.25000,0.10000,exclude,Modelo prudente,83.02961,-11.52381,4.90984,0.43566,0.10637,35.78830
-Todos os candidatos,T+1,0.25000,0.10000,exclude,Momentum,23.68656,-21.02857,-3.83708,0.38293,0.17077,25.76897
-Todos os candidatos,T+1,0.25000,0.10000,last,Aleatória,-20.11901,,-28.76295,0.16467,,
-Todos os candidatos,T+1,0.25000,0.10000,last,Juventude,30.90348,,-6.25513,0.35345,,
-Todos os candidatos,T+1,0.25000,0.10000,last,Mais jovens,84.32051,-9.13333,10.83383,0.44961,0.15569,39.02348
-Todos os candidatos,T+1,0.25000,0.10000,last,Modelo,105.50833,2.85714,28.69681,0.50894,0.10185,54.79541
-Todos os candidatos,T+1,0.25000,0.10000,last,Modelo prudente,82.96823,-11.52381,4.90915,0.43536,0.10625,35.78830
-Todos os candidatos,T+1,0.25000,0.10000,last,Momentum,23.41857,-21.02857,-3.88035,0.38198,0.17283,25.76897
-Todos os candidatos,T+1,0.25000,0.10000,zero,Aleatória,-20.74496,,-28.97928,0.16443,,
-Todos os candidatos,T+1,0.25000,0.10000,zero,Juventude,30.50933,,-6.23274,0.35358,,
-Todos os candidatos,T+1,0.25000,0.10000,zero,Mais jovens,84.26081,-9.13333,10.83163,0.44961,0.15652,39.02348
-Todos os candidatos,T+1,0.25000,0.10000,zero,Modelo,105.37130,2.85714,28.68403,0.50894,0.10355,54.79541
-Todos os candidatos,T+1,0.25000,0.10000,zero,Modelo prudente,82.90853,-11.52381,4.90666,0.43536,0.10708,35.78830
-Todos os candidatos,T+1,0.25000,0.10000,zero,Momentum,23.37877,-21.02857,-3.89058,0.38198,0.17283,25.76897
-Todos os candidatos,T+2,0.00000,0.00000,exclude,Aleatória,15.41041,,-6.58337,0.25544,,
-Todos os candidatos,T+2,0.00000,0.00000,exclude,Juventude,132.23909,,49.20750,0.51928,,
-Todos os candidatos,T+2,0.00000,0.00000,exclude,Mais jovens,240.32673,47.81250,90.14805,0.62931,0.12890,61.68686
-Todos os candidatos,T+2,0.00000,0.00000,exclude,Modelo,293.37731,58.52273,131.21478,0.65170,0.08644,87.85517
-Todos os candidatos,T+2,0.00000,0.00000,exclude,Modelo prudente,268.30946,45.93750,88.63401,0.61629,0.08502,54.89318
-Todos os candidatos,T+2,0.00000,0.00000,exclude,Momentum,113.31376,0.00000,41.01727,0.47034,0.15880,30.16379
-Todos os candidatos,T+2,0.00000,0.00000,last,Aleatória,11.62226,,-7.42837,0.24662,,
-Todos os candidatos,T+2,0.00000,0.00000,last,Juventude,132.08533,,49.30096,0.51888,,
-Todos os candidatos,T+2,0.00000,0.00000,last,Mais jovens,238.78207,47.29167,90.03648,0.62685,0.13038,61.68686
-Todos os candidatos,T+2,0.00000,0.00000,last,Modelo,290.62336,56.80556,130.88914,0.64799,0.08915,87.85517
-Todos os candidatos,T+2,0.00000,0.00000,last,Modelo prudente,265.23599,45.00000,88.44191,0.61141,0.08913,54.89318
-Todos os candidatos,T+2,0.00000,0.00000,last,Momentum,112.81350,0.00000,40.99531,0.46914,0.16090,30.16379
-Todos os candidatos,T+2,0.00000,0.00000,zero,Aleatória,11.15579,,-7.60817,0.24551,,
-Todos os candidatos,T+2,0.00000,0.00000,zero,Juventude,131.32418,,48.82737,0.51731,,
-Todos os candidatos,T+2,0.00000,0.00000,zero,Mais jovens,238.42983,47.29167,89.97668,0.62560,0.13415,61.68686
-Todos os candidatos,T+2,0.00000,0.00000,zero,Modelo,289.95326,56.44841,130.75726,0.64550,0.09540,87.85517
-Todos os candidatos,T+2,0.00000,0.00000,zero,Modelo prudente,264.86440,45.00000,88.37094,0.61016,0.09414,54.89318
-Todos os candidatos,T+2,0.00000,0.00000,zero,Momentum,112.76908,0.00000,40.99086,0.46914,0.16090,30.16379
-Todos os candidatos,T+2,0.10000,0.10000,exclude,Aleatória,-5.66514,,-23.47538,0.21472,,
-Todos os candidatos,T+2,0.10000,0.10000,exclude,Juventude,90.11037,,21.92452,0.46360,,
-Todos os candidatos,T+2,0.10000,0.10000,exclude,Mais jovens,178.44914,20.93750,55.57567,0.57366,0.20236,61.68686
-Todos os candidatos,T+2,0.10000,0.10000,exclude,Modelo,221.85416,29.70041,89.17573,0.60093,0.16535,87.85517
-Todos os candidatos,T+2,0.10000,0.10000,exclude,Modelo prudente,201.34410,19.40341,54.33692,0.56680,0.17267,54.89318
-Todos os candidatos,T+2,0.10000,0.10000,exclude,Momentum,74.52944,-18.18182,15.37777,0.41751,0.26348,30.16379
-Todos os candidatos,T+2,0.10000,0.10000,last,Aleatória,-9.06634,,-24.28283,0.20644,,
-Todos os candidatos,T+2,0.10000,0.10000,last,Juventude,88.84131,,21.88830,0.46280,,
-Todos os candidatos,T+2,0.10000,0.10000,last,Mais jovens,177.18533,20.51136,55.48439,0.57161,0.20581,61.68686
-Todos os candidatos,T+2,0.10000,0.10000,last,Modelo,219.60093,28.29545,88.90929,0.59778,0.17081,87.85517
-Todos os candidatos,T+2,0.10000,0.10000,last,Modelo prudente,198.82945,18.63636,54.17974,0.56244,0.17961,54.89318
-Todos os candidatos,T+2,0.10000,0.10000,last,Momentum,74.12014,-18.18182,15.35980,0.41641,0.26533,30.16379
-Todos os candidatos,T+2,0.10000,0.10000,zero,Aleatória,-9.60906,,-24.43966,0.20634,,
-Todos os candidatos,T+2,0.10000,0.10000,zero,Juventude,88.49226,,21.79414,0.46244,,
-Todos os candidatos,T+2,0.10000,0.10000,zero,Mais jovens,176.89713,20.51136,55.43546,0.57036,0.20705,61.68686
-Todos os candidatos,T+2,0.10000,0.10000,zero,Modelo,219.05266,28.00325,88.80139,0.59529,0.17330,87.85517
-Todos os candidatos,T+2,0.10000,0.10000,zero,Modelo prudente,198.52542,18.63636,54.12168,0.56120,0.18086,54.89318
-Todos os candidatos,T+2,0.10000,0.10000,zero,Momentum,74.08379,-18.18182,15.35616,0.41641,0.26533,30.16379
-Todos os candidatos,T+2,0.25000,0.10000,exclude,Aleatória,-16.81838,,-32.71882,0.18252,,
-Todos os candidatos,T+2,0.25000,0.10000,exclude,Juventude,67.03612,,7.41091,0.41056,,
-Todos os candidatos,T+2,0.25000,0.10000,exclude,Mais jovens,145.03524,6.42500,36.90659,0.52052,0.23638,61.68686
-Todos os candidatos,T+2,0.25000,0.10000,exclude,Modelo,183.23166,14.13636,66.47464,0.55650,0.19585,87.85517
-Todos os candidatos,T+2,0.25000,0.10000,exclude,Modelo prudente,165.18281,5.07500,35.81649,0.51987,0.20959,54.89318
-Todos os candidatos,T+2,0.25000,0.10000,exclude,Momentum,53.58591,-28.00000,1.53244,0.37466,0.31907,30.16379
-Todos os candidatos,T+2,0.25000,0.10000,last,Aleatória,-19.52457,,-33.32987,0.17592,,
-Todos os candidatos,T+2,0.25000,0.10000,last,Juventude,66.60004,,7.31648,0.40952,,
-Todos os candidatos,T+2,0.25000,0.10000,last,Mais jovens,143.92309,6.05000,36.82627,0.51884,0.23963,61.68686
-Todos os candidatos,T+2,0.25000,0.10000,last,Modelo,181.24882,12.90000,66.24018,0.55391,0.20106,87.85517
-Todos os candidatos,T+2,0.25000,0.10000,last,Modelo prudente,162.96991,4.40000,35.67817,0.51602,0.21620,54.89318
-Todos os candidatos,T+2,0.25000,0.10000,last,Momentum,53.22572,-28.00000,1.51663,0.37369,0.32080,30.16379
-Todos os candidatos,T+2,0.25000,0.10000,zero,Aleatória,-19.95187,,-33.45284,0.17525,,
-Todos os candidatos,T+2,0.25000,0.10000,zero,Juventude,66.14137,,7.23068,0.40890,,
-Todos os candidatos,T+2,0.25000,0.10000,zero,Mais jovens,143.66948,6.05000,36.78321,0.51759,0.24088,61.68686
-Todos os candidatos,T+2,0.25000,0.10000,zero,Modelo,180.76634,12.64286,66.14523,0.55142,0.20355,87.85517
-Todos os candidatos,T+2,0.25000,0.10000,zero,Modelo prudente,162.70237,4.40000,35.62708,0.51478,0.21744,54.89318
-Todos os candidatos,T+2,0.25000,0.10000,zero,Momentum,53.19374,-28.00000,1.51342,0.37369,0.32080,30.16379
+﻿universo,horizonte,cenario,ausentes,estrategia,retorno_medio_pct,retorno_mediano_pct,roi_carteira_pct,taxa_valorizacao,taxa_perda_grave,roi_previsto_pct
+Comprável (fora dos 10 elencos mais valiosos),T+1,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Aleatória,-19.51621,,-27.97967,0.16783,,
+Comprável (fora dos 10 elencos mais valiosos),T+1,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Jovens titulares,-8.95572,-24.50546,-13.59288,0.28853,0.17098,17.29990
+Comprável (fora dos 10 elencos mais valiosos),T+1,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Juventude,31.35456,,-6.12671,0.35397,,
+Comprável (fora dos 10 elencos mais valiosos),T+1,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Mais jovens,86.48705,-9.22975,10.54077,0.44901,0.16090,44.12130
+Comprável (fora dos 10 elencos mais valiosos),T+1,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Modelo,111.21697,3.95086,41.87534,0.51541,0.11686,75.29876
+Comprável (fora dos 10 elencos mais valiosos),T+1,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Modelo prudente,94.23235,-3.01235,12.85955,0.48070,0.09340,49.46398
+Comprável (fora dos 10 elencos mais valiosos),T+1,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Momentum,23.35633,-21.58035,-3.76904,0.37841,0.17261,27.31512
+Comprável (fora dos 10 elencos mais valiosos),T+1,Preço de aquisição observado (taxa/V_T),reason,Aleatória,8.01387,,-3.00937,0.30858,,
+Comprável (fora dos 10 elencos mais valiosos),T+1,Preço de aquisição observado (taxa/V_T),reason,Jovens titulares,-0.54583,-16.92185,-6.22793,0.34656,0.12213,17.29990
+Comprável (fora dos 10 elencos mais valiosos),T+1,Preço de aquisição observado (taxa/V_T),reason,Juventude,37.56228,,-1.96068,0.37760,,
+Comprável (fora dos 10 elencos mais valiosos),T+1,Preço de aquisição observado (taxa/V_T),reason,Mais jovens,95.38663,-4.93068,15.50459,0.47087,0.14200,44.12130
+Comprável (fora dos 10 elencos mais valiosos),T+1,Preço de aquisição observado (taxa/V_T),reason,Modelo,123.07723,11.15445,48.67799,0.54522,0.09294,75.29876
+Comprável (fora dos 10 elencos mais valiosos),T+1,Preço de aquisição observado (taxa/V_T),reason,Modelo prudente,107.95366,6.09437,21.67604,0.53616,0.07113,49.46398
+Comprável (fora dos 10 elencos mais valiosos),T+1,Preço de aquisição observado (taxa/V_T),reason,Momentum,37.24569,-5.60107,7.97962,0.44137,0.11258,27.31512
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),exclude,Aleatória,-7.35977,,-17.60425,0.21615,,
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),exclude,Jovens titulares,3.92034,-13.83512,-1.41129,0.37023,0.10580,17.29990
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),exclude,Juventude,49.94441,,7.12353,0.42136,,
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),exclude,Mais jovens,112.82716,3.56061,26.11757,0.50875,0.11779,44.12130
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),exclude,Modelo,141.47047,18.93939,61.99656,0.57674,0.07665,75.29876
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),exclude,Modelo prudente,122.05536,10.89955,28.77285,0.55301,0.06088,49.46398
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),exclude,Momentum,41.06156,-10.53030,9.84398,0.43441,0.11474,27.31512
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),last,Aleatória,-8.52814,,-17.91419,0.21297,,
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),last,Jovens titulares,3.87325,-13.86759,-1.41733,0.36990,0.10571,17.29990
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),last,Juventude,49.84821,,7.14994,0.42096,,
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),last,Mais jovens,112.76478,3.56061,26.11697,0.50843,0.11759,44.12130
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),last,Modelo,140.97936,18.59848,61.86686,0.57569,0.07637,75.29876
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),last,Modelo prudente,121.60146,10.65409,28.76249,0.55162,0.06247,49.46398
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),last,Momentum,40.73836,-10.53030,9.79078,0.43332,0.11620,27.31512
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),reason,Aleatória,-8.55043,,-17.92095,0.21308,,
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),reason,Jovens titulares,3.87325,-13.86759,-1.41733,0.36990,0.10571,17.29990
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),reason,Juventude,49.47607,,7.09151,0.42038,,
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),reason,Mais jovens,112.76478,3.56061,26.11697,0.50843,0.11759,44.12130
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),reason,Modelo,140.97936,18.59848,61.86686,0.57569,0.07637,75.29876
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),reason,Modelo prudente,121.60146,10.65409,28.76249,0.55162,0.06247,49.46398
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),reason,Momentum,40.73836,-10.53030,9.79078,0.43332,0.11620,27.31512
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),zero,Aleatória,-8.95435,,-18.05360,0.21300,,
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),zero,Jovens titulares,3.82590,-13.86759,-1.42433,0.36990,0.10658,17.29990
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),zero,Juventude,49.35382,,7.06313,0.42007,,
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),zero,Mais jovens,112.69375,3.56061,26.11411,0.50843,0.11846,44.12130
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),zero,Modelo,140.71196,18.59848,61.79340,0.57477,0.07989,75.29876
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),zero,Modelo prudente,121.53043,10.65409,28.75963,0.55162,0.06333,49.46398
+Comprável (fora dos 10 elencos mais valiosos),T+1,Principal (10% + 10%),zero,Momentum,40.69101,-10.53030,9.77842,0.43332,0.11707,27.31512
+Comprável (fora dos 10 elencos mais valiosos),T+1,Sem custos,reason,Aleatória,11.99821,,0.28701,0.27676,,
+Comprável (fora dos 10 elencos mais valiosos),T+1,Sem custos,reason,Jovens titulares,26.95619,5.27294,20.48993,0.50847,0.04057,17.29990
+Comprável (fora dos 10 elencos mais valiosos),T+1,Sem custos,reason,Juventude,82.86396,,30.86278,0.50261,,
+Comprável (fora dos 10 elencos mais valiosos),T+1,Sem custos,reason,Mais jovens,160.04584,26.57407,54.14296,0.57943,0.05261,44.12130
+Comprável (fora dos 10 elencos mais valiosos),T+1,Sem custos,reason,Modelo,194.53033,44.95370,97.83728,0.62716,0.02459,75.29876
+Comprável (fora dos 10 elencos mais valiosos),T+1,Sem custos,reason,Modelo prudente,170.84622,35.24389,57.37638,0.62236,0.02293,49.46398
+Comprável (fora dos 10 elencos mais valiosos),T+1,Sem custos,reason,Momentum,72.01355,9.35185,34.18873,0.51208,0.05280,27.31512
+Comprável (fora dos 10 elencos mais valiosos),T+1,Ágio de 25% + 10%,reason,Aleatória,-19.41781,,-27.71958,0.16789,,
+Comprável (fora dos 10 elencos mais valiosos),T+1,Ágio de 25% + 10%,reason,Jovens titulares,-8.59154,-24.20348,-13.24725,0.28853,0.17098,17.29990
+Comprável (fora dos 10 elencos mais valiosos),T+1,Ágio de 25% + 10%,reason,Juventude,31.85698,,-5.77670,0.35380,,
+Comprável (fora dos 10 elencos mais valiosos),T+1,Ágio de 25% + 10%,reason,Mais jovens,87.23300,-8.86667,10.98293,0.44901,0.15907,44.12130
+Comprável (fora dos 10 elencos mais valiosos),T+1,Ágio de 25% + 10%,reason,Modelo,112.06184,4.36667,42.44284,0.51541,0.11595,75.29876
+Comprável (fora dos 10 elencos mais valiosos),T+1,Ágio de 25% + 10%,reason,Modelo prudente,95.00928,-2.62440,13.31099,0.48070,0.09248,49.46398
+Comprável (fora dos 10 elencos mais valiosos),T+1,Ágio de 25% + 10%,reason,Momentum,23.84976,-21.26667,-3.38412,0.37841,0.17078,27.31512
+Comprável (fora dos 10 elencos mais valiosos),T+2,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Aleatória,-27.78258,,-39.73297,0.15040,,
+Comprável (fora dos 10 elencos mais valiosos),T+2,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Jovens titulares,-12.72862,-31.62544,-18.47485,0.29966,0.33374,19.76615
+Comprável (fora dos 10 elencos mais valiosos),T+2,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Juventude,48.79510,,-4.35154,0.35918,,
+Comprável (fora dos 10 elencos mais valiosos),T+2,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Mais jovens,120.76344,-6.25893,22.30641,0.46163,0.26759,55.41352
+Comprável (fora dos 10 elencos mais valiosos),T+2,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Modelo,154.88222,-0.32738,59.11719,0.49944,0.23797,103.65149
+Comprável (fora dos 10 elencos mais valiosos),T+2,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Modelo prudente,138.58578,-6.63157,31.91115,0.47587,0.24178,72.26755
+Comprável (fora dos 10 elencos mais valiosos),T+2,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Momentum,35.27841,-36.29446,-9.58710,0.32851,0.37317,26.22917
+Comprável (fora dos 10 elencos mais valiosos),T+2,Preço de aquisição observado (taxa/V_T),reason,Aleatória,11.32297,,-7.56112,0.27268,,
+Comprável (fora dos 10 elencos mais valiosos),T+2,Preço de aquisição observado (taxa/V_T),reason,Jovens titulares,5.42220,-17.03538,-1.77144,0.40763,0.23779,19.76615
+Comprável (fora dos 10 elencos mais valiosos),T+2,Preço de aquisição observado (taxa/V_T),reason,Juventude,71.95505,,10.12588,0.41951,,
+Comprável (fora dos 10 elencos mais valiosos),T+2,Preço de aquisição observado (taxa/V_T),reason,Mais jovens,155.43924,8.42774,41.00328,0.52887,0.23595,55.41352
+Comprável (fora dos 10 elencos mais valiosos),T+2,Preço de aquisição observado (taxa/V_T),reason,Modelo,196.92780,16.42724,84.28886,0.55991,0.19437,103.65149
+Comprável (fora dos 10 elencos mais valiosos),T+2,Preço de aquisição observado (taxa/V_T),reason,Modelo prudente,181.54467,12.94181,57.21151,0.54704,0.18107,72.26755
+Comprável (fora dos 10 elencos mais valiosos),T+2,Preço de aquisição observado (taxa/V_T),reason,Momentum,64.77283,-19.76139,14.22894,0.41942,0.25736,26.22917
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),exclude,Aleatória,-3.62422,,-21.94527,0.21868,,
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),exclude,Jovens titulares,12.08422,-12.18531,4.70424,0.43109,0.22613,19.76615
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),exclude,Juventude,91.33870,,22.64203,0.46462,,
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),exclude,Mais jovens,184.93909,20.78671,57.19952,0.57681,0.20497,55.41352
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),exclude,Modelo,229.83106,28.35227,104.72828,0.59328,0.17415,103.65149
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),exclude,Modelo prudente,209.80166,21.76247,70.00009,0.57845,0.16687,72.26755
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),exclude,Momentum,74.17088,-18.18182,16.13824,0.41639,0.26087,26.22917
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),last,Aleatória,-7.16010,,-22.58336,0.21067,,
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),last,Jovens titulares,12.08422,-12.18531,4.70424,0.43109,0.22613,19.76615
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),last,Juventude,91.22612,,22.65711,0.46371,,
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),last,Mais jovens,183.57311,20.39336,57.09065,0.57461,0.20857,55.41352
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),last,Modelo,227.39249,28.01136,104.37343,0.58998,0.18002,103.65149
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),last,Modelo prudente,206.46266,19.91477,69.43066,0.57302,0.17589,72.26755
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),last,Momentum,73.74052,-18.18182,16.11893,0.41525,0.26279,26.22917
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),reason,Aleatória,-7.36473,,-22.59423,0.21084,,
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),reason,Jovens titulares,12.08422,-12.18531,4.70424,0.43109,0.22613,19.76615
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),reason,Juventude,90.83401,,22.44994,0.46309,,
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),reason,Mais jovens,183.53050,20.39336,57.08035,0.57461,0.20857,55.41352
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),reason,Modelo,227.34987,28.01136,104.35710,0.58998,0.18002,103.65149
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),reason,Modelo prudente,206.42005,19.91477,69.41588,0.57302,0.17589,72.26755
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),reason,Momentum,73.74052,-18.18182,16.11893,0.41525,0.26279,26.22917
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),zero,Aleatória,-7.47446,,-22.63689,0.21022,,
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),zero,Jovens titulares,12.08422,-12.18531,4.70424,0.43109,0.22613,19.76615
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),zero,Juventude,90.89165,,22.55228,0.46310,,
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),zero,Mais jovens,183.27162,20.39336,57.03662,0.57330,0.20987,55.41352
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),zero,Modelo,226.81874,27.52435,104.24503,0.58737,0.18262,103.65149
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),zero,Modelo prudente,205.82499,19.71809,69.17759,0.57042,0.17850,72.26755
+Comprável (fora dos 10 elencos mais valiosos),T+2,Principal (10% + 10%),zero,Momentum,73.70247,-18.18182,16.11507,0.41525,0.26279,26.22917
+Comprável (fora dos 10 elencos mais valiosos),T+2,Sem custos,reason,Aleatória,13.69497,,-5.25530,0.25102,,
+Comprável (fora dos 10 elencos mais valiosos),T+2,Sem custos,reason,Jovens titulares,36.99183,7.32906,27.97185,0.49934,0.12083,19.76615
+Comprável (fora dos 10 elencos mais valiosos),T+2,Sem custos,reason,Juventude,132.76159,,49.87842,0.51867,,
+Comprável (fora dos 10 elencos mais valiosos),T+2,Sem custos,reason,Mais jovens,246.53728,47.14744,91.98710,0.62713,0.12976,55.41352
+Comprável (fora dos 10 elencos mais valiosos),T+2,Sem custos,reason,Modelo,300.09429,56.45833,149.76979,0.63590,0.09725,103.65149
+Comprável (fora dos 10 elencos mais valiosos),T+2,Sem custos,reason,Modelo prudente,274.51339,46.56250,107.06386,0.61630,0.08792,72.26755
+Comprável (fora dos 10 elencos mais valiosos),T+2,Sem custos,reason,Momentum,112.34953,0.00000,41.92313,0.46642,0.15765,26.22917
+Comprável (fora dos 10 elencos mais valiosos),T+2,Ágio de 25% + 10%,reason,Aleatória,-18.23878,,-31.80384,0.17945,,
+Comprável (fora dos 10 elencos mais valiosos),T+2,Ágio de 25% + 10%,reason,Jovens titulares,-1.36588,-22.72308,-7.86027,0.37199,0.27750,19.76615
+Comprável (fora dos 10 elencos mais valiosos),T+2,Ágio de 25% + 10%,reason,Juventude,68.20314,,8.06542,0.41089,,
+Comprável (fora dos 10 elencos mais valiosos),T+2,Ágio de 25% + 10%,reason,Mais jovens,149.50684,5.94615,38.23071,0.52078,0.24260,55.41352
+Comprável (fora dos 10 elencos mais valiosos),T+2,Ágio de 25% + 10%,reason,Modelo,188.06789,12.65000,79.83425,0.55066,0.21296,103.65149
+Comprável (fora dos 10 elencos mais valiosos),T+2,Ágio de 25% + 10%,reason,Modelo prudente,169.64964,5.52500,49.08598,0.52320,0.21154,72.26755
+Comprável (fora dos 10 elencos mais valiosos),T+2,Ágio de 25% + 10%,reason,Momentum,52.89166,-28.00000,2.18466,0.37321,0.31942,26.22917
+Faixa de € 2–15 mi,T+1,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Aleatória,-27.56426,,-28.75946,0.16622,,
+Faixa de € 2–15 mi,T+1,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Jovens titulares,-6.69443,-25.52865,-10.08440,0.31548,0.20353,20.50187
+Faixa de € 2–15 mi,T+1,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Juventude,2.32025,,-3.72006,0.33492,,
+Faixa de € 2–15 mi,T+1,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Mais jovens,19.45315,-15.18371,10.44612,0.41164,0.18190,44.89307
+Faixa de € 2–15 mi,T+1,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Modelo,32.76761,-7.17131,23.62846,0.48163,0.12491,63.18493
+Faixa de € 2–15 mi,T+1,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Modelo prudente,25.28332,-8.93827,14.81984,0.45617,0.10467,50.90784
+Faixa de € 2–15 mi,T+1,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Momentum,8.63934,-19.65471,1.47306,0.38863,0.17731,30.51248
+Faixa de € 2–15 mi,T+1,Preço de aquisição observado (taxa/V_T),reason,Aleatória,-2.88456,,-4.52361,0.27908,,
+Faixa de € 2–15 mi,T+1,Preço de aquisição observado (taxa/V_T),reason,Jovens titulares,2.87324,-16.31926,-1.71860,0.36095,0.14290,20.50187
+Faixa de € 2–15 mi,T+1,Preço de aquisição observado (taxa/V_T),reason,Juventude,7.05988,,0.71338,0.35398,,
+Faixa de € 2–15 mi,T+1,Preço de aquisição observado (taxa/V_T),reason,Mais jovens,24.92754,-11.38132,15.27798,0.42863,0.15977,44.89307
+Faixa de € 2–15 mi,T+1,Preço de aquisição observado (taxa/V_T),reason,Modelo,40.61472,-1.82895,30.18535,0.50390,0.10421,63.18493
+Faixa de € 2–15 mi,T+1,Preço de aquisição observado (taxa/V_T),reason,Modelo prudente,37.51475,4.16831,25.56804,0.51095,0.08527,50.90784
+Faixa de € 2–15 mi,T+1,Preço de aquisição observado (taxa/V_T),reason,Momentum,22.10685,-6.65105,13.83604,0.45622,0.11286,30.51248
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),exclude,Aleatória,-17.15926,,-18.57087,0.20727,,
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),exclude,Jovens titulares,6.45318,-15.03497,2.58553,0.38430,0.12607,20.50187
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),exclude,Juventude,16.78754,,9.84995,0.39561,,
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),exclude,Mais jovens,36.28519,-3.23232,26.00898,0.46157,0.13500,44.89307
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),exclude,Modelo,51.47578,5.90909,41.04884,0.52875,0.08217,63.18493
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),exclude,Modelo prudente,42.93688,3.89315,30.99900,0.51972,0.07561,50.90784
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),exclude,Momentum,23.94761,-8.33333,15.77154,0.44107,0.11011,30.51248
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),last,Aleatória,-17.35811,,-18.68582,0.20644,,
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),last,Jovens titulares,6.45318,-15.03497,2.58553,0.38430,0.12607,20.50187
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),last,Juventude,16.76000,,9.85602,0.39488,,
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),last,Mais jovens,36.28519,-3.23232,26.00898,0.46157,0.13500,44.89307
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),last,Modelo,51.47578,5.90909,41.04884,0.52875,0.08217,63.18493
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),last,Modelo prudente,42.93688,3.89315,30.99900,0.51972,0.07561,50.90784
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),last,Momentum,23.94761,-8.33333,15.77154,0.44107,0.11011,30.51248
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),reason,Aleatória,-17.36673,,-18.69659,0.20627,,
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),reason,Jovens titulares,6.45318,-15.03497,2.58553,0.38430,0.12607,20.50187
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),reason,Juventude,16.71687,,9.76599,0.39487,,
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),reason,Mais jovens,36.28519,-3.23232,26.00898,0.46157,0.13500,44.89307
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),reason,Modelo,51.47578,5.90909,41.04884,0.52875,0.08217,63.18493
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),reason,Modelo prudente,42.93688,3.89315,30.99900,0.51972,0.07561,50.90784
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),reason,Momentum,23.94761,-8.33333,15.77154,0.44107,0.11011,30.51248
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),zero,Aleatória,-17.67022,,-18.92561,0.20619,,
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),zero,Jovens titulares,6.45318,-15.03497,2.58553,0.38430,0.12607,20.50187
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),zero,Juventude,16.66250,,9.75476,0.39550,,
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),zero,Mais jovens,36.28519,-3.23232,26.00898,0.46157,0.13500,44.89307
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),zero,Modelo,51.47578,5.90909,41.04884,0.52875,0.08217,63.18493
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),zero,Modelo prudente,42.93688,3.89315,30.99900,0.51972,0.07561,50.90784
+Faixa de € 2–15 mi,T+1,Principal (10% + 10%),zero,Momentum,23.94761,-8.33333,15.77154,0.44107,0.11011,30.51248
+Faixa de € 2–15 mi,T+1,Sem custos,reason,Aleatória,1.06741,,-0.55290,0.26729,,
+Faixa de € 2–15 mi,T+1,Sem custos,reason,Jovens titulares,30.10944,3.84615,25.38232,0.48707,0.04796,20.50187
+Faixa de € 2–15 mi,T+1,Sem custos,reason,Juventude,42.58077,,34.16214,0.46752,,
+Faixa de € 2–15 mi,T+1,Sem custos,reason,Mais jovens,66.57079,18.27160,54.01097,0.52284,0.05822,44.89307
+Faixa de € 2–15 mi,T+1,Sem custos,reason,Modelo,85.13706,29.44444,72.39302,0.59267,0.02892,63.18493
+Faixa de € 2–15 mi,T+1,Sem custos,reason,Modelo prudente,74.70063,26.98052,60.10989,0.59865,0.02900,50.90784
+Faixa de € 2–15 mi,T+1,Sem custos,reason,Momentum,51.49152,12.03704,41.49855,0.51343,0.05374,30.51248
+Faixa de € 2–15 mi,T+1,Ágio de 25% + 10%,reason,Aleatória,-27.32080,,-28.47970,0.16605,,
+Faixa de € 2–15 mi,T+1,Ágio de 25% + 10%,reason,Jovens titulares,-6.32120,-25.23077,-9.72473,0.31548,0.20353,20.50187
+Faixa de € 2–15 mi,T+1,Ágio de 25% + 10%,reason,Juventude,2.74605,,-3.29260,0.33543,,
+Faixa de € 2–15 mi,T+1,Ágio de 25% + 10%,reason,Mais jovens,19.93097,-14.84444,10.88790,0.41164,0.17900,44.89307
+Faixa de € 2–15 mi,T+1,Ágio de 25% + 10%,reason,Modelo,33.29868,-6.80000,24.12298,0.48163,0.12346,63.18493
+Faixa de € 2–15 mi,T+1,Ágio de 25% + 10%,reason,Modelo prudente,25.78445,-8.57403,15.27912,0.45617,0.10322,50.90784
+Faixa de € 2–15 mi,T+1,Ágio de 25% + 10%,reason,Momentum,9.07390,-19.33333,1.87896,0.38863,0.17587,30.51248
+Faixa de € 2–15 mi,T+2,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Aleatória,-37.69551,,-39.03123,0.14600,,
+Faixa de € 2–15 mi,T+2,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Jovens titulares,-7.42387,-32.61914,-12.40495,0.33203,0.34793,25.51693
+Faixa de € 2–15 mi,T+2,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Juventude,8.61794,,0.19411,0.33416,,
+Faixa de € 2–15 mi,T+2,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Mais jovens,37.14008,-18.11184,21.70902,0.40697,0.32614,56.73482
+Faixa de € 2–15 mi,T+2,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Modelo,41.47814,-17.84640,32.55546,0.41943,0.30537,82.62408
+Faixa de € 2–15 mi,T+2,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Modelo prudente,28.67926,-21.16440,16.48040,0.41132,0.30536,61.11597
+Faixa de € 2–15 mi,T+2,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Momentum,7.92722,-38.78296,-0.26315,0.33192,0.39130,32.42560
+Faixa de € 2–15 mi,T+2,Preço de aquisição observado (taxa/V_T),reason,Aleatória,-5.61134,,-7.62844,0.24821,,
+Faixa de € 2–15 mi,T+2,Preço de aquisição observado (taxa/V_T),reason,Jovens titulares,12.03784,-19.70763,6.13004,0.42153,0.24437,25.51693
+Faixa de € 2–15 mi,T+2,Preço de aquisição observado (taxa/V_T),reason,Juventude,25.59685,,15.94078,0.38994,,
+Faixa de € 2–15 mi,T+2,Preço de aquisição observado (taxa/V_T),reason,Mais jovens,58.43326,-3.97693,40.77547,0.46794,0.27756,56.73482
+Faixa de € 2–15 mi,T+2,Preço de aquisição observado (taxa/V_T),reason,Modelo,64.27565,-3.85338,54.35949,0.46996,0.24272,82.62408
+Faixa de € 2–15 mi,T+2,Preço de aquisição observado (taxa/V_T),reason,Modelo prudente,56.34050,-2.53825,42.42940,0.47612,0.21634,61.11597
+Faixa de € 2–15 mi,T+2,Preço de aquisição observado (taxa/V_T),reason,Momentum,33.19817,-20.36387,25.81004,0.41312,0.26534,32.42560
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),exclude,Aleatória,-18.97657,,-20.93188,0.20829,,
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),exclude,Jovens titulares,18.89721,-13.46154,12.49991,0.44634,0.24407,25.51693
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),exclude,Juventude,39.80583,,29.05000,0.43522,,
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),exclude,Mais jovens,76.13150,5.17045,56.31310,0.51316,0.24675,56.73482
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),exclude,Modelo,81.70295,5.51136,70.24339,0.51520,0.22832,82.62408
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),exclude,Modelo prudente,65.45795,1.25000,49.91462,0.50205,0.22083,61.11597
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),exclude,Momentum,38.61289,-21.37784,28.09385,0.40929,0.27129,32.42560
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),last,Aleatória,-19.99421,,-21.73183,0.20543,,
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),last,Jovens titulares,18.89721,-13.46154,12.49991,0.44634,0.24407,25.51693
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),last,Juventude,39.79742,,29.02007,0.43432,,
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),last,Mais jovens,76.13150,5.17045,56.31310,0.51316,0.24675,56.73482
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),last,Modelo,81.70295,5.51136,70.24339,0.51520,0.22832,82.62408
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),last,Modelo prudente,65.26511,1.25000,49.59790,0.50108,0.22224,61.11597
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),last,Momentum,38.61289,-21.37784,28.09385,0.40929,0.27129,32.42560
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),reason,Aleatória,-19.99654,,-21.71161,0.20539,,
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),reason,Jovens titulares,18.89721,-13.46154,12.49991,0.44634,0.24407,25.51693
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),reason,Juventude,39.64320,,28.85066,0.43414,,
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),reason,Mais jovens,76.13150,5.17045,56.31310,0.51316,0.24675,56.73482
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),reason,Modelo,81.70295,5.51136,70.24339,0.51520,0.22832,82.62408
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),reason,Modelo prudente,65.26511,1.25000,49.59790,0.50108,0.22224,61.11597
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),reason,Momentum,38.61289,-21.37784,28.09385,0.40929,0.27129,32.42560
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),zero,Aleatória,-20.39066,,-22.08990,0.20417,,
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),zero,Jovens titulares,18.89721,-13.46154,12.49991,0.44634,0.24407,25.51693
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),zero,Juventude,39.70523,,28.79404,0.43435,,
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),zero,Mais jovens,76.13150,5.17045,56.31310,0.51316,0.24675,56.73482
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),zero,Modelo,81.70295,5.51136,70.24339,0.51520,0.22832,82.62408
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),zero,Modelo prudente,65.16368,1.25000,49.42287,0.50108,0.22224,61.11597
+Faixa de € 2–15 mi,T+2,Principal (10% + 10%),zero,Momentum,38.61289,-21.37784,28.09385,0.40929,0.27129,32.42560
+Faixa de € 2–15 mi,T+2,Sem custos,reason,Aleatória,-2.39850,,-4.36002,0.24178,,
+Faixa de € 2–15 mi,T+2,Sem custos,reason,Jovens titulares,45.31881,5.76923,37.49989,0.48704,0.14062,25.51693
+Faixa de € 2–15 mi,T+2,Sem custos,reason,Juventude,70.12724,,57.08928,0.48263,,
+Faixa de € 2–15 mi,T+2,Sem custos,reason,Mais jovens,115.27184,28.54167,91.04935,0.56202,0.16533,56.73482
+Faixa de € 2–15 mi,T+2,Sem custos,reason,Modelo,122.08138,28.95833,108.07525,0.55394,0.12444,82.62408
+Faixa de € 2–15 mi,T+2,Sem custos,reason,Modelo prudente,101.99069,23.75000,82.84188,0.54183,0.11843,61.11597
+Faixa de € 2–15 mi,T+2,Sem custos,reason,Momentum,69.41575,-3.90625,56.55914,0.44391,0.15288,32.42560
+Faixa de € 2–15 mi,T+2,Ágio de 25% + 10%,reason,Aleatória,-29.76759,,-31.29304,0.17455,,
+Faixa de € 2–15 mi,T+2,Ágio de 25% + 10%,reason,Jovens titulares,4.62955,-23.84615,-1.00008,0.39724,0.29474,25.51693
+Faixa de € 2–15 mi,T+2,Ágio de 25% + 10%,reason,Juventude,22.76120,,13.29013,0.38236,,
+Faixa de € 2–15 mi,T+2,Ágio de 25% + 10%,reason,Mais jovens,54.99572,-7.45000,37.55553,0.46002,0.28746,56.73482
+Faixa de € 2–15 mi,T+2,Ágio de 25% + 10%,reason,Modelo,59.89859,-7.15000,49.81418,0.46614,0.26267,82.62408
+Faixa de € 2–15 mi,T+2,Ágio de 25% + 10%,reason,Modelo prudente,45.43330,-10.90000,31.64615,0.44993,0.26270,61.11597
+Faixa de € 2–15 mi,T+2,Ágio de 25% + 10%,reason,Momentum,21.97934,-30.81250,12.72258,0.36241,0.33211,32.42560
+Todos os candidatos,T+1,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Aleatória,-20.62877,,-29.04430,0.16533,,
+Todos os candidatos,T+1,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Jovens titulares,-8.60662,-24.86720,-13.40309,0.29413,0.16715,16.83996
+Todos os candidatos,T+1,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Juventude,30.24725,,-6.56139,0.35367,,
+Todos os candidatos,T+1,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Mais jovens,83.58616,-9.49535,10.39227,0.44961,0.15744,44.96484
+Todos os candidatos,T+1,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Modelo,107.19733,5.17928,38.53814,0.51491,0.11527,73.85063
+Todos os candidatos,T+1,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Modelo prudente,91.34245,-2.75263,13.41890,0.48254,0.09273,50.24403
+Todos os candidatos,T+1,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Momentum,22.92687,-21.34320,-4.26329,0.38198,0.17457,27.57253
+Todos os candidatos,T+1,Preço de aquisição observado (taxa/V_T),reason,Aleatória,6.74458,,-4.76953,0.28329,,
+Todos os candidatos,T+1,Preço de aquisição observado (taxa/V_T),reason,Jovens titulares,0.71080,-15.04423,-5.43612,0.35395,0.11868,16.83996
+Todos os candidatos,T+1,Preço de aquisição observado (taxa/V_T),reason,Juventude,36.33495,,-2.33207,0.37076,,
+Todos os candidatos,T+1,Preço de aquisição observado (taxa/V_T),reason,Mais jovens,92.45775,-5.19597,15.55348,0.46966,0.13936,44.96484
+Todos os candidatos,T+1,Preço de aquisição observado (taxa/V_T),reason,Modelo,118.92444,11.51520,45.19645,0.54257,0.09237,73.85063
+Todos os candidatos,T+1,Preço de aquisição observado (taxa/V_T),reason,Modelo prudente,105.04846,6.87884,22.20692,0.53565,0.07144,50.24403
+Todos os candidatos,T+1,Preço de aquisição observado (taxa/V_T),reason,Momentum,37.04036,-5.02568,7.47683,0.44310,0.11535,27.57253
+Todos os candidatos,T+1,Principal (10% + 10%),exclude,Aleatória,-8.32442,,-18.79758,0.21244,,
+Todos os candidatos,T+1,Principal (10% + 10%),exclude,Jovens titulares,4.31530,-14.28030,-1.19522,0.37317,0.10393,16.83996
+Todos os candidatos,T+1,Principal (10% + 10%),exclude,Juventude,48.84029,,6.72788,0.41964,,
+Todos os candidatos,T+1,Principal (10% + 10%),exclude,Mais jovens,109.51240,3.25758,25.94799,0.50679,0.11616,44.96484
+Todos os candidatos,T+1,Principal (10% + 10%),exclude,Modelo,136.84684,20.22727,58.16732,0.57441,0.07676,73.85063
+Todos os candidatos,T+1,Principal (10% + 10%),exclude,Modelo prudente,118.85674,10.95041,29.41365,0.55228,0.06165,50.24403
+Todos os candidatos,T+1,Principal (10% + 10%),exclude,Momentum,40.55291,-10.25974,9.27604,0.43562,0.11826,27.57253
+Todos os candidatos,T+1,Principal (10% + 10%),last,Aleatória,-9.37420,,-19.10373,0.20956,,
+Todos os candidatos,T+1,Principal (10% + 10%),last,Jovens titulares,4.27154,-14.28030,-1.20080,0.37287,0.10384,16.83996
+Todos os candidatos,T+1,Principal (10% + 10%),last,Juventude,48.62013,,6.56869,0.41835,,
+Todos os candidatos,T+1,Principal (10% + 10%),last,Mais jovens,109.45512,3.25758,25.94754,0.50649,0.11597,44.96484
+Todos os candidatos,T+1,Principal (10% + 10%),last,Modelo,136.39332,20.00000,58.05942,0.57342,0.07648,73.85063
+Todos os candidatos,T+1,Principal (10% + 10%),last,Modelo prudente,118.30434,10.95041,29.40066,0.55127,0.06312,50.24403
+Todos os candidatos,T+1,Principal (10% + 10%),last,Momentum,40.24838,-10.25974,9.22688,0.43458,0.11964,27.57253
+Todos os candidatos,T+1,Principal (10% + 10%),reason,Aleatória,-9.45278,,-19.07201,0.20953,,
+Todos os candidatos,T+1,Principal (10% + 10%),reason,Jovens titulares,4.27154,-14.28030,-1.20080,0.37287,0.10384,16.83996
+Todos os candidatos,T+1,Principal (10% + 10%),reason,Juventude,48.47753,,6.51221,0.41840,,
+Todos os candidatos,T+1,Principal (10% + 10%),reason,Mais jovens,109.45512,3.25758,25.94754,0.50649,0.11597,44.96484
+Todos os candidatos,T+1,Principal (10% + 10%),reason,Modelo,136.39332,20.00000,58.05942,0.57342,0.07648,73.85063
+Todos os candidatos,T+1,Principal (10% + 10%),reason,Modelo prudente,118.30434,10.95041,29.40066,0.55127,0.06312,50.24403
+Todos os candidatos,T+1,Principal (10% + 10%),reason,Momentum,40.24838,-10.25974,9.22688,0.43458,0.11964,27.57253
+Todos os candidatos,T+1,Principal (10% + 10%),zero,Aleatória,-9.67135,,-19.20990,0.20900,,
+Todos os candidatos,T+1,Principal (10% + 10%),zero,Jovens titulares,4.22631,-14.28030,-1.20746,0.37287,0.10467,16.83996
+Todos os candidatos,T+1,Principal (10% + 10%),zero,Juventude,48.53562,,6.54976,0.41843,,
+Todos os candidatos,T+1,Principal (10% + 10%),zero,Mais jovens,109.38728,3.25758,25.94503,0.50649,0.11680,44.96484
+Todos os candidatos,T+1,Principal (10% + 10%),zero,Modelo,136.13810,20.00000,57.99411,0.57255,0.07984,73.85063
+Todos os candidatos,T+1,Principal (10% + 10%),zero,Modelo prudente,118.14862,10.95041,29.38839,0.55040,0.06482,50.24403
+Todos os candidatos,T+1,Principal (10% + 10%),zero,Momentum,40.20315,-10.25974,9.21525,0.43458,0.12047,27.57253
+Todos os candidatos,T+1,Sem custos,reason,Aleatória,10.68934,,-1.10753,0.27260,,
+Todos os candidatos,T+1,Sem custos,reason,Jovens titulares,27.44299,4.76852,20.75457,0.51068,0.03974,16.83996
+Todos os candidatos,T+1,Sem custos,reason,Juventude,81.63344,,30.18746,0.50023,,
+Todos os candidatos,T+1,Sem custos,reason,Mais jovens,156.00071,26.20370,53.93588,0.57861,0.05120,44.96484
+Todos os candidatos,T+1,Sem custos,reason,Modelo,188.92516,46.66667,93.18374,0.62604,0.02608,73.85063
+Todos os candidatos,T+1,Sem custos,reason,Modelo prudente,166.81641,35.60606,58.15636,0.62150,0.02361,50.24403
+Todos os candidatos,T+1,Sem custos,reason,Momentum,71.41469,9.68254,33.49952,0.51248,0.05309,27.57253
+Todos os candidatos,T+1,Ágio de 25% + 10%,reason,Aleatória,-20.21694,,-28.76926,0.16480,,
+Todos os candidatos,T+1,Ágio de 25% + 10%,reason,Jovens titulares,-8.24105,-24.56667,-13.05671,0.29413,0.16715,16.83996
+Todos os candidatos,T+1,Ágio de 25% + 10%,reason,Juventude,30.70530,,-6.19450,0.35349,,
+Todos os candidatos,T+1,Ágio de 25% + 10%,reason,Mais jovens,84.32051,-9.13333,10.83383,0.44961,0.15569,44.96484
+Todos os candidatos,T+1,Ágio de 25% + 10%,reason,Modelo,108.02612,5.60000,39.09229,0.51491,0.11440,73.85063
+Todos os candidatos,T+1,Ágio de 25% + 10%,reason,Modelo prudente,92.10782,-2.36364,13.87258,0.48254,0.09186,50.24403
+Todos os candidatos,T+1,Ágio de 25% + 10%,reason,Momentum,23.41857,-21.02857,-3.88035,0.38198,0.17283,27.57253
+Todos os candidatos,T+2,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Aleatória,-28.67361,,-40.97498,0.14762,,
+Todos os candidatos,T+2,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Jovens titulares,-12.02073,-31.56905,-18.28341,0.30077,0.32945,18.83176
+Todos os candidatos,T+2,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Juventude,47.06810,,-4.98663,0.35823,,
+Todos os candidatos,T+2,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Mais jovens,115.79125,-6.16705,21.05674,0.46099,0.26732,56.68042
+Todos os candidatos,T+2,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Modelo,148.30277,-2.26589,53.12494,0.49463,0.24658,101.73804
+Todos os candidatos,T+2,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Modelo prudente,133.33030,-6.93785,28.61399,0.47580,0.25025,73.24204
+Todos os candidatos,T+2,Carregamento (5% a.a. + 10% de V_T a.a.),reason,Momentum,35.64926,-36.29446,-10.03635,0.32709,0.37601,27.07971
+Todos os candidatos,T+2,Preço de aquisição observado (taxa/V_T),reason,Aleatória,8.54864,,-10.07049,0.25454,,
+Todos os candidatos,T+2,Preço de aquisição observado (taxa/V_T),reason,Jovens titulares,7.66900,-15.27603,-0.69833,0.41303,0.23259,18.83176
+Todos os candidatos,T+2,Preço de aquisição observado (taxa/V_T),reason,Juventude,70.33194,,9.71420,0.41530,,
+Todos os candidatos,T+2,Preço de aquisição observado (taxa/V_T),reason,Mais jovens,150.10883,8.32688,40.42882,0.52909,0.23326,56.68042
+Todos os candidatos,T+2,Preço de aquisição observado (taxa/V_T),reason,Modelo,189.52639,14.30687,77.69140,0.55373,0.19348,101.73804
+Todos os candidatos,T+2,Preço de aquisição observado (taxa/V_T),reason,Modelo prudente,175.54105,12.81784,52.79403,0.54392,0.18330,73.24204
+Todos os candidatos,T+2,Preço de aquisição observado (taxa/V_T),reason,Momentum,65.68961,-17.67408,13.95261,0.42167,0.26011,27.07971
+Todos os candidatos,T+2,Principal (10% + 10%),exclude,Aleatória,-5.41426,,-23.55250,0.21473,,
+Todos os candidatos,T+2,Principal (10% + 10%),exclude,Jovens titulares,12.99338,-12.11289,4.95011,0.43542,0.22523,18.83176
+Todos os candidatos,T+2,Principal (10% + 10%),exclude,Juventude,89.65715,,21.89539,0.46335,,
+Todos os candidatos,T+2,Principal (10% + 10%),exclude,Mais jovens,178.44914,20.93750,55.57567,0.57366,0.20236,56.68042
+Todos os candidatos,T+2,Principal (10% + 10%),exclude,Modelo,221.18446,28.04088,96.96169,0.58553,0.17297,101.73804
+Todos os candidatos,T+2,Principal (10% + 10%),exclude,Modelo prudente,202.81416,20.59659,65.66692,0.57638,0.16852,73.24204
+Todos os candidatos,T+2,Principal (10% + 10%),exclude,Momentum,74.62709,-18.18182,15.56000,0.41626,0.26348,27.07971
+Todos os candidatos,T+2,Principal (10% + 10%),last,Aleatória,-8.64995,,-24.21935,0.20731,,
+Todos os candidatos,T+2,Principal (10% + 10%),last,Jovens titulares,12.99338,-12.11289,4.95011,0.43542,0.22523,18.83176
+Todos os candidatos,T+2,Principal (10% + 10%),last,Juventude,88.76337,,21.87062,0.46296,,
+Todos os candidatos,T+2,Principal (10% + 10%),last,Mais jovens,177.18533,20.51136,55.48439,0.57161,0.20581,56.68042
+Todos os candidatos,T+2,Principal (10% + 10%),last,Modelo,218.94046,25.52169,96.67544,0.58251,0.17852,101.73804
+Todos os candidatos,T+2,Principal (10% + 10%),last,Modelo prudente,199.71105,19.52142,65.19456,0.57126,0.17710,73.24204
+Todos os candidatos,T+2,Principal (10% + 10%),last,Momentum,74.21681,-18.18182,15.54195,0.41517,0.26533,27.07971
+Todos os candidatos,T+2,Principal (10% + 10%),reason,Aleatória,-8.84387,,-24.33746,0.20684,,
+Todos os candidatos,T+2,Principal (10% + 10%),reason,Jovens titulares,12.99338,-12.11289,4.95011,0.43542,0.22523,18.83176
+Todos os candidatos,T+2,Principal (10% + 10%),reason,Juventude,88.86054,,21.81919,0.46249,,
+Todos os candidatos,T+2,Principal (10% + 10%),reason,Mais jovens,177.14463,20.51136,55.47537,0.57161,0.20581,56.68042
+Todos os candidatos,T+2,Principal (10% + 10%),reason,Modelo,218.89976,25.52169,96.66114,0.58251,0.17852,101.73804
+Todos os candidatos,T+2,Principal (10% + 10%),reason,Modelo prudente,199.67034,19.52142,65.18129,0.57126,0.17710,73.24204
+Todos os candidatos,T+2,Principal (10% + 10%),reason,Momentum,74.21681,-18.18182,15.54195,0.41517,0.26533,27.07971
+Todos os candidatos,T+2,Principal (10% + 10%),zero,Aleatória,-9.38574,,-24.46134,0.20607,,
+Todos os candidatos,T+2,Principal (10% + 10%),zero,Jovens titulares,12.99338,-12.11289,4.95011,0.43542,0.22523,18.83176
+Todos os candidatos,T+2,Principal (10% + 10%),zero,Juventude,89.12697,,21.92626,0.46227,,
+Todos os candidatos,T+2,Principal (10% + 10%),zero,Mais jovens,176.89713,20.51136,55.43546,0.57036,0.20705,56.68042
+Todos os candidatos,T+2,Principal (10% + 10%),zero,Modelo,218.39220,25.05682,96.56204,0.58002,0.18101,101.73804
+Todos os candidatos,T+2,Principal (10% + 10%),zero,Modelo prudente,199.10173,18.89205,64.96754,0.56878,0.17959,73.24204
+Todos os candidatos,T+2,Principal (10% + 10%),zero,Momentum,74.18047,-18.18182,15.53831,0.41517,0.26533,27.07971
+Todos os candidatos,T+2,Sem custos,reason,Aleatória,11.53567,,-7.41936,0.24712,,
+Todos os candidatos,T+2,Sem custos,reason,Jovens titulares,38.10302,7.41758,28.27235,0.50202,0.11940,18.83176
+Todos os candidatos,T+2,Sem custos,reason,Juventude,130.80129,,48.92160,0.51813,,
+Todos os candidatos,T+2,Sem custos,reason,Mais jovens,238.73232,47.29167,90.02546,0.62685,0.13038,56.68042
+Todos os candidatos,T+2,Sem custos,reason,Modelo,289.76637,53.41540,140.36362,0.63146,0.09684,101.73804
+Todos os candidatos,T+2,Sem custos,reason,Modelo prudente,266.26375,46.08173,101.88824,0.61267,0.08913,73.24204
+Todos os candidatos,T+2,Sem custos,reason,Momentum,112.93166,0.00000,41.21794,0.46790,0.16090,27.07971
+Todos os candidatos,T+2,Ágio de 25% + 10%,reason,Aleatória,-19.87542,,-33.38012,0.17610,,
+Todos os candidatos,T+2,Ágio de 25% + 10%,reason,Jovens titulares,-0.56583,-22.65934,-7.64391,0.37384,0.27442,18.83176
+Todos os candidatos,T+2,Ágio de 25% + 10%,reason,Juventude,66.34514,,7.25261,0.40909,,
+Todos os candidatos,T+2,Ágio de 25% + 10%,reason,Mais jovens,143.88727,6.05000,36.81833,0.51884,0.23963,56.68042
+Todos os candidatos,T+2,Ágio de 25% + 10%,reason,Modelo,180.63179,10.45909,73.06181,0.54365,0.21258,101.73804
+Todos os candidatos,T+2,Ágio de 25% + 10%,reason,Modelo prudente,163.70990,5.17885,45.35953,0.52234,0.21501,73.24204
+Todos os candidatos,T+2,Ágio de 25% + 10%,reason,Momentum,53.31080,-28.00000,1.67691,0.37244,0.32080,27.07971

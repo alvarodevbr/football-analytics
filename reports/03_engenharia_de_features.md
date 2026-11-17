@@ -1,5 +1,29 @@
 # 03 — Pré-processamento, Engenharia de *Features* e Estrutura de Painel
 
+> **Versão 4 (17/11/2026).** O painel tem 125 variáveis no vetor (108 na v3); *hash* `9bfdbda6da`.
+>
+> **Novas variáveis** (`features.py`, `feature_catalog.py`):
+> - **Prioris do encolhimento por papel tático:** zagueiro, lateral, volante, meia central, meia
+>   ofensivo ou ponta e centroavante, pela posição granular do Transfermarkt na temporada. O papel
+>   também entra como variável categórica.
+> - **Probabilidades de cauda:** $P(\lambda > \lambda_{q75} \mid c, e)$ para xG + xA, passes
+>   decisivos, dribles, desarmes + interceptações e nota.
+> - **Lesões** truncadas na âncora: dias em $T$ e $T-1$, lesões em 24 meses, lesionado e lesão longa
+>   em 30/jun. Cobertura de 100%.
+> - **Trajetória:** % dos minutos em $T-2$, aceleração, titularização (de menos de 900 para ao menos
+>   1.800 minutos), chegada às Big Five com minutos, anos desde o pico de valor.
+> - **Valor de mercado:** defasagem da avaliação de $V_T$ e xGBuildup/xGChain.
+> - **Alvo anualizado** (robustez) e motivo da ausência do alvo (intenção de tratar).
+>
+> **Valor justo.** Validação cruzada agrupada por clube ($R^2$ fora da dobra de 0,767; v3: 0,79 sem
+> agrupar) e versão só de desempenho ($R^2$ 0,679). O valor justo vai para a auditoria: com $\ln V_T$ e
+> o gap no vetor, ele seria combinação linear exata dos dois.
+>
+> **Fora do vetor pela regra de cobertura:** ClubElo, tempo de casa, empréstimo e o bloco de forma
+> intra-temporada (sem as partidas do Understat).
+>
+> O texto abaixo é o da v3.
+
 **Notebook:** `notebooks/03_preprocessing.ipynb` ·
 **Código:** `src/football_analytics/{features,contracts,club_context,feature_catalog,validation}.py`
 **Saídas:** `data/processed/train_test_lags.parquet` (painel), `data/processed/feature_sets.json`,

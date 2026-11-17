@@ -4,9 +4,12 @@ Previsão da variação do valor de mercado ($\Delta V$, $\Delta V\%$) em $T+1$/
 das Big Five (2018/19–2024/25; 2017/18 só para defasagens). O contexto metodológico está em `CLAUDE.md` e
 `specs/`.
 
-**Versão 3 (out/2026).** Teste final de $T+1$ em 2024/25, pré-registrado em `reports/protocol_v3.json`:
-o notebook 04 só revela as métricas desse teste depois que o protocolo é *commitado*. A versão 2 está
-arquivada em `reports/archive/v2_2026-10-19/` (e completa no commit `dc93ba2`).
+**Versão 4 (nov/2026).** Aplica a revisão externa `documents/ENHANCEMENTS.md`: lesões, prioris por
+papel tático, valor justo agrupado por clube, arquitetura com interações restritas, camadas de magnitude
+e de decisão escolhidas por regra e simulação mais realista. Protocolo em `reports/protocol_v4.json`
+(*commit* `8883da8`), versionado antes de reavaliar os testes (2024/25 em $T+1$, 2023/24 em $T+2$, ambos
+semi-independentes). A versão 3, pré-registrada em `5573d7e`, está em `reports/archive/v3_2026-10-23/`;
+a versão 2, em `reports/archive/v2_2026-10-19/`.
 
 ## Ambiente
 
@@ -23,6 +26,9 @@ curl -sS https://bootstrap.pypa.io/get-pip.py | .venv/bin/python
 `notebooks/01_data_extraction.ipynb` (kernel `football-analytics (.venv)`):
 
 - `SMOKE_TEST = True` (ou `FA_SMOKE_TEST=1`) roda um recorte mínimo em `data/smoke_test/`.
+- `FA_OFFLINE=1` reexecuta só com o cache (nenhuma requisição nova, sem ClubElo) e reproduz os dados
+  congelados no protocolo v4. Na v4, o histórico de lesões do Transfermarkt foi coletado em sessões; as
+  escalações por partida do Understat não puderam ser coletadas (site em manutenção).
 - Coleta completa: várias horas a frio, a maior parte no Transfermarkt. Tudo fica em cache em
   `data/raw/`, então basta reexecutar para retomar. `MAX_FETCHES_PER_RUN` divide a coleta em sessões.
 - O FBref e o Sofascore abrem uma janela do Chrome. O modo headless é bloqueado pelos anti-bots. Sem o
@@ -85,7 +91,7 @@ Execução em duas etapas:
 cd notebooks
 ../.venv/bin/jupyter nbconvert --to notebook --execute 04_model_training.ipynb --inplace \
     --ExecutePreprocessor.timeout=-1 --ExecutePreprocessor.kernel_name=football-analytics
-git add ../reports/protocol_v3.json && git commit -m "Pré-registro do protocolo v3"
+git add ../reports/protocol_v4.json && git commit -m "Pré-registro do protocolo v4"
 FA_REVEAL_HOLDOUT=1 ../.venv/bin/jupyter nbconvert --to notebook --execute 04_model_training.ipynb --inplace \
     --ExecutePreprocessor.timeout=-1 --ExecutePreprocessor.kernel_name=football-analytics
 ```

@@ -2,8 +2,8 @@
   "path": "shap_values_T2.parquet",
   "source": "notebook 05: SHAP do ensemble global, T+2",
   "n_rows": 11214,
-  "n_columns": 113,
-  "written_at": "2026-10-23T19:33:22",
+  "n_columns": 131,
+  "written_at": "2026-11-17T16:04:21",
   "columns": {
     "age": {
       "dtype": "float64"
@@ -42,6 +42,9 @@
       "dtype": "float64"
     },
     "log_value_T": {
+      "dtype": "float64"
+    },
+    "days_since_valuation_T": {
       "dtype": "float64"
     },
     "log_club_value_T": {
@@ -134,6 +137,9 @@
     "xg_xa_p90": {
       "dtype": "float64"
     },
+    "tail_xg_xa_p90": {
+      "dtype": "float64"
+    },
     "xg_per_shot": {
       "dtype": "float64"
     },
@@ -156,6 +162,15 @@
       "dtype": "float64"
     },
     "xg_buildup_p90": {
+      "dtype": "float64"
+    },
+    "xg_buildup_share": {
+      "dtype": "float64"
+    },
+    "tail_key_passes_p90": {
+      "dtype": "float64"
+    },
+    "tail_dribbles_p90": {
       "dtype": "float64"
     },
     "passes_p90": {
@@ -212,6 +227,9 @@
     "tackles_interceptions_p90": {
       "dtype": "float64"
     },
+    "tail_tackles_interceptions_p90": {
+      "dtype": "float64"
+    },
     "clearances_p90": {
       "dtype": "float64"
     },
@@ -254,6 +272,9 @@
     "sofascore_rating": {
       "dtype": "float64"
     },
+    "tail_sofascore_rating": {
+      "dtype": "float64"
+    },
     "log_return_lag1": {
       "dtype": "float64"
     },
@@ -284,10 +305,13 @@
     "mkt_peak_gap": {
       "dtype": "float64"
     },
-    "fair_log_value_T": {
+    "mkt_years_since_peak": {
       "dtype": "float64"
     },
     "value_gap_T": {
+      "dtype": "float64"
+    },
+    "value_gap_perf_T": {
       "dtype": "float64"
     },
     "has_big5_lag1": {
@@ -329,6 +353,33 @@
     "delta_sofascore_rating": {
       "dtype": "float64"
     },
+    "lag2_minutes_share_pct": {
+      "dtype": "float64"
+    },
+    "minutes_share_accel": {
+      "dtype": "float64"
+    },
+    "breakout_starter_T": {
+      "dtype": "float64"
+    },
+    "league_step_up_T": {
+      "dtype": "float64"
+    },
+    "injury_days_T": {
+      "dtype": "float64"
+    },
+    "injury_days_Tm1": {
+      "dtype": "float64"
+    },
+    "n_injuries_24m": {
+      "dtype": "float64"
+    },
+    "injured_at_anchor": {
+      "dtype": "float64"
+    },
+    "long_injury_at_anchor": {
+      "dtype": "float64"
+    },
     "league": {
       "dtype": "float64"
     },
@@ -336,6 +387,9 @@
       "dtype": "float64"
     },
     "position_group": {
+      "dtype": "float64"
+    },
+    "role": {
       "dtype": "float64"
     },
     "season": {

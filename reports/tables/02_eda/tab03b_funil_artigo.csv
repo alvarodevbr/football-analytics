@@ -1,0 +1,14 @@
+﻿etapa,observacoes,atletas_unicos,retencao_etapa_pct
+"Registros brutos do FBref, 2017/18 a 2024/25 (jogador–clube–temporada)",22419,7188,
+"(–) 2017/18, coletada só para as defasagens de T−1",2692,2568,
+Registros FBref (jogador–clube–temporada),19727,6643,
+Jogador–temporada,18808,6643,95.3414
+Pareados com o Transfermarkt,18763,6609,99.7607
+Exclusão de goleiros,17339,6101,92.4106
+Minutagem ≥ 90 min em T,15286,5138,88.1596
+Com valor de mercado em T,15184,5088,99.3327
+Corte p90 de V_T,13748,5007,90.5427
+Com alvo observado em T+1 (V_(T+k) > 0),13483,4919,
+   dos quais no teste final de T+1 (2024/25),1952,1952,
+Com alvo observado em T+2 (V_(T+k) > 0),11214,4361,
+   dos quais no teste final de T+2 (2023/24),1879,1879,

@@ -13,6 +13,20 @@ Seg. 3 × 3 — Ridge,0.00000,False,T+1,desenvolvimento
 Mediana do treino (ingênuo),0.00000,False,T+1,desenvolvimento
 Seg. 4 × 3 — CatBoost,0.00000,False,T+1,desenvolvimento
 XGBoost,0.00000,False,T+1,desenvolvimento
+Global com interações — Ensemble com interações restritas,1.00000,True,T+1,teste final
+Ridge,0.51080,True,T+1,teste final
+Seg. 3 × 3 — Ridge,0.43080,True,T+1,teste final
+Ensemble (CatBoost + XGBoost + Ridge),0.43080,True,T+1,teste final
+Seg. 4 × 3 — Ridge,0.43080,True,T+1,teste final
+CatBoost,0.37040,True,T+1,teste final
+Pooling 4 × 3 — Pooling parcial,0.20100,True,T+1,teste final
+Pooling 3 × 3 — Pooling parcial,0.20100,True,T+1,teste final
+Random Forest,0.16600,True,T+1,teste final
+OLS,0.00840,False,T+1,teste final
+XGBoost,0.00100,False,T+1,teste final
+Seg. 3 × 3 — CatBoost,0.00020,False,T+1,teste final
+Mediana do treino (ingênuo),0.00000,False,T+1,teste final
+Seg. 4 × 3 — CatBoost,0.00000,False,T+1,teste final
 Pooling 3 × 3 — Pooling parcial,1.00000,True,T+2,desenvolvimento
 Ensemble (CatBoost + XGBoost + Ridge),0.07460,False,T+2,desenvolvimento
 Pooling 4 × 3 — Pooling parcial,0.07460,False,T+2,desenvolvimento
@@ -27,3 +41,17 @@ Seg. 4 × 3 — CatBoost,0.00020,False,T+2,desenvolvimento
 Seg. 4 × 3 — Ridge,0.00000,False,T+2,desenvolvimento
 Mediana do treino (ingênuo),0.00000,False,T+2,desenvolvimento
 Seg. 3 × 3 — Ridge,0.00000,False,T+2,desenvolvimento
+Ensemble (CatBoost + XGBoost + Ridge),1.00000,True,T+2,teste final
+Global com interações — Ensemble com interações restritas,0.56800,True,T+2,teste final
+Ridge,0.56800,True,T+2,teste final
+Pooling 4 × 3 — Pooling parcial,0.34860,True,T+2,teste final
+Pooling 3 × 3 — Pooling parcial,0.34860,True,T+2,teste final
+XGBoost,0.23860,True,T+2,teste final
+OLS,0.00840,False,T+2,teste final
+CatBoost,0.00660,False,T+2,teste final
+Seg. 3 × 3 — Ridge,0.00440,False,T+2,teste final
+Seg. 4 × 3 — Ridge,0.00440,False,T+2,teste final
+Random Forest,0.00140,False,T+2,teste final
+Seg. 4 × 3 — CatBoost,0.00000,False,T+2,teste final
+Mediana do treino (ingênuo),0.00000,False,T+2,teste final
+Seg. 3 × 3 — CatBoost,0.00000,False,T+2,teste final

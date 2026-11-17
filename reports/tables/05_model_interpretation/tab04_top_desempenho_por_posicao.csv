@@ -1,31 +1,31 @@
 ﻿posicao,variavel,grupo,mean_abs_shap_T1,direcao
-Defensor,Nota Sofascore,Avaliação agregada,0.01845,+
-Defensor,% de jogos completos,Volume,0.01539,+
-Defensor,Grandes chances perdidas /90,Ofensivo,0.01531,+
-Defensor,Finalizações /90,Ofensivo,0.01157,+
-Defensor,Duelos aéreos ganhos /90,Defensivo,0.01046,+
-Defensor,Vezes driblado /90,Defensivo,0.01018,−
-Defensor,Partidas,Volume,0.00995,+
-Defensor,Dribles certos /90,Criação e posse,0.00933,+
-Defensor,Duelos no chão ganhos /90,Defensivo,0.00774,+
-Defensor,Taxa de duelos aéreos ganhos,Defensivo,0.00663,+
-Meio-campista,Nota Sofascore,Avaliação agregada,0.02602,+
-Meio-campista,% de jogos completos,Volume,0.01458,+
-Meio-campista,Duelos aéreos ganhos /90,Defensivo,0.01166,+
-Meio-campista,Vezes driblado /90,Defensivo,0.01072,−
-Meio-campista,Dribles certos /90,Criação e posse,0.01040,+
-Meio-campista,Grandes chances perdidas /90,Ofensivo,0.01021,+
-Meio-campista,Partidas,Volume,0.00979,+
-Meio-campista,Duelos no chão ganhos /90,Defensivo,0.00700,+
-Meio-campista,Finalizações /90,Ofensivo,0.00688,+
-Meio-campista,Minutos,Volume,0.00680,+
-Atacante,Grandes chances perdidas /90,Ofensivo,0.02984,+
-Atacante,Nota Sofascore,Avaliação agregada,0.02659,+
-Atacante,Finalizações /90,Ofensivo,0.01737,+
-Atacante,% de jogos completos,Volume,0.01695,+
-Atacante,Dribles certos /90,Criação e posse,0.01690,+
-Atacante,Duelos aéreos ganhos /90,Defensivo,0.01679,+
-Atacante,Erros graves /90,Defensivo,0.01001,+
-Atacante,Partidas,Volume,0.00980,+
-Atacante,Vezes driblado /90,Defensivo,0.00942,−
-Atacante,Interceptações /90,Defensivo,0.00888,+
+Defensor,Nota Sofascore,Avaliação agregada,0.02051,+
+Defensor,Grandes chances perdidas /90,Ofensivo,0.01447,+
+Defensor,% de jogos completos,Volume,0.01185,+
+Defensor,Duelos aéreos ganhos /90,Defensivo,0.00931,+
+Defensor,Finalizações /90,Ofensivo,0.00890,+
+Defensor,Dribles certos /90,Criação e posse,0.00858,+
+Defensor,P(desarmes + interc. no 3º quartil),Defensivo,0.00792,+
+Defensor,Vezes driblado /90,Defensivo,0.00786,−
+Defensor,Taxa de duelos aéreos ganhos,Defensivo,0.00760,+
+Defensor,npxG /90,Ofensivo,0.00513,−
+Meio-campista,Nota Sofascore,Avaliação agregada,0.02262,+
+Meio-campista,Grandes chances perdidas /90,Ofensivo,0.01168,+
+Meio-campista,% de jogos completos,Volume,0.01085,+
+Meio-campista,Duelos aéreos ganhos /90,Defensivo,0.01054,+
+Meio-campista,Dribles certos /90,Criação e posse,0.00945,+
+Meio-campista,P(desarmes + interc. no 3º quartil),Defensivo,0.00830,+
+Meio-campista,Vezes driblado /90,Defensivo,0.00814,−
+Meio-campista,Taxa de duelos aéreos ganhos,Defensivo,0.00722,+
+Meio-campista,Finalizações /90,Ofensivo,0.00524,+
+Meio-campista,Passes certos no terço final /90,Criação e posse,0.00497,+
+Atacante,Grandes chances perdidas /90,Ofensivo,0.02929,+
+Atacante,Nota Sofascore,Avaliação agregada,0.02384,+
+Atacante,Dribles certos /90,Criação e posse,0.01469,+
+Atacante,Finalizações /90,Ofensivo,0.01466,+
+Atacante,Duelos aéreos ganhos /90,Defensivo,0.01420,+
+Atacante,% de jogos completos,Volume,0.01274,+
+Atacante,Taxa de duelos aéreos ganhos,Defensivo,0.00994,+
+Atacante,npxG /90,Ofensivo,0.00904,−
+Atacante,xG /90,Ofensivo,0.00838,−
+Atacante,P(desarmes + interc. no 3º quartil),Defensivo,0.00802,+

@@ -6,7 +6,7 @@
 * **Temporal Horizons:** Previsão da variação de valor nos horizontes $T+1$ (1 temporada) e $T+2$ (2 temporadas) com base em atributos e métricas consolidadas no momento de referência $T$.
 * **Scope & Sample Filters:**
   * **Ligas:** Premier League, La Liga, Serie A, Bundesliga e Ligue 1 (Temporadas de referência 2018/19 a 2024/25; 2017/18 coletada só para defasagens).
-  * **Holdout pré-registrado (v3):** 2024/25 é o teste final de $T+1$ (alvo em 30/06/2026) e não pode orientar nenhuma decisão de modelagem antes do commit de `reports/protocol_v3.json`; o teste final de $T+2$ segue em 2023/24 (semi-independente, consultado nas versões 1 e 2).
+  * **Testes finais (v4):** 2024/25 em $T+1$ (alvo em 30/06/2026) e 2023/24 em $T+2$, ambos semi-independentes. O de $T+1$ foi pré-registrado e revelado na v3 (`5573d7e`), e a v4 o reavaliou depois de *commitar* `reports/protocol_v4.json` (`8883da8`). Qualquer mudança posterior nas variáveis, no código *hasheado* ou nas camadas do modelo é *post hoc*; o próximo teste intocado é 2025/26 (alvo em 30/06/2027).
   * **Filtro de Custo ($p90$):** Restrição estrita aos **90% atletas de menor valor de mercado** em $T$ (exclusão dos 10% mais caros / superestrelas para eliminar ruídos de *branding* e cláusulas atípicas).
   * **Filtro de Minutagem:** Mínimo de **90 minutos jogados** na temporada $T$ no FBref.
   * **Exclusão Técnica:** Goleiros excluídos (análise focada exclusivamente em jogadores de linha).

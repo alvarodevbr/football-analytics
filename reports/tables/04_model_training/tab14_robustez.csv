@@ -7,6 +7,14 @@ T+1,desenvolvimento,Treino no alvo anualizado (avaliado no nominal),9682,0.52130
 T+1,desenvolvimento,Sem a nota do Sofascore,9682,0.52074,0.23637,0.47212,0.58574,0.00001
 T+1,desenvolvimento,XGBoost principal,9682,0.52212,0.23230,0.46608,0.58781,0.00004
 T+1,desenvolvimento,XGBoost + contrato reconstruído (look-ahead),9682,0.52116,0.23512,0.46946,0.58678,0.04897
+T+1,teste final,Ensemble principal,1952,0.54083,0.33500,0.57009,0.70769,
+T+1,teste final,Hiperparâmetros-padrão,1952,0.53920,0.33902,0.57260,0.70769,0.08007
+T+1,teste final,Taxas cruas (sem encolhimento),1952,0.54156,0.33320,0.56892,0.70769,0.14112
+T+1,teste final,Sem 2018/19 no treino,1952,0.54003,0.33698,0.57130,0.71282,0.17125
+T+1,teste final,Treino no alvo anualizado (avaliado no nominal),1952,0.53948,0.33833,0.57031,0.70769,0.00030
+T+1,teste final,Sem a nota do Sofascore,1952,0.54061,0.33554,0.57068,0.70769,0.73073
+T+1,teste final,XGBoost principal,1952,0.54518,0.32426,0.55924,0.71282,0.00016
+T+1,teste final,XGBoost + contrato reconstruído (look-ahead),1952,0.53773,0.34262,0.56726,0.70769,0.14109
 T+2,desenvolvimento,Ensemble principal,5709,0.72295,0.31978,0.55258,0.64561,
 T+2,desenvolvimento,Hiperparâmetros-padrão,5709,0.72308,0.31952,0.55097,0.64561,0.90607
 T+2,desenvolvimento,Taxas cruas (sem encolhimento),5709,0.72372,0.31833,0.55171,0.63860,0.13481
@@ -15,3 +23,11 @@ T+2,desenvolvimento,Treino no alvo anualizado (avaliado no nominal),5709,0.72403
 T+2,desenvolvimento,Sem a nota do Sofascore,5709,0.72484,0.31622,0.55150,0.63509,0.00000
 T+2,desenvolvimento,XGBoost principal,5709,0.72740,0.31137,0.54519,0.65263,0.00020
 T+2,desenvolvimento,XGBoost + contrato reconstruído (look-ahead),5709,0.72270,0.32024,0.55157,0.66316,0.87810
+T+2,teste final,Ensemble principal,1879,0.72170,0.38199,0.60821,0.63636,
+T+2,teste final,Hiperparâmetros-padrão,1879,0.72207,0.38137,0.60548,0.63636,0.81526
+T+2,teste final,Taxas cruas (sem encolhimento),1879,0.72191,0.38163,0.60735,0.64171,0.73498
+T+2,teste final,Sem 2018/19 no treino,1879,0.73238,0.36356,0.60548,0.65241,0.00009
+T+2,teste final,Treino no alvo anualizado (avaliado no nominal),1879,0.72259,0.38047,0.60890,0.64171,0.04862
+T+2,teste final,Sem a nota do Sofascore,1879,0.72368,0.37859,0.60748,0.64171,0.01357
+T+2,teste final,XGBoost principal,1879,0.72495,0.37641,0.60325,0.64706,0.07652
+T+2,teste final,XGBoost + contrato reconstruído (look-ahead),1879,0.72166,0.38206,0.60846,0.64171,0.98785

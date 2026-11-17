@@ -1,49 +1,81 @@
 ﻿horizonte,avaliacao,rotulo,estrategia,taxa_base,auc,ap,acerto_topo,acerto_base
-T+1,desenvolvimento,valorizou,Modelo,0.27223,0.78216,0.54008,0.61403,0.01316
-T+1,desenvolvimento,valorizou,Modelo prudente,0.27223,0.75368,0.50290,0.57664,0.02948
-T+1,desenvolvimento,valorizou,Momentum,0.26143,0.67436,0.41716,0.50942,0.13099
-T+1,desenvolvimento,valorizou,Mais jovens,0.27223,0.75935,0.49194,0.57352,0.03265
-T+1,desenvolvimento,lucro_10_10,Modelo,0.20756,0.79256,0.48588,0.55293,0.01015
-T+1,desenvolvimento,lucro_10_10,Modelo prudente,0.20756,0.75581,0.42968,0.48700,0.01933
-T+1,desenvolvimento,lucro_10_10,Momentum,0.19639,0.67483,0.33754,0.42810,0.10331
-T+1,desenvolvimento,lucro_10_10,Mais jovens,0.20756,0.76287,0.42146,0.49611,0.02147
-T+1,desenvolvimento,lucro_25_10,Modelo,0.16188,0.80217,0.43546,0.48586,0.00709
-T+1,desenvolvimento,lucro_25_10,Modelo prudente,0.16188,0.76350,0.37342,0.41989,0.01426
-T+1,desenvolvimento,lucro_25_10,Momentum,0.15122,0.68693,0.29180,0.37425,0.07375
-T+1,desenvolvimento,lucro_25_10,Mais jovens,0.16188,0.77475,0.37275,0.43902,0.01026
-T+1,teste final,valorizou,Modelo,0.27259,0.81035,0.58170,0.71066,0.00508
-T+1,teste final,valorizou,Modelo prudente,0.27259,0.77979,0.52823,0.62944,0.02538
+T+1,desenvolvimento,valorizou,Modelo,0.27274,0.78252,0.53670,0.61216,0.01520
+T+1,desenvolvimento,valorizou,Modelo prudente,0.27274,0.76999,0.52835,0.60671,0.02325
+T+1,desenvolvimento,valorizou,Escore de decisão (protocolo),0.27274,0.78252,0.53670,0.61216,0.01520
+T+1,desenvolvimento,valorizou,Momentum,0.26196,0.67384,0.41718,0.50942,0.13316
+T+1,desenvolvimento,valorizou,Mais jovens,0.27274,0.75910,0.49214,0.57352,0.03265
+T+1,desenvolvimento,lucro_10_10,Modelo,0.20787,0.79470,0.48255,0.55714,0.01009
+T+1,desenvolvimento,lucro_10_10,Modelo prudente,0.20787,0.77698,0.46363,0.53259,0.01625
+T+1,desenvolvimento,lucro_10_10,Escore de decisão (protocolo),0.20787,0.79470,0.48255,0.55714,0.01009
+T+1,desenvolvimento,lucro_10_10,Momentum,0.19671,0.67417,0.33745,0.42810,0.10549
+T+1,desenvolvimento,lucro_10_10,Mais jovens,0.20787,0.76261,0.42151,0.49611,0.02147
+T+1,desenvolvimento,lucro_25_10,Modelo,0.16198,0.80520,0.43056,0.49505,0.00709
+T+1,desenvolvimento,lucro_25_10,Modelo prudente,0.16198,0.78589,0.40680,0.46128,0.00909
+T+1,desenvolvimento,lucro_25_10,Escore de decisão (protocolo),0.16198,0.80520,0.43056,0.49505,0.00709
+T+1,desenvolvimento,lucro_25_10,Momentum,0.15133,0.68685,0.29181,0.37425,0.07375
+T+1,desenvolvimento,lucro_25_10,Mais jovens,0.16198,0.77449,0.37267,0.43902,0.01026
+T+1,desenvolvimento,lucro_carregamento,Modelo,0.16198,0.80520,0.43056,0.49505,0.00709
+T+1,desenvolvimento,lucro_carregamento,Modelo prudente,0.16198,0.78589,0.40680,0.46128,0.00909
+T+1,desenvolvimento,lucro_carregamento,Escore de decisão (protocolo),0.16198,0.80520,0.43056,0.49505,0.00709
+T+1,desenvolvimento,lucro_carregamento,Momentum,0.15133,0.68685,0.29181,0.37425,0.07375
+T+1,desenvolvimento,lucro_carregamento,Mais jovens,0.16198,0.77449,0.37267,0.43902,0.01026
+T+1,teste final,valorizou,Modelo,0.27259,0.81204,0.57874,0.69543,0.00508
+T+1,teste final,valorizou,Modelo prudente,0.27259,0.78942,0.55549,0.69543,0.02538
+T+1,teste final,valorizou,Escore de decisão (protocolo),0.27259,0.81204,0.57874,0.69543,0.00508
 T+1,teste final,valorizou,Momentum,0.26032,0.68670,0.42611,0.54974,0.12042
 T+1,teste final,valorizou,Mais jovens,0.27259,0.79509,0.55814,0.60406,0.00508
-T+1,teste final,lucro_10_10,Modelo,0.21675,0.82129,0.54462,0.67005,0.00000
-T+1,teste final,lucro_10_10,Modelo prudente,0.21675,0.78043,0.46517,0.55838,0.01523
+T+1,teste final,lucro_10_10,Modelo,0.21675,0.82408,0.54395,0.65482,0.00000
+T+1,teste final,lucro_10_10,Modelo prudente,0.21675,0.79270,0.50659,0.64467,0.01523
+T+1,teste final,lucro_10_10,Escore de decisão (protocolo),0.21675,0.82408,0.54395,0.65482,0.00000
 T+1,teste final,lucro_10_10,Momentum,0.20335,0.68230,0.36202,0.49738,0.09424
 T+1,teste final,lucro_10_10,Mais jovens,0.21675,0.80162,0.50998,0.55838,0.00000
-T+1,teste final,lucro_25_10,Modelo,0.17868,0.83324,0.51654,0.62437,0.00000
-T+1,teste final,lucro_25_10,Modelo prudente,0.17868,0.78866,0.42447,0.51269,0.00508
+T+1,teste final,lucro_25_10,Modelo,0.17868,0.83973,0.52427,0.61421,0.00000
+T+1,teste final,lucro_25_10,Modelo prudente,0.17868,0.80136,0.47049,0.58883,0.01015
+T+1,teste final,lucro_25_10,Escore de decisão (protocolo),0.17868,0.83973,0.52427,0.61421,0.00000
 T+1,teste final,lucro_25_10,Momentum,0.16519,0.69325,0.31712,0.43979,0.06283
 T+1,teste final,lucro_25_10,Mais jovens,0.17868,0.80817,0.47070,0.50254,0.00000
-T+2,desenvolvimento,valorizou,Modelo,0.24415,0.81819,0.56052,0.64187,0.00668
-T+2,desenvolvimento,valorizou,Modelo prudente,0.24415,0.79457,0.52811,0.61355,0.01834
-T+2,desenvolvimento,valorizou,Momentum,0.23067,0.67221,0.37940,0.48095,0.09679
-T+2,desenvolvimento,valorizou,Mais jovens,0.24415,0.80319,0.52738,0.60850,0.00503
-T+2,desenvolvimento,lucro_10_10,Modelo,0.20405,0.82412,0.51846,0.58860,0.00668
-T+2,desenvolvimento,lucro_10_10,Modelo prudente,0.20405,0.79882,0.48200,0.56194,0.01166
-T+2,desenvolvimento,lucro_10_10,Momentum,0.19040,0.67054,0.32698,0.42022,0.08472
-T+2,desenvolvimento,lucro_10_10,Mais jovens,0.20405,0.80453,0.47528,0.55023,0.00503
-T+2,desenvolvimento,lucro_25_10,Modelo,0.17112,0.83215,0.48264,0.54035,0.00334
-T+2,desenvolvimento,lucro_25_10,Modelo prudente,0.17112,0.80648,0.44517,0.50859,0.00500
-T+2,desenvolvimento,lucro_25_10,Momentum,0.15827,0.67490,0.29125,0.37702,0.06745
-T+2,desenvolvimento,lucro_25_10,Mais jovens,0.17112,0.80963,0.42983,0.49696,0.00503
-T+2,teste final,valorizou,Modelo,0.25051,0.82468,0.57298,0.65641,0.00000
-T+2,teste final,valorizou,Modelo prudente,0.25051,0.80109,0.53157,0.60000,0.00513
-T+2,teste final,valorizou,Momentum,0.23782,0.67763,0.39229,0.44681,0.09574
+T+1,teste final,lucro_carregamento,Modelo,0.17868,0.83973,0.52427,0.61421,0.00000
+T+1,teste final,lucro_carregamento,Modelo prudente,0.17868,0.80136,0.47049,0.58883,0.01015
+T+1,teste final,lucro_carregamento,Escore de decisão (protocolo),0.17868,0.83973,0.52427,0.61421,0.00000
+T+1,teste final,lucro_carregamento,Momentum,0.16519,0.69325,0.31712,0.43979,0.06283
+T+1,teste final,lucro_carregamento,Mais jovens,0.17868,0.80817,0.47070,0.50254,0.00000
+T+2,desenvolvimento,valorizou,Modelo,0.24548,0.81751,0.55969,0.63852,0.00503
+T+2,desenvolvimento,valorizou,Modelo prudente,0.24548,0.80346,0.54116,0.61176,0.01168
+T+2,desenvolvimento,valorizou,Escore de decisão (protocolo),0.24548,0.81711,0.56641,0.63352,0.00666
+T+2,desenvolvimento,valorizou,Momentum,0.23190,0.67091,0.37965,0.47752,0.11064
+T+2,desenvolvimento,valorizou,Mais jovens,0.24548,0.80286,0.52946,0.61016,0.00503
+T+2,desenvolvimento,lucro_10_10,Modelo,0.20488,0.82266,0.51705,0.58694,0.00503
+T+2,desenvolvimento,lucro_10_10,Modelo prudente,0.20488,0.80721,0.49578,0.56852,0.00834
+T+2,desenvolvimento,lucro_10_10,Escore de decisão (protocolo),0.20488,0.82023,0.52021,0.57362,0.00666
+T+2,desenvolvimento,lucro_10_10,Momentum,0.19110,0.66914,0.32693,0.41678,0.09514
+T+2,desenvolvimento,lucro_10_10,Mais jovens,0.20488,0.80407,0.47701,0.55189,0.00503
+T+2,desenvolvimento,lucro_25_10,Modelo,0.17162,0.83091,0.47953,0.54367,0.00168
+T+2,desenvolvimento,lucro_25_10,Modelo prudente,0.17162,0.81602,0.45809,0.51354,0.00500
+T+2,desenvolvimento,lucro_25_10,Escore de decisão (protocolo),0.17162,0.82934,0.48185,0.52535,0.00166
+T+2,desenvolvimento,lucro_25_10,Momentum,0.15862,0.67393,0.29113,0.37528,0.07437
+T+2,desenvolvimento,lucro_25_10,Mais jovens,0.17162,0.80956,0.43172,0.49862,0.00503
+T+2,desenvolvimento,lucro_carregamento,Modelo,0.14433,0.83958,0.44398,0.49369,0.00000
+T+2,desenvolvimento,lucro_carregamento,Modelo prudente,0.14433,0.82499,0.42293,0.47030,0.00000
+T+2,desenvolvimento,lucro_carregamento,Escore de decisão (protocolo),0.14433,0.83696,0.44778,0.47538,0.00000
+T+2,desenvolvimento,lucro_carregamento,Momentum,0.13218,0.67927,0.26341,0.33537,0.05529
+T+2,desenvolvimento,lucro_carregamento,Mais jovens,0.14433,0.81389,0.38654,0.44372,0.00334
+T+2,teste final,valorizou,Modelo,0.25051,0.82351,0.56481,0.61026,0.00513
+T+2,teste final,valorizou,Modelo prudente,0.25051,0.81469,0.55518,0.61538,0.00513
+T+2,teste final,valorizou,Escore de decisão (protocolo),0.25051,0.83157,0.58583,0.67692,0.00000
+T+2,teste final,valorizou,Momentum,0.23782,0.67763,0.39229,0.44681,0.11702
 T+2,teste final,valorizou,Mais jovens,0.25051,0.82515,0.57880,0.67692,0.00513
-T+2,teste final,lucro_10_10,Modelo,0.21363,0.83327,0.54286,0.61538,0.00000
-T+2,teste final,lucro_10_10,Modelo prudente,0.21363,0.79786,0.48967,0.55897,0.00513
-T+2,teste final,lucro_10_10,Momentum,0.20286,0.68157,0.36224,0.42021,0.07447
+T+2,teste final,lucro_10_10,Modelo,0.21363,0.83099,0.53624,0.56923,0.00513
+T+2,teste final,lucro_10_10,Modelo prudente,0.21363,0.81338,0.51360,0.57949,0.00513
+T+2,teste final,lucro_10_10,Escore de decisão (protocolo),0.21363,0.83807,0.55331,0.63077,0.00000
+T+2,teste final,lucro_10_10,Momentum,0.20286,0.68157,0.36224,0.42021,0.09043
 T+2,teste final,lucro_10_10,Mais jovens,0.21363,0.83506,0.53726,0.63077,0.00513
-T+2,teste final,lucro_25_10,Modelo,0.18904,0.83428,0.51385,0.58462,0.00000
-T+2,teste final,lucro_25_10,Modelo prudente,0.18904,0.79611,0.46548,0.53333,0.00513
-T+2,teste final,lucro_25_10,Momentum,0.17797,0.67394,0.32482,0.37766,0.07447
+T+2,teste final,lucro_25_10,Modelo,0.18904,0.83489,0.51252,0.54359,0.00513
+T+2,teste final,lucro_25_10,Modelo prudente,0.18904,0.81434,0.49027,0.54872,0.00513
+T+2,teste final,lucro_25_10,Escore de decisão (protocolo),0.18904,0.84077,0.53179,0.60513,0.00000
+T+2,teste final,lucro_25_10,Momentum,0.17797,0.67394,0.32482,0.37766,0.08511
 T+2,teste final,lucro_25_10,Mais jovens,0.18904,0.83461,0.49780,0.57949,0.00513
+T+2,teste final,lucro_carregamento,Modelo,0.15727,0.84196,0.47354,0.49744,0.00000
+T+2,teste final,lucro_carregamento,Modelo prudente,0.15727,0.81694,0.45062,0.49231,0.00000
+T+2,teste final,lucro_carregamento,Escore de decisão (protocolo),0.15727,0.84469,0.48799,0.54872,0.00000
+T+2,teste final,lucro_carregamento,Momentum,0.14619,0.67083,0.27496,0.32447,0.05851
+T+2,teste final,lucro_carregamento,Mais jovens,0.15727,0.83932,0.44951,0.51282,0.00000

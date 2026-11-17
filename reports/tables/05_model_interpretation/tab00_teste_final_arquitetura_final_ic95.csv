@@ -1,0 +1,3 @@
+﻿horizonte,arquitetura,n,RMSE_log,RMSE_log_ic95_inf,RMSE_log_ic95_sup,R2_log,R2_log_ic95_inf,R2_log_ic95_sup,spearman,spearman_ic95_inf,spearman_ic95_sup
+T+1,Global com interações (ens_ic),1952,0.53983,0.50109,0.58138,0.33746,0.30389,0.36891,0.57014,0.53642,0.60102
+T+2,Global (ens),1879,0.72170,0.68933,0.75577,0.38199,0.34069,0.41635,0.60821,0.56975,0.64265

@@ -1,61 +1,121 @@
 ﻿universo,horizonte,temporada,ausentes,agio_equilibrio_pct,roi_sem_maior_acerto_pct,roi_sem_3_maiores_pct
-Todos os candidatos,T+1,2019/20,exclude,66.02732,81.39321,75.21874
-Todos os candidatos,T+1,2019/20,zero,65.92019,81.27295,75.09948
-Todos os candidatos,T+1,2019/20,last,65.99166,81.35455,75.18325
-Todos os candidatos,T+1,2020/21,exclude,26.79516,38.90007,34.11059
-Todos os candidatos,T+1,2020/21,zero,26.76087,38.86125,34.07214
-Todos os candidatos,T+1,2020/21,last,26.78521,38.88920,34.10081
-Todos os candidatos,T+1,2021/22,exclude,68.68285,80.58625,71.93872
-Todos os candidatos,T+1,2021/22,zero,68.68285,80.58625,71.93872
-Todos os candidatos,T+1,2021/22,last,68.68285,80.58625,71.93872
-Todos os candidatos,T+1,2022/23,exclude,51.17914,64.84408,59.51292
-Todos os candidatos,T+1,2022/23,zero,51.17914,64.84408,59.51292
-Todos os candidatos,T+1,2022/23,last,51.17914,64.84408,59.51292
-Todos os candidatos,T+1,2023/24,exclude,46.64774,59.57220,53.11812
-Todos os candidatos,T+1,2023/24,zero,46.64774,59.57220,53.11812
-Todos os candidatos,T+1,2023/24,last,46.64774,59.57220,53.11812
-Todos os candidatos,T+1,2024/25,exclude,105.93946,120.18214,113.67813
-Todos os candidatos,T+1,2024/25,zero,105.93946,120.18214,113.67813
-Todos os candidatos,T+1,2024/25,last,105.93946,120.18214,113.67813
-Todos os candidatos,T+2,2020/21,exclude,68.35231,83.50554,75.76779
-Todos os candidatos,T+2,2020/21,zero,67.58694,82.64063,74.92701
-Todos os candidatos,T+2,2020/21,last,67.75698,82.83651,75.12580
-Todos os candidatos,T+2,2021/22,exclude,147.37554,165.50122,148.52110
-Todos os candidatos,T+2,2021/22,zero,146.67664,164.74706,147.80352
-Todos os candidatos,T+2,2021/22,last,146.94302,165.04464,148.10601
-Todos os candidatos,T+2,2022/23,exclude,102.07278,114.57072,105.43918
-Todos os candidatos,T+2,2022/23,zero,102.07278,114.57072,105.43918
-Todos os candidatos,T+2,2022/23,last,102.07278,114.57072,105.43918
-Todos os candidatos,T+2,2023/24,exclude,114.57259,133.72922,129.19608
-Todos os candidatos,T+2,2023/24,zero,114.38978,133.52751,128.98749
-Todos os candidatos,T+2,2023/24,last,114.42812,133.57066,129.03299
-Faixa de € 2–15 mi,T+1,2019/20,exclude,54.71335,67.38715,62.63166
-Faixa de € 2–15 mi,T+1,2019/20,zero,54.71335,67.38715,62.63166
-Faixa de € 2–15 mi,T+1,2019/20,last,54.71335,67.38715,62.63166
-Faixa de € 2–15 mi,T+1,2020/21,exclude,31.84199,43.32374,37.47761
-Faixa de € 2–15 mi,T+1,2020/21,zero,31.84199,43.32374,37.47761
-Faixa de € 2–15 mi,T+1,2020/21,last,31.84199,43.32374,37.47761
-Faixa de € 2–15 mi,T+1,2021/22,exclude,61.09199,69.37126,57.78788
-Faixa de € 2–15 mi,T+1,2021/22,zero,61.09199,69.37126,57.78788
-Faixa de € 2–15 mi,T+1,2021/22,last,61.09199,69.37126,57.78788
-Faixa de € 2–15 mi,T+1,2022/23,exclude,46.84436,56.41773,49.79541
-Faixa de € 2–15 mi,T+1,2022/23,zero,46.84436,56.41773,49.79541
-Faixa de € 2–15 mi,T+1,2022/23,last,46.84436,56.41773,49.79541
-Faixa de € 2–15 mi,T+1,2023/24,exclude,44.08216,54.59655,46.55855
-Faixa de € 2–15 mi,T+1,2023/24,zero,44.08216,54.59655,46.55855
-Faixa de € 2–15 mi,T+1,2023/24,last,44.08216,54.59655,46.55855
-Faixa de € 2–15 mi,T+1,2024/25,exclude,84.03839,99.94744,92.62972
-Faixa de € 2–15 mi,T+1,2024/25,zero,84.03839,99.94744,92.62972
-Faixa de € 2–15 mi,T+1,2024/25,last,84.03839,99.94744,92.62972
-Faixa de € 2–15 mi,T+2,2020/21,exclude,57.69391,70.23952,61.34557
-Faixa de € 2–15 mi,T+2,2020/21,zero,57.69391,70.23952,61.34557
-Faixa de € 2–15 mi,T+2,2020/21,last,57.69391,70.23952,61.34557
-Faixa de € 2–15 mi,T+2,2021/22,exclude,124.46454,138.22449,117.64610
-Faixa de € 2–15 mi,T+2,2021/22,zero,124.46454,138.22449,117.64610
-Faixa de € 2–15 mi,T+2,2021/22,last,124.46454,138.22449,117.64610
-Faixa de € 2–15 mi,T+2,2022/23,exclude,76.75440,84.71559,70.40911
-Faixa de € 2–15 mi,T+2,2022/23,zero,76.75440,84.71559,70.40911
-Faixa de € 2–15 mi,T+2,2022/23,last,76.75440,84.71559,70.40911
-Faixa de € 2–15 mi,T+2,2023/24,exclude,90.65430,103.99434,91.37979
-Faixa de € 2–15 mi,T+2,2023/24,zero,90.65430,103.99434,91.37979
-Faixa de € 2–15 mi,T+2,2023/24,last,90.65430,103.99434,91.37979
+Todos os candidatos,T+1,2019/20,exclude,72.65957,88.82131,82.53684
+Todos os candidatos,T+1,2019/20,zero,72.54274,88.68985,82.40621
+Todos os candidatos,T+1,2019/20,last,72.61769,88.77554,82.49429
+Todos os candidatos,T+1,2019/20,reason,72.61769,88.77554,82.49429
+Todos os candidatos,T+1,2020/21,exclude,30.15006,42.62828,37.61189
+Todos os candidatos,T+1,2020/21,zero,30.11258,42.58574,37.56972
+Todos os candidatos,T+1,2020/21,last,30.13850,42.61557,37.60037
+Todos os candidatos,T+1,2020/21,reason,30.13850,42.61557,37.60037
+Todos os candidatos,T+1,2021/22,exclude,96.01068,108.18471,96.44286
+Todos os candidatos,T+1,2021/22,zero,95.02179,107.12467,95.41076
+Todos os candidatos,T+1,2021/22,last,95.35201,107.49499,95.79287
+Todos os candidatos,T+1,2021/22,reason,95.35201,107.49499,95.79287
+Todos os candidatos,T+1,2022/23,exclude,66.54670,81.18204,75.87807
+Todos os candidatos,T+1,2022/23,zero,66.54670,81.18204,75.87807
+Todos os candidatos,T+1,2022/23,last,66.54670,81.18204,75.87807
+Todos os candidatos,T+1,2022/23,reason,66.54670,81.18204,75.87807
+Todos os candidatos,T+1,2023/24,exclude,49.95435,63.24364,54.74332
+Todos os candidatos,T+1,2023/24,zero,49.95435,63.24364,54.74332
+Todos os candidatos,T+1,2023/24,last,49.95435,63.24364,54.74332
+Todos os candidatos,T+1,2023/24,reason,49.95435,63.24364,54.74332
+Todos os candidatos,T+1,2024/25,exclude,128.58294,142.61555,134.80181
+Todos os candidatos,T+1,2024/25,zero,128.58294,142.61555,134.80181
+Todos os candidatos,T+1,2024/25,last,128.58294,142.61555,134.80181
+Todos os candidatos,T+1,2024/25,reason,128.58294,142.61555,134.80181
+Todos os candidatos,T+2,2020/21,exclude,64.84377,79.51486,72.17980
+Todos os candidatos,T+2,2020/21,zero,64.10439,78.68051,71.36729
+Todos os candidatos,T+2,2020/21,last,64.27215,78.87366,71.56340
+Todos os candidatos,T+2,2020/21,reason,64.20924,78.80123,71.48986
+Todos os candidatos,T+2,2021/22,exclude,154.97145,173.56424,155.93984
+Todos os candidatos,T+2,2021/22,zero,154.21868,172.75201,155.16683
+Todos os candidatos,T+2,2021/22,last,154.49705,173.06306,155.48324
+Todos os candidatos,T+2,2021/22,reason,154.49705,173.06306,155.48324
+Todos os candidatos,T+2,2022/23,exclude,120.08565,139.94697,126.50931
+Todos os candidatos,T+2,2022/23,zero,120.08565,139.94697,126.50931
+Todos os candidatos,T+2,2022/23,last,120.08565,139.94697,126.50931
+Todos os candidatos,T+2,2022/23,reason,120.08565,139.94697,126.50931
+Todos os candidatos,T+2,2023/24,exclude,126.73057,148.94551,144.91648
+Todos os candidatos,T+2,2023/24,zero,126.46423,148.64240,144.59477
+Todos os candidatos,T+2,2023/24,last,126.51709,148.70328,144.66045
+Todos os candidatos,T+2,2023/24,reason,126.51709,148.70328,144.66045
+Faixa de € 2–15 mi,T+1,2019/20,exclude,57.67064,70.42297,65.48644
+Faixa de € 2–15 mi,T+1,2019/20,zero,57.67064,70.42297,65.48644
+Faixa de € 2–15 mi,T+1,2019/20,last,57.67064,70.42297,65.48644
+Faixa de € 2–15 mi,T+1,2019/20,reason,57.67064,70.42297,65.48644
+Faixa de € 2–15 mi,T+1,2020/21,exclude,27.39056,38.30803,32.69604
+Faixa de € 2–15 mi,T+1,2020/21,zero,27.39056,38.30803,32.69604
+Faixa de € 2–15 mi,T+1,2020/21,last,27.39056,38.30803,32.69604
+Faixa de € 2–15 mi,T+1,2020/21,reason,27.39056,38.30803,32.69604
+Faixa de € 2–15 mi,T+1,2021/22,exclude,69.24408,77.54328,64.87886
+Faixa de € 2–15 mi,T+1,2021/22,zero,69.24408,77.54328,64.87886
+Faixa de € 2–15 mi,T+1,2021/22,last,69.24408,77.54328,64.87886
+Faixa de € 2–15 mi,T+1,2021/22,reason,69.24408,77.54328,64.87886
+Faixa de € 2–15 mi,T+1,2022/23,exclude,46.10110,57.51214,52.04585
+Faixa de € 2–15 mi,T+1,2022/23,zero,46.10110,57.51214,52.04585
+Faixa de € 2–15 mi,T+1,2022/23,last,46.10110,57.51214,52.04585
+Faixa de € 2–15 mi,T+1,2022/23,reason,46.10110,57.51214,52.04585
+Faixa de € 2–15 mi,T+1,2023/24,exclude,42.25064,51.68636,42.72846
+Faixa de € 2–15 mi,T+1,2023/24,zero,42.25064,51.68636,42.72846
+Faixa de € 2–15 mi,T+1,2023/24,last,42.25064,51.68636,42.72846
+Faixa de € 2–15 mi,T+1,2023/24,reason,42.25064,51.68636,42.72846
+Faixa de € 2–15 mi,T+1,2024/25,exclude,88.26531,104.28407,95.29309
+Faixa de € 2–15 mi,T+1,2024/25,zero,88.26531,104.28407,95.29309
+Faixa de € 2–15 mi,T+1,2024/25,last,88.26531,104.28407,95.29309
+Faixa de € 2–15 mi,T+1,2024/25,reason,88.26531,104.28407,95.29309
+Faixa de € 2–15 mi,T+2,2020/21,exclude,53.23077,60.92352,51.82954
+Faixa de € 2–15 mi,T+2,2020/21,zero,53.23077,60.92352,51.82954
+Faixa de € 2–15 mi,T+2,2020/21,last,53.23077,60.92352,51.82954
+Faixa de € 2–15 mi,T+2,2020/21,reason,53.23077,60.92352,51.82954
+Faixa de € 2–15 mi,T+2,2021/22,exclude,125.75711,139.33739,118.15666
+Faixa de € 2–15 mi,T+2,2021/22,zero,125.75711,139.33739,118.15666
+Faixa de € 2–15 mi,T+2,2021/22,last,125.75711,139.33739,118.15666
+Faixa de € 2–15 mi,T+2,2021/22,reason,125.75711,139.33739,118.15666
+Faixa de € 2–15 mi,T+2,2022/23,exclude,74.01599,86.58809,75.86734
+Faixa de € 2–15 mi,T+2,2022/23,zero,74.01599,86.58809,75.86734
+Faixa de € 2–15 mi,T+2,2022/23,last,74.01599,86.58809,75.86734
+Faixa de € 2–15 mi,T+2,2022/23,reason,74.01599,86.58809,75.86734
+Faixa de € 2–15 mi,T+2,2023/24,exclude,96.06703,108.93607,94.46225
+Faixa de € 2–15 mi,T+2,2023/24,zero,96.06703,108.93607,94.46225
+Faixa de € 2–15 mi,T+2,2023/24,last,96.06703,108.93607,94.46225
+Faixa de € 2–15 mi,T+2,2023/24,reason,96.06703,108.93607,94.46225
+Comprável (fora dos 10 elencos mais valiosos),T+1,2019/20,exclude,72.13454,88.11240,81.41081
+Comprável (fora dos 10 elencos mais valiosos),T+1,2019/20,zero,72.00598,87.96860,81.27094
+Comprável (fora dos 10 elencos mais valiosos),T+1,2019/20,last,72.08871,88.06269,81.36583
+Comprável (fora dos 10 elencos mais valiosos),T+1,2019/20,reason,72.08871,88.06269,81.36583
+Comprável (fora dos 10 elencos mais valiosos),T+1,2020/21,exclude,39.17197,52.75707,47.25427
+Comprável (fora dos 10 elencos mais valiosos),T+1,2020/21,zero,39.12587,52.70438,47.20185
+Comprável (fora dos 10 elencos mais valiosos),T+1,2020/21,last,39.15568,52.73888,47.23745
+Comprável (fora dos 10 elencos mais valiosos),T+1,2020/21,reason,39.15568,52.73888,47.23745
+Comprável (fora dos 10 elencos mais valiosos),T+1,2021/22,exclude,105.00824,117.04187,104.04412
+Comprável (fora dos 10 elencos mais valiosos),T+1,2021/22,zero,103.84201,115.79429,102.82891
+Comprável (fora dos 10 elencos mais valiosos),T+1,2021/22,last,104.21436,116.21233,103.26205
+Comprável (fora dos 10 elencos mais valiosos),T+1,2021/22,reason,104.21436,116.21233,103.26205
+Comprável (fora dos 10 elencos mais valiosos),T+1,2022/23,exclude,67.69906,81.71172,74.82003
+Comprável (fora dos 10 elencos mais valiosos),T+1,2022/23,zero,67.69906,81.71172,74.82003
+Comprável (fora dos 10 elencos mais valiosos),T+1,2022/23,last,67.69906,81.71172,74.82003
+Comprável (fora dos 10 elencos mais valiosos),T+1,2022/23,reason,67.69906,81.71172,74.82003
+Comprável (fora dos 10 elencos mais valiosos),T+1,2023/24,exclude,48.17670,58.99812,51.00189
+Comprável (fora dos 10 elencos mais valiosos),T+1,2023/24,zero,48.17670,58.99812,51.00189
+Comprável (fora dos 10 elencos mais valiosos),T+1,2023/24,last,48.17670,58.99812,51.00189
+Comprável (fora dos 10 elencos mais valiosos),T+1,2023/24,reason,48.17670,58.99812,51.00189
+Comprável (fora dos 10 elencos mais valiosos),T+1,2024/25,exclude,136.98680,150.22819,140.85008
+Comprável (fora dos 10 elencos mais valiosos),T+1,2024/25,zero,136.98680,150.22819,140.85008
+Comprável (fora dos 10 elencos mais valiosos),T+1,2024/25,last,136.98680,150.22819,140.85008
+Comprável (fora dos 10 elencos mais valiosos),T+1,2024/25,reason,136.98680,150.22819,140.85008
+Comprável (fora dos 10 elencos mais valiosos),T+2,2020/21,exclude,80.20460,96.75397,88.61477
+Comprável (fora dos 10 elencos mais valiosos),T+2,2020/21,zero,79.28158,95.70429,87.59078
+Comprável (fora dos 10 elencos mais valiosos),T+2,2020/21,last,79.47316,95.92600,87.81640
+Comprável (fora dos 10 elencos mais valiosos),T+2,2020/21,reason,79.40132,95.84286,87.73179
+Comprável (fora dos 10 elencos mais valiosos),T+2,2021/22,exclude,169.25506,188.42965,169.05279
+Comprável (fora dos 10 elencos mais valiosos),T+2,2021/22,zero,168.37074,187.47639,168.14645
+Comprável (fora dos 10 elencos mais valiosos),T+2,2021/22,last,168.68040,187.82263,168.49936
+Comprável (fora dos 10 elencos mais valiosos),T+2,2021/22,reason,168.68040,187.82263,168.49936
+Comprável (fora dos 10 elencos mais valiosos),T+2,2022/23,exclude,126.04491,146.25433,131.35135
+Comprável (fora dos 10 elencos mais valiosos),T+2,2022/23,zero,126.04491,146.25433,131.35135
+Comprável (fora dos 10 elencos mais valiosos),T+2,2022/23,last,126.04491,146.25433,131.35135
+Comprável (fora dos 10 elencos mais valiosos),T+2,2022/23,reason,126.04491,146.25433,131.35135
+Comprável (fora dos 10 elencos mais valiosos),T+2,2023/24,exclude,125.29987,148.12676,134.25280
+Comprável (fora dos 10 elencos mais valiosos),T+2,2023/24,zero,124.98089,147.75987,133.89831
+Comprável (fora dos 10 elencos mais valiosos),T+2,2023/24,last,125.04460,147.83380,133.97397
+Comprável (fora dos 10 elencos mais valiosos),T+2,2023/24,reason,125.04460,147.83380,133.97397

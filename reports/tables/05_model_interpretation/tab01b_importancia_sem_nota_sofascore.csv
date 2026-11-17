@@ -1,0 +1,49 @@
+﻿horizonte,cenario,posicao,variavel,mean_abs_shap,pct_do_total
+T+1,com a nota,1,Nota Sofascore,0.02212,2.38790
+T+1,com a nota,2,Grandes chances perdidas /90,0.01779,1.92084
+T+1,com a nota,3,% de jogos completos,0.01179,1.27253
+T+1,com a nota,4,Duelos aéreos ganhos /90,0.01109,1.19681
+T+1,com a nota,5,Dribles certos /90,0.01059,1.14303
+T+1,com a nota,6,Finalizações /90,0.00938,1.01274
+T+1,com a nota,7,Taxa de duelos aéreos ganhos,0.00814,0.87912
+T+1,com a nota,8,P(desarmes + interc. no 3º quartil),0.00807,0.87087
+T+1,com a nota,9,Vezes driblado /90,0.00786,0.84892
+T+1,com a nota,10,npxG /90,0.00572,0.61784
+T+1,com a nota,11,xG /90,0.00533,0.57520
+T+1,com a nota,12,Duelos no chão ganhos /90,0.00525,0.56654
+T+1,sem a nota,1,Grandes chances perdidas /90,0.01668,1.87806
+T+1,sem a nota,2,% de jogos completos,0.01418,1.59692
+T+1,sem a nota,3,Duelos aéreos ganhos /90,0.01208,1.36028
+T+1,sem a nota,4,Finalizações /90,0.01177,1.32601
+T+1,sem a nota,5,Vezes driblado /90,0.00935,1.05259
+T+1,sem a nota,6,P(desarmes + interc. no 3º quartil),0.00917,1.03233
+T+1,sem a nota,7,Dribles certos /90,0.00895,1.00778
+T+1,sem a nota,8,Taxa de duelos aéreos ganhos,0.00808,0.90983
+T+1,sem a nota,9,Passes certos no terço final /90,0.00589,0.66308
+T+1,sem a nota,10,xGBuildup /90,0.00577,0.64961
+T+1,sem a nota,11,npxG /90,0.00541,0.60922
+T+1,sem a nota,12,Duelos no chão ganhos /90,0.00538,0.60619
+T+2,com a nota,1,Grandes chances perdidas /90,0.02286,1.77353
+T+2,com a nota,2,Nota Sofascore,0.01878,1.45683
+T+2,com a nota,3,Duelos aéreos ganhos /90,0.01675,1.29941
+T+2,com a nota,4,Finalizações /90,0.01554,1.20526
+T+2,com a nota,5,% de jogos completos,0.01415,1.09809
+T+2,com a nota,6,Duelos no chão ganhos /90,0.01404,1.08935
+T+2,com a nota,7,P(dribles no 3º quartil),0.01035,0.80311
+T+2,com a nota,8,npxG /90,0.01025,0.79501
+T+2,com a nota,9,xG /90,0.00875,0.67909
+T+2,com a nota,10,P(passes decisivos no 3º quartil),0.00829,0.64320
+T+2,com a nota,11,xGBuildup /90,0.00825,0.64013
+T+2,com a nota,12,Cruzamentos certos /90,0.00801,0.62103
+T+2,sem a nota,1,Grandes chances perdidas /90,0.02093,1.66611
+T+2,sem a nota,2,Finalizações /90,0.01696,1.35017
+T+2,sem a nota,3,Duelos aéreos ganhos /90,0.01579,1.25733
+T+2,sem a nota,4,Duelos no chão ganhos /90,0.01469,1.16909
+T+2,sem a nota,5,% de jogos completos,0.01397,1.11215
+T+2,sem a nota,6,P(dribles no 3º quartil),0.01029,0.81889
+T+2,sem a nota,7,npxG /90,0.00978,0.77893
+T+2,sem a nota,8,P(passes decisivos no 3º quartil),0.00917,0.73012
+T+2,sem a nota,9,xG /90,0.00868,0.69129
+T+2,sem a nota,10,xGBuildup /90,0.00855,0.68097
+T+2,sem a nota,11,Cruzamentos certos /90,0.00739,0.58825
+T+2,sem a nota,12,Dribles certos /90,0.00729,0.58026

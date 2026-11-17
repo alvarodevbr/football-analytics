@@ -4,15 +4,15 @@ Legendas sugeridas (ABNT: título acima da figura, fonte abaixo).
 
 **Figura 1 – Valores SHAP das 20 variáveis mais importantes para o log-retorno em T+1 (ensemble global)**  
 `fig01_shap_beeswarm_T1.png`  
-Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Cada ponto é um atleta–temporada (amostra de 2.500). Cor: percentil do valor da variável (azul = alto). À direita de zero, a variável eleva a valorização prevista.
+Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Cada ponto é um atleta–temporada (amostra de 2.500). Cor: percentil do valor da variável (vermelho = alto; azul = baixo). À direita de zero, a variável eleva a valorização prevista. Idade, idade² e faixa etária somadas numa coalizão (aditividade do SHAP), colorida pela idade.
 
 **Figura 2 – Valores SHAP das 20 variáveis mais importantes para o log-retorno em T+2 (ensemble global)**  
 `fig02_shap_beeswarm_T2.png`  
-Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Cada ponto é um atleta–temporada (amostra de 2.500). Cor: percentil do valor da variável (azul = alto). À direita de zero, a variável eleva a valorização prevista.
+Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Cada ponto é um atleta–temporada (amostra de 2.500). Cor: percentil do valor da variável (vermelho = alto; azul = baixo). À direita de zero, a variável eleva a valorização prevista. Idade, idade² e faixa etária somadas numa coalizão (aditividade do SHAP), colorida pela idade.
 
-**Figura 3 – Participação de cada grupo de variáveis na explicação SHAP da valorização, por categoria**  
+**Figura 3 – Participação de cada grupo de variáveis na explicação SHAP da valorização em T+1 e T+2, por categoria**  
 `fig03_grupos_por_categoria.png`  
-Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Média de |SHAP| somada por grupo, como % do total de cada categoria (C1–C3: 16–23 anos; C4–C6: 24–28; C7–C9: 29–32; C10–C12: 33+; em cada trinca, DEF, MEI e ATA). Defasagem inclui o momentum do valor.
+Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Média de |SHAP| somada por grupo, como % do total de cada categoria. Colunas: posição (DEF = defensor, MEI = meio-campista, ATA = atacante) e faixa etária em 30/jun de T (categorias C1 a C12, nessa ordem). Defasagem inclui o momentum do valor.
 
 **Figura 4 – As cinco variáveis com maior contribuição média (|SHAP|) para a valorização em T+1, por categoria**  
 `fig04_top5_por_categoria.png`  
@@ -40,16 +40,20 @@ Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfer
 
 **Figura 10 – ROI realizado das carteiras de recrutamento por estratégia e temporada de decisão (backtest fora da amostra)**  
 `fig08_backtest_estrategias.png`  
-Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Cenário principal: compra por V_T × 1,10, venda por V_{T+k} × 0,90 e atletas sem V_{T+k} valendo zero. Carteiras com 10% dos candidatos; Mais jovens: os 10% de menor idade. Haste na estratégia aleatória: intervalo de 5% a 95% de 2.000 sorteios.
+Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Cenário principal: compra por V_T × 1,10, venda por V_{T+k} × 0,90; quem se aposenta ou fica sem clube vale zero e quem só ficou sem avaliação recente vale o último valor. Carteiras com 10% dos candidatos; Mais jovens: os 10% de menor idade; Jovens titulares: os mais jovens com ao menos 1.500 minutos fora dos 10 elencos mais valiosos. Haste na estratégia aleatória: intervalo de 5% a 95% de 2.000 sorteios.
 
 **Figura 11 – Distribuição do ROI de carteiras com orçamento de € 40 milhões: modelo versus ordem de compra aleatória**  
 `fig09_orcamento_risco.png`  
-Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Até 6 atletas com V_T entre € 2 e € 15 milhões, no máximo 2 por posição e 3 por faixa etária; compra por V_T × 1,10 e venda por V_{T+k} × 0,90, atletas sem V_{T+k} valendo zero. Histograma: 2.000 sorteios por temporada.
+Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Até 6 atletas com V_T entre € 2 e € 15 milhões, no máximo 2 por posição e 3 por faixa etária; o orçamento já inclui o custo de compra de 10%. Modelo: carteira de maior retorno esperado por programação inteira. Histograma: 2.000 sorteios por temporada.
 
 **Figura 12 – Desempenho do modelo como regra de compra: acerto das carteiras e calibração da probabilidade de a valorização pagar os custos da operação**  
 `fig12_regra_de_compra.png`  
-Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Pagar a operação: valorização realizada acima do ponto de equilíbrio de custos de 10% na compra e 10% na venda (ΔV% > 22,2%); atletas sem V_{T+k} contam como prejuízo. (a) Carteiras com os 10% de maior retorno esperado (Modelo), de menor idade (Mais jovens) ou de maior valorização passada (Momentum); média das temporadas de desenvolvimento (desenv.) e teste final (2024/25 em T+1; 2023/24 em T+2). (b) Probabilidade calibrada por regressão isotônica só com as temporadas anteriores, a partir da 3ª dobra; área dos marcadores proporcional ao número de atletas.
+Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Pagar a operação: valorização realizada acima do ponto de equilíbrio de custos de 10% na compra e 10% na venda (ΔV% > 22,2%); quem se aposenta ou fica sem clube conta como prejuízo. (a) Carteiras com os 10% de maior retorno esperado (Modelo), de menor idade (Mais jovens) ou de maior valorização passada (Momentum); média das temporadas de desenvolvimento (desenv.) e teste final (2024/25 em T+1; 2023/24 em T+2); hastes: IC de 95% de Wilson. (b) Probabilidade calibrada por regressão isotônica só com as temporadas anteriores, a partir da 3ª dobra; área dos marcadores proporcional ao número de atletas; na base, histograma das probabilidades.
 
 **Figura 13 – Mapa de oportunidades de recrutamento em 30/06/2025: retorno esperado versus cenário pessimista em T+1**  
 `fig10_mapa_oportunidades.png`  
 Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Tamanho do ponto proporcional a V_T. Rótulos: oito maiores retornos esperados na faixa de € 2–15 milhões. Previsões fora da amostra.
+
+**Figura 14 – Qualidade da regra de compra segundo o teto de preço do universo de candidatos**  
+`fig13_sensibilidade_teto.png`  
+Fonte: Elaboração própria com dados de FBref, Understat, Sofascore e Transfermarkt (2026). Nota: Mesmo modelo, sem reajuste, restrito aos atletas com V_T até o teto; médias das temporadas. Cenário principal de custos (10% + 10%).

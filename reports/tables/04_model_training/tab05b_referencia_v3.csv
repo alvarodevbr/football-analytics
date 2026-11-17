@@ -1,0 +1,3 @@
+﻿horizonte,abordagem,modelo,n,RMSE_log,RMSE_log_ic95_inf,RMSE_log_ic95_sup,R2_log,R2_log_ic95_inf,R2_log_ic95_sup,spearman,spearman_ic95_inf,spearman_ic95_sup,MAE_pct,MedAE_pct,R2_pct,R2_eur,top10_hit_rate,base_hit_rate,calib_slope,versao
+T+1,Global,Ensemble (CatBoost + XGBoost + Ridge),1952.00000,0.54329,0.50338,0.58693,0.32895,0.29146,0.36392,0.55995,0.52489,0.59271,61.10763,21.54779,0.08499,0.19248,0.70769,0.27510,1.27340,v3 pré-registrado
+T+2,Pooling 3 × 3,Pooling parcial,1879.00000,0.72801,,,0.37114,,,0.60405,,,81.22894,25.87751,0.05605,0.21300,0.65775,0.26024,1.20216,v3 pré-registrado

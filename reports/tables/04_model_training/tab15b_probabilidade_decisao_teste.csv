@@ -1,0 +1,11 @@
+﻿horizonte,dobra,teste,escore,brier,brier_taxa_base,auc,acerto_topo,taxa_base
+T+1,6,2425,Regressão: ΔV% esperado,0.13195,0.17147,0.82275,0.65641,0.21875
+T+1,6,2425,CatBoost (classificação),0.13155,0.17147,0.82711,0.65128,0.21875
+T+1,6,2425,XGBoost (classificação),0.13355,0.17147,0.82029,0.65641,0.21875
+T+1,6,2425,Logística L2,0.13217,0.17147,0.82725,0.61026,0.21875
+T+1,6,2425,Média dos classificadores,0.12929,0.17147,0.82913,0.65641,0.21875
+T+2,4,2324,Regressão: ΔV% esperado,0.13673,0.17269,0.82409,0.57754,0.22193
+T+2,4,2324,CatBoost (classificação),0.13191,0.17269,0.82872,0.60963,0.22193
+T+2,4,2324,XGBoost (classificação),0.13153,0.17269,0.82645,0.63636,0.22193
+T+2,4,2324,Logística L2,0.13204,0.17269,0.82734,0.65775,0.22193
+T+2,4,2324,Média dos classificadores,0.13095,0.17269,0.83129,0.63636,0.22193

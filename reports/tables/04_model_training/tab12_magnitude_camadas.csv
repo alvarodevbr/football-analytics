@@ -9,3 +9,15 @@ T+2,desenvolvimento,Fator heterocedástico (decil × tercil × faixa),11.98000,6
 T+2,desenvolvimento,Locação do ensemble + forma multiquantil,12.39525,66.77884,229.92535,296.70419,False
 T+2,desenvolvimento,Integração multiquantil,23.67390,166.17371,134.34149,300.51520,False
 T+2,desenvolvimento,Duas partes (classificador de saltos),20.97536,120.53928,178.19666,298.73594,False
+T+1,teste final (2024/25),Duan por faixa etária (v3),23.31928,186.70347,127.03565,313.73912,False
+T+1,teste final (2024/25),Fator heterocedástico (decil × tercil × faixa),17.32459,148.56019,170.96469,319.52488,False
+T+1,teste final (2024/25),Locação do ensemble + forma multiquantil,14.84198,133.56300,189.06358,322.62658,True
+T+1,teste final (2024/25),Integração multiquantil,25.74149,202.65278,116.57161,319.22439,False
+T+1,teste final (2024/25),Duas partes (classificador de saltos),19.86668,169.61665,146.14968,315.76634,False
+T+2,teste final (2023/24),Duan por faixa etária (v3),26.42106,178.98997,241.41516,420.40513,False
+T+2,teste final (2023/24),Fator heterocedástico (decil × tercil × faixa),17.90678,120.90656,293.64696,414.55351,True
+T+2,teste final (2023/24),Locação do ensemble + forma multiquantil,15.52292,114.05630,306.17625,420.23255,False
+T+2,teste final (2023/24),Integração multiquantil,29.38405,245.72016,172.58897,418.30913,False
+T+2,teste final (2023/24),Duas partes (classificador de saltos),25.92072,213.00896,202.74593,415.75488,False
+T+1,teste final (2024/25),v3 pré-registrado: Duan por faixa etária,21.57514,181.31111,125.71023,307.02135,False
+T+2,teste final (2023/24),v3 pré-registrado: Duan por faixa etária,25.85082,191.65114,221.53805,413.18918,False
