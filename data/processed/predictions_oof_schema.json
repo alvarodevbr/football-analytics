@@ -1,9 +1,9 @@
 {
   "path": "predictions_oof.parquet",
   "source": "notebook 04: previsões fora da amostra (janela expandida) de todos os modelos e variantes",
-  "n_rows": 463587,
-  "n_columns": 26,
-  "written_at": "2026-10-23T00:36:55",
+  "n_rows": 464769,
+  "n_columns": 28,
+  "written_at": "2026-11-17T14:11:36",
   "columns": {
     "season": {
       "dtype": "object"
@@ -29,9 +29,6 @@
     "y_true": {
       "dtype": "float64"
     },
-    "y_pred": {
-      "dtype": "float64"
-    },
     "dv_pct_true": {
       "dtype": "float64"
     },
@@ -39,6 +36,9 @@
       "dtype": "float64"
     },
     "value_T": {
+      "dtype": "float64"
+    },
+    "y_pred": {
       "dtype": "float64"
     },
     "horizon": {
@@ -54,6 +54,9 @@
       "dtype": "object"
     },
     "extra": {
+      "dtype": "object"
+    },
+    "kind": {
       "dtype": "object"
     },
     "approach": {
@@ -75,6 +78,9 @@
       "dtype": "object"
     },
     "position_group": {
+      "dtype": "object"
+    },
+    "role": {
       "dtype": "object"
     },
     "category_3x3": {

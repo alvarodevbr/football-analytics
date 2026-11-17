@@ -2,8 +2,8 @@
   "path": "train_test_lags.parquet",
   "source": "notebook 03: painel jogador–temporada (features em T, alvos em T+1/T+2)",
   "n_rows": 13748,
-  "n_columns": 198,
-  "written_at": "2026-10-22T23:00:34",
+  "n_columns": 231,
+  "written_at": "2026-11-17T12:35:33",
   "columns": {
     "season": {
       "dtype": "object",
@@ -40,6 +40,10 @@
     "position_group": {
       "dtype": "object",
       "description": "Posição de linha: DEF, MEI, ATA"
+    },
+    "role": {
+      "dtype": "object",
+      "description": "Papel tático na temporada: zagueiro, lateral, volante, meia central, meia ofensivo ou ponta, centroavante"
     },
     "age_band": {
       "dtype": "object",
@@ -140,6 +144,10 @@
     "log_value_T": {
       "dtype": "float64",
       "description": "Logaritmo do valor de mercado em T"
+    },
+    "days_since_valuation_T": {
+      "dtype": "float64",
+      "description": "Dias entre a avaliação usada como V_T e 30/jun de T"
     },
     "log_club_value_T": {
       "dtype": "float64",
@@ -400,6 +408,30 @@
     "sofascore_rating": {
       "dtype": "float64",
       "description": "Nota média do Sofascore, ponderada por minutos"
+    },
+    "xg_buildup_share": {
+      "dtype": "float64",
+      "description": "xGBuildup / xGChain: participação na construção, sem chute nem passe final"
+    },
+    "tail_xg_xa_p90": {
+      "dtype": "float64",
+      "description": "P(taxa de xG + xA acima do 3º quartil do papel tático | dados): surpresa de cauda"
+    },
+    "tail_key_passes_p90": {
+      "dtype": "float64",
+      "description": "P(taxa de passes para finalização acima do 3º quartil do papel tático | dados)"
+    },
+    "tail_dribbles_p90": {
+      "dtype": "float64",
+      "description": "P(taxa de dribles certos acima do 3º quartil do papel tático | dados)"
+    },
+    "tail_tackles_interceptions_p90": {
+      "dtype": "float64",
+      "description": "P(taxa de desarmes + interceptações acima do 3º quartil do papel tático | dados)"
+    },
+    "tail_sofascore_rating": {
+      "dtype": "float64",
+      "description": "P(nota verdadeira acima do 3º quartil do papel tático | dados)"
     },
     "minutes": {
       "dtype": "float64",
@@ -697,6 +729,70 @@
       "dtype": "float64",
       "description": "Variação da nota média (T − T−1)"
     },
+    "lag2_minutes_share_pct": {
+      "dtype": "float64",
+      "description": "Participação nos minutos em T−2"
+    },
+    "minutes_share_accel": {
+      "dtype": "float64",
+      "description": "Aceleração da participação nos minutos: (T − T−1) − (T−1 − T−2)"
+    },
+    "breakout_starter_T": {
+      "dtype": "float64",
+      "description": "Virou titular: menos de 900 minutos em T−1 e ao menos 1.800 em T"
+    },
+    "league_step_up_T": {
+      "dtype": "float64",
+      "description": "Chegou às Big Five em T e jogou acima da mediana de participação"
+    },
+    "injury_days_T": {
+      "dtype": "float64",
+      "description": "Dias lesionado nos 12 meses até 30/jun de T (truncado na âncora)"
+    },
+    "injury_days_Tm1": {
+      "dtype": "float64",
+      "description": "Dias lesionado nos 12 meses anteriores (T−1)"
+    },
+    "n_injuries_24m": {
+      "dtype": "float64",
+      "description": "Lesões iniciadas nos 24 meses até T"
+    },
+    "injured_at_anchor": {
+      "dtype": "float64",
+      "description": "Lesionado em 30/jun de T"
+    },
+    "long_injury_at_anchor": {
+      "dtype": "float64",
+      "description": "Lesão grave ou em curso há 60 dias ou mais em 30/jun de T"
+    },
+    "h2_minutes_share_T": {
+      "dtype": "float64",
+      "description": "Participação nos minutos do último clube no 2º turno (de 1º/jan ao fim da temporada)"
+    },
+    "form_minutes_trend_T": {
+      "dtype": "float64",
+      "description": "Participação no 2º turno menos a do 1º turno"
+    },
+    "h2_xg_chain_p90_T": {
+      "dtype": "float64",
+      "description": "xGChain no 2º turno, encolhido"
+    },
+    "post_valuation_minutes_T": {
+      "dtype": "float64",
+      "description": "Minutos jogados depois da data da avaliação usada como V_T"
+    },
+    "post_valuation_xg_xa_p90_T": {
+      "dtype": "float64",
+      "description": "xG + xA depois da data de V_T (ainda não incorporados ao valor), encolhido"
+    },
+    "debut_second_half_T": {
+      "dtype": "float64",
+      "description": "Estreou na temporada só no 2º turno (chegada em janeiro ou entrada tardia)"
+    },
+    "club_moved_mid_season_T": {
+      "dtype": "float64",
+      "description": "O clube em 30/jun difere do clube com mais minutos na temporada"
+    },
     "mkt_log_return_6m": {
       "dtype": "float64",
       "description": "Log-retorno do valor nos 6 meses até T"
@@ -729,13 +825,25 @@
       "dtype": "float64",
       "description": "Distância ao pico histórico: ln(V_T / máximo até T)"
     },
+    "mkt_years_since_peak": {
+      "dtype": "float64",
+      "description": "Anos desde o pico histórico de valor até T"
+    },
     "fair_log_value_T": {
       "dtype": "float64",
-      "description": "Valor justo em T: ln(V) previsto pelo desempenho (corte transversal de T, validação cruzada)"
+      "description": "Valor justo em T: ln(V) previsto pelo desempenho e pelo contexto (corte transversal de T, validação cruzada agrupada por clube); fora do vetor por ser ln(V_T) − gap"
     },
     "value_gap_T": {
       "dtype": "float64",
       "description": "Gap de avaliação: ln(V_T) − valor justo (negativo = subavaliado)"
+    },
+    "fair_log_value_perf_T": {
+      "dtype": "float64",
+      "description": "Valor justo só pelo desempenho, idade e posição (sem liga nem contexto do clube)"
+    },
+    "value_gap_perf_T": {
+      "dtype": "float64",
+      "description": "Gap de avaliação só pelo desempenho: ln(V_T) − valor justo sem liga nem clube"
     },
     "delta_v_T1": {
       "dtype": "float64",
@@ -769,6 +877,22 @@
       "dtype": "float64",
       "description": "V_{T+2} observado"
     },
+    "log_return_ann_T1": {
+      "dtype": "float64",
+      "description": "Log-retorno anualizado pelos dias exatos entre as avaliações de T e T+1 (robustez)"
+    },
+    "log_return_ann_T2": {
+      "dtype": "float64",
+      "description": "Log-retorno de T+2 anualizado pelos dias exatos entre as avaliações (robustez; ×2 para a escala de dois anos)"
+    },
+    "target_missing_reason_T1": {
+      "dtype": "object",
+      "description": "Motivo da ausência de V_{T+1}: observed, not_due, career_end ou stale"
+    },
+    "target_missing_reason_T2": {
+      "dtype": "object",
+      "description": "Motivo da ausência de V_{T+2}: observed, not_due, career_end ou stale"
+    },
     "contract_method": {
       "dtype": "object",
       "description": "Como o contrato em T foi obtido (usa informação posterior a T)"
@@ -788,6 +912,14 @@
     "tm_value_date_T": {
       "dtype": "datetime64[ns]",
       "description": "Data da avaliação usada como V_T"
+    },
+    "tm_value_date_T1": {
+      "dtype": "datetime64[ns]",
+      "description": "Data da avaliação usada como V_{T+1}"
+    },
+    "tm_value_date_T2": {
+      "dtype": "datetime64[ns]",
+      "description": "Data da avaliação usada como V_{T+2}"
     },
     "value_T1_last_obs": {
       "dtype": "float64",

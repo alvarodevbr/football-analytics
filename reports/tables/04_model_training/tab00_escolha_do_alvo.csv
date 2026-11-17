@@ -1,0 +1,7 @@
+﻿horizonte,alvo,RMSE_log,R2_log,spearman,escolhido
+T+1,Excesso ao drift; drift previsto = média das temporadas de treino,0.51481,0.25071,0.51317,False
+T+1,Excesso ao drift; drift previsto = k × regime de mercado em T,0.53724,0.17631,0.51317,False
+T+1,Log-retorno nominal,0.51456,0.25143,0.51387,True
+T+2,Excesso ao drift; drift previsto = média das temporadas de treino,0.72354,0.31585,0.55688,False
+T+2,Excesso ao drift; drift previsto = k × regime de mercado em T,0.81075,0.13617,0.55688,False
+T+2,Log-retorno nominal,0.72308,0.31669,0.55738,True

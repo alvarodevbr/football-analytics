@@ -1,0 +1,49 @@
+﻿horizonte,avaliacao,faixa,estrategia,n,taxa_base,auc,acerto_topo
+T+1,desenvolvimento,16–23,Modelo,2649,0.40946,0.66858,0.69517
+T+1,desenvolvimento,16–23,Mais jovens,2649,0.40946,0.57665,0.54723
+T+1,desenvolvimento,16–23,Momentum,2341,0.38868,0.58118,0.47011
+T+1,desenvolvimento,24–28,Modelo,3914,0.21602,0.66040,0.42171
+T+1,desenvolvimento,24–28,Mais jovens,3914,0.21602,0.57477,0.25351
+T+1,desenvolvimento,24–28,Momentum,3890,0.21586,0.57269,0.32934
+T+1,desenvolvimento,29–32,Modelo,2352,0.04134,0.71450,0.14847
+T+1,desenvolvimento,29–32,Mais jovens,2352,0.04134,0.62792,0.05465
+T+1,desenvolvimento,29–32,Momentum,2343,0.04150,0.57137,0.08133
+T+1,desenvolvimento,33+,Modelo,961,0.02233,0.70932,0.08111
+T+1,desenvolvimento,33+,Mais jovens,961,0.02233,0.57623,0.02105
+T+1,desenvolvimento,33+,Momentum,953,0.02251,0.60660,0.06811
+T+1,teste final,16–23,Modelo,552,0.46196,0.69445,0.67273
+T+1,teste final,16–23,Mais jovens,552,0.46196,0.60684,0.70909
+T+1,teste final,16–23,Momentum,496,0.43952,0.58215,0.48980
+T+1,teste final,24–28,Modelo,805,0.20124,0.64644,0.38750
+T+1,teste final,24–28,Mais jovens,805,0.20124,0.59265,0.18750
+T+1,teste final,24–28,Momentum,804,0.20025,0.52819,0.28750
+T+1,teste final,29–32,Modelo,444,0.02252,0.67350,0.04545
+T+1,teste final,29–32,Mais jovens,444,0.02252,0.77350,0.04545
+T+1,teste final,29–32,Momentum,444,0.02252,0.46187,0.00000
+T+1,teste final,33+,Modelo,169,0.00000,,0.00000
+T+1,teste final,33+,Mais jovens,169,0.00000,,0.00000
+T+1,teste final,33+,Momentum,169,0.00000,,0.00000
+T+2,desenvolvimento,16–23,Modelo,1606,0.45570,0.65263,0.70731
+T+2,desenvolvimento,16–23,Mais jovens,1606,0.45570,0.58590,0.61297
+T+2,desenvolvimento,16–23,Momentum,1409,0.42989,0.55182,0.49345
+T+2,desenvolvimento,24–28,Modelo,2351,0.19204,0.67556,0.37175
+T+2,desenvolvimento,24–28,Mais jovens,2351,0.19204,0.60743,0.26005
+T+2,desenvolvimento,24–28,Momentum,2341,0.19288,0.54054,0.29390
+T+2,desenvolvimento,29–32,Modelo,1446,0.02818,0.70003,0.08961
+T+2,desenvolvimento,29–32,Mais jovens,1446,0.02818,0.61581,0.06890
+T+2,desenvolvimento,29–32,Momentum,1441,0.02828,0.55645,0.05456
+T+2,desenvolvimento,33+,Modelo,606,0.00495,0.79684,0.00000
+T+2,desenvolvimento,33+,Mais jovens,606,0.00495,0.70292,0.01754
+T+2,desenvolvimento,33+,Momentum,599,0.00499,0.29068,0.00000
+T+2,teste final,16–23,Modelo,543,0.48250,0.62818,0.72222
+T+2,teste final,16–23,Mais jovens,543,0.48250,0.62627,0.68519
+T+2,teste final,16–23,Momentum,489,0.47035,0.55369,0.64583
+T+2,teste final,24–28,Modelo,790,0.18734,0.67789,0.36709
+T+2,teste final,24–28,Mais jovens,790,0.18734,0.69727,0.36709
+T+2,teste final,24–28,Momentum,782,0.18670,0.53781,0.19231
+T+2,teste final,29–32,Modelo,440,0.01364,0.71966,0.04545
+T+2,teste final,29–32,Mais jovens,440,0.01364,0.74002,0.06818
+T+2,teste final,29–32,Momentum,438,0.01370,0.60340,0.04651
+T+2,teste final,33+,Modelo,179,0.00559,0.96629,0.05882
+T+2,teste final,33+,Mais jovens,179,0.00559,0.22191,0.00000
+T+2,teste final,33+,Momentum,179,0.00559,0.89607,0.05882

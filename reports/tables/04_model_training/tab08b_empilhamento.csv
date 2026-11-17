@@ -1,0 +1,13 @@
+﻿horizonte,modelo,vetor,RMSE_log,R2_log,spearman
+T+1,CatBoost,com 1º estágio (valor justo e gaps),0.52149,0.23163,0.50310
+T+1,CatBoost,sem 1º estágio,0.52819,0.21202,0.49032
+T+1,XGBoost,com 1º estágio (valor justo e gaps),0.52111,0.23273,0.50110
+T+1,XGBoost,sem 1º estágio,0.52536,0.22039,0.48718
+T+1,Ridge,com 1º estágio (valor justo e gaps),0.52264,0.22697,0.50328
+T+1,Ridge,sem 1º estágio,0.52388,0.22327,0.49869
+T+2,CatBoost,com 1º estágio (valor justo e gaps),0.72559,0.31230,0.55427
+T+2,CatBoost,sem 1º estágio,0.73292,0.29806,0.54193
+T+2,XGBoost,com 1º estágio (valor justo e gaps),0.72738,0.30871,0.55124
+T+2,XGBoost,sem 1º estágio,0.73226,0.29941,0.54336
+T+2,Ridge,com 1º estágio (valor justo e gaps),0.73202,0.29951,0.54560
+T+2,Ridge,sem 1º estágio,0.73375,0.29573,0.54088

@@ -1,109 +1,126 @@
 ﻿,pct_ausente,grupo
+minutes_share_accel,52.1821,Defasagem
+lag2_minutes_share_pct,47.8470,Defasagem
 delta_sofascore_rating,28.0041,Defasagem
 lag1_sofascore_rating,28.0041,Defasagem
 lag1_xg_xa_p90,27.8804,Defasagem
-lag1_key_passes_p90,27.7568,Defasagem
-lag1_pass_accuracy_pct,27.7568,Defasagem
-lag1_aerial_duels_won_p90,27.7568,Defasagem
-lag1_dribbles_p90,27.7568,Defasagem
 lag1_tackles_interceptions_p90,27.7568,Defasagem
+lag1_key_passes_p90,27.7568,Defasagem
+lag1_aerial_duels_won_p90,27.7568,Defasagem
+lag1_pass_accuracy_pct,27.7568,Defasagem
+lag1_dribbles_p90,27.7568,Defasagem
 delta_minutes_share_pct,27.6477,Defasagem
 lag1_minutes_share_pct,27.6477,Defasagem
-lag1_goals_assists_p90,27.5386,Defasagem
 lag1_minutes,27.5386,Defasagem
+lag1_goals_assists_p90,27.5386,Defasagem
 log_return_lag2,8.5685,Defasagem
 xg_per_shot,4.4807,Ofensivo
 log_return_lag1,3.6005,Defasagem
 mkt_volatility_24m,1.0256,Dinâmica de mercado
 mkt_log_return_6m,0.7856,Dinâmica de mercado
 mkt_days_since_change,0.6401,Dinâmica de mercado
-is_two_footed,0.5819,Demográfico
 is_left_footed,0.5819,Demográfico
+is_two_footed,0.5819,Demográfico
+tail_xg_xa_p90,0.5746,Ofensivo
+xg_chain_p90,0.5746,Criação e posse
 xg_p90,0.5746,Ofensivo
 xa_p90,0.5746,Ofensivo
+finishing_overperf_p90,0.5746,Ofensivo
+xg_buildup_share,0.5746,Criação e posse
 xg_xa_p90,0.5746,Ofensivo
 npxg_p90,0.5746,Ofensivo
-xg_chain_p90,0.5746,Criação e posse
 xg_buildup_p90,0.5746,Criação e posse
-finishing_overperf_p90,0.5746,Ofensivo
 height_cm,0.5237,Demográfico
-accurate_passes_p90,0.3710,Criação e posse
-touches_p90,0.3710,Criação e posse
-accurate_crosses_p90,0.3710,Criação e posse
-dribbles_p90,0.3710,Criação e posse
-long_ball_accuracy_pct,0.3710,Criação e posse
-long_balls_p90,0.3710,Criação e posse
-pass_accuracy_pct,0.3710,Criação e posse
-final_third_passes_p90,0.3710,Criação e posse
-big_chances_missed_p90,0.3710,Ofensivo
-passes_p90,0.3710,Criação e posse
-key_passes_p90,0.3710,Criação e posse
-big_chances_created_p90,0.3710,Criação e posse
 tackles_p90,0.3710,Defensivo
-sofascore_rating,0.3710,Avaliação agregada
-errors_p90,0.3710,Defensivo
-dribble_success_pct,0.3710,Criação e posse
 tackles_interceptions_p90,0.3710,Defensivo
+dispossessed_p90,0.3710,Criação e posse
+touches_p90,0.3710,Criação e posse
+aerial_duels_won_p90,0.3710,Defensivo
+dribble_success_pct,0.3710,Criação e posse
+dribbles_p90,0.3710,Criação e posse
+accurate_crosses_p90,0.3710,Criação e posse
+possession_lost_p90,0.3710,Criação e posse
+final_third_passes_p90,0.3710,Criação e posse
+tail_tackles_interceptions_p90,0.3710,Defensivo
 clearances_p90,0.3710,Defensivo
 dribbled_past_p90,0.3710,Defensivo
-aerial_duels_won_pct,0.3710,Defensivo
-dispossessed_p90,0.3710,Criação e posse
-ground_duels_won_pct,0.3710,Defensivo
-aerial_duels_won_p90,0.3710,Defensivo
+accurate_passes_p90,0.3710,Criação e posse
+tail_key_passes_p90,0.3710,Criação e posse
+tail_dribbles_p90,0.3710,Criação e posse
+big_chances_missed_p90,0.3710,Ofensivo
+key_passes_p90,0.3710,Criação e posse
+big_chances_created_p90,0.3710,Criação e posse
+pass_accuracy_pct,0.3710,Criação e posse
+long_balls_p90,0.3710,Criação e posse
+passes_p90,0.3710,Criação e posse
+long_ball_accuracy_pct,0.3710,Criação e posse
+errors_p90,0.3710,Defensivo
+sofascore_rating,0.3710,Avaliação agregada
 duels_won_pct,0.3710,Defensivo
+aerial_duels_won_pct,0.3710,Defensivo
 ground_duels_won_p90,0.3710,Defensivo
-possession_lost_p90,0.3710,Criação e posse
+ground_duels_won_pct,0.3710,Defensivo
+tail_sofascore_rating,0.3710,Avaliação agregada
 team_points_per_game,0.0582,Contexto
-shot_conversion_pct,0.0000,Ofensivo
-shot_accuracy_pct,0.0000,Ofensivo
-shots_on_target_p90,0.0000,Ofensivo
-minutes_share_pct,0.0000,Volume
-games,0.0000,Volume
-league_log_return_lag1_T,0.0000,Contexto
-market_log_return_lag1_T,0.0000,Contexto
-club_value_rank_in_league,0.0000,Mercado
-club_value_rank_pct,0.0000,Mercado
-log_club_value_T,0.0000,Mercado
-promoted_T,0.0000,Contexto
-league_gd_per_match_T,0.0000,Contexto
-league_rank_pct_T,0.0000,Contexto
-log_value_T,0.0000,Mercado
-value_share_of_club,0.0000,Mercado
-is_conmebol,0.0000,Demográfico
-is_caf,0.0000,Demográfico
-is_afc_concacaf,0.0000,Demográfico
+long_injury_at_anchor,0.0073,Disponibilidade física
+injury_days_Tm1,0.0073,Disponibilidade física
+n_injuries_24m,0.0073,Disponibilidade física
+injury_days_T,0.0073,Disponibilidade física
+injured_at_anchor,0.0073,Disponibilidade física
+goals_p90,0.0000,Ofensivo
+offsides_p90,0.0000,Ofensivo
+goals_assists_p90,0.0000,Ofensivo
+npg_p90,0.0000,Ofensivo
+assists_p90,0.0000,Ofensivo
 has_eu_passport,0.0000,Demográfico
 n_nationalities,0.0000,Demográfico
 is_domestic,0.0000,Demográfico
 age_sq,0.0000,Demográfico
-age,0.0000,Demográfico
-is_uefa,0.0000,Demográfico
-goals_p90,0.0000,Ofensivo
-assists_p90,0.0000,Ofensivo
-npg_p90,0.0000,Ofensivo
-goals_assists_p90,0.0000,Ofensivo
-shots_p90,0.0000,Ofensivo
-complete_games_share_pct,0.0000,Volume
-n_clubs_big5,0.0000,Volume
-starts_share_pct,0.0000,Volume
+log_value_T,0.0000,Mercado
+days_since_valuation_T,0.0000,Dinâmica de mercado
+value_share_of_club,0.0000,Mercado
+log_club_value_T,0.0000,Mercado
+club_value_rank_pct,0.0000,Mercado
+club_value_rank_in_league,0.0000,Mercado
+market_log_return_lag1_T,0.0000,Contexto
+league_log_return_lag1_T,0.0000,Contexto
+league_rank_pct_T,0.0000,Contexto
+league_gd_per_match_T,0.0000,Contexto
+promoted_T,0.0000,Contexto
 relegated_T,0.0000,Contexto
 europe_T,0.0000,Contexto
 minutes,0.0000,Volume
-offsides_p90,0.0000,Ofensivo
+minutes_share_pct,0.0000,Volume
+games,0.0000,Volume
+age,0.0000,Demográfico
+is_caf,0.0000,Demográfico
+is_conmebol,0.0000,Demográfico
+is_uefa,0.0000,Demográfico
+is_afc_concacaf,0.0000,Demográfico
+starts_share_pct,0.0000,Volume
+n_clubs_big5,0.0000,Volume
+complete_games_share_pct,0.0000,Volume
+shots_p90,0.0000,Ofensivo
+shot_conversion_pct,0.0000,Ofensivo
+shots_on_target_p90,0.0000,Ofensivo
+shot_accuracy_pct,0.0000,Ofensivo
 crosses_p90,0.0000,Criação e posse
-tackles_won_p90,0.0000,Defensivo
-fouled_p90,0.0000,Criação e posse
 interceptions_p90,0.0000,Defensivo
-mkt_n_down_24m,0.0000,Dinâmica de mercado
-yellow_cards_p90,0.0000,Disciplina
-plus_minus_p90,0.0000,Defensivo
-fouls_p90,0.0000,Disciplina
+fouled_p90,0.0000,Criação e posse
+tackles_won_p90,0.0000,Defensivo
 red_cards_p90,0.0000,Disciplina
+yellow_cards_p90,0.0000,Disciplina
+fouls_p90,0.0000,Disciplina
+plus_minus_p90,0.0000,Defensivo
 on_goals_against_p90,0.0000,Defensivo
-mkt_n_up_24m,0.0000,Dinâmica de mercado
-mkt_n_revisions_12m,0.0000,Dinâmica de mercado
-mkt_last_change,0.0000,Dinâmica de mercado
+value_gap_perf_T,0.0000,Valor justo
 mkt_peak_gap,0.0000,Dinâmica de mercado
-fair_log_value_T,0.0000,Valor justo
+mkt_years_since_peak,0.0000,Dinâmica de mercado
+mkt_n_revisions_12m,0.0000,Dinâmica de mercado
 value_gap_T,0.0000,Valor justo
 has_big5_lag1,0.0000,Defasagem
+mkt_last_change,0.0000,Dinâmica de mercado
+mkt_n_up_24m,0.0000,Dinâmica de mercado
+mkt_n_down_24m,0.0000,Dinâmica de mercado
+league_step_up_T,0.0000,Defasagem
+breakout_starter_T,0.0000,Defasagem

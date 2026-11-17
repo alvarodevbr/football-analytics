@@ -1,0 +1,13 @@
+﻿horizonte,alternativa,rmse_val_alt,rmse_val_ensemble_global,dif_perda_media,p_valor,p_holm,troca
+T+1,Seg. 4 × 3 — CatBoost,0.52805,0.51830,0.01028,0.00000,0.00000,False
+T+1,Seg. 4 × 3 — Ridge,0.53019,0.51830,0.01241,0.00000,0.00000,False
+T+1,Seg. 3 × 3 — CatBoost,0.52810,0.51830,0.01036,0.00000,0.00000,False
+T+1,Seg. 3 × 3 — Ridge,0.53021,0.51830,0.01249,0.00000,0.00000,False
+T+1,Pooling 4 × 3 — Pooling parcial,0.51801,0.51830,-0.00029,0.18564,0.37128,False
+T+1,Pooling 3 × 3 — Pooling parcial,0.51806,0.51830,-0.00023,0.36086,0.37128,False
+T+2,Seg. 4 × 3 — CatBoost,0.73150,0.72219,0.01352,0.00030,0.00120,False
+T+2,Seg. 4 × 3 — Ridge,0.74498,0.72219,0.03346,0.00000,0.00000,False
+T+2,Seg. 3 × 3 — CatBoost,0.73078,0.72219,0.01246,0.00095,0.00286,False
+T+2,Seg. 3 × 3 — Ridge,0.74645,0.72219,0.03563,0.00000,0.00000,False
+T+2,Pooling 4 × 3 — Pooling parcial,0.72056,0.72219,-0.00236,0.03117,0.03117,True
+T+2,Pooling 3 × 3 — Pooling parcial,0.72003,0.72219,-0.00313,0.00789,0.01579,True

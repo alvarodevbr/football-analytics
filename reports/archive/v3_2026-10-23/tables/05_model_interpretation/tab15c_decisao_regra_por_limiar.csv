@@ -1,0 +1,19 @@
+﻿horizonte,temporada,avaliacao,regra,selecionados,pct_candidatos,acerto,roi_cenario_principal_pct
+T+1,2021/22,desenvolvimento,decil superior,201,10.00000,0.52239,53.34805
+T+1,2021/22,desenvolvimento,P ≥ 50%,94,4.67662,0.61702,169.89361
+T+1,2021/22,desenvolvimento,P ≥ 60%,3,0.14925,0.66667,168.57708
+T+1,2022/23,desenvolvimento,decil superior,198,9.96477,0.59091,37.43558
+T+1,2022/23,desenvolvimento,P ≥ 50%,160,8.05234,0.61875,44.25074
+T+1,2022/23,desenvolvimento,P ≥ 60%,45,2.26472,0.80000,289.28106
+T+1,2023/24,desenvolvimento,decil superior,195,9.98975,0.52821,33.31612
+T+1,2023/24,desenvolvimento,P ≥ 50%,225,11.52664,0.52889,33.53027
+T+1,2023/24,desenvolvimento,P ≥ 60%,59,3.02254,0.69492,108.10578
+T+1,2024/25,teste final,decil superior,197,10.00000,0.67005,87.21769
+T+1,2024/25,teste final,P ≥ 50%,252,12.79188,0.62698,56.78355
+T+1,2024/25,teste final,P ≥ 60%,92,4.67005,0.69565,269.12783
+T+2,2022/23,desenvolvimento,decil superior,198,9.96477,0.64141,83.70252
+T+2,2022/23,desenvolvimento,P ≥ 50%,661,33.26623,0.47201,22.51106
+T+2,2022/23,desenvolvimento,P ≥ 60%,241,12.12884,0.61826,65.84484
+T+2,2023/24,teste final,decil superior,195,9.98975,0.61538,94.89980
+T+2,2023/24,teste final,P ≥ 50%,303,15.52254,0.53795,59.64582
+T+2,2023/24,teste final,P ≥ 60%,137,7.01844,0.64234,124.32175

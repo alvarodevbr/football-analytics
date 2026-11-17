@@ -1,0 +1,11 @@
+﻿horizonte,avaliacao,camada,erro_medio_decis_pp,erro_decil_10_pp,previsto_decil_10_pct,observado_decil_10_pct
+T+1,desenvolvimento,Duan por faixa etária (v3),11.42984,67.15574,91.11973,158.27546
+T+1,desenvolvimento,Fator heterocedástico (decil × tercil × faixa),8.25130,43.96051,119.25549,163.21600
+T+1,desenvolvimento,Locação do ensemble + forma multiquantil,6.02287,30.72199,129.80246,160.52445
+T+1,desenvolvimento,Integração multiquantil,12.33809,73.27664,82.53167,155.80831
+T+1,desenvolvimento,Duas partes (classificador de saltos),8.73343,55.89737,104.37579,160.27317
+T+2,desenvolvimento,Duan por faixa etária (v3),16.29533,96.87326,196.21413,293.08739
+T+2,desenvolvimento,Fator heterocedástico (decil × tercil × faixa),11.98000,61.71091,235.80438,297.51530
+T+2,desenvolvimento,Locação do ensemble + forma multiquantil,12.39525,66.77884,229.92535,296.70419
+T+2,desenvolvimento,Integração multiquantil,23.67390,166.17371,134.34149,300.51520
+T+2,desenvolvimento,Duas partes (classificador de saltos),20.97536,120.53928,178.19666,298.73594

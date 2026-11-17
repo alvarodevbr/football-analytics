@@ -1,25 +1,37 @@
 ﻿horizonte,modelo,hiperparametro,valor,na_fronteira
-T+1,Random Forest,max_depth,18,False
-T+1,Random Forest,min_samples_leaf,1,True
+T+1,Random Forest,max_depth,25,True
+T+1,Random Forest,min_samples_leaf,6,False
 T+1,Random Forest,max_features,0.2,False
-T+2,Random Forest,max_depth,25,True
-T+2,Random Forest,min_samples_leaf,6,False
+T+2,Random Forest,max_depth,24,False
+T+2,Random Forest,min_samples_leaf,1,True
 T+2,Random Forest,max_features,0.2,False
-T+1,CatBoost,depth,3,True
-T+1,CatBoost,l2_leaf_reg,12.267470770584321,False
-T+1,CatBoost,random_strength,0.018713557824311947,False
-T+2,CatBoost,depth,4,False
-T+2,CatBoost,l2_leaf_reg,98.87319849018947,False
-T+2,CatBoost,random_strength,0.04222636629483079,False
-T+1,XGBoost,max_depth,4,False
-T+1,XGBoost,min_child_weight,82.70215105903179,False
-T+1,XGBoost,reg_lambda,37.94222246894935,False
-T+1,XGBoost,subsample,0.510135715529913,False
-T+1,XGBoost,colsample_bytree,0.37802895057236474,False
+T+1,CatBoost,depth,4,False
+T+1,CatBoost,l2_leaf_reg,10.939672358562627,False
+T+1,CatBoost,random_strength,0.4705083699050956,False
+T+2,CatBoost,depth,3,True
+T+2,CatBoost,l2_leaf_reg,17.249321573179007,False
+T+2,CatBoost,random_strength,1.9123099563358141,False
+T+1,XGBoost,max_depth,2,True
+T+1,XGBoost,min_child_weight,5.664187509192477,False
+T+1,XGBoost,reg_lambda,100.0,True
+T+1,XGBoost,subsample,0.5,True
+T+1,XGBoost,colsample_bytree,0.31543332317247613,False
+T+1,XGBoost com interações restritas,max_depth,2,True
+T+1,XGBoost com interações restritas,min_child_weight,36.36545400026623,False
+T+1,XGBoost com interações restritas,reg_lambda,2.2680611710432115,False
+T+1,XGBoost com interações restritas,subsample,0.8121351506963094,False
+T+1,XGBoost com interações restritas,colsample_bytree,0.43682543548879293,False
 T+2,XGBoost,max_depth,2,True
-T+2,XGBoost,min_child_weight,1.0,True
-T+2,XGBoost,reg_lambda,100.0,True
-T+2,XGBoost,subsample,0.8489108829821522,False
-T+2,XGBoost,colsample_bytree,1.0,True
-T+1,Ridge,alpha,273.57872155267825,False
-T+2,Ridge,alpha,120.07693250465137,False
+T+2,XGBoost,min_child_weight,34.56176407551768,False
+T+2,XGBoost,reg_lambda,4.670162644973038,False
+T+2,XGBoost,subsample,0.9999678997363322,False
+T+2,XGBoost,colsample_bytree,0.4857733846780553,False
+T+2,XGBoost com interações restritas,max_depth,2,True
+T+2,XGBoost com interações restritas,min_child_weight,1.0,True
+T+2,XGBoost com interações restritas,reg_lambda,100.0,True
+T+2,XGBoost com interações restritas,subsample,0.5735498624230982,False
+T+2,XGBoost com interações restritas,colsample_bytree,0.9464064118334199,False
+T+1,Ridge com coeficientes por faixa × posição,alpha,274.49935753234183,False
+T+2,Ridge com coeficientes por faixa × posição,alpha,236.95026082783642,False
+T+1,Ridge,alpha,236.95026082783642,False
+T+2,Ridge,alpha,189.1422414047112,False

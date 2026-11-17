@@ -1,16 +1,22 @@
 ﻿escopo,tipo,modelo,T+1,T+2
-3 × 3,otimizado,CatBoost,58.62499,40.87975
-3 × 3,otimizado,Mediana do treino (ingênuo),0.02678,0.02415
-3 × 3,otimizado,Ridge,12.31871,11.42390
-4 × 3,otimizado,CatBoost,68.48631,53.79571
-4 × 3,otimizado,Mediana do treino (ingênuo),0.03585,0.02555
-4 × 3,otimizado,Ridge,15.92260,14.64854
-Global,fixo,CatBoost,10.03670,5.01494
-Global,fixo,Ridge,3.10480,1.80582
-Global,fixo,XGBoost,9.43946,3.83813
-Global,otimizado,CatBoost,18.85405,9.75588
-Global,otimizado,Mediana do treino (ingênuo),0.00562,0.00365
-Global,otimizado,OLS,0.06125,0.03633
-Global,otimizado,Random Forest,56.46528,26.13192
-Global,otimizado,Ridge,2.40322,2.17034
-Global,otimizado,XGBoost,9.70121,4.92020
+3 × 3,otimizado,CatBoost,73.66977,54.22242
+3 × 3,otimizado,Mediana do treino (ingênuo),0.03362,0.02706
+3 × 3,otimizado,Ridge,15.90912,14.64614
+4 × 3,otimizado,CatBoost,98.43866,73.47141
+4 × 3,otimizado,Mediana do treino (ingênuo),0.04713,0.03388
+4 × 3,otimizado,Ridge,20.86197,19.49326
+Global,fixo,CatBoost,19.24743,7.65429
+Global,fixo,CatBoost (classificação),1.80257,0.95345
+Global,fixo,CatBoost multiquantil,9.17160,3.39667
+Global,fixo,Logística L2,0.47880,0.24251
+Global,fixo,Ridge,5.83877,3.58042
+Global,fixo,XGBoost,20.33830,6.27491
+Global,fixo,XGBoost (classificação),1.35624,0.37584
+Global,otimizado,CatBoost,21.40971,14.63603
+Global,otimizado,Mediana do treino (ingênuo),0.00706,0.00458
+Global,otimizado,OLS,0.07389,0.04012
+Global,otimizado,Random Forest,73.15034,36.14311
+Global,otimizado,Ridge,3.39124,2.86137
+Global,otimizado,Ridge com coeficientes por faixa × posição,3.87251,3.06914
+Global,otimizado,XGBoost,13.59738,6.02858
+Global,otimizado,XGBoost com interações restritas,13.65258,5.61081

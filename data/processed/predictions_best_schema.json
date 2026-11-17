@@ -1,9 +1,9 @@
 {
   "path": "predictions_best.parquet",
   "source": "notebook 04: previsões fora da amostra da arquitetura final (inclui atletas sem V_{T+k})",
-  "n_rows": 19807,
-  "n_columns": 39,
-  "written_at": "2026-10-23T00:36:55",
+  "n_rows": 15885,
+  "n_columns": 75,
+  "written_at": "2026-11-17T14:11:36",
   "columns": {
     "season": {
       "dtype": "object"
@@ -29,9 +29,6 @@
     "y_true": {
       "dtype": "float64"
     },
-    "y_pred": {
-      "dtype": "float64"
-    },
     "dv_pct_true": {
       "dtype": "float64"
     },
@@ -39,6 +36,9 @@
       "dtype": "float64"
     },
     "value_T": {
+      "dtype": "float64"
+    },
+    "y_pred": {
       "dtype": "float64"
     },
     "horizon": {
@@ -56,6 +56,9 @@
     "extra": {
       "dtype": "object"
     },
+    "kind": {
+      "dtype": "object"
+    },
     "approach": {
       "dtype": "object"
     },
@@ -64,6 +67,69 @@
     },
     "age_band": {
       "dtype": "object"
+    },
+    "q0.025": {
+      "dtype": "float64"
+    },
+    "q0.075": {
+      "dtype": "float64"
+    },
+    "q0.125": {
+      "dtype": "float64"
+    },
+    "q0.175": {
+      "dtype": "float64"
+    },
+    "q0.225": {
+      "dtype": "float64"
+    },
+    "q0.275": {
+      "dtype": "float64"
+    },
+    "q0.325": {
+      "dtype": "float64"
+    },
+    "q0.375": {
+      "dtype": "float64"
+    },
+    "q0.425": {
+      "dtype": "float64"
+    },
+    "q0.475": {
+      "dtype": "float64"
+    },
+    "q0.525": {
+      "dtype": "float64"
+    },
+    "q0.575": {
+      "dtype": "float64"
+    },
+    "q0.625": {
+      "dtype": "float64"
+    },
+    "q0.675": {
+      "dtype": "float64"
+    },
+    "q0.725": {
+      "dtype": "float64"
+    },
+    "q0.775": {
+      "dtype": "float64"
+    },
+    "q0.825": {
+      "dtype": "float64"
+    },
+    "q0.875": {
+      "dtype": "float64"
+    },
+    "q0.925": {
+      "dtype": "float64"
+    },
+    "q0.975": {
+      "dtype": "float64"
+    },
+    "p_breakout": {
+      "dtype": "float64"
     },
     "y_pred_cal": {
       "dtype": "float64"
@@ -75,6 +141,21 @@
       "dtype": "float64"
     },
     "dv_pct_pred_mean": {
+      "dtype": "float64"
+    },
+    "mag_duan": {
+      "dtype": "float64"
+    },
+    "mag_hetero": {
+      "dtype": "float64"
+    },
+    "mag_mq_shape": {
+      "dtype": "float64"
+    },
+    "mag_mq": {
+      "dtype": "float64"
+    },
+    "mag_two_part": {
       "dtype": "float64"
     },
     "q10": {
@@ -92,6 +173,18 @@
     "conformal_adj": {
       "dtype": "float64"
     },
+    "cat_clf": {
+      "dtype": "float64"
+    },
+    "logit": {
+      "dtype": "float64"
+    },
+    "xgb_clf": {
+      "dtype": "float64"
+    },
+    "clf_ens": {
+      "dtype": "float64"
+    },
     "y_pred_global": {
       "dtype": "float64"
     },
@@ -107,6 +200,9 @@
     "position_group": {
       "dtype": "object"
     },
+    "role": {
+      "dtype": "object"
+    },
     "category_3x3": {
       "dtype": "object"
     },
@@ -116,7 +212,19 @@
     "value_T2_last_obs": {
       "dtype": "float64"
     },
+    "target_missing_reason_T1": {
+      "dtype": "object"
+    },
+    "target_missing_reason_T2": {
+      "dtype": "object"
+    },
     "value_last_obs": {
+      "dtype": "float64"
+    },
+    "target_missing_reason": {
+      "dtype": "object"
+    },
+    "decision_score": {
       "dtype": "float64"
     },
     "dv_pct_pred": {

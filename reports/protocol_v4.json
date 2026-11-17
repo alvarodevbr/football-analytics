@@ -1,0 +1,288 @@
+{
+  "versao": "v4",
+  "referencia_v3": {
+    "commit_protocolo": "5573d7e",
+    "codigo_sha1": "4880677d1ec1",
+    "painel_md5": "667144f5f2",
+    "arquitetura_final": {
+      "T1": {
+        "approach": "Global",
+        "model": "ens"
+      },
+      "T2": {
+        "approach": "Pooling 3 × 3",
+        "model": "pool"
+      }
+    },
+    "observacao": "o teste de T+1 (2024/25) foi revelado na v3 em 23/10/2026; na v4 ele é semi-independente"
+  },
+  "painel_md5": "9bfdbda6da",
+  "n_variaveis": 125,
+  "variaveis_sha1": "38bb170fc5d3",
+  "fora_do_vetor": {
+    "club_elo_T": "cobertura mínima por temporada de 0% (< 90%)",
+    "club_elo_change_T": "cobertura mínima por temporada de 0% (< 90%)",
+    "tenure_years_T": "cobertura mínima por temporada de 80% (< 90%)",
+    "is_on_loan_T": "cobertura mínima por temporada de 80% (< 90%)",
+    "h2_minutes_share_T": "cobertura mínima por temporada de 0% (< 90%)",
+    "form_minutes_trend_T": "cobertura mínima por temporada de 0% (< 90%)",
+    "h2_xg_chain_p90_T": "cobertura mínima por temporada de 0% (< 90%)",
+    "post_valuation_minutes_T": "cobertura mínima por temporada de 0% (< 90%)",
+    "post_valuation_xg_xa_p90_T": "cobertura mínima por temporada de 0% (< 90%)",
+    "debut_second_half_T": "cobertura mínima por temporada de 0% (< 90%)",
+    "club_moved_mid_season_T": "cobertura mínima por temporada de 0% (< 90%)"
+  },
+  "dobras": {
+    "T1": [
+      [
+        [
+          "1819"
+        ],
+        [],
+        "1920"
+      ],
+      [
+        [
+          "1819",
+          "1920"
+        ],
+        [],
+        "2021"
+      ],
+      [
+        [
+          "1819",
+          "1920",
+          "2021"
+        ],
+        [],
+        "2122"
+      ],
+      [
+        [
+          "1819",
+          "1920",
+          "2021",
+          "2122"
+        ],
+        [],
+        "2223"
+      ],
+      [
+        [
+          "1819",
+          "1920",
+          "2021",
+          "2122",
+          "2223"
+        ],
+        [],
+        "2324"
+      ],
+      [
+        [
+          "1819",
+          "1920",
+          "2021",
+          "2122",
+          "2223",
+          "2324"
+        ],
+        [],
+        "2425"
+      ]
+    ],
+    "T2": [
+      [
+        [
+          "1819"
+        ],
+        [
+          "1920"
+        ],
+        "2021"
+      ],
+      [
+        [
+          "1819",
+          "1920"
+        ],
+        [
+          "2021"
+        ],
+        "2122"
+      ],
+      [
+        [
+          "1819",
+          "1920",
+          "2021"
+        ],
+        [
+          "2122"
+        ],
+        "2223"
+      ],
+      [
+        [
+          "1819",
+          "1920",
+          "2021",
+          "2122"
+        ],
+        [
+          "2223"
+        ],
+        "2324"
+      ]
+    ]
+  },
+  "dobras_de_otimizacao": {
+    "T1": [
+      "2122",
+      "2223",
+      "2324"
+    ],
+    "T2": [
+      "2021",
+      "2122",
+      "2223"
+    ]
+  },
+  "teste_final": {
+    "T1": "2425",
+    "T2": "2324"
+  },
+  "alvo_de_treino": {
+    "T1": "nominal",
+    "T2": "nominal"
+  },
+  "otimizacao": {
+    "metodo": "skopt.gp_minimize",
+    "avaliacoes": {
+      "global": 20,
+      "ridge": 15,
+      "segment": 10
+    },
+    "taxa_de_aprendizado": 0.05,
+    "parada_antecipada": "última temporada do treino (purga de 1 em T+2), paciência 40, até 1.000 árvores"
+  },
+  "hiperparametros": {
+    "T1": {
+      "ridge": {
+        "alpha": 236.9502608278
+      },
+      "rf": {
+        "max_depth": 25,
+        "min_samples_leaf": 6,
+        "max_features": "0.2"
+      },
+      "xgb": {
+        "max_depth": 2,
+        "min_child_weight": 5.6641875092,
+        "reg_lambda": 100.0,
+        "subsample": 0.5,
+        "colsample_bytree": 0.3154333232
+      },
+      "cat": {
+        "depth": 4,
+        "l2_leaf_reg": 10.9396723586,
+        "random_strength": 0.4705083699
+      },
+      "xgb_ic": {
+        "max_depth": 2,
+        "min_child_weight": 36.3654540003,
+        "reg_lambda": 2.268061171,
+        "subsample": 0.8121351507,
+        "colsample_bytree": 0.4368254355
+      },
+      "ridge_ic": {
+        "alpha": 274.4993575323
+      }
+    },
+    "T2": {
+      "ridge": {
+        "alpha": 189.1422414047
+      },
+      "rf": {
+        "max_depth": 24,
+        "min_samples_leaf": 1,
+        "max_features": "0.2"
+      },
+      "xgb": {
+        "max_depth": 2,
+        "min_child_weight": 34.5617640755,
+        "reg_lambda": 4.670162645,
+        "subsample": 0.9999678997,
+        "colsample_bytree": 0.4857733847
+      },
+      "cat": {
+        "depth": 3,
+        "l2_leaf_reg": 17.2493215732,
+        "random_strength": 1.9123099563
+      },
+      "xgb_ic": {
+        "max_depth": 2,
+        "min_child_weight": 1.0,
+        "reg_lambda": 100.0,
+        "subsample": 0.5735498624,
+        "colsample_bytree": 0.9464064118
+      },
+      "ridge_ic": {
+        "alpha": 236.9502608278
+      }
+    }
+  },
+  "ensemble": [
+    "cat",
+    "xgb",
+    "ridge"
+  ],
+  "ensemble_interacoes": [
+    "cat",
+    "xgb_ic",
+    "ridge_ic"
+  ],
+  "arquitetura_final": {
+    "T1": {
+      "approach": "Global com interações",
+      "model": "ens_ic"
+    },
+    "T2": {
+      "approach": "Global",
+      "model": "ens"
+    }
+  },
+  "pooling_kappa": {
+    "4 × 3 T+1": 3200.0,
+    "4 × 3 T+2": 1600.0,
+    "3 × 3 T+1": 3200.0,
+    "3 × 3 T+2": 1600.0
+  },
+  "camada_de_magnitude": {
+    "T1": "mq_shape",
+    "T2": "hetero"
+  },
+  "probabilidade_de_decisao": {
+    "T1": "dv_pct_pred_mean",
+    "T2": "clf_ens"
+  },
+  "codigo_sha1": "d0c1a7550400",
+  "intervalos": "quantis P10/P90 do CatBoost multiquantil (interpolados entre os níveis vizinhos), conformalizados sequencialmente (nominal 80%) com o histórico da camada de magnitude",
+  "hipoteses": {
+    "H1": "No teste final, retirar o bloco desempenho em T e T−1 + valor justo aumenta a RMSE, com p de Holm < 0,05 (teste pareado por cluster; família: as especificações distintas da ablação).",
+    "H2": "No teste final, o conjunto de confiança dos modelos (MCS, 10%) contém uma arquitetura 4 × 3 (segmentada ou pooling) e exclui o ensemble global e as arquiteturas 3 × 3.",
+    "H3": "No teste final, a mediana de ΔV% do quintil mais subavaliado do gap supera a do mais sobreavaliado, com ICs de 95% (bootstrap por cluster) disjuntos.",
+    "H4": "No cenário principal (custos de 10% na compra e na venda; quem se aposenta ou fica sem clube vale zero e quem só ficou sem avaliação recente vale o último valor; todos os candidatos), a carteira do decil superior previsto supera a aleatória em todas as temporadas de T+1 (teste do sinal) e, na média das temporadas, as heurísticas de momentum, juventude, 10% mais jovens e jovens titulares. Métricas de decisão pré-registradas: AUC, acerto do decil superior contra a taxa-base e ROI líquido.",
+    "H5": "No SHAP do ensemble global final, a participação do desempenho no |SHAP| é maior na faixa 24–28 que na 33+, com IC de 95% da diferença (bootstrap por cluster) acima de zero."
+  },
+  "regras": [
+    "Alvo de treino: o modo (nominal, excesso com drift médio, excesso com drift de regime) com menor RMSE média do ensemble nas dobras de desenvolvimento, com hiperparâmetros-padrão.",
+    "Arquitetura final = ensemble global, salvo alternativa com RMSE de validação menor e p de Holm < 0,05 no teste pareado com dois agrupamentos (jogador; clube × temporada); família de Holm: as 7 alternativas de cada horizonte; entre as que passam, a de menor RMSE.",
+    "Camada de magnitude: a de menor erro absoluto médio entre ΔV% previsto e observado por decil nas dobras de desenvolvimento com histórico; empate fica com a mais simples (Duan, heterocedástica, forma multiquantil, multiquantil, duas partes).",
+    "Probabilidade de pagar a operação: a de menor Brier médio nas dobras de desenvolvimento com histórico, entre a regressão (ΔV% esperado) e os classificadores diretos, todas calibradas por isotônica com as dobras anteriores.",
+    "Taxas por 90 com encolhimento empírico-bayesiano por temporada × papel tático no vetor principal; as cruas entram só na robustez.",
+    "Membros do ensemble fixados a priori (CatBoost, XGBoost, Ridge), média simples.",
+    "Nenhuma métrica do teste final é calculada na v4 antes do commit deste arquivo."
+  ]
+}

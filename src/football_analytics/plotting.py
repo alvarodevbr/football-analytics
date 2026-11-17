@@ -38,6 +38,8 @@ SEQUENTIAL = LinearSegmentedColormap.from_list(
     "seq_blue", ["#f4f8fe", "#cde2fb", "#86b6ef", "#3987e5", "#1c5cab", "#0d366b"]
 )
 DIVERGING = LinearSegmentedColormap.from_list("div_red_blue", [RED, NEUTRAL_LIGHT, BLUE])
+# Cor do valor da variável no enxame SHAP, na convenção do pacote shap: azul = baixo, vermelho = alto.
+SHAP_VALUE_CMAP = LinearSegmentedColormap.from_list("shap_blue_red", [BLUE, NEUTRAL_LIGHT, RED])
 
 # Largura útil de uma página A4 com margens ABNT (3 cm + 2 cm): 16 cm.
 TEXT_WIDTH_IN = 16 / 2.54
@@ -159,7 +161,8 @@ def beeswarm(ax: plt.Axes, phi: pd.DataFrame, values: pd.DataFrame, features: li
     """Gráfico de enxame SHAP no estilo do projeto (substitui `shap.summary_plot`).
 
     Cada linha é uma variável; a dispersão vertical é proporcional à densidade local dos valores
-    SHAP e a cor é o percentil do valor da variável (vermelho = baixo, azul = alto).
+    SHAP e a cor é o percentil do valor da variável, na convenção do pacote shap (azul = baixo,
+    vermelho = alto).
     """
     import numpy as np
 
@@ -174,10 +177,10 @@ def beeswarm(ax: plt.Axes, phi: pd.DataFrame, values: pd.DataFrame, features: li
         rank = pd.Series(v).rank(pct=True).to_numpy()
         missing = np.isnan(v)
         ax.scatter(x[missing], y[missing], s=3, color=NEUTRAL, linewidths=0, alpha=0.5, rasterized=True)
-        ax.scatter(x[~missing], y[~missing], s=3, c=rank[~missing], cmap=DIVERGING, vmin=0, vmax=1,
+        ax.scatter(x[~missing], y[~missing], s=3, c=rank[~missing], cmap=SHAP_VALUE_CMAP, vmin=0, vmax=1,
                    linewidths=0, alpha=0.6, rasterized=True)
     ax.axvline(0, color=INK_MUTED, linewidth=0.8)
     ax.set_yticks(range(len(features)), labels)
     ax.set_ylim(len(features) - 0.5, -0.5)
     ax.grid(axis="y", visible=False)
-    return mpl.cm.ScalarMappable(cmap=DIVERGING, norm=mpl.colors.Normalize(0, 1))
+    return mpl.cm.ScalarMappable(cmap=SHAP_VALUE_CMAP, norm=mpl.colors.Normalize(0, 1))

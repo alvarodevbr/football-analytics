@@ -155,6 +155,8 @@
   \gdef\artigo@orientacao{#2: #3\artigo@nota{#1}\par}}
 \newcommand{\artigo@nota}[1]{\if\relax\detokenize{#1}\relax\else\footnote{#1}\fi}
 \newcommand{\palavraschave}[1]{\gdef\artigo@palavraschave{#1}}
+\newcommand*{\artigo@keywords}{}
+\newcommand{\palavraschaveingles}[1]{\gdef\artigo@keywords{#1}}
 
 \newcommand{\imprimircabecalho}{%
   \thispagestyle{artigo}%
@@ -173,6 +175,31 @@
   \par
   \vspace{\artigolinha}%
   \noindent\textbf{Palavras-chave:} \artigo@palavraschave\par
+  \vspace{\artigolinha}%
+}
+
+% resumo em língua estrangeira (NBR 6022:2018): ABSTRACT e Keywords, logo após o resumo
+\renewenvironment{abstract}{%
+  \begin{otherlanguage*}{english}%
+  {\centering\ABNTEXsectionfont\ABNTEXsectionfontsize ABSTRACT\par}%
+  \vspace{\artigolinha}%
+  \noindent\ignorespaces
+}{%
+  \par
+  \vspace{\artigolinha}%
+  \noindent\textbf{Keywords:} \artigo@keywords\par
+  \vspace{\artigolinha}%
+  \end{otherlanguage*}%
+}
+
+% apêndices depois das referências: \apendice{Título} → "APÊNDICE A – TÍTULO"; \label dá "A" no \ref
+\newcounter{artigo@apendice}
+\renewcommand{\theartigo@apendice}{\Alph{artigo@apendice}}
+\newcommand{\apendice}[1]{%
+  \par\needspace{4\artigolinha}\vspace{\artigolinha}%
+  \refstepcounter{artigo@apendice}\phantomsection
+  \addcontentsline{toc}{section}{APÊNDICE \theartigo@apendice\ -- #1}%
+  {\centering\ABNTEXsectionfont\ABNTEXsectionfontsize APÊNDICE \theartigo@apendice\ -- \MakeTextUppercase{#1}\par}%
   \vspace{\artigolinha}%
 }
 

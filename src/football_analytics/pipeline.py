@@ -62,6 +62,15 @@ def run_understat(cfg: ExtractionConfig) -> pd.DataFrame:
     return df
 
 
+def run_understat_matches(cfg: ExtractionConfig) -> pd.DataFrame:
+    """Uma linha por jogador e partida: base da forma intra-temporada e do clube em 30/jun."""
+    limit = cfg.max_fetches_per_run
+    df = understat.read_player_matches(cfg, max_matches=limit)
+    save_table(df, interim(cfg, "understat_player_match"),
+               source="understat.com getMatchData via soccerdata (escalações por partida)")
+    return df
+
+
 def run_sofascore(cfg: ExtractionConfig) -> pd.DataFrame:
     collector = sofascore.SofascoreCollector(cfg)
     df = collector.collect(cfg.leagues, cfg.seasons)
@@ -268,6 +277,36 @@ def run_tm_players(cfg: ExtractionConfig, players: pd.DataFrame) -> dict[str, pd
     save_table(transfers_long, interim(cfg, "tm_transfers_long"), source="transfermarkt ceapi/transferHistory")
     save_table(status, interim(cfg, "tm_fetch_status"), source="cobertura da coleta por jogador no Transfermarkt")
     return {"market_values": mv_long, "profiles": profiles_df, "transfers": transfers_long, "status": status}
+
+
+def target_universe_players(cfg: ExtractionConfig, fb: pd.DataFrame, tm_match: pd.DataFrame,
+                            players: pd.DataFrame, min_minutes: float = 90) -> pd.DataFrame:
+    """Subconjunto de `players` no universo-alvo: jogador de linha com ≥ `min_minutes` em alguma
+    temporada de referência. Limita as coletas caras por jogador (lesões) a quem pode entrar no painel."""
+    rows = fb.reset_index(drop=True).loc[tm_match["left_index"].astype(int)].reset_index(drop=True)
+    keep = (rows["season"].isin(cfg.feature_seasons) & ~rows["is_goalkeeper"].astype(bool)
+            & (rows["fb_minutes"].fillna(0) >= min_minutes)).to_numpy()
+    ids = set(tm_match.loc[keep, "tm_player_id"].dropna().astype("int64"))
+    return players[players["tm_player_id"].astype("int64").isin(ids)].reset_index(drop=True)
+
+
+def run_tm_injuries(cfg: ExtractionConfig, players: pd.DataFrame) -> dict[str, pd.DataFrame]:
+    """Histórico datado de lesões (``/verletzungen/``), retomável como as demais coletas por jogador."""
+    client = tm_client(cfg)
+    failed = cfg.paths.transfermarkt / "failed_fetches.json"
+    got, _ = transfermarkt.fetch_for_players(
+        client, players, "injuries", lambda pid, slug: client.injuries(pid, slug), failed,
+        cfg.max_fetches_per_run)
+    columns = ["tm_player_id", "injury_season", "injury", "injury_from", "injury_until", "injury_days",
+               "games_missed"]
+    injuries = pd.DataFrame([{"tm_player_id": pid, **row} for pid, rows in got.items() for row in rows],
+                            columns=columns)
+    status = pd.DataFrame({"tm_player_id": players["tm_player_id"].astype("int64")})
+    status["has_injuries"] = status["tm_player_id"].isin(list(got))
+    save_table(injuries, interim(cfg, "tm_injuries_long"),
+               source="transfermarkt /verletzungen/ (histórico datado; `until` é posterior à âncora em lesões em curso)")
+    save_table(status, interim(cfg, "tm_injuries_status"), source="cobertura da coleta de lesões por jogador")
+    return {"injuries": injuries, "status": status}
 
 
 # ----------------------------------------------------------------------------------------------

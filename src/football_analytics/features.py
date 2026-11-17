@@ -233,6 +233,18 @@ def _group_keys(groups: pd.DataFrame | pd.Series) -> pd.Series:
     return groups.astype(str).fillna("NA").agg("|".join, axis=1)
 
 
+def _gamma_prior(cg: pd.Series, eg: pd.Series, min_exposure: float) -> tuple[float, float] | None:
+    """(α, β) da a priori Gamma de um grupo por momentos; None se não houver taxa positiva."""
+    fit = eg >= min_exposure
+    mu = cg[fit].sum() / eg[fit].sum() if fit.sum() >= 3 else 0.0
+    if mu <= 0:
+        return None
+    rate = cg[fit] / eg[fit]
+    s2 = float((eg[fit] * (rate - mu) ** 2).sum() / eg[fit].sum())
+    tau2 = max(s2 - mu / float(eg[fit].mean()), 1e-12)
+    return mu ** 2 / tau2, mu / tau2
+
+
 def shrink_counts(counts: pd.Series, exposure: pd.Series, groups: pd.DataFrame | pd.Series,
                   min_exposure: float = 1.0) -> pd.Series:
     """Taxas por unidade de exposição com encolhimento Gamma–Poisson (Clayton e Kaldor, 1987;
@@ -252,15 +264,11 @@ def shrink_counts(counts: pd.Series, exposure: pd.Series, groups: pd.DataFrame |
     keys = _group_keys(groups)
     for _, idx in keys[ok].groupby(keys[ok]).groups.items():
         cg, eg = c.loc[idx].clip(lower=0), e.loc[idx]
-        fit = eg >= min_exposure
-        mu = cg[fit].sum() / eg[fit].sum() if fit.sum() >= 3 else 0.0
-        if mu <= 0:
+        prior = _gamma_prior(cg, eg, min_exposure)
+        if prior is None:
             out.loc[idx] = cg / eg
             continue
-        rate = cg[fit] / eg[fit]
-        s2 = float((eg[fit] * (rate - mu) ** 2).sum() / eg[fit].sum())
-        tau2 = max(s2 - mu / float(eg[fit].mean()), 1e-12)
-        alpha, beta = mu ** 2 / tau2, mu / tau2
+        alpha, beta = prior
         out.loc[idx] = (alpha + cg) / (beta + eg)
     return out
 
@@ -295,6 +303,19 @@ def shrink_proportions(successes: pd.Series, attempts: pd.Series, groups: pd.Dat
     return out
 
 
+def _normal_prior(xg: pd.Series, wg: pd.Series, n_bins: int, min_weight: float) -> tuple[float, float, float] | None:
+    """(μ, τ², σ²) da a priori normal de um grupo pelos momentos por faixa de peso; None se faltar dado."""
+    fit = wg >= min_weight
+    if fit.sum() < 5 * n_bins:
+        return None
+    mu = float((wg[fit] * xg[fit]).sum() / wg[fit].sum())
+    bins = pd.qcut(wg[fit].rank(method="first"), n_bins, labels=False)
+    moments = pd.DataFrame({"var": xg[fit].groupby(bins).var(), "inv_w": (1 / wg[fit]).groupby(bins).mean()})
+    design = np.column_stack([np.ones(len(moments)), moments["inv_w"].to_numpy()])
+    (tau2, sigma2), *_ = np.linalg.lstsq(design, moments["var"].to_numpy(), rcond=None)
+    return mu, max(float(tau2), 1e-12), max(float(sigma2), 0.0)
+
+
 def shrink_means(values: pd.Series, weights: pd.Series, groups: pd.DataFrame | pd.Series,
                  n_bins: int = 5, min_weight: float = 1.0) -> pd.Series:
     """Médias com encolhimento normal–normal: x̂ = μ + B(x − μ), B = τ²/(τ² + σ²/w).
@@ -312,18 +333,63 @@ def shrink_means(values: pd.Series, weights: pd.Series, groups: pd.DataFrame | p
     keys = _group_keys(groups)
     for _, idx in keys[ok].groupby(keys[ok]).groups.items():
         xg, wg = x.loc[idx], w.loc[idx]
-        fit = wg >= min_weight
-        if fit.sum() < 5 * n_bins:
+        prior = _normal_prior(xg, wg, n_bins, min_weight)
+        if prior is None:
             out.loc[idx] = xg
             continue
-        mu = float((wg[fit] * xg[fit]).sum() / wg[fit].sum())
-        bins = pd.qcut(wg[fit].rank(method="first"), n_bins, labels=False)
-        moments = pd.DataFrame({"var": xg[fit].groupby(bins).var(), "inv_w": (1 / wg[fit]).groupby(bins).mean()})
-        design = np.column_stack([np.ones(len(moments)), moments["inv_w"].to_numpy()])
-        (tau2, sigma2), *_ = np.linalg.lstsq(design, moments["var"].to_numpy(), rcond=None)
-        tau2, sigma2 = max(float(tau2), 1e-12), max(float(sigma2), 0.0)
+        mu, tau2, sigma2 = prior
         shrink = tau2 / (tau2 + sigma2 / wg)
         out.loc[idx] = mu + shrink * (xg - mu)
+    return out
+
+
+def tail_probability_counts(counts: pd.Series, exposure: pd.Series, groups: pd.DataFrame | pd.Series,
+                            q: float = 0.75, ref_min_exposure: float = 10.0,
+                            min_exposure: float = 1.0) -> pd.Series:
+    """Surpresa de cauda: P(λ_i > λ_q do grupo | c_i, e_i) na posteriori Gamma(α + c, β + e).
+
+    λ_q é o quantil `q` das taxas cruas de quem tem exposição ≥ `ref_min_exposure` (10 = 900
+    minutos) no grupo. O encolhimento leva um jovem de 200 minutos explosivos e um veterano mediano
+    de 1.500 minutos à mesma média a posteriori; a probabilidade de cauda os separa, porque a
+    incerteza do primeiro ainda deixa massa acima de λ_q.
+    """
+    c, e = counts.astype(float), exposure.astype(float)
+    ok = c.notna() & e.notna() & (e > 0)
+    out = pd.Series(np.nan, index=counts.index)
+    keys = _group_keys(groups)
+    for _, idx in keys[ok].groupby(keys[ok]).groups.items():
+        cg, eg = c.loc[idx].clip(lower=0), e.loc[idx]
+        prior = _gamma_prior(cg, eg, min_exposure)
+        ref = eg >= ref_min_exposure
+        if prior is None or ref.sum() < 5:
+            continue
+        alpha, beta = prior
+        lam_q = float((cg[ref] / eg[ref]).quantile(q))
+        out.loc[idx] = stats.gamma.sf(lam_q, a=alpha + cg, scale=1 / (beta + eg))
+    return out
+
+
+def tail_probability_means(values: pd.Series, weights: pd.Series, groups: pd.DataFrame | pd.Series,
+                           q: float = 0.75, ref_min_weight: float = 10.0, n_bins: int = 5,
+                           min_weight: float = 1.0) -> pd.Series:
+    """Análogo de `tail_probability_counts` no modelo normal–normal (nota média): P(θ_i > θ_q | x_i)."""
+    x, w = values.astype(float), weights.astype(float)
+    ok = x.notna() & w.notna() & (w > 0)
+    out = pd.Series(np.nan, index=values.index)
+    keys = _group_keys(groups)
+    for _, idx in keys[ok].groupby(keys[ok]).groups.items():
+        xg, wg = x.loc[idx], w.loc[idx]
+        prior = _normal_prior(xg, wg, n_bins, min_weight)
+        ref = wg >= ref_min_weight
+        if prior is None or ref.sum() < 5:
+            continue
+        mu, tau2, sigma2 = prior
+        theta_q = float(xg[ref].quantile(q))
+        shrink = tau2 / (tau2 + sigma2 / wg)
+        post_mean = mu + shrink * (xg - mu)
+        post_sd = np.sqrt(shrink * sigma2 / wg)
+        out.loc[idx] = np.where(post_sd > 0, stats.norm.sf(theta_q, loc=post_mean, scale=post_sd.where(post_sd > 0, 1.0)),
+                                (post_mean > theta_q).astype(float))
     return out
 
 
@@ -366,13 +432,26 @@ SHRUNK_FEATURES: tuple[str, ...] = (
 )
 
 
+# Surpresa de cauda (P de a taxa verdadeira superar o 3º quartil do papel tático): contagens somadas
+# e minutos da mesma fonte. A nota do Sofascore usa o modelo normal–normal.
+TAIL_COUNTS: dict[str, tuple[tuple[str, ...], str]] = {
+    "tail_xg_xa_p90": (("us_xg", "us_xa"), "us_minutes"),
+    "tail_key_passes_p90": (("ss_key_passes",), "ss_minutes_played"),
+    "tail_dribbles_p90": (("ss_successful_dribbles",), "ss_minutes_played"),
+    "tail_tackles_interceptions_p90": (("ss_tackles", "ss_interceptions"), "ss_minutes_played"),
+}
+TAIL_FEATURES: tuple[str, ...] = (*TAIL_COUNTS, "tail_sofascore_rating")
+
+
 def performance_features(ps: pd.DataFrame, shrink: bool = True,
-                         group_cols: tuple[str, ...] = ("season", "position_group")) -> pd.DataFrame:
+                         group_cols: tuple[str, ...] = ("season", "role")) -> pd.DataFrame:
     """Taxas por 90 minutos (minutos da própria fonte), eficiências e volume de participação.
 
     Com `shrink`, as taxas e eficiências passam pelo encolhimento empírico-bayesiano por temporada
-    × posição, e as versões cruas ficam em colunas `<nome>_raw`. O volume (minutos, jogos,
-    titularidade) não é encolhido: ele é a própria exposição.
+    × papel tático (zagueiro, lateral, volante, meia central, meia ofensivo ou ponta, centroavante),
+    e as versões cruas ficam em colunas `<nome>_raw`; as probabilidades de cauda (`tail_*`) guardam
+    o sinal de quem tem poucos minutos e taxa alta. O volume (minutos, jogos, titularidade) não é
+    encolhido: ele é a própria exposição.
     """
     ps = ps.copy()
     ps["ss_errors"] = ps["ss_error_lead_to_shot"].fillna(0) + ps["ss_error_lead_to_goal"].fillna(0)
@@ -409,6 +488,14 @@ def performance_features(ps: pd.DataFrame, shrink: bool = True,
     else:
         out["xg_per_shot"] = shrink_means(raw["xg_per_shot"], ps["us_shots"], groups)
         out["sofascore_rating"] = shrink_means(raw["sofascore_rating"], ps["ss_minutes_played"] / 90, groups)
+    # participação na construção: fração do xGChain que não vem do chute nem do passe final
+    out["xg_buildup_share"] = _ratio(out["xg_buildup_p90"], out["xg_chain_p90"]).clip(0, 1)
+    if groups is not None:
+        for name, (counts, minutes) in TAIL_COUNTS.items():
+            out[name] = tail_probability_counts(ps[list(counts)].sum(axis=1, min_count=len(counts)),
+                                                ps[minutes] / 90, groups)
+        out["tail_sofascore_rating"] = tail_probability_means(raw["sofascore_rating"], ps["ss_minutes_played"] / 90,
+                                                              groups)
     # volume e participação
     out["minutes"] = ps["fb_minutes"]
     out["minutes_share_pct"] = ps["fb_minutes_pct"]
@@ -477,6 +564,8 @@ def market_features(ps: pd.DataFrame, universe: pd.DataFrame) -> pd.DataFrame:
     out = pd.DataFrame(index=ps.index)
     out["value_T"] = ps["tm_value_T"]
     out["log_value_T"] = np.log(ps["tm_value_T"].where(ps["tm_value_T"] > 0))
+    # defasagem da avaliação: desempenho de T posterior a ela ainda não está no preço
+    out["days_since_valuation_T"] = ps["tm_value_days_stale_T"].astype(float)
     out["log_club_value_T"] = np.log(merged["club_value_T"])
     out["value_share_of_club"] = ps["tm_value_T"] / merged["club_value_T"]
     out["club_value_rank_pct"] = merged["club_value_rank_pct"]
@@ -519,7 +608,7 @@ def market_regime(universe: pd.DataFrame, market_values: pd.DataFrame,
 
 MARKET_HISTORY: tuple[str, ...] = (
     "mkt_log_return_6m", "mkt_last_change", "mkt_days_since_change", "mkt_n_revisions_12m",
-    "mkt_n_up_24m", "mkt_n_down_24m", "mkt_volatility_24m", "mkt_peak_gap",
+    "mkt_n_up_24m", "mkt_n_down_24m", "mkt_volatility_24m", "mkt_peak_gap", "mkt_years_since_peak",
 )
 
 
@@ -528,7 +617,9 @@ def market_history(rows: pd.DataFrame, market_values: pd.DataFrame) -> pd.DataFr
 
     Captura a ancoragem e o ajuste gradual dos avaliadores com mais resolução que o log-retorno
     anual: variação nos últimos seis meses, tamanho e idade da última revisão, frequência e
-    direção das revisões em 24 meses, volatilidade e distância ao pico histórico do atleta.
+    direção das revisões em 24 meses, volatilidade, distância ao pico histórico do atleta e tempo
+    decorrido desde esse pico (separa a queda pontual de um jovem do declínio estrutural de um
+    veterano). O pico é o da lista datada até a âncora, não o "maior valor" do perfil, que é atual.
     """
     from .config import Season
 
@@ -560,6 +651,7 @@ def market_history(rows: pd.DataFrame, market_values: pd.DataFrame) -> pd.DataFr
                     "mkt_n_down_24m": float((recent < 0).sum()),
                     "mkt_volatility_24m": float(recent.std()) if len(recent) >= 2 else np.nan,
                     "mkt_peak_gap": logv[-1] - logv.max(),
+                    "mkt_years_since_peak": float((anchor - dates[np.flatnonzero(logv == logv.max())[-1]]) / day) / 365.25,
                 })
         records.append(rec)
     return pd.DataFrame(records, index=rows.index)
@@ -569,55 +661,280 @@ def market_history(rows: pd.DataFrame, market_values: pd.DataFrame) -> pd.DataFr
 # construídas a partir do próprio V_T (participação no elenco, momentum, valor do elenco).
 FAIR_VALUE_EXCLUDE: frozenset[str] = frozenset({
     "log_value_T", "value_share_of_club", "log_return_lag1", "log_return_lag2", "log_club_value_T",
-    "club_value_rank_pct", "club_value_rank_in_league", *MARKET_HISTORY,
+    "club_value_rank_pct", "club_value_rank_in_league", "days_since_valuation_T", *MARKET_HISTORY,
 })
 
 
-def valuation_gap(panel: pd.DataFrame, features: list[str], n_splits: int = 5, seed: int = 42) -> pd.DataFrame:
-    """Valor justo em T e o gap de avaliação ln(V_T) − valor justo (negativo = subavaliado).
+# O valor justo "só desempenho" também ignora a liga e o contexto do clube: compara o atleta com quem
+# rende o mesmo em qualquer clube, de modo que o gap correspondente mede o desconto do clube modesto.
+CLUB_CONTEXT_FEATURES: frozenset[str] = frozenset({
+    "league_rank_pct_T", "league_gd_per_match_T", "promoted_T", "relegated_T", "europe_T", "club_elo_T",
+    "club_elo_change_T", "team_points_per_game", "market_log_return_lag1_T", "league_log_return_lag1_T",
+    "tenure_years_T", "is_on_loan_T",
+})
 
-    O valor justo é a previsão de ln(V_T) a partir do desempenho em T, estimada **dentro de cada
-    temporada** (corte transversal: todos os V_T de T são públicos em T, sem informação futura) por
-    validação cruzada em K partes. Assim, o gap de cada atleta vem de um modelo que não o viu.
-    """
-    from sklearn.model_selection import KFold
+
+def _out_of_fold_fair_value(X: pd.DataFrame, y: pd.Series, seasons: pd.Series, clubs: pd.Series,
+                            n_splits: int, seed: int) -> pd.Series:
+    from sklearn.model_selection import GroupKFold
     from xgboost import XGBRegressor
 
-    cols = [c for c in features if c not in FAIR_VALUE_EXCLUDE]
-    X = panel[cols].astype(float).join(pd.get_dummies(panel[["league", "position_group"]], dtype=float))
-    y = np.log(panel["value_T"].astype(float))
-    fair = pd.Series(np.nan, index=panel.index)
-    for _, idx in panel.groupby("season").groups.items():
+    fair = pd.Series(np.nan, index=X.index)
+    for _, idx in seasons.groupby(seasons).groups.items():
         idx = np.asarray(list(idx))
-        for train, test in KFold(n_splits, shuffle=True, random_state=seed).split(idx):
+        for train, test in GroupKFold(n_splits).split(idx, groups=clubs.loc[idx].astype(str)):
             model = XGBRegressor(n_estimators=300, max_depth=4, learning_rate=0.05, subsample=0.8,
                                  colsample_bytree=0.7, max_bin=64, n_jobs=4, random_state=seed, verbosity=0)
             model.fit(X.loc[idx[train]], y.loc[idx[train]])
             fair.loc[idx[test]] = model.predict(X.loc[idx[test]])
-    return pd.DataFrame({"fair_log_value_T": fair, "value_gap_T": y - fair}, index=panel.index)
+    return fair
+
+
+def valuation_gap(panel: pd.DataFrame, features: list[str], n_splits: int = 5, seed: int = 42,
+                  club_col: str = "fbref_team_id") -> pd.DataFrame:
+    """Valor justo em T e o gap de avaliação ln(V_T) − valor justo (negativo = subavaliado).
+
+    O valor justo é a previsão de ln(V_T) a partir do desempenho em T, estimada **dentro de cada
+    temporada** (corte transversal: todos os V_T de T são públicos em T, sem informação futura) por
+    validação cruzada em K partes **agrupadas por clube**: o modelo que avalia um atleta não viu
+    nenhum companheiro de elenco, e não aprende o prestígio do clube pelos colegas. Duas versões:
+
+    * completa (`value_gap_T`): desempenho, idade, posição, liga e contexto do clube;
+    * só desempenho (`value_gap_perf_T`): sem liga nem contexto do clube.
+
+    `fair_log_value_T` = ln(V_T) − `value_gap_T` vai para a auditoria: com ln(V_T) e o gap no vetor,
+    ele seria uma combinação linear exata dos dois.
+    """
+    cols = [c for c in features if c not in FAIR_VALUE_EXCLUDE]
+    cats = [c for c in ("league", "position_group", "role") if c in panel]
+    y = np.log(panel["value_T"].astype(float))
+    full = panel[cols].astype(float).join(pd.get_dummies(panel[cats], dtype=float))
+    perf_cols = [c for c in cols if c not in CLUB_CONTEXT_FEATURES]
+    perf = panel[perf_cols].astype(float).join(pd.get_dummies(panel[[c for c in cats if c != "league"]], dtype=float))
+    fair = _out_of_fold_fair_value(full, y, panel["season"], panel[club_col], n_splits, seed)
+    fair_perf = _out_of_fold_fair_value(perf, y, panel["season"], panel[club_col], n_splits, seed)
+    return pd.DataFrame({"fair_log_value_T": fair, "value_gap_T": y - fair,
+                         "fair_log_value_perf_T": fair_perf, "value_gap_perf_T": y - fair_perf}, index=panel.index)
 
 
 LAG_PERFORMANCE: tuple[str, ...] = (
     "minutes", "minutes_share_pct", "sofascore_rating", "goals_assists_p90", "xg_xa_p90", "key_passes_p90",
     "dribbles_p90", "tackles_interceptions_p90", "aerial_duels_won_p90", "pass_accuracy_pct",
 )
+BREAKOUT_MINUTES: tuple[float, float] = (900.0, 1800.0)  # de menos de 900 em T−1 para ao menos 1.800 em T
 
 
-def performance_lags(panel: pd.DataFrame, cols: tuple[str, ...] = LAG_PERFORMANCE) -> pd.DataFrame:
-    """Desempenho do mesmo atleta em T−1 nas Big Five (NaN se não atuou nelas)."""
+def _shift_seasons(panel: pd.DataFrame, cols: list[str], k: int, prefix: str) -> pd.DataFrame:
     from .config import Season
 
     prev = panel[["fbref_player_id", "season", *cols]].copy()
-    prev["season"] = prev["season"].map(lambda s: Season(s).offset(1).code)
-    prev = prev.rename(columns={c: f"lag1_{c}" for c in cols})
+    prev["season"] = prev["season"].map(lambda s: Season(s).offset(k).code)
+    prev = prev.rename(columns={c: f"{prefix}{c}" for c in cols})
     out = panel[["fbref_player_id", "season"]].merge(prev, on=["fbref_player_id", "season"], how="left")
     out.index = panel.index
-    out = out.drop(columns=["fbref_player_id", "season"])
+    return out.drop(columns=["fbref_player_id", "season"])
+
+
+def performance_lags(panel: pd.DataFrame, cols: tuple[str, ...] = LAG_PERFORMANCE) -> pd.DataFrame:
+    """Desempenho do mesmo atleta em T−1 nas Big Five (NaN se não atuou nelas) e a trajetória
+    T−2 → T−1 → T da participação nos minutos."""
+    out = _shift_seasons(panel, list(cols), 1, "lag1_")
     out["has_big5_lag1"] = out[f"lag1_{cols[0]}"].notna().astype(float)
     out["delta_minutes_share_pct"] = panel["minutes_share_pct"] - out["lag1_minutes_share_pct"]
     out["delta_sofascore_rating"] = panel["sofascore_rating"] - out["lag1_sofascore_rating"]
+    out["lag2_minutes_share_pct"] = _shift_seasons(panel, ["minutes_share_pct"], 2, "lag2_")["lag2_minutes_share_pct"]
+    # aceleração: a variação de T−1 para T menos a de T−2 para T−1
+    out["minutes_share_accel"] = out["delta_minutes_share_pct"] - (out["lag1_minutes_share_pct"]
+                                                                  - out["lag2_minutes_share_pct"])
+    low, high = BREAKOUT_MINUTES
+    out["breakout_starter_T"] = ((out["has_big5_lag1"] == 1) & (out["lag1_minutes"] < low)
+                                 & (panel["minutes"] >= high)).astype(float)
     return out
+
+
+def league_step_up(panel: pd.DataFrame) -> pd.Series:
+    """Chegou às Big Five em T (sem minutos nelas em T−1) e já jogou acima da mediana de participação
+    da temporada: a adaptação imediata de quem vem de outra liga ou da base."""
+    median = panel.groupby("season")["minutes_share_pct"].transform("median")
+    return ((panel["has_big5_lag1"] == 0) & (panel["minutes_share_pct"] >= median)).astype(float)
+
+
+# --------------------------------------------------------------------------------------------
+# Lesões (Transfermarkt, histórico datado)
+# --------------------------------------------------------------------------------------------
+INJURY_FEATURES: tuple[str, ...] = (
+    "injury_days_T", "injury_days_Tm1", "n_injuries_24m", "injured_at_anchor", "long_injury_at_anchor",
+)
+# Lesões graves pelo nome (ruptura de ligamento, fratura...). Sem o nome, uma lesão em curso há 60
+# dias ou mais na âncora também conta como longa.
+SEVERE_INJURY = ("cruciate", "acl", "ligament tear", "torn ligament", "ligament rupture", "fracture", "broken",
+                 "achilles tendon rupture", "ruptured", "meniscus", "cartilage")
+UNKNOWN_DURATION_DAYS = 14  # sem retorno nem duração publicados, a lesão é tratada como curta
+
+
+def injury_features(rows: pd.DataFrame, injuries: pd.DataFrame, collected: set[int],
+                    long_days: int = 60) -> pd.DataFrame:
+    """Disponibilidade física até a âncora de T, sem informação posterior a ela.
+
+    Os dias de lesão são a sobreposição de cada lesão com a janela de 12 meses até a âncora (T) ou
+    com a anterior (T−1), **truncada na âncora**: para quem está lesionado em 30/jun, a data de
+    retorno publicada hoje é futura e não entra. Atletas sem histórico coletado ficam ausentes;
+    coletados sem lesão, com zero.
+    """
+    from .config import Season
+
+    inj = injuries.dropna(subset=["injury_from"]).copy()
+    inj["start"] = pd.to_datetime(inj["injury_from"])
+    until = pd.to_datetime(inj["injury_until"])
+    by_days = inj["start"] + pd.to_timedelta(inj["injury_days"], unit="D")
+    inj["end"] = until.fillna(by_days).fillna(inj["start"] + pd.Timedelta(days=UNKNOWN_DURATION_DAYS))
+    inj["severe"] = inj["injury"].fillna("").str.lower().str.contains("|".join(SEVERE_INJURY), regex=True)
+    groups = {int(pid): g for pid, g in inj.groupby("tm_player_id")}
+    empty = inj.iloc[:0]
+    records = []
+    for pid, season in zip(rows["tm_player_id"], rows["season"]):
+        if pd.isna(pid) or int(pid) not in collected:
+            records.append(dict.fromkeys(INJURY_FEATURES, np.nan))
+            continue
+        g = groups.get(int(pid), empty)
+        anchor = pd.Timestamp(Season(season).end_anchor)
+        g = g[g["start"] <= anchor]
+        end = g["end"].clip(upper=anchor)
+
+        def overlap_days(lo: pd.Timestamp, hi: pd.Timestamp) -> float:
+            days = (end.clip(upper=hi) - g["start"].clip(lower=lo)).dt.days
+            return float(days.clip(lower=0).sum())
+
+        active = g[g["end"] > anchor]
+        long_active = active["severe"] | ((anchor - active["start"]).dt.days >= long_days)
+        records.append({
+            "injury_days_T": overlap_days(anchor - pd.Timedelta(days=365), anchor),
+            "injury_days_Tm1": overlap_days(anchor - pd.Timedelta(days=730), anchor - pd.Timedelta(days=365)),
+            "n_injuries_24m": float((g["start"] > anchor - pd.Timedelta(days=730)).sum()),
+            "injured_at_anchor": float(len(active) > 0),
+            "long_injury_at_anchor": float(bool(long_active.any())),
+        })
+    return pd.DataFrame(records, index=rows.index)
+
+
+# --------------------------------------------------------------------------------------------
+# Motivo da ausência do alvo (intenção de tratar)
+# --------------------------------------------------------------------------------------------
+CAREER_END_TAGS: frozenset[str] = frozenset({"Retired", "Without Club", "Career break"})
+
+
+def target_missing_reason(rows: pd.DataFrame, market_values: pd.DataFrame, profiles: pd.DataFrame,
+                          horizon: int, cutoff) -> pd.Series:
+    """Por que V_{T+k} falta: `observed`, `not_due` (30/jun de T+k ainda não chegou), `career_end`
+    (o último valor até T+k está marcado como aposentado, sem clube ou pausa na carreira, ou não há
+    valor depois de T e o perfil atual tem esse status) ou `stale` (avaliado, mas há mais de 183 dias,
+    em geral numa liga menor). No backtest, só `career_end` vale zero; `stale` vale o último valor."""
+    from .config import Season
+
+    mv = market_values.dropna(subset=["mv_date"]).assign(mv_date=lambda d: pd.to_datetime(d["mv_date"]))
+    mv = mv.sort_values(["tm_player_id", "mv_date"])
+    hist = {int(pid): g for pid, g in mv.groupby("tm_player_id")}
+    status = profiles.set_index("tm_player_id")["current_club"] if "current_club" in profiles else pd.Series(dtype=object)
+    status.index = status.index.astype("int64")
+    has = rows[f"tm_value_T{horizon}"].notna() & (rows[f"tm_value_T{horizon}"] > 0)
+    out = []
+    for pid, season, observed in zip(rows["tm_player_id"], rows["season"], has):
+        target_anchor = pd.Timestamp(Season(season).offset(horizon).end_anchor)
+        if observed:
+            out.append("observed")
+            continue
+        if target_anchor > pd.Timestamp(cutoff):
+            out.append("not_due")
+            continue
+        g = hist.get(int(pid)) if pd.notna(pid) else None
+        anchor = pd.Timestamp(Season(season).end_anchor)
+        last = g[g["mv_date"] <= target_anchor] if g is not None else None
+        tag = last["mv_club"].iloc[-1] if last is not None and len(last) else None
+        later = last is not None and (last["mv_date"] > anchor).any()
+        if tag in CAREER_END_TAGS or (not later and pd.notna(pid) and status.get(int(pid)) in CAREER_END_TAGS):
+            out.append("career_end")
+        else:
+            out.append("stale")
+    return pd.Series(out, index=rows.index, name=f"target_missing_reason_T{horizon}")
 
 
 def league_label(df: pd.DataFrame) -> pd.Series:
     return df["league"].map(LEAGUE_LABELS)
+
+
+# --------------------------------------------------------------------------------------------
+# Forma dentro da temporada (Understat, escalações por partida)
+# --------------------------------------------------------------------------------------------
+FORM_FEATURES: tuple[str, ...] = (
+    "h2_minutes_share_T", "form_minutes_trend_T", "h2_xg_chain_p90_T", "post_valuation_minutes_T",
+    "post_valuation_xg_xa_p90_T", "debut_second_half_T",
+)
+
+
+def match_form_features(rows: pd.DataFrame, matches: pd.DataFrame, groups: pd.DataFrame | pd.Series) -> pd.DataFrame:
+    """Forma no 2º turno e desempenho ainda não incorporado ao V_T, a partir das partidas do Understat.
+
+    `rows`: jogador–temporada com `season`, `understat_player_id` e `tm_value_date_T` (data da avaliação
+    usada como V_T). `matches`: uma linha por atleta e partida (`season`, `game_id`, `date`,
+    `understat_team_id`, `understat_player_id`, `us_minutes`, `us_xg`, `us_xa`, `us_xg_chain`).
+
+    * participação nos minutos no 2º turno (de 1º/jan ao fim da temporada), em % dos minutos possíveis
+      do último clube, e a tendência em relação ao 1º turno (do primeiro clube);
+    * xGChain por 90 no 2º turno, com o mesmo encolhimento gama–Poisson das taxas da temporada;
+    * minutos e xG + xA por 90 **depois da data de V_T**: desempenho que o mercado observa, mas que o
+      valor de T ainda não incorpora (zero quando a avaliação é posterior à última partida);
+    * estreia na temporada só no 2º turno (chegada em janeiro ou entrada tardia no elenco).
+
+    `groups` define as prioris do encolhimento (temporada × papel tático). Atletas sem partidas no
+    Understat ficam ausentes.
+    """
+    from .config import Season
+
+    m = matches.dropna(subset=["understat_player_id"]).copy()
+    m["date"] = pd.to_datetime(m["date"])
+    m["understat_player_id"] = m["understat_player_id"].astype("int64")
+    mid = {s: pd.Timestamp(f"{Season(s).start_year + 1}-01-01") for s in m["season"].unique()}
+    m["h2"] = m["date"] >= m["season"].map(mid)
+    team_games = m.drop_duplicates(["season", "game_id", "understat_team_id"]).groupby(
+        ["season", "understat_team_id", "h2"]).size()
+    out = pd.DataFrame(index=rows.index, columns=list(FORM_FEATURES), dtype=float)
+    counts = pd.DataFrame(index=rows.index, columns=["chain_h2", "exp_h2", "xgxa_post", "exp_post"], dtype=float)
+    by_player = {key: g.sort_values("date") for key, g in m.groupby(["season", "understat_player_id"])}
+    for idx, season, pid, vdate in zip(rows.index, rows["season"], rows["understat_player_id"], rows["tm_value_date_T"]):
+        g = by_player.get((season, int(pid))) if pd.notna(pid) else None
+        if g is None or g["us_minutes"].fillna(0).sum() <= 0:
+            continue
+        h1, h2 = g[~g["h2"]], g[g["h2"]]
+        first_team, last_team = g["understat_team_id"].iloc[0], g["understat_team_id"].iloc[-1]
+        poss1 = 90 * team_games.get((season, first_team, False), 0)
+        poss2 = 90 * team_games.get((season, last_team, True), 0)
+        share1 = h1["us_minutes"].sum() / poss1 * 100 if poss1 else np.nan
+        share2 = h2["us_minutes"].sum() / poss2 * 100 if poss2 else np.nan
+        post = g[g["date"] > pd.Timestamp(vdate)] if pd.notna(vdate) else g.iloc[:0]
+        out.loc[idx, ["h2_minutes_share_T", "form_minutes_trend_T", "debut_second_half_T", "post_valuation_minutes_T"]] = [
+            share2, share2 - share1, float(h1["us_minutes"].sum() == 0 and h2["us_minutes"].sum() > 0),
+            float(post["us_minutes"].sum())]
+        counts.loc[idx] = [h2["us_xg_chain"].sum(), h2["us_minutes"].sum() / 90,
+                           (post["us_xg"] + post["us_xa"]).sum(), post["us_minutes"].sum() / 90]
+    out["h2_xg_chain_p90_T"] = shrink_counts(counts["chain_h2"], counts["exp_h2"], groups)
+    out["post_valuation_xg_xa_p90_T"] = shrink_counts(counts["xgxa_post"], counts["exp_post"], groups)
+    return out
+
+
+def club_on_anchor(rows: pd.DataFrame, matches: pd.DataFrame, club_context: pd.DataFrame) -> pd.Series:
+    """Clube do atleta em 30/jun de T: o da sua última partida da temporada no Understat, traduzido para o
+    id do FBref pelo nome do clube no Understat (tabela de contexto do notebook 01). Ausente sem partidas.
+
+    Em transferências no meio da temporada, o clube com mais minutos (o "principal") pode não ser o de
+    30/jun, que é quem define rebaixamento, Europa e o valor do elenco que o atleta passa a integrar."""
+    m = matches.dropna(subset=["understat_player_id"]).assign(date=lambda d: pd.to_datetime(d["date"]))
+    last = (m.sort_values("date").groupby(["season", "understat_player_id"])["us_team"].last()
+            .rename("us_team").reset_index())
+    names = club_context.dropna(subset=["understat_team"]).drop_duplicates(["season", "understat_team"])
+    last = last.merge(names[["season", "understat_team", "fbref_team_id"]],
+                      left_on=["season", "us_team"], right_on=["season", "understat_team"], how="left")
+    key = pd.MultiIndex.from_frame(last[["season", "understat_player_id"]].astype({"understat_player_id": "int64"}))
+    lookup = pd.Series(last["fbref_team_id"].to_numpy(), index=key)
+    pids = rows["understat_player_id"]
+    out = [lookup.get((s, int(p))) if pd.notna(p) else None for s, p in zip(rows["season"], pids)]
+    return pd.Series(out, index=rows.index, name="fbref_team_id_anchor", dtype=object)

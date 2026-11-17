@@ -13,6 +13,7 @@
     "n_nationalities",
     "is_domestic",
     "log_value_T",
+    "days_since_valuation_T",
     "log_club_value_T",
     "value_share_of_club",
     "club_value_rank_pct",
@@ -43,6 +44,7 @@
     "npxg_p90",
     "xa_p90",
     "xg_xa_p90",
+    "tail_xg_xa_p90",
     "xg_per_shot",
     "finishing_overperf_p90",
     "big_chances_missed_p90",
@@ -51,6 +53,9 @@
     "big_chances_created_p90",
     "xg_chain_p90",
     "xg_buildup_p90",
+    "xg_buildup_share",
+    "tail_key_passes_p90",
+    "tail_dribbles_p90",
     "passes_p90",
     "accurate_passes_p90",
     "pass_accuracy_pct",
@@ -69,6 +74,7 @@
     "tackles_won_p90",
     "interceptions_p90",
     "tackles_interceptions_p90",
+    "tail_tackles_interceptions_p90",
     "clearances_p90",
     "dribbled_past_p90",
     "aerial_duels_won_p90",
@@ -83,6 +89,7 @@
     "red_cards_p90",
     "fouls_p90",
     "sofascore_rating",
+    "tail_sofascore_rating",
     "log_return_lag1",
     "log_return_lag2",
     "mkt_log_return_6m",
@@ -93,8 +100,9 @@
     "mkt_n_down_24m",
     "mkt_volatility_24m",
     "mkt_peak_gap",
-    "fair_log_value_T",
+    "mkt_years_since_peak",
     "value_gap_T",
+    "value_gap_perf_T",
     "has_big5_lag1",
     "lag1_minutes",
     "lag1_minutes_share_pct",
@@ -107,11 +115,21 @@
     "lag1_aerial_duels_won_p90",
     "lag1_pass_accuracy_pct",
     "delta_minutes_share_pct",
-    "delta_sofascore_rating"
+    "delta_sofascore_rating",
+    "lag2_minutes_share_pct",
+    "minutes_share_accel",
+    "breakout_starter_T",
+    "league_step_up_T",
+    "injury_days_T",
+    "injury_days_Tm1",
+    "n_injuries_24m",
+    "injured_at_anchor",
+    "long_injury_at_anchor"
   ],
   "categorical_features": [
     "league",
     "position_group",
+    "role",
     "age_band",
     "category",
     "age_band_3x3",
@@ -139,6 +157,18 @@
       "value_share_of_club",
       "club_value_rank_pct",
       "club_value_rank_in_league"
+    ],
+    "Dinâmica de mercado": [
+      "days_since_valuation_T",
+      "mkt_log_return_6m",
+      "mkt_last_change",
+      "mkt_days_since_change",
+      "mkt_n_revisions_12m",
+      "mkt_n_up_24m",
+      "mkt_n_down_24m",
+      "mkt_volatility_24m",
+      "mkt_peak_gap",
+      "mkt_years_since_peak"
     ],
     "Contexto": [
       "team_points_per_game",
@@ -171,6 +201,7 @@
       "npxg_p90",
       "xa_p90",
       "xg_xa_p90",
+      "tail_xg_xa_p90",
       "xg_per_shot",
       "finishing_overperf_p90",
       "big_chances_missed_p90",
@@ -181,6 +212,9 @@
       "big_chances_created_p90",
       "xg_chain_p90",
       "xg_buildup_p90",
+      "xg_buildup_share",
+      "tail_key_passes_p90",
+      "tail_dribbles_p90",
       "passes_p90",
       "accurate_passes_p90",
       "pass_accuracy_pct",
@@ -201,6 +235,7 @@
       "tackles_won_p90",
       "interceptions_p90",
       "tackles_interceptions_p90",
+      "tail_tackles_interceptions_p90",
       "clearances_p90",
       "dribbled_past_p90",
       "aerial_duels_won_p90",
@@ -218,7 +253,8 @@
       "fouls_p90"
     ],
     "Avaliação agregada": [
-      "sofascore_rating"
+      "sofascore_rating",
+      "tail_sofascore_rating"
     ],
     "Defasagem": [
       "log_return_lag1",
@@ -235,21 +271,22 @@
       "lag1_aerial_duels_won_p90",
       "lag1_pass_accuracy_pct",
       "delta_minutes_share_pct",
-      "delta_sofascore_rating"
-    ],
-    "Dinâmica de mercado": [
-      "mkt_log_return_6m",
-      "mkt_last_change",
-      "mkt_days_since_change",
-      "mkt_n_revisions_12m",
-      "mkt_n_up_24m",
-      "mkt_n_down_24m",
-      "mkt_volatility_24m",
-      "mkt_peak_gap"
+      "delta_sofascore_rating",
+      "lag2_minutes_share_pct",
+      "minutes_share_accel",
+      "breakout_starter_T",
+      "league_step_up_T"
     ],
     "Valor justo": [
-      "fair_log_value_T",
-      "value_gap_T"
+      "value_gap_T",
+      "value_gap_perf_T"
+    ],
+    "Disponibilidade física": [
+      "injury_days_T",
+      "injury_days_Tm1",
+      "n_injuries_24m",
+      "injured_at_anchor",
+      "long_injury_at_anchor"
     ]
   },
   "targets": {
@@ -280,7 +317,14 @@
     "club_elo_T": "cobertura mínima por temporada de 0% (< 90%)",
     "club_elo_change_T": "cobertura mínima por temporada de 0% (< 90%)",
     "tenure_years_T": "cobertura mínima por temporada de 80% (< 90%)",
-    "is_on_loan_T": "cobertura mínima por temporada de 80% (< 90%)"
+    "is_on_loan_T": "cobertura mínima por temporada de 80% (< 90%)",
+    "h2_minutes_share_T": "cobertura mínima por temporada de 0% (< 90%)",
+    "form_minutes_trend_T": "cobertura mínima por temporada de 0% (< 90%)",
+    "h2_xg_chain_p90_T": "cobertura mínima por temporada de 0% (< 90%)",
+    "post_valuation_minutes_T": "cobertura mínima por temporada de 0% (< 90%)",
+    "post_valuation_xg_xa_p90_T": "cobertura mínima por temporada de 0% (< 90%)",
+    "debut_second_half_T": "cobertura mínima por temporada de 0% (< 90%)",
+    "club_moved_mid_season_T": "cobertura mínima por temporada de 0% (< 90%)"
   },
   "raw_twins": {
     "goals_p90": "goals_p90_raw",
@@ -342,6 +386,8 @@
   },
   "value_cutoff": "2026-06-30",
   "audit_columns": [
+    "fair_log_value_T",
+    "fair_log_value_perf_T",
     "contract_method",
     "contract_is_estimated",
     "contract_expiry_T",
@@ -349,6 +395,12 @@
     "tm_value_date_T",
     "value_T1_last_obs",
     "value_T2_last_obs",
+    "target_missing_reason_T1",
+    "target_missing_reason_T2",
+    "tm_value_date_T1",
+    "tm_value_date_T2",
+    "log_return_ann_T1",
+    "log_return_ann_T2",
     "goals_p90_raw",
     "assists_p90_raw",
     "npg_p90_raw",

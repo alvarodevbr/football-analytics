@@ -35,6 +35,7 @@ CATALOG: dict[str, Var] = {
     # categóricas
     "league": Var("categorical", "Contexto", "FBref", "—", "Liga em T"),
     "position_group": Var("categorical", "Demográfico", "Transfermarkt/FBref", "—", "Posição de linha: DEF, MEI, ATA"),
+    "role": Var("categorical", "Demográfico", "Transfermarkt", "—", "Papel tático na temporada: zagueiro, lateral, volante, meia central, meia ofensivo ou ponta, centroavante"),
     "age_band": Var("categorical", "Demográfico", "Transfermarkt", "—", "Faixa etária: 16–23, 24–28, 29–32, 33+"),
     "category": Var("categorical", "Demográfico", "Transfermarkt", "—", "Categoria C1–C12 (faixa etária × posição)"),
     "age_band_3x3": Var("categorical", "Demográfico", "Transfermarkt", "—", "Faixa etária da matriz 3 × 3 de Khalife et al. (2025): 16–23, 24–29, 30+"),
@@ -60,6 +61,7 @@ CATALOG: dict[str, Var] = {
     "is_on_loan_T": Var("feature", "Contratual", "Transfermarkt", "0/1", "Atuava emprestado em T"),
     # mercado e clube
     "log_value_T": Var("feature", "Mercado", "Transfermarkt", "ln €", "Logaritmo do valor de mercado em T"),
+    "days_since_valuation_T": Var("feature", "Dinâmica de mercado", "Transfermarkt", "dias", "Dias entre a avaliação usada como V_T e 30/jun de T"),
     "log_club_value_T": Var("feature", "Mercado", "Transfermarkt", "ln €", "Logaritmo da soma de V_T do elenco do clube principal"),
     "value_share_of_club": Var("feature", "Mercado", "Transfermarkt", "proporção", "V_T do atleta sobre o valor do elenco"),
     "club_value_rank_pct": Var("feature", "Mercado", "Transfermarkt", "percentil", "Posição do valor do elenco entre os clubes das Big Five na temporada"),
@@ -94,6 +96,7 @@ CATALOG: dict[str, Var] = {
     "npxg_p90": Var("feature", "Ofensivo", "Understat", _P90, "xG sem pênaltis"),
     "xa_p90": Var("feature", "Ofensivo", "Understat", _P90, "Assistências esperadas (xA)"),
     "xg_xa_p90": Var("feature", "Ofensivo", "Understat", _P90, "xG + xA"),
+    "tail_xg_xa_p90": Var("feature", "Ofensivo", "Understat", "probabilidade", "P(taxa de xG + xA acima do 3º quartil do papel tático | dados): surpresa de cauda"),
     "xg_per_shot": Var("feature", "Ofensivo", "Understat", "xG/chute", "Qualidade média das finalizações"),
     "finishing_overperf_p90": Var("feature", "Ofensivo", "Understat", _P90, "Gols sem pênalti menos npxG"),
     "big_chances_missed_p90": Var("feature", "Ofensivo", "Sofascore", _P90, "Grandes chances desperdiçadas"),
@@ -103,6 +106,9 @@ CATALOG: dict[str, Var] = {
     "big_chances_created_p90": Var("feature", "Criação e posse", "Sofascore", _P90, "Grandes chances criadas"),
     "xg_chain_p90": Var("feature", "Criação e posse", "Understat", _P90, "xG das posses com participação do atleta"),
     "xg_buildup_p90": Var("feature", "Criação e posse", "Understat", _P90, "xGChain excluindo finalização e passe final"),
+    "xg_buildup_share": Var("feature", "Criação e posse", "Understat", "proporção", "xGBuildup / xGChain: participação na construção, sem chute nem passe final"),
+    "tail_key_passes_p90": Var("feature", "Criação e posse", "Sofascore", "probabilidade", "P(taxa de passes para finalização acima do 3º quartil do papel tático | dados)"),
+    "tail_dribbles_p90": Var("feature", "Criação e posse", "Sofascore", "probabilidade", "P(taxa de dribles certos acima do 3º quartil do papel tático | dados)"),
     "passes_p90": Var("feature", "Criação e posse", "Sofascore", _P90, "Passes tentados"),
     "accurate_passes_p90": Var("feature", "Criação e posse", "Sofascore", _P90, "Passes certos"),
     "pass_accuracy_pct": Var("feature", "Criação e posse", "Sofascore", "%", "Taxa de acerto de passes"),
@@ -122,6 +128,7 @@ CATALOG: dict[str, Var] = {
     "tackles_won_p90": Var("feature", "Defensivo", "FBref", _P90, "Desarmes com recuperação da posse"),
     "interceptions_p90": Var("feature", "Defensivo", "FBref", _P90, "Interceptações"),
     "tackles_interceptions_p90": Var("feature", "Defensivo", "Sofascore", _P90, "Desarmes + interceptações"),
+    "tail_tackles_interceptions_p90": Var("feature", "Defensivo", "Sofascore", "probabilidade", "P(taxa de desarmes + interceptações acima do 3º quartil do papel tático | dados)"),
     "clearances_p90": Var("feature", "Defensivo", "Sofascore", _P90, "Cortes"),
     "dribbled_past_p90": Var("feature", "Defensivo", "Sofascore", _P90, "Vezes driblado"),
     "aerial_duels_won_p90": Var("feature", "Defensivo", "Sofascore", _P90, "Duelos aéreos ganhos"),
@@ -138,6 +145,7 @@ CATALOG: dict[str, Var] = {
     "fouls_p90": Var("feature", "Disciplina", "FBref", _P90, "Faltas cometidas"),
     # avaliação agregada
     "sofascore_rating": Var("feature", "Avaliação agregada", "Sofascore", "nota 0–10", "Nota média do Sofascore, ponderada por minutos"),
+    "tail_sofascore_rating": Var("feature", "Avaliação agregada", "Sofascore", "probabilidade", "P(nota verdadeira acima do 3º quartil do papel tático | dados)"),
     # defasagens
     "log_return_lag1": Var("feature", "Defasagem", "Transfermarkt", "ln", "Log-retorno do valor entre T−1 e T (momentum)"),
     "log_return_lag2": Var("feature", "Defasagem", "Transfermarkt", "ln", "Log-retorno do valor entre T−2 e T"),
@@ -149,8 +157,11 @@ CATALOG: dict[str, Var] = {
     "mkt_n_down_24m": Var("feature", "Dinâmica de mercado", "Transfermarkt", "contagem", "Revisões para baixo nos 24 meses até T"),
     "mkt_volatility_24m": Var("feature", "Dinâmica de mercado", "Transfermarkt", "ln", "Desvio-padrão das revisões nos 24 meses até T"),
     "mkt_peak_gap": Var("feature", "Dinâmica de mercado", "Transfermarkt", "ln", "Distância ao pico histórico: ln(V_T / máximo até T)"),
-    "fair_log_value_T": Var("feature", "Valor justo", "Calculada", "ln €", "Valor justo em T: ln(V) previsto pelo desempenho (corte transversal de T, validação cruzada)"),
+    "mkt_years_since_peak": Var("feature", "Dinâmica de mercado", "Transfermarkt", "anos", "Anos desde o pico histórico de valor até T"),
+    "fair_log_value_T": Var("audit", "Valor justo", "Calculada", "ln €", "Valor justo em T: ln(V) previsto pelo desempenho e pelo contexto (corte transversal de T, validação cruzada agrupada por clube); fora do vetor por ser ln(V_T) − gap"),
     "value_gap_T": Var("feature", "Valor justo", "Calculada", "ln", "Gap de avaliação: ln(V_T) − valor justo (negativo = subavaliado)"),
+    "fair_log_value_perf_T": Var("audit", "Valor justo", "Calculada", "ln €", "Valor justo só pelo desempenho, idade e posição (sem liga nem contexto do clube)"),
+    "value_gap_perf_T": Var("feature", "Valor justo", "Calculada", "ln", "Gap de avaliação só pelo desempenho: ln(V_T) − valor justo sem liga nem clube"),
     "has_big5_lag1": Var("feature", "Defasagem", "FBref", "0/1", "Atuou nas Big Five em T−1"),
     "lag1_minutes": Var("feature", "Defasagem", "FBref", "minutos", "Minutos jogados em T−1"),
     "lag1_minutes_share_pct": Var("feature", "Defasagem", "FBref", "%", "Participação nos minutos em T−1"),
@@ -164,6 +175,24 @@ CATALOG: dict[str, Var] = {
     "lag1_pass_accuracy_pct": Var("feature", "Defasagem", "Sofascore", "%", "Acerto de passes em T−1"),
     "delta_minutes_share_pct": Var("feature", "Defasagem", "FBref", "p.p.", "Variação da participação nos minutos (T − T−1)"),
     "delta_sofascore_rating": Var("feature", "Defasagem", "Sofascore", "nota", "Variação da nota média (T − T−1)"),
+    "lag2_minutes_share_pct": Var("feature", "Defasagem", "FBref", "%", "Participação nos minutos em T−2"),
+    "minutes_share_accel": Var("feature", "Defasagem", "FBref", "p.p.", "Aceleração da participação nos minutos: (T − T−1) − (T−1 − T−2)"),
+    "breakout_starter_T": Var("feature", "Defasagem", "FBref", "0/1", "Virou titular: menos de 900 minutos em T−1 e ao menos 1.800 em T"),
+    "league_step_up_T": Var("feature", "Defasagem", "FBref", "0/1", "Chegou às Big Five em T e jogou acima da mediana de participação"),
+    # forma dentro da temporada (Understat, escalações por partida)
+    "h2_minutes_share_T": Var("feature", "Forma intra-temporada", "Understat", "%", "Participação nos minutos do último clube no 2º turno (de 1º/jan ao fim da temporada)"),
+    "form_minutes_trend_T": Var("feature", "Forma intra-temporada", "Understat", "p.p.", "Participação no 2º turno menos a do 1º turno"),
+    "h2_xg_chain_p90_T": Var("feature", "Forma intra-temporada", "Understat", _P90, "xGChain no 2º turno, encolhido"),
+    "post_valuation_minutes_T": Var("feature", "Forma intra-temporada", "Understat", "minutos", "Minutos jogados depois da data da avaliação usada como V_T"),
+    "post_valuation_xg_xa_p90_T": Var("feature", "Forma intra-temporada", "Understat", _P90, "xG + xA depois da data de V_T (ainda não incorporados ao valor), encolhido"),
+    "debut_second_half_T": Var("feature", "Forma intra-temporada", "Understat", "0/1", "Estreou na temporada só no 2º turno (chegada em janeiro ou entrada tardia)"),
+    "club_moved_mid_season_T": Var("feature", "Forma intra-temporada", "Understat", "0/1", "O clube em 30/jun difere do clube com mais minutos na temporada"),
+    # disponibilidade física (Transfermarkt, histórico datado de lesões)
+    "injury_days_T": Var("feature", "Disponibilidade física", "Transfermarkt", "dias", "Dias lesionado nos 12 meses até 30/jun de T (truncado na âncora)"),
+    "injury_days_Tm1": Var("feature", "Disponibilidade física", "Transfermarkt", "dias", "Dias lesionado nos 12 meses anteriores (T−1)"),
+    "n_injuries_24m": Var("feature", "Disponibilidade física", "Transfermarkt", "contagem", "Lesões iniciadas nos 24 meses até T"),
+    "injured_at_anchor": Var("feature", "Disponibilidade física", "Transfermarkt", "0/1", "Lesionado em 30/jun de T"),
+    "long_injury_at_anchor": Var("feature", "Disponibilidade física", "Transfermarkt", "0/1", "Lesão grave ou em curso há 60 dias ou mais em 30/jun de T"),
     # alvos
     "delta_v_T1": Var("target", "Alvo", "Transfermarkt", "€", "ΔV em T+1: V_{T+1} − V_T"),
     "delta_v_pct_T1": Var("target", "Alvo", "Transfermarkt", "%", "ΔV% em T+1: (V_{T+1} − V_T)/V_T × 100"),
@@ -181,13 +210,23 @@ CATALOG: dict[str, Var] = {
     "tm_value_date_T": Var("audit", "Auditoria", "Transfermarkt", "data", "Data da avaliação usada como V_T"),
     "value_T1_last_obs": Var("audit", "Auditoria", "Transfermarkt", "€", "Último valor publicado até 30/jun de T+1, sem limite de defasagem (limite otimista do backtest)"),
     "value_T2_last_obs": Var("audit", "Auditoria", "Transfermarkt", "€", "Último valor publicado até 30/jun de T+2, sem limite de defasagem (limite otimista do backtest)"),
+    "target_missing_reason_T1": Var("audit", "Auditoria", "Transfermarkt", "—", "Motivo da ausência de V_{T+1}: observed, not_due, career_end ou stale"),
+    "target_missing_reason_T2": Var("audit", "Auditoria", "Transfermarkt", "—", "Motivo da ausência de V_{T+2}: observed, not_due, career_end ou stale"),
+    "tm_value_date_T1": Var("audit", "Auditoria", "Transfermarkt", "data", "Data da avaliação usada como V_{T+1}"),
+    "tm_value_date_T2": Var("audit", "Auditoria", "Transfermarkt", "data", "Data da avaliação usada como V_{T+2}"),
+    "log_return_ann_T1": Var("audit", "Alvo", "Transfermarkt", "ln/ano", "Log-retorno anualizado pelos dias exatos entre as avaliações de T e T+1 (robustez)"),
+    "log_return_ann_T2": Var("audit", "Alvo", "Transfermarkt", "ln/ano", "Log-retorno de T+2 anualizado pelos dias exatos entre as avaliações (robustez; ×2 para a escala de dois anos)"),
 }
 
 # Features cuja fonte pode estar incompleta: saem do vetor se a cobertura for baixa em alguma
 # temporada, para não criar um padrão de ausência próprio de uma temporada. Em out/2026, a API do
 # ClubElo estava fora do ar e o Transfermarkt bloqueou a coleta do histórico de transferências dos
 # atletas novos de 2024/25 (fonte do tempo de casa e do empréstimo em T).
-OPTIONAL_FEATURES: tuple[str, ...] = ("club_elo_T", "club_elo_change_T", "tenure_years_T", "is_on_loan_T")
+OPTIONAL_FEATURES: tuple[str, ...] = ("club_elo_T", "club_elo_change_T", "tenure_years_T", "is_on_loan_T",
+                                      "injury_days_T", "injury_days_Tm1", "n_injuries_24m", "injured_at_anchor",
+                                      "long_injury_at_anchor", "h2_minutes_share_T", "form_minutes_trend_T",
+                                      "h2_xg_chain_p90_T", "post_valuation_minutes_T", "post_valuation_xg_xa_p90_T",
+                                      "debut_second_half_T", "club_moved_mid_season_T")
 
 
 def _add_raw_twins() -> None:
@@ -215,8 +254,10 @@ SHORT_LABELS: dict[str, str] = {
     "big_chances_missed_p90": "Grandes chances perdidas /90",
     "age": "Idade", "age_sq": "Idade²", "height_cm": "Altura", "has_eu_passport": "Passaporte UE",
     "is_domestic": "Atleta nacional", "tenure_years_T": "Tempo de casa", "is_on_loan_T": "Emprestado em T",
-    "log_value_T": "log V_T", "value_gap_T": "Gap de avaliação", "fair_log_value_T": "Valor justo (log)",
-    "value_share_of_club": "% do valor do elenco", "log_club_value_T": "log valor do elenco",
+    "log_value_T": "Valor de mercado em T (ln)", "value_gap_T": "Gap de avaliação",
+    "fair_log_value_T": "Valor justo (ln)", "value_gap_perf_T": "Gap de avaliação (só desempenho)",
+    "fair_log_value_perf_T": "Valor justo só desempenho (ln)",
+    "value_share_of_club": "% do valor do elenco", "log_club_value_T": "Valor do elenco (ln)",
     "club_value_rank_pct": "Ranking de valor do elenco (Big Five)", "club_value_rank_in_league": "Ranking de valor do elenco (liga)",
     "team_points_per_game": "Pontos/jogo da equipe", "market_log_return_lag1_T": "Regime de mercado",
     "league_log_return_lag1_T": "Regime da liga", "minutes": "Minutos", "minutes_share_pct": "% dos minutos possíveis",
@@ -229,6 +270,18 @@ SHORT_LABELS: dict[str, str] = {
     "delta_minutes_share_pct": "Δ % dos minutos (T−1→T)", "delta_sofascore_rating": "Δ nota Sofascore (T−1→T)",
     "has_big5_lag1": "Jogou nas Big Five em T−1", "contract_years_remaining_T": "Anos de contrato restantes",
     "bosman_T": "Último ano de contrato",
+    "days_since_valuation_T": "Dias desde a avaliação de V_T", "mkt_years_since_peak": "Anos desde o pico de valor",
+    "xg_buildup_share": "xGBuildup / xGChain", "lag2_minutes_share_pct": "% dos minutos em T−2",
+    "minutes_share_accel": "Aceleração da % dos minutos", "breakout_starter_T": "Virou titular em T",
+    "league_step_up_T": "Chegada às Big Five com minutos", "injury_days_T": "Dias lesionado (T)",
+    "injury_days_Tm1": "Dias lesionado (T−1)", "n_injuries_24m": "Lesões em 24 meses",
+    "injured_at_anchor": "Lesionado em 30/jun", "long_injury_at_anchor": "Lesão longa em 30/jun",
+    "tail_xg_xa_p90": "P(xG + xA no 3º quartil)", "tail_key_passes_p90": "P(passes decisivos no 3º quartil)",
+    "tail_dribbles_p90": "P(dribles no 3º quartil)", "tail_tackles_interceptions_p90": "P(desarmes + interc. no 3º quartil)",
+    "tail_sofascore_rating": "P(nota no 3º quartil)", "h2_minutes_share_T": "% dos minutos no 2º turno",
+    "form_minutes_trend_T": "Tendência de minutos (2º − 1º turno)", "h2_xg_chain_p90_T": "xGChain /90 no 2º turno",
+    "post_valuation_minutes_T": "Minutos após a avaliação de V_T", "post_valuation_xg_xa_p90_T": "xG + xA /90 após a avaliação",
+    "debut_second_half_T": "Estreia no 2º turno", "club_moved_mid_season_T": "Trocou de clube na temporada",
 }
 
 

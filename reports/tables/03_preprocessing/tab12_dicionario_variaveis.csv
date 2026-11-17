@@ -11,6 +11,7 @@ value_T1,meta,Mercado,Transfermarkt,€,False,Valor de mercado em T+1 (V_{T+1})
 value_T2,meta,Mercado,Transfermarkt,€,False,Valor de mercado em T+2 (V_{T+2})
 league,categorical,Contexto,FBref,—,False,Liga em T
 position_group,categorical,Demográfico,Transfermarkt/FBref,—,False,"Posição de linha: DEF, MEI, ATA"
+role,categorical,Demográfico,Transfermarkt,—,False,"Papel tático na temporada: zagueiro, lateral, volante, meia central, meia ofensivo ou ponta, centroavante"
 age_band,categorical,Demográfico,Transfermarkt,—,False,"Faixa etária: 16–23, 24–28, 29–32, 33+"
 category,categorical,Demográfico,Transfermarkt,—,False,Categoria C1–C12 (faixa etária × posição)
 age_band_3x3,categorical,Demográfico,Transfermarkt,—,False,"Faixa etária da matriz 3 × 3 de Khalife et al. (2025): 16–23, 24–29, 30+"
@@ -33,6 +34,7 @@ bosman_T,lookahead,Contratual,Transfermarkt (reconstruído),0/1,False,Último an
 tenure_years_T,feature,Contratual,Transfermarkt,anos,False,Tempo de casa no clube em T
 is_on_loan_T,feature,Contratual,Transfermarkt,0/1,False,Atuava emprestado em T
 log_value_T,feature,Mercado,Transfermarkt,ln €,False,Logaritmo do valor de mercado em T
+days_since_valuation_T,feature,Dinâmica de mercado,Transfermarkt,dias,False,Dias entre a avaliação usada como V_T e 30/jun de T
 log_club_value_T,feature,Mercado,Transfermarkt,ln €,False,Logaritmo da soma de V_T do elenco do clube principal
 value_share_of_club,feature,Mercado,Transfermarkt,proporção,False,V_T do atleta sobre o valor do elenco
 club_value_rank_pct,feature,Mercado,Transfermarkt,percentil,False,Posição do valor do elenco entre os clubes das Big Five na temporada
@@ -65,6 +67,7 @@ xg_p90,feature,Ofensivo,Understat,por 90 min,True,Gols esperados (xG)
 npxg_p90,feature,Ofensivo,Understat,por 90 min,True,xG sem pênaltis
 xa_p90,feature,Ofensivo,Understat,por 90 min,True,Assistências esperadas (xA)
 xg_xa_p90,feature,Ofensivo,Understat,por 90 min,True,xG + xA
+tail_xg_xa_p90,feature,Ofensivo,Understat,probabilidade,False,P(taxa de xG + xA acima do 3º quartil do papel tático | dados): surpresa de cauda
 xg_per_shot,feature,Ofensivo,Understat,xG/chute,True,Qualidade média das finalizações
 finishing_overperf_p90,feature,Ofensivo,Understat,por 90 min,True,Gols sem pênalti menos npxG
 big_chances_missed_p90,feature,Ofensivo,Sofascore,por 90 min,True,Grandes chances desperdiçadas
@@ -73,6 +76,9 @@ key_passes_p90,feature,Criação e posse,Sofascore,por 90 min,True,Passes para f
 big_chances_created_p90,feature,Criação e posse,Sofascore,por 90 min,True,Grandes chances criadas
 xg_chain_p90,feature,Criação e posse,Understat,por 90 min,True,xG das posses com participação do atleta
 xg_buildup_p90,feature,Criação e posse,Understat,por 90 min,True,xGChain excluindo finalização e passe final
+xg_buildup_share,feature,Criação e posse,Understat,proporção,False,"xGBuildup / xGChain: participação na construção, sem chute nem passe final"
+tail_key_passes_p90,feature,Criação e posse,Sofascore,probabilidade,False,P(taxa de passes para finalização acima do 3º quartil do papel tático | dados)
+tail_dribbles_p90,feature,Criação e posse,Sofascore,probabilidade,False,P(taxa de dribles certos acima do 3º quartil do papel tático | dados)
 passes_p90,feature,Criação e posse,Sofascore,por 90 min,True,Passes tentados
 accurate_passes_p90,feature,Criação e posse,Sofascore,por 90 min,True,Passes certos
 pass_accuracy_pct,feature,Criação e posse,Sofascore,%,True,Taxa de acerto de passes
@@ -91,6 +97,7 @@ tackles_p90,feature,Defensivo,Sofascore,por 90 min,True,Desarmes
 tackles_won_p90,feature,Defensivo,FBref,por 90 min,True,Desarmes com recuperação da posse
 interceptions_p90,feature,Defensivo,FBref,por 90 min,True,Interceptações
 tackles_interceptions_p90,feature,Defensivo,Sofascore,por 90 min,True,Desarmes + interceptações
+tail_tackles_interceptions_p90,feature,Defensivo,Sofascore,probabilidade,False,P(taxa de desarmes + interceptações acima do 3º quartil do papel tático | dados)
 clearances_p90,feature,Defensivo,Sofascore,por 90 min,True,Cortes
 dribbled_past_p90,feature,Defensivo,Sofascore,por 90 min,True,Vezes driblado
 aerial_duels_won_p90,feature,Defensivo,Sofascore,por 90 min,True,Duelos aéreos ganhos
@@ -105,6 +112,7 @@ yellow_cards_p90,feature,Disciplina,FBref,por 90 min,True,Cartões amarelos
 red_cards_p90,feature,Disciplina,FBref,por 90 min,True,Cartões vermelhos
 fouls_p90,feature,Disciplina,FBref,por 90 min,True,Faltas cometidas
 sofascore_rating,feature,Avaliação agregada,Sofascore,nota 0–10,True,"Nota média do Sofascore, ponderada por minutos"
+tail_sofascore_rating,feature,Avaliação agregada,Sofascore,probabilidade,False,P(nota verdadeira acima do 3º quartil do papel tático | dados)
 log_return_lag1,feature,Defasagem,Transfermarkt,ln,False,Log-retorno do valor entre T−1 e T (momentum)
 log_return_lag2,feature,Defasagem,Transfermarkt,ln,False,Log-retorno do valor entre T−2 e T
 mkt_log_return_6m,feature,Dinâmica de mercado,Transfermarkt,ln,False,Log-retorno do valor nos 6 meses até T
@@ -115,8 +123,11 @@ mkt_n_up_24m,feature,Dinâmica de mercado,Transfermarkt,contagem,False,Revisões
 mkt_n_down_24m,feature,Dinâmica de mercado,Transfermarkt,contagem,False,Revisões para baixo nos 24 meses até T
 mkt_volatility_24m,feature,Dinâmica de mercado,Transfermarkt,ln,False,Desvio-padrão das revisões nos 24 meses até T
 mkt_peak_gap,feature,Dinâmica de mercado,Transfermarkt,ln,False,Distância ao pico histórico: ln(V_T / máximo até T)
-fair_log_value_T,feature,Valor justo,Calculada,ln €,False,"Valor justo em T: ln(V) previsto pelo desempenho (corte transversal de T, validação cruzada)"
+mkt_years_since_peak,feature,Dinâmica de mercado,Transfermarkt,anos,False,Anos desde o pico histórico de valor até T
+fair_log_value_T,audit,Valor justo,Calculada,ln €,False,"Valor justo em T: ln(V) previsto pelo desempenho e pelo contexto (corte transversal de T, validação cruzada agrupada por clube); fora do vetor por ser ln(V_T) − gap"
 value_gap_T,feature,Valor justo,Calculada,ln,False,Gap de avaliação: ln(V_T) − valor justo (negativo = subavaliado)
+fair_log_value_perf_T,audit,Valor justo,Calculada,ln €,False,"Valor justo só pelo desempenho, idade e posição (sem liga nem contexto do clube)"
+value_gap_perf_T,feature,Valor justo,Calculada,ln,False,Gap de avaliação só pelo desempenho: ln(V_T) − valor justo sem liga nem clube
 has_big5_lag1,feature,Defasagem,FBref,0/1,False,Atuou nas Big Five em T−1
 lag1_minutes,feature,Defasagem,FBref,minutos,False,Minutos jogados em T−1
 lag1_minutes_share_pct,feature,Defasagem,FBref,%,False,Participação nos minutos em T−1
@@ -130,6 +141,22 @@ lag1_aerial_duels_won_p90,feature,Defasagem,Sofascore,por 90 min,False,Duelos a�
 lag1_pass_accuracy_pct,feature,Defasagem,Sofascore,%,False,Acerto de passes em T−1
 delta_minutes_share_pct,feature,Defasagem,FBref,p.p.,False,Variação da participação nos minutos (T − T−1)
 delta_sofascore_rating,feature,Defasagem,Sofascore,nota,False,Variação da nota média (T − T−1)
+lag2_minutes_share_pct,feature,Defasagem,FBref,%,False,Participação nos minutos em T−2
+minutes_share_accel,feature,Defasagem,FBref,p.p.,False,Aceleração da participação nos minutos: (T − T−1) − (T−1 − T−2)
+breakout_starter_T,feature,Defasagem,FBref,0/1,False,Virou titular: menos de 900 minutos em T−1 e ao menos 1.800 em T
+league_step_up_T,feature,Defasagem,FBref,0/1,False,Chegou às Big Five em T e jogou acima da mediana de participação
+h2_minutes_share_T,feature,Forma intra-temporada,Understat,%,False,Participação nos minutos do último clube no 2º turno (de 1º/jan ao fim da temporada)
+form_minutes_trend_T,feature,Forma intra-temporada,Understat,p.p.,False,Participação no 2º turno menos a do 1º turno
+h2_xg_chain_p90_T,feature,Forma intra-temporada,Understat,por 90 min,False,"xGChain no 2º turno, encolhido"
+post_valuation_minutes_T,feature,Forma intra-temporada,Understat,minutos,False,Minutos jogados depois da data da avaliação usada como V_T
+post_valuation_xg_xa_p90_T,feature,Forma intra-temporada,Understat,por 90 min,False,"xG + xA depois da data de V_T (ainda não incorporados ao valor), encolhido"
+debut_second_half_T,feature,Forma intra-temporada,Understat,0/1,False,Estreou na temporada só no 2º turno (chegada em janeiro ou entrada tardia)
+club_moved_mid_season_T,feature,Forma intra-temporada,Understat,0/1,False,O clube em 30/jun difere do clube com mais minutos na temporada
+injury_days_T,feature,Disponibilidade física,Transfermarkt,dias,False,Dias lesionado nos 12 meses até 30/jun de T (truncado na âncora)
+injury_days_Tm1,feature,Disponibilidade física,Transfermarkt,dias,False,Dias lesionado nos 12 meses anteriores (T−1)
+n_injuries_24m,feature,Disponibilidade física,Transfermarkt,contagem,False,Lesões iniciadas nos 24 meses até T
+injured_at_anchor,feature,Disponibilidade física,Transfermarkt,0/1,False,Lesionado em 30/jun de T
+long_injury_at_anchor,feature,Disponibilidade física,Transfermarkt,0/1,False,Lesão grave ou em curso há 60 dias ou mais em 30/jun de T
 delta_v_T1,target,Alvo,Transfermarkt,€,False,ΔV em T+1: V_{T+1} − V_T
 delta_v_pct_T1,target,Alvo,Transfermarkt,%,False,ΔV% em T+1: (V_{T+1} − V_T)/V_T × 100
 log_return_T1,target,Alvo,Transfermarkt,ln,False,Log-retorno em T+1: ln(V_{T+1}/V_T) — alvo de treino recomendado
@@ -145,6 +172,12 @@ birth_date_is_estimated,audit,Auditoria,FBref,0/1,False,Nascimento aproximado pe
 tm_value_date_T,audit,Auditoria,Transfermarkt,data,False,Data da avaliação usada como V_T
 value_T1_last_obs,audit,Auditoria,Transfermarkt,€,False,"Último valor publicado até 30/jun de T+1, sem limite de defasagem (limite otimista do backtest)"
 value_T2_last_obs,audit,Auditoria,Transfermarkt,€,False,"Último valor publicado até 30/jun de T+2, sem limite de defasagem (limite otimista do backtest)"
+target_missing_reason_T1,audit,Auditoria,Transfermarkt,—,False,"Motivo da ausência de V_{T+1}: observed, not_due, career_end ou stale"
+target_missing_reason_T2,audit,Auditoria,Transfermarkt,—,False,"Motivo da ausência de V_{T+2}: observed, not_due, career_end ou stale"
+tm_value_date_T1,audit,Auditoria,Transfermarkt,data,False,Data da avaliação usada como V_{T+1}
+tm_value_date_T2,audit,Auditoria,Transfermarkt,data,False,Data da avaliação usada como V_{T+2}
+log_return_ann_T1,audit,Alvo,Transfermarkt,ln/ano,False,Log-retorno anualizado pelos dias exatos entre as avaliações de T e T+1 (robustez)
+log_return_ann_T2,audit,Alvo,Transfermarkt,ln/ano,False,Log-retorno de T+2 anualizado pelos dias exatos entre as avaliações (robustez; ×2 para a escala de dois anos)
 goals_p90_raw,audit,Ofensivo,FBref,por 90 min,False,"Gols — versão crua, sem encolhimento"
 assists_p90_raw,audit,Ofensivo,FBref,por 90 min,False,"Assistências — versão crua, sem encolhimento"
 npg_p90_raw,audit,Ofensivo,FBref,por 90 min,False,"Gols sem pênaltis — versão crua, sem encolhimento"

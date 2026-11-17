@@ -112,3 +112,21 @@ def test_references_follow_abnt(article):
 def test_unsupported_command_is_reported(article):
     with pytest.raises(LatexError, match=r"\\vfill"):
         article.runs(r"texto \vfill")
+
+
+def test_english_abstract_and_appendix(tmp_path):
+    (tmp_path / "refs.bib").write_text(BIB, encoding="utf-8")
+    tex = TEX.replace(r"\palavraschave{a; b.}", "\\palavraschave{a; b.}\n\\palavraschaveingles{x; y.}")
+    tex = tex.replace("\\end{resumo}", "\\end{resumo}\n\\begin{abstract}\nShort abstract.\n\\end{abstract}")
+    tex = tex.replace("\\printbibliography[heading=referencias]",
+                      "\\printbibliography[heading=referencias]\n\\apendice{Robustez}\n\\label{ap:rob}\n\nVer o"
+                      " Apêndice~\\ref{ap:rob}.")
+    path = tmp_path / "artigo.tex"
+    path.write_text(tex, encoding="utf-8")
+    art = read_article(path)
+    assert art.abstract == "Resumo curto." and art.abstract_en == "Short abstract."
+    assert art.keywords_en == "x; y."
+    heading = next(b for b in art.blocks if b.kind == "heading" and not b.numbered)
+    assert heading.number == "A" and "Robustez" in heading.text
+    assert art.refs["ap:rob"] == "A"
+    assert plain(art.runs(art.blocks[-1].text)) == "Ver o Apêndice\u00a0A."

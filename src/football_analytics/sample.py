@@ -32,6 +32,28 @@ TM_POSITION_GROUP: dict[str, str] = {
 }
 FBREF_POSITION_GROUP: dict[str, str] = {"GK": "GK", "DF": "DEF", "MF": "MEI", "FW": "ATA"}
 
+# Função tática (posição granular do Transfermarkt na temporada) para as prioris do encolhimento:
+# a posição ampla mistura zagueiros com laterais e volantes com meias ofensivos. Meias abertos vão com
+# os pontas; rótulos genéricos ("Defender", "Midfield", "Attack") caem no papel típico da posição.
+TM_ROLE: dict[str, str] = {
+    "Goalkeeper": "GK",
+    "Centre-Back": "CB", "Defender": "CB",
+    "Left-Back": "FB", "Right-Back": "FB",
+    "Defensive Midfield": "DM",
+    "Central Midfield": "CM", "Midfield": "CM", "Midfielder": "CM",
+    "Attacking Midfield": "AW", "Left Midfield": "AW", "Right Midfield": "AW",
+    "Left Winger": "AW", "Right Winger": "AW",
+    "Centre-Forward": "CF", "Second Striker": "CF", "Attack": "CF",
+}
+ROLE_FALLBACK: dict[str, str] = {"GK": "GK", "DEF": "CB", "MEI": "CM", "ATA": "CF"}
+ROLE_LABELS: dict[str, str] = {"CB": "Zagueiro", "FB": "Lateral", "DM": "Volante", "CM": "Meia central",
+                               "AW": "Meia ofensivo ou ponta", "CF": "Centroavante", "GK": "Goleiro"}
+
+
+def tactical_role(tm_position: pd.Series, position_group: pd.Series) -> pd.Series:
+    """Papel tático na temporada; sem posição granular, o papel típico da posição ampla."""
+    return tm_position.map(TM_ROLE).fillna(position_group.map(ROLE_FALLBACK))
+
 # Faixas etárias em anos completos na data-âncora de T. Leitura formal dos intervalos da
 # especificação (Tabela 6.2): [16, 23], (23, 28], (28, 32], (32, ∞).
 AGE_BANDS: tuple[tuple[str, int, int], ...] = (
@@ -145,9 +167,10 @@ def to_player_season(rows: pd.DataFrame, sum_cols: tuple[str, ...] = ("fb_minute
 
 
 def add_demographics(df: pd.DataFrame) -> pd.DataFrame:
-    """Posição de linha, idade na âncora de T, faixa etária e categoria C1–C12."""
+    """Posição de linha, papel tático, idade na âncora de T, faixa etária e categoria C1–C12."""
     out = df.copy()
     out["position_group"] = position_group(out["tm_position"], out["fb_position"])
+    out["role"] = tactical_role(out["tm_position"], out["position_group"])
     anchors = {code: pd.Timestamp(Season(code).end_anchor) for code in out["season"].unique()}
     out["anchor_date_T"] = out["season"].map(anchors)
     birth = pd.to_datetime(out["tm_birth_date"], errors="coerce")

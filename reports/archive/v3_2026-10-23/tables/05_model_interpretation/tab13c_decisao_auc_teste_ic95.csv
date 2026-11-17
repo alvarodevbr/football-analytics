@@ -1,0 +1,13 @@
+﻿horizonte,rotulo,estatistica,estimate,ci_low,ci_high,se,n_clusters
+T+1,valorizou,AUC do modelo,0.81035,0.78914,0.82985,0.01049,96
+T+1,valorizou,Modelo − mais jovens,0.01525,0.00522,0.02506,0.00505,96
+T+1,valorizou,Modelo − momentum,0.11879,0.09515,0.14253,0.01218,96
+T+1,lucro_10_10,AUC do modelo,0.82129,0.79957,0.84184,0.01071,96
+T+1,lucro_10_10,Modelo − mais jovens,0.01967,0.00881,0.03068,0.00567,96
+T+1,lucro_10_10,Modelo − momentum,0.13157,0.10515,0.15861,0.01364,96
+T+2,valorizou,AUC do modelo,0.82468,0.80089,0.84770,0.01159,96
+T+2,valorizou,Modelo − mais jovens,-0.00047,-0.01192,0.01046,0.00569,96
+T+2,valorizou,Modelo − momentum,0.14266,0.11206,0.17149,0.01519,96
+T+2,lucro_10_10,AUC do modelo,0.83327,0.81017,0.85470,0.01087,96
+T+2,lucro_10_10,Modelo − mais jovens,-0.00179,-0.01325,0.00934,0.00579,96
+T+2,lucro_10_10,Modelo − momentum,0.14960,0.11899,0.17936,0.01622,96

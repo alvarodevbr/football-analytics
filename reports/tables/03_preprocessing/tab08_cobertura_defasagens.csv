@@ -16,3 +16,6 @@ lag1_pass_accuracy_pct,72.2432
 has_big5_lag1,100.0000
 delta_minutes_share_pct,72.3523
 delta_sofascore_rating,71.9959
+lag2_minutes_share_pct,52.1530
+minutes_share_accel,47.8179
+breakout_starter_T,100.0000

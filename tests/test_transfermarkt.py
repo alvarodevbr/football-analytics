@@ -75,6 +75,38 @@ def test_parse_transfers_loan_flags():
     assert by_date["2019-07-03"]["to_club_id"] is not None
 
 
+def test_parse_injuries(fixture_text):
+    rows, pages = tm.parse_injuries(fixture_text("tm_injuries_saka.html"))
+    assert pages == 2
+    assert len(rows) == 3  # só a tabela de lesões, não o resumo por temporada
+    assert rows[0] == {"injury_season": "26/27", "injury": "Thigh problems", "injury_from": "2026-10-23",
+                       "injury_until": "2026-12-31", "injury_days": 70, "games_missed": 5}
+    # lesão sem retorno nem duração publicados: campos vazios, sem deslocar colunas
+    assert rows[2]["injury_until"] is None and rows[2]["injury_days"] is None
+    assert rows[2]["games_missed"] is None
+
+
+def test_injuries_client_follows_pages_and_caches(tmp_path, fixture_text, monkeypatch):
+    page = fixture_text("tm_injuries_saka.html")
+    urls: list[str] = []
+
+    class Resp:
+        text = page
+
+    def fake_get(_session, url, _throttle, **_kw):
+        urls.append(url)
+        return Resp()
+
+    monkeypatch.setattr(tm, "get", fake_get)
+    client = tm.TransfermarktClient(None, None, tmp_path)
+    rows = client.injuries(433177, "-")
+    assert urls == ["https://www.transfermarkt.com/x/verletzungen/spieler/433177",
+                    "https://www.transfermarkt.com/x/verletzungen/spieler/433177/page/2"]
+    assert len(rows) == 6 and client.network_fetches == 2
+    assert client.is_cached("injuries", 433177)
+    assert client.injuries(433177, "-") == rows and len(urls) == 2  # segunda chamada lê o cache
+
+
 def test_http_get_retries_5xx_then_succeeds(monkeypatch):
     import requests
 

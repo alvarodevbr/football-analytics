@@ -21,7 +21,7 @@ import numpy as np
 import pandas as pd
 
 from .logging_utils import get_logger
-from .modeling import BURN_IN_FOLDS
+from .modeling import BURN_IN_FOLDS, DriftAdjusted
 
 log = get_logger("interpretation")
 
@@ -29,15 +29,29 @@ log = get_logger("interpretation")
 # --------------------------------------------------------------------------------------------
 # Carregamento e SHAP
 # --------------------------------------------------------------------------------------------
+def pipeline_of(model: object) -> object:
+    """O pipeline (pré-processador + estimador) de um componente, sem o invólucro do alvo em excesso."""
+    return model.inner_ if isinstance(model, DriftAdjusted) else model
+
+
+def variable_of(column: str) -> str:
+    """Variável original de uma coluna pré-processada: `x×célula` (interação do Ridge) → `x`."""
+    return column.split("×")[0]
+
+
 @dataclass
 class FinalModel:
     horizon: int
-    components: dict[str, object]      # chave do algoritmo -> Pipeline ajustado
+    components: dict[str, object]      # chave do algoritmo -> Pipeline ajustado (ou DriftAdjusted)
     manifest: dict
 
     @property
     def feature_names(self) -> list[str]:
-        return next(iter(self.components.values())).pre_.feature_names_
+        """União das colunas dos componentes, com as interações do Ridge somadas à variável original."""
+        names: list[str] = []
+        for m in self.components.values():
+            names += [v for v in dict.fromkeys(map(variable_of, pipeline_of(m).pre_.feature_names_)) if v not in names]
+        return names
 
     def predict(self, X: pd.DataFrame) -> np.ndarray:
         return np.mean([m.predict(X) for m in self.components.values()], axis=0)
@@ -45,51 +59,71 @@ class FinalModel:
 
 def fold_model(horizon: int, components: dict[str, object]) -> FinalModel:
     """Ensemble de uma dobra (componentes já ajustados no treino da dobra), sem manifesto."""
-    names = {tuple(m.pre_.feature_names_) for m in components.values()}
-    if len(names) != 1:
-        raise ValueError("componentes do ensemble com espaços de variáveis diferentes")
     return FinalModel(horizon, components, {})
 
 
-def load_final(root: Path, horizon: int) -> FinalModel:
-    manifest = json.loads((root / "models" / "04_model_training" / "final" / "manifest.json").read_text(encoding="utf-8"))
+def load_final(root: Path, horizon: int, final_dir: Path | None = None) -> FinalModel:
+    final_dir = final_dir or root / "models" / "04_model_training" / "final"
+    manifest = json.loads((final_dir / "manifest.json").read_text(encoding="utf-8"))
     entry = manifest["horizons"][f"T{horizon}"]
     comps = {key: joblib.load(root / info["path"])["model"] for key, info in entry["global"].items()}
-    names = {tuple(m.pre_.feature_names_) for m in comps.values()}
-    if len(names) != 1:
-        raise ValueError("componentes do ensemble com espaços de variáveis diferentes")
     return FinalModel(horizon, comps, entry)
 
 
-def component_shap(model: object, X: pd.DataFrame) -> tuple[np.ndarray, float]:
+def component_shap(model: object, X: pd.DataFrame) -> tuple[pd.DataFrame, float]:
     """SHAP de um componente: TreeExplainer nas árvores; forma fechada no Ridge.
 
     No Ridge, φ_j = w_j (x'_j − E[x'_j]) sobre a variável já winsorizada e escalonada x'. Essa é a
-    explicação intervencional exata de um modelo linear, atribuída à variável original.
+    explicação intervencional exata de um modelo linear, atribuída à variável original; os termos de
+    interação `x × célula` somam-se a x. Com o alvo em excesso ao *drift* de mercado, o *drift* previsto
+    é aditivo: a média entra no valor-base e o desvio (só no modo "regime", que depende do regime de
+    mercado de T) é atribuído à variável de regime.
     """
     import shap
 
-    Z = model.pre_.transform(X)
-    est = model.est_
+    pipe = pipeline_of(model)
+    Z = pipe.pre_.transform(X)
+    est = pipe.est_
     if hasattr(est, "coef_"):
         mean = Z.mean(axis=0)
-        return est.coef_ * (Z - mean), float(est.intercept_ + est.coef_ @ mean)
-    explainer = shap.TreeExplainer(est)
-    values = explainer.shap_values(Z)
-    base = explainer.expected_value
-    return np.asarray(values), float(np.ravel(base)[0])
+        values, base = est.coef_ * (Z - mean), float(est.intercept_ + est.coef_ @ mean)
+    else:
+        explainer = shap.TreeExplainer(est)
+        values, base = np.asarray(explainer.shap_values(Z)), float(np.ravel(explainer.expected_value)[0])
+    phi = pd.DataFrame(values, columns=pipe.pre_.feature_names_, index=X.index)
+    phi = phi.T.groupby(phi.columns.map(variable_of), sort=False).sum().T
+    if isinstance(model, DriftAdjusted):
+        drift = model.drift_forecast(X)
+        base += float(drift.mean())
+        if model.mode == "regime" and model.regime_col in phi:
+            phi[model.regime_col] += drift - drift.mean()
+    return phi, base
 
 
 def ensemble_shap(final: FinalModel, X: pd.DataFrame, check: bool = True) -> tuple[pd.DataFrame, float]:
     """SHAP do *ensemble* (média dos componentes), com verificação de aditividade."""
+    names = final.feature_names
     parts = [component_shap(m, X) for m in final.components.values()]
-    phi = np.mean([p[0] for p in parts], axis=0)
+    phi = sum(p[0].reindex(columns=names, fill_value=0.0) for p in parts) / len(parts)
     base = float(np.mean([p[1] for p in parts]))
     if check:
-        err = np.abs(base + phi.sum(axis=1) - final.predict(X)).max()
+        err = np.abs(base + phi.sum(axis=1).to_numpy() - final.predict(X)).max()
         if err > 1e-3:
             raise AssertionError(f"SHAP não aditivo: erro máximo {err:.2e}")
-    return pd.DataFrame(phi, columns=final.feature_names, index=X.index), base
+    return phi, base
+
+
+def coalition_shap(phi: pd.DataFrame, coalitions: dict[str, Sequence[str]]) -> pd.DataFrame:
+    """SHAP de coalizões: pela aditividade, o efeito de um grupo de variáveis é a soma exata dos seus
+    valores SHAP. Junta variáveis que são funções umas das outras (idade, idade² e faixa etária; nível de
+    preço e gaps de avaliação), que as árvores usam de forma intercambiável e a figura fragmentaria."""
+    out = phi.copy()
+    for name, cols in coalitions.items():
+        present = [c for c in cols if c in out]
+        if present:
+            out[name] = out[present].sum(axis=1)
+            out = out.drop(columns=present)
+    return out
 
 
 def collapse_dummies(phi: pd.DataFrame, categorical: list[str]) -> pd.DataFrame:
@@ -159,7 +193,7 @@ def group_share_bootstrap(phi: pd.DataFrame, group_of: dict[str, str], by: pd.Se
 # --------------------------------------------------------------------------------------------
 # Simulação de carteiras
 # --------------------------------------------------------------------------------------------
-MISSING_OUTCOMES = ("exclude", "zero", "last")
+MISSING_OUTCOMES = ("exclude", "zero", "last", "reason")
 
 
 def outcome_value(sel: pd.DataFrame, missing: str = "exclude") -> pd.Series:
@@ -168,14 +202,21 @@ def outcome_value(sel: pd.DataFrame, missing: str = "exclude") -> pd.Series:
     * ``exclude``: atletas sem V_{T+k} saem da carteira (o *backtest* condicionado à sobrevivência);
     * ``zero``: o ativo vale zero (aposentadoria; limite pessimista);
     * ``last``: o último valor publicado até T+k, sem limite de defasagem (limite otimista; coluna
-      ``value_last_obs``).
+      ``value_last_obs``);
+    * ``reason`` (cenário principal da v4): zero só para quem se aposentou, ficou sem clube ou parou a
+      carreira (``target_missing_reason`` = ``career_end``); quem só ficou sem avaliação recente, em
+      geral numa liga menor, vale o último valor publicado.
     """
     if missing not in MISSING_OUTCOMES:
         raise ValueError(f"tratamento desconhecido: {missing}")
     observed = sel["value_T"] + sel["dv_true"]
     if missing == "exclude":
         return observed.where(sel["dv_true"].notna())
-    fill = 0.0 if missing == "zero" else sel["value_last_obs"].fillna(sel["value_T"])
+    last = sel["value_last_obs"].fillna(sel["value_T"])
+    if missing == "reason":
+        fill = last.where(sel["target_missing_reason"] != "career_end", 0.0)
+    else:
+        fill = 0.0 if missing == "zero" else last
     return observed.fillna(fill)
 
 
@@ -227,18 +268,21 @@ def top_k(cands: pd.DataFrame, score: str, k: int) -> pd.DataFrame:
 
 
 def budget_greedy(cands: pd.DataFrame, score: str, budget: float, max_price: float | None = None,
-                  max_players: int | None = None, max_per_group: dict[str, int] | None = None) -> pd.DataFrame:
-    """Compra os atletas em ordem decrescente de `score` até esgotar o orçamento (preço = V_T).
+                  max_players: int | None = None, max_per_group: dict[str, int] | None = None,
+                  buy_cost: float = 0.0) -> pd.DataFrame:
+    """Compra os atletas em ordem decrescente de `score` até esgotar o orçamento (preço = V_T(1 + buy_cost)).
 
     `max_per_group` limita a concentração da carteira, por exemplo ``{"position_group": 2,
-    "age_band": 3}``: no máximo dois atletas por posição e três por faixa etária.
+    "age_band": 3}``: no máximo dois atletas por posição e três por faixa etária. Com `buy_cost` = 0,
+    reproduz a regra da v3, que conferia o orçamento sem o custo de compra.
     """
     pool = cands if max_price is None else cands[cands["value_T"] <= max_price]
     caps = max_per_group or {}
-    floor = float(pool["value_T"].min()) if len(pool) else 0.0
+    floor = float(pool["value_T"].min()) * (1 + buy_cost) if len(pool) else 0.0
     chosen, spent = [], 0.0
     counts: dict[tuple[str, object], int] = {}
     ordered = pool.sort_values(score, ascending=False)[["value_T", *caps]]
+    ordered = ordered.assign(value_T=ordered["value_T"] * (1 + buy_cost))
     for idx, price, *levels in ordered.itertuples(name=None):
         if spent + floor > budget:   # nenhum candidato restante cabe no orçamento
             break
@@ -254,6 +298,93 @@ def budget_greedy(cands: pd.DataFrame, score: str, budget: float, max_price: flo
         if max_players and len(chosen) >= max_players:
             break
     return cands.loc[chosen]
+
+
+def budget_milp(cands: pd.DataFrame, score: str, budget: float, buy_cost: float = 0.0,
+                max_price: float | None = None, max_players: int | None = None,
+                max_per_group: dict[str, int] | None = None, downside: str | None = None,
+                hurdle: float = 0.0, lam: float = 0.0) -> pd.DataFrame:
+    """Carteira ótima sob orçamento por programação inteira (mochila com restrições de composição).
+
+    Maximiza Σ z_i · [score_i − λ · max(0, hurdle − downside_i)], com z_i ∈ {0, 1}, sujeito a
+    Σ z_i · V_i(1 + buy_cost) ≤ budget (o preço já inclui o custo de compra), ao número máximo de
+    atletas e aos limites por grupo. `score` e `downside` estão em ΔV% (pontos percentuais) e `hurdle`
+    em fração: o termo penaliza quem tem P10 conformalizado abaixo do ponto de equilíbrio, unindo a
+    previsão pontual e a incerteza num só critério. Só entram candidatos com utilidade positiva.
+    """
+    from scipy.optimize import Bounds, LinearConstraint, milp
+
+    pool = cands if max_price is None else cands[cands["value_T"] <= max_price]
+    util = pool[score].astype(float)
+    if downside is not None and lam > 0:
+        util = util - lam * (hurdle * 100 - pool[downside].astype(float)).clip(lower=0)
+    pool, util = pool[util > 0], util[util > 0]
+    if pool.empty:
+        return cands.iloc[:0]
+    rows, lo, hi = [(pool["value_T"] * (1 + buy_cost)).to_numpy()], [0.0], [budget]
+    if max_players:
+        rows.append(np.ones(len(pool)))
+        lo.append(0.0)
+        hi.append(max_players)
+    for col, cap in (max_per_group or {}).items():
+        for level in pool[col].dropna().unique():
+            rows.append((pool[col] == level).to_numpy(dtype=float))
+            lo.append(0.0)
+            hi.append(cap)
+    res = milp(-util.to_numpy(), constraints=LinearConstraint(np.vstack(rows), lo, hi),
+               integrality=np.ones(len(pool)), bounds=Bounds(0, 1))
+    if res.x is None:
+        return cands.iloc[:0]
+    return pool[res.x > 0.5]
+
+
+def buyable(cands: pd.DataFrame, top_clubs: int = 10, minutes_share_max: float = 15.0,
+            club_col: str = "fbref_team_id", rank_col: str = "club_value_rank_pct") -> pd.Series:
+    """Universo comprável: exclui os atletas dos `top_clubs` elencos mais valiosos das Big Five na
+    temporada, salvo quem joga menos de `minutes_share_max`% dos minutos (sinal de empréstimo ou venda)."""
+    clubs = cands[["season", club_col, rank_col]].drop_duplicates(["season", club_col])
+    elite = clubs.groupby("season", group_keys=False).apply(lambda g: g.nlargest(top_clubs, rank_col))
+    is_elite = pd.MultiIndex.from_frame(cands[["season", club_col]]).isin(
+        pd.MultiIndex.from_frame(elite[["season", club_col]]))
+    return pd.Series(~is_elite | (cands["minutes_share_pct"] < minutes_share_max).to_numpy(), index=cands.index)
+
+
+def acquisition_premium(rows: pd.DataFrame, transfers: pd.DataFrame, as_of: pd.Timestamp,
+                        by: Sequence[str] = ("age_band", "elite_seller"), min_n: int = 20) -> pd.DataFrame:
+    """Ágio de aquisição observado: mediana de taxa de transferência / V_T nas vendas definitivas com
+    taxa paga nos 12 meses após 30/jun de T, saindo do clube do atleta em T.
+
+    Só entram transferências até `as_of` (a data de compra simulada), para que o cenário de estresse
+    não use informação futura. `rows` traz `tm_player_id`, `season`, `value_T` e as colunas de `by`;
+    grupos com menos de `min_n` vendas recebem a mediana geral.
+    """
+    from .config import Season
+
+    t = transfers[(transfers["fee_eur"] > 0) & ~transfers["is_loan"].fillna(False).astype(bool)].copy()
+    t["transfer_date"] = pd.to_datetime(t["transfer_date"])
+    t = t[t["transfer_date"] <= as_of]
+    r = rows.assign(anchor=rows["season"].map(lambda s: pd.Timestamp(Season(s).end_anchor)))
+    m = r.merge(t[["tm_player_id", "transfer_date", "fee_eur"]], on="tm_player_id")
+    m = m[(m["transfer_date"] > m["anchor"]) & (m["transfer_date"] <= m["anchor"] + pd.Timedelta(days=365))]
+    m = m.sort_values("transfer_date").drop_duplicates(["tm_player_id", "season"])
+    m["ratio"] = m["fee_eur"] / m["value_T"]
+    overall = float(m["ratio"].median()) if len(m) else np.nan
+    g = m.groupby(list(by))["ratio"].agg(["median", "size"]).reset_index()
+    g["premio"] = np.where(g["size"] >= min_n, g["median"], overall)
+    return g.assign(mediana_geral=overall, n_total=len(m))
+
+
+def wilson_interval(hits: float, n: int, level: float = 0.95) -> tuple[float, float]:
+    """IC de Wilson para uma proporção (acerto de uma carteira de n atletas)."""
+    from scipy.stats import norm
+
+    if n == 0:
+        return np.nan, np.nan
+    z = norm.ppf(0.5 + level / 2)
+    p = hits / n
+    centre = (p + z ** 2 / (2 * n)) / (1 + z ** 2 / n)
+    half = z * np.sqrt(p * (1 - p) / n + z ** 2 / (4 * n ** 2)) / (1 + z ** 2 / n)
+    return float(centre - half), float(centre + half)
 
 
 def random_portfolios(cands: pd.DataFrame, k: int, n_draws: int, rng: np.random.Generator,
@@ -282,9 +413,15 @@ def var_cvar(returns: np.ndarray, alpha: float = 0.05) -> tuple[float, float]:
 # --------------------------------------------------------------------------------------------
 # Avaliação de decisão: a valorização paga a operação?
 # --------------------------------------------------------------------------------------------
-def break_even_return(buy_cost: float = 0.0, sell_cost: float = 0.0) -> float:
-    """ΔV% (fração de V_T) acima do qual comprar por V_T(1 + b) e vender por V_{T+k}(1 − s) dá lucro."""
-    return (1 + buy_cost) / (1 - sell_cost) - 1
+def break_even_return(buy_cost: float = 0.0, sell_cost: float = 0.0, horizon: int = 1, rate: float = 0.0,
+                      holding: float = 0.0) -> float:
+    """ΔV% (fração de V_T) acima do qual comprar por V_T(1 + b) e vender por V_{T+k}(1 − s) dá lucro.
+
+    Com `rate` (custo de oportunidade anual) e `holding` (custo de carregamento anual, em fração de
+    V_T: salário líquido do retorno esportivo), o ponto de equilíbrio cresce com o horizonte k:
+    [(1 + b)(1 + r)^k + k·c_h] / (1 − s) − 1. Sem eles, é o mesmo em T+1 e T+2.
+    """
+    return ((1 + buy_cost) * (1 + rate) ** horizon + horizon * holding) / (1 - sell_cost) - 1
 
 
 def pays_costs(dv_pct: pd.Series, buy_cost: float = 0.0, sell_cost: float = 0.0) -> pd.Series:

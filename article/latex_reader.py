@@ -263,7 +263,7 @@ def parse_tabular(env: str, body: str, block: Block) -> None:
 # --------------------------------------------------------------------------------------------
 # Documento
 # --------------------------------------------------------------------------------------------
-BLOCK_ENVS = {"resumo", "figure", "table", "quadro", "equation", "equation*", "alineas", "itemize",
+BLOCK_ENVS = {"resumo", "abstract", "figure", "table", "quadro", "equation", "equation*", "alineas", "itemize",
               "enumerate", "citacao"}
 BREAKS = {"newpage", "clearpage", "pagebreak"}
 LIST_LABELS = {"alineas": r"\alph*)", "itemize": "•", "enumerate": r"\arabic*."}
@@ -289,6 +289,8 @@ class Article:
     bibliography: Bibliography
     base: Path
     refs: dict[str, str] = field(default_factory=dict)
+    abstract_en: str = ""                           # ABSTRACT (ambiente ``abstract``), opcional
+    keywords_en: str = ""                           # ``\palavraschaveingles``
 
     def runs(self, latex: str, **style: bool) -> Runs:
         return Inline(self).convert(latex, Style(**style))
@@ -313,13 +315,14 @@ def read_article(path: Path) -> Article:
     bibliography = Bibliography.load([path.parent / f for f in bib_files])
     article = Article(meta.title, meta.authors, meta.orientation, meta.keywords, reader.abstract, blocks,
                       bibliography, path.parent)
+    article.abstract_en, article.keywords_en = reader.abstract_en, meta.keywords_en
     article.refs = number(blocks)
     return article
 
 
 class Preamble:
     def __init__(self, text: str, base: Path) -> None:
-        self.title, self.keywords = "", ""
+        self.title, self.keywords, self.keywords_en = "", "", ""
         self.authors: list[tuple[str, str]] = []
         self.orientation: tuple[str, str, str] | None = None
         self.graphics: list[Path] = [base]
@@ -340,6 +343,8 @@ class Preamble:
                 self.orientation = (label, person, note or "")
             elif name == "palavraschave":
                 self.keywords, i = group(text, i)
+            elif name == "palavraschaveingles":
+                self.keywords_en, i = group(text, i)
             elif name == "graphicspath":
                 paths, i = group(text, i)
                 self.graphics += [base / p for p in re.findall(r"\{([^{}]*)\}", paths)]
@@ -353,7 +358,8 @@ class Preamble:
 class BodyReader:
     def __init__(self, meta: Preamble, base: Path) -> None:
         self.meta, self.base = meta, base
-        self.abstract = ""
+        self.abstract = self.abstract_en = ""
+        self.appendices = 0
 
     def read(self, body: str) -> list[Block]:
         blocks: list[Block] = []
@@ -398,6 +404,12 @@ class BodyReader:
                 opt, j = optional(body, j)
                 content, i = environment(body, j, env)
                 blocks.extend(self.environment(env, opt, content))
+            elif name == "apendice":
+                flush()
+                title, i = group(body, m.end())
+                letter = chr(ord("A") + self.appendices)
+                self.appendices += 1
+                blocks.append(Block("heading", f"Apêndice {letter} -- {title}", level=1, numbered=False, number=letter))
             elif name in ("section", "subsection"):
                 flush()
                 title, i = group(body, m.end())
@@ -423,6 +435,9 @@ class BodyReader:
     def environment(self, env: str, opt: str | None, content: str) -> list[Block]:
         if env == "resumo":
             self.abstract = " ".join(content.split())
+            return []
+        if env == "abstract":
+            self.abstract_en = " ".join(content.split())
             return []
         if env in FLOATS:
             return [self.illustration(FLOATS[env], content)]

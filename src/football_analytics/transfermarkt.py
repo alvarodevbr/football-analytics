@@ -214,6 +214,42 @@ def parse_profile(page_html: str) -> dict[str, Any]:
     return profile
 
 
+_DAYS = re.compile(r"(\d+)")
+_PAGE = re.compile(r"/page/(\d+)")
+
+
+def parse_injuries(page_html: str) -> tuple[list[dict[str, Any]], int]:
+    """Linhas da tabela de lesões (``/verletzungen/``) e o número de páginas da listagem.
+
+    `injury_until` é a data de retorno publicada hoje: para lesões em curso na data-âncora ela é
+    informação futura, e o notebook 03 só usa o início e a duração truncada na âncora.
+    """
+    tree = lxml_html.fromstring(page_html)
+    rows: list[dict[str, Any]] = []
+    for table in tree.xpath("//table[contains(@class,'items')]"):
+        heads = [_clean(th.text_content()) for th in table.xpath(".//thead//th")]
+        if "Injury" not in heads:
+            continue  # a segunda tabela da página é o resumo por temporada
+        for tr in table.xpath("./tbody/tr"):
+            cells = [_clean(td.text_content()) for td in tr.xpath("./td")]
+            if len(cells) < 6:
+                continue  # linha "No entries available"
+            season, injury, start, end, days, games = cells[:6]
+            n_days = _DAYS.search(days)
+            rows.append({
+                "injury_season": season or None,
+                "injury": injury or None,
+                "injury_from": parse_date(start),
+                "injury_until": parse_date(end),
+                "injury_days": int(n_days.group(1)) if n_days else None,
+                "games_missed": int(games) if games.isdigit() else None,
+            })
+        break
+    pages = [int(n) for href in tree.xpath("//*[contains(@class,'tm-pagination')]//a/@href")
+             for n in _PAGE.findall(href)]
+    return rows, max(pages, default=1)
+
+
 # ----------------------------------------------------------------------------------------------
 # endpoints JSON
 # ----------------------------------------------------------------------------------------------
@@ -318,6 +354,26 @@ class TransfermarktClient:
         path = self.cache_dir / "transfers" / f"{player_id}.json"
         payload = self._json(f"{BASE}/ceapi/transferHistory/list/{player_id}", path, headers=XHR_HEADERS)
         return parse_transfers(payload)
+
+    def injuries(self, player_id: int, slug: str, max_pages: int = 10) -> list[dict[str, Any]]:
+        """Histórico datado de lesões, todas as páginas (só as linhas parseadas vão ao cache)."""
+        path = self.cache_dir / "injuries" / f"{player_id}.json"
+        cached = read_json(path)
+        if cached is not None:
+            return cached["rows"]
+        slug = slug if slug and slug != "-" else "x"  # o site redireciona qualquer slug para o canônico
+        rows: list[dict[str, Any]] = []
+        page, pages = 1, 1
+        while page <= min(pages, max_pages):
+            suffix = f"/page/{page}" if page > 1 else ""
+            text = get(self.session, f"{BASE}/{slug}/verletzungen/spieler/{player_id}{suffix}", self.throttle).text
+            self.network_fetches += 1
+            page_rows, pages = parse_injuries(text)
+            rows.extend(page_rows)
+            page += 1
+        write_json(path, {"tm_player_id": player_id, "pages": pages, "rows": rows,
+                          "scraped_at": datetime.now().date().isoformat()})
+        return rows
 
     def is_cached(self, kind: str, player_id: int) -> bool:
         return (self.cache_dir / kind / f"{player_id}.json").exists()

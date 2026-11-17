@@ -486,6 +486,14 @@ class Renderer:
         p = self.para([Run("Palavras-chave:", bold=True), Run(" ")] + self.latex(a.keywords), indent=0)
         p.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.LEFT
         self.words += len(plain(self.latex(a.abstract)).split())
+        if a.abstract_en:                              # resumo em língua estrangeira (NBR 6022)
+            self.blank()
+            self.para([Run("ABSTRACT")], size=TITLE_PT, bold=True, align=WD_ALIGN_PARAGRAPH.CENTER, indent=0)
+            self.blank()
+            self.para(self.latex(a.abstract_en), indent=0)
+            self.blank()
+            p = self.para([Run("Keywords:", bold=True), Run(" ")] + self.latex(a.keywords_en), indent=0)
+            p.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.LEFT
 
     def heading(self, b: Block) -> None:
         self.blank()
