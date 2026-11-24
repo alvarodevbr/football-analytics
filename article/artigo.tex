@@ -33,7 +33,7 @@ Clubs that follow a player-trading model must identify, ahead of the market, the
 This study assesses to what extent the change in market value of outfield players in the five major European leagues can be forecast one and two seasons ahead ($T+1$ and $T+2$) with information available at the end of the reference season.
 The data come from FBref, Understat, Sofascore and Transfermarkt, which also supplies injury histories, and comprise 13,748 player–season observations of 5,007 players from 2018/19 to 2024/25.
 The 10\% most valuable players, whose prices carry superstar premiums, and those who played fewer than 90 minutes in the season were excluded.
-Validation used an expanding window and a pre-registered protocol.
+Models were trained and tested in an expanding window, under a protocol registered before the test was revealed.
 On the test set, the model explained 34\% of the log-return variance at $T+1$ and 38\% at $T+2$.
 As a buying rule, 66\% of the top predicted decile at $T+1$ appreciated enough to cover 10\% buying and selling costs, against 21.7\% of all test players.
 Age was the main driver, but on-field performance added predictive power to Transfermarkt at $T+1$, mainly at peak age, and category-specific models did not outperform a single model.
@@ -53,7 +53,7 @@ Estimar bem o nível não garante prever a variação.
 Num corte transversal, boa parte do valor de cada atleta se explica por atributos que mudam pouco, como escala, reputação e posição.
 Na variação $\ln V_{i,T+k} - \ln V_{i,T}$, esses componentes se cancelam, e sobra o que muda de uma temporada para outra, um alvo bem mais ruidoso.
 Um $R^2$ de 0,3 a 0,4 na variação, portanto, não se compara aos 0,8 típicos dos modelos de nível.
-Um modelo que reproduz o valor publicado também herda a inércia da plataforma, sujeita a ancoragem e a cascatas de informação \cite{herm2014,coates2022}.
+Há ainda a inércia da própria plataforma, sujeita a ancoragem e a cascatas de informação \cite{herm2014,coates2022}, que um modelo treinado para reproduzir o valor publicado acaba herdando.
 
 A avaliação enviesada e a baixa interpretabilidade dos modelos agravam essa lacuna.
 Em dados longitudinais, dividir a amostra aleatoriamente ou reutilizar o conjunto de teste durante o desenvolvimento gera métricas otimistas \cite{kaufman2011,kapoor2023}.
@@ -61,10 +61,11 @@ Quem aprova uma contratação precisa entender por que um atleta foi recomendado
 
 Este artigo prevê a variação absoluta e percentual do valor de mercado de jogadores de linha das cinco principais ligas europeias (\textit{Big Five}) uma e duas temporadas à frente ($T+1$ e $T+2$).
 A amostra exclui os 10\% mais caros e quem jogou menos de 90 minutos na temporada de referência.
-Avalia-se também se essas previsões sustentam decisões práticas de recrutamento e revenda.
+Também se verifica se essas previsões ajudam a decidir contratações e revendas.
 O estudo contribui em quatro frentes.
-Trata o problema como previsão temporal estrita, com protocolo pré-registrado, e testa se o desempenho em campo agrega informação ao que o Transfermarkt já incorpora.
-Submete também a teste formal a segmentação em 12 categorias de idade e posição, em lugar das nove de \textcite{khalife2025}.
+Primeiro, trata o problema como previsão temporal estrita, com protocolo pré-registrado.
+Depois, testa se o desempenho em campo acrescenta informação ao que o Transfermarkt já incorpora.
+Submete ainda a teste formal a segmentação em 12 categorias de idade e posição, em lugar das nove de \textcite{khalife2025}.
 Por fim, avalia as previsões como regra de decisão, líquida de custos de transação, e as explica com SHAP.
 
 \section{Revisão da literatura}
@@ -88,7 +89,7 @@ Num estudo de previsão, o valor do Transfermarkt é o alvo observável, mas a s
 
 \subsection{Aprendizado de máquina na valoração de atletas}
 
-\textcite{muller2017} estimaram valores de mercado por regressão multinível, com desempenho e popularidade; \textcite{mchale2023} aplicaram métricas avançadas e aprendizado de máquina a valores de transferência.
+\textcite{muller2017} usaram regressão multinível, com desempenho e popularidade como preditores do valor de mercado, e \textcite{mchale2023} levaram métricas avançadas e aprendizado de máquina à estimação de valores de transferência.
 Já \textcite{khalife2025} dividiram modelos de \textit{gradient boosting} em nove grupos, cruzando três faixas etárias e três posições, e mostraram que incluir o potencial projetado eleva a precisão média de 74\% para 84\%, embora ela caia para 59\% entre atacantes acima de 30 anos.
 Esses valores referem-se ao nível do valor, e não à sua variação futura.
 
@@ -98,8 +99,9 @@ O vazamento e a seleção de modelos no próprio conjunto de teste inflam result
 \subsection{Explicabilidade na tomada de decisão}
 
 Com base nos valores de Shapley da teoria dos jogos cooperativos, o SHAP decompõe cada previsão na soma das contribuições individuais das variáveis \cite{lundberg2017} e dispõe de cálculo exato para conjuntos de árvores \cite{lundberg2020}.
-No recrutamento, essa decomposição mostra se um atleta foi recomendado pelo desempenho, pela idade, pelo preço ou pelo contexto do clube.
-Há dois limites: o SHAP descreve o comportamento do modelo, e não relações causais, e variáveis correlacionadas dividem o crédito entre si.
+Aplicada ao recrutamento, a decomposição permite ver quanto da recomendação de um atleta vem do desempenho e quanto vem da idade, do preço ou do contexto do clube.
+O SHAP tem, porém, dois limites.
+Descreve o que o modelo faz, sem estabelecer causalidade, e, quando duas variáveis são correlacionadas, divide o crédito entre elas.
 
 \section{Problema e objetivos}
 
@@ -107,7 +109,9 @@ Para um clube que opera \textit{player trading}, o problema não é saber quanto
 Daí a pergunta de pesquisa: com a informação disponível ao fim de $T$, em que medida é possível prever a variação absoluta ($\Delta V$) e percentual ($\Delta V\%$) do valor de mercado em $T+1$ e $T+2$ dos jogadores de linha das \textit{Big Five} entre os 90\% mais baratos e com ao menos 90 minutos, de modo a fundamentar decisões de recrutamento e revenda?
 
 O objetivo geral é desenvolver e validar modelos de aprendizado de máquina que prevejam essas variações e testá-los como apoio à decisão.
-Os objetivos específicos seguem a ordem do artigo: integrar e verificar os dados dos atletas elegíveis; comparar algoritmos e arquiteturas sob validação temporal sem vazamento; identificar com SHAP os determinantes da valorização nas 12 categorias de idade e posição; e simular uma estratégia \textit{buy-low/sell-high} líquida de custos.
+Os objetivos específicos se distribuem pelas seções seguintes.
+A seção~\ref{sec:dados} integra e verifica os dados dos atletas elegíveis, e a seção~\ref{sec:metodo} descreve a comparação de algoritmos e arquiteturas sob validação temporal sem vazamento.
+Na seção~\ref{sec:resultados}, além do desempenho preditivo, o SHAP identifica os determinantes da valorização nas 12 categorias de idade e posição, e simula-se uma estratégia \textit{buy-low/sell-high} líquida de custos.
 
 As hipóteses e seus critérios de decisão foram fixados no protocolo pré-registrado:
 
@@ -121,7 +125,8 @@ As hipóteses e seus critérios de decisão foram fixados no protocolo pré-regi
 
 \section{Diferencial do estudo}
 
-Frente à literatura de referência (Quadro~\ref{qua:diferencial}), o estudo muda o objeto, que passa a ser a variação do valor, e não o nível, e a avaliação, com janela expandida, teste pré-registrado, inferência por agrupamentos e correção para comparações múltiplas.
+O Quadro~\ref{qua:diferencial} resume em que o estudo se afasta da literatura de referência.
+O objeto é a variação do valor, e não o seu nível, e a avaliação usa janela expandida, teste pré-registrado, inferência por agrupamentos e correção para comparações múltiplas.
 As previsões também são julgadas como regra de compra líquida de custos, e as hipóteses pré-registradas são reportadas mesmo quando os dados não as confirmaram.
 
 \begin{quadro}[htbp]
@@ -145,7 +150,7 @@ As previsões também são julgadas como regra de compra líquida de custos, e a
   \fonte{Elaboração própria.}
 \end{quadro}
 
-\section{Verificação dos dados}
+\section{Verificação dos dados}\label{sec:dados}
 
 \subsection{Fontes e integração}
 
@@ -190,7 +195,7 @@ A Tabela~\ref{tab:funil} apresenta o funil amostral, que resulta em 13.748 obser
 \end{table}
 
 O percentil 90 de $V_T$, calculado por temporada, fica entre €~27 e €~32 milhões, acima dos €~18 milhões de \textcite{muller2017}, que equivalem ao percentil 81 nesta amostra.
-O corte pesa mais em algumas ligas: sai 21\% das observações da Premier League, contra 4\% das da Ligue~1.
+O corte retira 21\% das observações da Premier League e só 4\% das da Ligue~1.
 O Apêndice~\ref{ap:teto} mostra que os resultados se mantêm sob tetos absolutos de preço.
 O filtro de 90 minutos atinge sobretudo os jovens, com a saída de 23\% dos atletas de 16 a 23 anos; as conclusões sobre essa faixa valem, portanto, para jovens já integrados ao elenco principal.
 As 12 categorias têm tamanhos desiguais, de 2.233 observações (defensores de 24 a 28 anos) a 341 (atacantes de 33 anos ou mais), com faixas definidas pelos anos completos em 30 de junho (16–23, 24–28, 29–32 e 33 anos ou mais), o que elimina a sobreposição das faixas de referência aos 28 anos.
@@ -198,14 +203,14 @@ As 12 categorias têm tamanhos desiguais, de 2.233 observações (defensores de 
 \subsection{Variáveis-alvo}
 
 A distribuição da variação percentual é fortemente assimétrica.
-Nas temporadas de desenvolvimento, a mediana de $\Delta V\%$ em $T+1$ é de −20,0\%, mas a média sobe a +5,8\%, puxada pela cauda direita (assimetria de 19,8).
+Nas temporadas de desenvolvimento, o atleta mediano perde 20,0\% do valor em $T+1$, mas a média de $\Delta V\%$ é de +5,8\%, porque alguns saltos muito grandes alongam a cauda direita (assimetria de 19,8).
 Por isso, o alvo de treino é o log-retorno, com assimetria de 1,10, e as previsões voltam depois para $\Delta V\%$ e $\Delta V$.
-Cerca de um atleta em cada quatro se valoriza por temporada.
-A exceção é 2018/19: seu $V_{T+1}$ coincide com a revisão extraordinária de abril de 2020, na pandemia, quando 82\% dos atletas perderam valor.
+Cerca de um atleta em cada quatro se valoriza por temporada, mas 2018/19 foge à regra.
+O $V_{T+1}$ dessa temporada vem da revisão extraordinária que o Transfermarkt fez em abril de 2020, no início da pandemia, quando 82\% dos atletas perderam valor.
 Entre os 265 atletas sem $V_{T+1}$ observado, 152 se aposentaram, ficaram sem clube ou interromperam a carreira.
 Os outros 113 continuaram sendo avaliados, em geral em ligas menores, mas a última avaliação era anterior ao limite de 183 dias, e a simulação por intenção de tratar distingue os dois grupos.
 
-\section{Metodologia e design do modelo}
+\section{Metodologia e design do modelo}\label{sec:metodo}
 
 \subsection{Variáveis}
 
@@ -218,7 +223,7 @@ Para o atleta $i$ na temporada $T$, o alvo no horizonte $k \in \{1, 2\}$ é o lo
 O vetor explicativo reúne 125 variáveis medidas até 30 de junho de $T$: demografia (idade decimal e seu quadrado, altura, pé e nacionalidade); mercado ($\ln V_T$, peso no valor do elenco e defasagem da avaliação); contexto do clube (desempenho da equipe, promoção, rebaixamento e Europa); disponibilidade física (dias lesionado em $T$ e $T-1$, lesões em 24 meses e lesão em curso em 30 de junho, truncados na data-âncora, pois a data de retorno de uma lesão em curso é futura); dinâmica do valor (revisões, distância e tempo desde o pico); defasagens e trajetória (\textit{momentum}, desempenho em $T-1$, minutos desde $T-2$, titularização e chegada às \textit{Big Five}); e 64 métricas de desempenho por 90 minutos, de eficiência e de cauda, além de liga, faixa etária, posição e papel tático.
 
 Como as taxas de quem joga pouco são dominadas pelo acaso, cada métrica foi encolhida para a média do seu papel tático na temporada (zagueiro, lateral, volante, meia central, meia ofensivo ou ponta e centroavante), e não da posição ampla, por métodos empírico-bayesianos \cite{efron1975}.
-Nas contagens, usou-se o estimador gama–Poisson de \textcite{clayton1987}, dado pela equação~\eqref{eq:shrink}, em que $c_i$ é a contagem observada, $e_i$ são os minutos divididos por 90, e $\alpha$ e $\beta$ são parâmetros \textit{a priori} estimados pelo método dos momentos.
+As contagens seguem o estimador gama–Poisson de \textcite{clayton1987} (equação~\eqref{eq:shrink}), com $c_i$ igual à contagem observada, $e_i$ igual aos minutos divididos por 90 e os parâmetros \textit{a priori} $\alpha$ e $\beta$ estimados pelo método dos momentos.
 Nos percentuais, empregou-se o análogo beta–binomial.
 \begin{equation}
   \tilde{r}_i = \frac{\alpha + c_i}{\beta + e_i}
@@ -236,20 +241,21 @@ O tempo restante de contrato também ficou fora, porque o Transfermarkt publica 
 
 \subsection{Validação temporal e pré-registro}
 
-A validação usa janela expandida: cada dobra é treinada só com as temporadas anteriores e testada na seguinte, na ordem em que o clube decidiria a compra, sem informação futura.
+Como a pergunta é de previsão, a validação segue o calendário.
+Em janela expandida, cada dobra treina com todas as temporadas anteriores e testa na seguinte, de modo que o modelo nunca usa informação posterior à data em que o clube decidiria a compra.
 São seis dobras em $T+1$, com testes de 2019/20 a 2024/25, e quatro em $T+2$.
-Nesse horizonte, uma temporada entre treino e teste é descartada (purga), pois o alvo só é conhecido dois anos depois.
+Em $T+2$, descarta-se também a temporada entre treino e teste (purga), porque o alvo dela só é conhecido dois anos depois e ainda não existiria na data da decisão.
 Todo o pré-processamento (imputação, winsorização e padronização) é ajustado separadamente dentro de cada dobra.
 
-As decisões de modelagem foram tomadas nas dobras de desenvolvimento, com os alvos dos testes ocultos.
-Antes de cada revelação, o protocolo, com variáveis, dobras, hiperparâmetros, arquitetura, camadas e critérios das hipóteses, foi gravado no repositório junto com \textit{hashes} (assinaturas criptográficas) dos dados e do código, e o teste só foi aberto após uma verificação automática confirmar que nada mudara \cite{nosek2018}.
+Os autores tomaram as decisões de modelagem nas dobras de desenvolvimento, sem acesso aos alvos dos testes.
+Antes de abrir cada teste, gravaram no repositório o protocolo (variáveis, dobras, hiperparâmetros, arquitetura, camadas e critérios das hipóteses) e os \textit{hashes}, assinaturas criptográficas, dos dados e do código, e um script só libera os alvos quando esses \textit{hashes} conferem \cite{nosek2018}.
 Um primeiro protocolo pré-registrou o teste de $T+1$ (2024/25, com alvo em 30 de junho de 2026); as melhorias deste artigo foram incorporadas num segundo protocolo, versionado antes de reavaliar o mesmo teste\footnote{Código, dados processados e protocolos em \url{https://github.com/alvarodevbr/football-analytics}: primeiro protocolo no \textit{commit} 5573d7e; segundo no \textit{commit} 8883da8 (reports/protocol\_v4.json, SHA-256 8741f3bb4aac).}.
 Como os autores já conheciam o resultado do primeiro protocolo nesse teste, ele passa a ser semi-independente, como o de $T+2$ (2023/24), consultado em versões anteriores do estudo, e os números do primeiro protocolo são reportados como referência.
 
 \subsection{Algoritmos, arquiteturas e otimização}
 
 Foram comparados a mediana do treino por categoria, como referência ingênua, e cinco algoritmos: mínimos quadrados ordinários, Ridge \cite{hoerl1970}, floresta aleatória \cite{breiman2001}, XGBoost \cite{chen2016} e CatBoost \cite{prokhorenkova2018}.
-Como combinações simples costumam bater pesos estimados na amostra \cite{smith2009}, o modelo principal foi definido \textit{a priori} como um \textit{ensemble} dado pela média simples de CatBoost, XGBoost e Ridge.
+O modelo principal, fixado \textit{a priori}, é um \textit{ensemble} com a média simples de CatBoost, XGBoost e Ridge, já que combinações simples costumam superar pesos estimados na amostra \cite{smith2009}.
 A segmentação foi testada em quatro arquiteturas.
 A global usa um único modelo, com idade, posição e papel tático entre as variáveis; a segmentada ajusta um modelo por célula nas matrizes 4~×~3 e 3~×~3.
 A arquitetura global com interações restritas limita cada métrica de desempenho a interagir apenas com idade, faixa etária, posição e papel tático (via restrições de interação no XGBoost e via coeficientes de seis compostos de desempenho por célula faixa etária~×~posição no Ridge).
@@ -259,7 +265,7 @@ Por último, o \textit{pooling} parcial faz a média ponderada da previsão do s
   \label{eq:pool}
 \end{equation}
 
-A regra, declarada de antemão, mantém o \textit{ensemble} global, a menos que uma alternativa reduza o erro de validação com diferença significativa após a correção de Holm.
+O \textit{ensemble} global é o padrão, e uma arquitetura alternativa só o substitui quando reduz o erro de validação com diferença ainda significativa depois da correção de Holm, critério fixado antes de qualquer comparação.
 O teste é pareado, com erro-padrão agrupado em duas dimensões, jogador e clube~×~temporada \cite{cameron2011}, já que um mesmo atleta aparece em até seis temporadas nas dobras empilhadas.
 Outra regra, aplicada antes da otimização, escolheu o alvo de treino entre o log-retorno nominal e o excesso ao \textit{drift} de mercado da temporada, recomposto na previsão por um \textit{drift} estimado com informação de $T$.
 Os hiperparâmetros foram escolhidos por otimização bayesiana com processo gaussiano \cite{snoek2012}, com 20 avaliações nos modelos globais e minimização da raiz do erro quadrático médio (RMSE) das três últimas dobras de validação; no \textit{boosting}, a taxa de aprendizado foi fixada em 0,05, e o número de árvores, definido por parada antecipada temporal.
@@ -272,7 +278,8 @@ No primeiro protocolo, ela combinava uma recalibração linear (parâmetros $a$ 
   \widehat{\Delta V\%}_i = f_g \exp\left(a + b\,\hat{y}_i\right) - 1
   \label{eq:smear}
 \end{equation}
-A estimação tem duas etapas, para que $f_g$ e $e^a$ não disputem o nível: $a$ e $b$ saem da regressão de mínimos quadrados de $y$ em $\hat y$, e $f_g$ é a média de $\exp(y - a - b\hat y)$ em cada faixa.
+Primeiro, $a$ e $b$ saem da regressão de mínimos quadrados de $y$ em $\hat y$.
+Só depois se calcula $f_g$, a média de $\exp(y - a - b\hat y)$ em cada faixa, o que impede $f_g$ e $e^a$ de disputarem o nível.
 Como a variância dos resíduos cresce com a previsão e com o preço, um fator constante por faixa subestima a cauda direita \cite{manning2001}.
 Por isso, foram comparadas quatro alternativas, todas só com as dobras anteriores: um fator heterocedástico por decil de previsão, tercil de $\ln V_T$ e faixa; a forma da distribuição prevista por um CatBoost multiquantil de 20 níveis \cite{koenker1978}, aplicada à locação do \textit{ensemble}; a integração direta desses quantis; e um modelo em duas partes, com um classificador de saltos ($V_{T+k} \geq 2V_T$).
 A regra do protocolo escolhe a camada de menor erro absoluto médio entre $\Delta V\%$ previsto e observado por decil de previsão.
@@ -280,9 +287,10 @@ Os intervalos de 80\% vêm do mesmo CatBoost multiquantil, com conformalização
 
 \subsection{Inferência, explicabilidade e avaliação da decisão}
 
-Os intervalos de confiança vêm de \textit{bootstrap} por agrupamentos clube~×~temporada, pois atletas do mesmo elenco sofrem choques comuns \cite{cameron2008}.
-Os modelos foram comparados pelo teste pareado de perdas de Diebold–Mariano, com erro-padrão agrupado e correção para pequenas amostras \cite{diebold1995,harvey1997}, com a correção de \textcite{holm1979} para comparações múltiplas e com o conjunto de confiança de modelos \cite{hansen2011}.
-A H1 foi testada por ablação: retira-se um bloco de variáveis e mede-se quanto o erro aumenta \cite{lei2018}.
+Atletas do mesmo elenco compartilham choques, como um rebaixamento, e por isso os intervalos de confiança vêm de \textit{bootstrap} por agrupamentos clube~×~temporada \cite{cameron2008}.
+Na comparação entre modelos, usou-se o teste pareado de perdas de Diebold–Mariano, com erro-padrão agrupado e correção para pequenas amostras \cite{diebold1995,harvey1997}.
+Os $p$-valores passam pela correção de \textcite{holm1979} para comparações múltiplas, e o conjunto de confiança de modelos \cite{hansen2011} indica quais especificações não se distinguem da melhor.
+A H1 foi testada por ablação, na linha do LOCO (\textit{leave-one-covariate-out}) de \textcite{lei2018}: retira-se um bloco de variáveis e mede-se quanto o erro aumenta.
 Cada previsão é explicada pelos valores SHAP, que a decompõem em um valor-base $\phi_0$ e nas contribuições $\phi_{ij}$ das $M$ variáveis (equação~\eqref{eq:shap}), calculadas pelo algoritmo exato nas árvores e pela forma fechada linear no Ridge.
 \begin{equation}
   \hat{y}_i = \phi_0 + \sum_{j=1}^{M} \phi_{ij}
@@ -298,19 +306,19 @@ Só há lucro se a valorização superar o ponto de equilíbrio dos custos, de 2
   \Delta V\% > \frac{1 + c_b}{1 - c_v} - 1
   \label{eq:breakeven}
 \end{equation}
-Esse limiar define a \enquote{valorização significativa}.
-Com ele, as previsões são avaliadas como regra de compra por AUC \cite{fawcett2006}, escore de Brier \cite{brier1950} e probabilidades calibradas por regressão isotônica \cite{zadrozny2002}, métricas fixadas no segundo protocolo.
+Chama-se aqui de \enquote{valorização significativa} a que supera esse limiar, e é com ele que as previsões são avaliadas como regra de compra, por AUC \cite{fawcett2006}, escore de Brier \cite{brier1950} e probabilidades calibradas por regressão isotônica \cite{zadrozny2002}, métricas fixadas no segundo protocolo.
 A probabilidade prevista provém da regressão ou da média de classificadores treinados diretamente nesse limiar (CatBoost, XGBoost e regressão logística), escolhendo-se a opção de menor Brier no desenvolvimento.
 Dos quatro cenários secundários, o primeiro soma custos anuais de oportunidade ($r = 5\%$) e de carregamento ($c_h = 10\%$ de $V_T$), o que eleva o ponto de equilíbrio para $[(1 + c_b)(1 + r)^k + k\,c_h]/(1 - c_v) - 1$.
 Os demais compram pela razão mediana entre a taxa paga e $V_T$ nas transferências anteriores à decisão, excluem os dez elencos mais valiosos (universo comprável) e montam a carteira sob orçamento por programação inteira.
 
-\section{Resultados e discussão}
+\section{Resultados e discussão}\label{sec:resultados}
 
 \subsection{Desempenho preditivo}
 
 A variação futura do valor é parcialmente previsível, como resume a Tabela~\ref{tab:teste}.
 Pela regra do protocolo, a arquitetura final de $T+1$ é o \textit{ensemble} com interações restritas, que superou o global nas dobras de desenvolvimento (RMSE de 0,5171 contra 0,5185; $p$ de Holm $< 0{,}001$).
-Em $T+2$, nenhuma alternativa passou pela regra; o \textit{pooling} 3~×~3, escolhido no primeiro protocolo, não resistiu ao erro-padrão em dois agrupamentos ($p$ de Holm de 0,08).
+Em $T+2$, nenhuma alternativa passou.
+O \textit{pooling} 3~×~3, que o primeiro protocolo havia escolhido, perdeu a significância quando o erro-padrão passou a ser agrupado por jogador e por clube~×~temporada ($p$ de Holm de 0,08).
 No teste, a arquitetura final explica 34\% da variância do log-retorno em $T+1$ (IC 95\%: 30\% a 37\%) e 38\% em $T+2$ (34\% a 42\%), pouco mais que no primeiro protocolo.
 Em relação a supor que o valor não muda, a RMSE cai 20\% e 27\%.
 O $R^2$ cresce com a janela de treino, de 0,19 na primeira dobra de $T+1$ a 0,30 na última de desenvolvimento.
@@ -359,7 +367,7 @@ O Quadro~\ref{qua:hipoteses}, ao fim desta seção, apresenta os vereditos, obti
 A H1 é sustentada em $T+1$, mas não em $T+2$.
 A retirada do desempenho em $T$ e $T-1$ junto com o valor justo eleva o erro com significância estatística em $T+1$, e a sequência aninhada de modelos dimensiona esse ganho.
 Nesse horizonte, o $R^2$ parte de 0,264 com idade, contexto e lesões, sobe para 0,300 ao incluir o nível de preço, chega a 0,308 com a trajetória no Transfermarkt e alcança 0,335 ao somar desempenho e valor justo; com o desempenho presente, a trajetória deixa de acrescentar informação.
-Esse ganho modesto indica que parte do rendimento em campo ainda não está refletida nos valores publicados, em linha com um mercado parcialmente eficiente.
+Esse ganho modesto sugere que parte do rendimento em campo ainda não está refletida nos valores publicados, em linha com um mercado parcialmente eficiente.
 
 A H2 não se confirma: com 12 categorias, cada modelo treina com menos dados, e as previsões não melhoraram.
 Nas duas matrizes, 4~×~3 e 3~×~3, os modelos por categoria erraram mais que o global, e o \textit{pooling} parcial apenas empatou com ele.
@@ -391,7 +399,7 @@ A heterogeneidade por idade e posição existe (H5), mas é mais bem capturada n
 A Figura~\ref{fig:shap} mostra as 20 variáveis mais importantes em $T+1$.
 A idade é o determinante isolado mais importante, com efeito quase linear, de cerca de +0,40 aos 19 anos a −0,22 aos 36.
 Em seguida vêm o \textit{gap} de avaliação, cujo efeito cresce de forma monotônica até +0,25 nos atletas mais subavaliados, e o $\ln V_T$, de efeito negativo: os mais caros tendem a se valorizar menos, o que condiz com a premissa \textit{buy-low}.
-Por grupos, o desempenho tático-técnico responde por 27\% da explicação em $T+1$ e 24\% em $T+2$, e a demografia, por 26\% e 34\%.
+Somados por grupo, os valores SHAP dão ao desempenho tático-técnico 27\% da explicação em $T+1$ e 24\% em $T+2$, e à demografia, 26\% e 34\%.
 O contexto do clube fica com 11\% e 7\%, sobretudo por causa do rebaixamento, e a disponibilidade física, com 4\% e 3\%; nela, estar lesionado em 30 de junho pesa contra o atleta.
 Entre as métricas de desempenho, as mais importantes são a nota do Sofascore e a regularidade e, nos atacantes, também as grandes chances, as finalizações e os dribles, que herdam o crédito quando a nota é retirada.
 
@@ -405,7 +413,8 @@ Entre as métricas de desempenho, as mais importantes são a nota do Sofascore e
 
 A Figura~\ref{fig:grupos} detalha a participação dos grupos nas 12 categorias.
 No auge, dos 24 aos 28 anos, o desempenho alcança de 29\% a 35\% da explicação em $T+1$, e a idade, apenas 14\% a 16\%; entre os veteranos, a idade responde por 36\% a 40\%.
-A diferença de participação do desempenho entre o auge e os veteranos, de 9,6 pontos percentuais, mantém-se entre 7,4 e 9,1 pontos nos modelos reajustados em cada dobra, cujos \textit{rankings} de importância são estáveis ($\tau$ de Kendall médio de 0,59 em $T+1$ e de 0,64 em $T+2$).
+A diferença de participação do desempenho entre o auge e os veteranos é de 9,6 pontos percentuais e fica entre 7,4 e 9,1 pontos nos modelos reajustados em cada dobra.
+Nesses modelos, a ordem de importância das variáveis também é estável, com $\tau$ de Kendall médio de 0,59 em $T+1$ e de 0,64 em $T+2$.
 Esse contraste na decomposição SHAP contradiz a expectativa de que o rendimento operacional conduziria a avaliação dos veteranos e sugere, nos dados analisados, que o mercado precifica o desempenho sobretudo quando ele ainda indica potencial de trajetória futura.
 
 \begin{figure}[htbp]
@@ -419,8 +428,8 @@ Esse contraste na decomposição SHAP contradiz a expectativa de que o rendiment
 \subsection{Premissa \textit{buy-low} e decisão de compra}
 
 Os resultados do teste em $T+1$ apoiam a premissa \textit{buy-low}.
-No quintil mais subavaliado pelo \textit{gap}, a mediana de $\Delta V\%$ foi de −10,0\% (IC 95\%: −14,3\% a 0,0\%); no mais sobreavaliado, de −20,0\% (−25,0\% a −16,7\%).
-Controlada por idade e preço, a correlação parcial entre \textit{gap} e log-retorno é de −0,20.
+No quintil mais subavaliado pelo \textit{gap}, a mediana de $\Delta V\%$ foi de −10,0\% (IC 95\%: −14,3\% a 0,0\%), metade da queda do quintil mais sobreavaliado, de −20,0\% (−25,0\% a −16,7\%).
+A correlação parcial entre \textit{gap} e log-retorno, controlada por idade e preço, é de −0,20.
 Em $T+2$, o efeito tem o mesmo sentido, mas os intervalos se tocam.
 A simulação de carteiras está na Tabela~\ref{tab:backtest}.
 
@@ -446,11 +455,12 @@ A simulação de carteiras está na Tabela~\ref{tab:backtest}.
 
 A carteira guiada pelo modelo supera todas as heurísticas e o acaso nos diferentes universos e cenários de custo.
 Frente à seleção aleatória, ela venceu nas seis temporadas de $T+1$ (teste do sinal, $p = 0{,}016$) e nas quatro de $T+2$ ($p = 0{,}063$).
-No teste de 2024/25, a carteira do modelo rendeu 108\%, e a aleatória perdeu 16\%.
+No teste de 2024/25, a carteira do modelo rendeu 108\% (Tabela~\ref{tab:teto}), e a aleatória perdeu 16\%.
 Mesmo sem os três maiores acertos de cada carteira, o ROI sem custos de $T+1$ fica acima de 37\% em todas as temporadas.
-O resultado também se mantém com o preço efetivo: as vendas observadas saíram, na mediana, por 0,86 de $V_T$, mas os jovens custaram mais (1,11 fora da elite e 1,45 nos elencos de elite), e comprar por essas razões ainda dá ROI de 45\% em $T+1$ e 78\% em $T+2$.
+O resultado também se mantém quando a compra usa o preço efetivo, e não $V_T$.
+As vendas observadas saíram, na mediana, por 0,86 de $V_T$, mas os jovens custaram mais (1,11 fora da elite e 1,45 nos elencos de elite), e comprar por essas razões ainda dá ROI de 45\% em $T+1$ e 78\% em $T+2$.
 Frente à compra dos 10\% mais jovens, que captura apenas o prêmio da idade, o modelo ganha +32 pontos percentuais em $T+1$ e +41 em $T+2$.
-Comprar jovens titulares fora da elite rende muito menos, porque titularidade e preço sobem juntos.
+Comprar jovens titulares fora da elite rende muito menos, provavelmente porque titularidade e preço sobem juntos.
 
 As previsões foram também avaliadas como regra de decisão, com as métricas do protocolo (Figura~\ref{fig:regra}), e o critério de sucesso é a valorização cobrir os custos da operação ($\Delta V\%$ > 22,2\%).
 Isso acontece com cerca de 21\% dos atletas: 21,7\% no teste de $T+1$ e 21,4\% no de $T+2$.
@@ -458,8 +468,9 @@ O modelo os separa com AUC de 0,82 (IC 95\%: 0,80 a 0,84) em $T+1$ e de 0,83 (0,
 Em $T+2$, foram 57\% pelo retorno esperado e 63\% pela probabilidade dos classificadores diretos, o escore de decisão escolhido no protocolo.
 
 Boa parte dessa separação vem da idade: comprar os 10\% mais jovens já atinge AUC de 0,80 em $T+1$ e de 0,84 em $T+2$.
-Em $T+1$, o modelo supera essa heurística por 0,022 de AUC (IC 95\%: 0,011 a 0,035); em $T+2$, os dois empatam.
-Sua contribuição própria aparece no auge da carreira (38\% a 43\% do decil superior pagaram a operação, contra 19\% a 26\% dos mais jovens da faixa, ou 37\% no teste de $T+2$), no retorno e na probabilidade calibrada (\textit{Brier skill} de 0,23 e 0,25 no teste; 71\% de acerto acima de 60\% de probabilidade em $T+1$).
+O modelo supera essa heurística em $T+1$, com 0,022 de AUC a mais (IC 95\%: 0,011 a 0,035), mas empata com ela em $T+2$.
+O que ele acrescenta à idade aparece primeiro no auge da carreira (38\% a 43\% do decil superior pagaram a operação, contra 19\% a 26\% dos mais jovens da faixa, ou 37\% no teste de $T+2$).
+Aparece também no retorno e na probabilidade calibrada, com \textit{Brier skill} de 0,23 e 0,25 no teste e 71\% de acerto acima de 60\% de probabilidade em $T+1$.
 
 Ainda assim, o risco de carteira continua elevado.
 Com orçamento de €~40 milhões, a programação inteira escolheu até seis atletas de €~2 a 15 milhões, diversificados por posição e idade.
@@ -482,10 +493,11 @@ A decomposição por faixa etária sugere ainda dar mais peso ao desempenho no a
 
 \section{Conclusão}
 
-Sob protocolo pré-registrado, a variação do valor mostrou-se parcialmente previsível: o modelo explicou 34\% da variância do log-retorno em $T+1$ e 38\% em $T+2$, ordenou os atletas de forma consistente, e as carteiras formadas com ele, líquidas de custos, superaram o acaso, o \textit{momentum} e a compra dos mais jovens em todas as temporadas.
+A variação do valor de mercado é parcialmente previsível.
+Sob protocolo pré-registrado, o modelo explicou 34\% da variância do log-retorno em $T+1$ e 38\% em $T+2$ e ordenou os atletas de forma consistente, e as carteiras formadas com ele superaram, já descontados os custos, o acaso, o \textit{momentum} e a compra dos mais jovens em todas as temporadas.
 A resposta à pergunta de pesquisa é, portanto, afirmativa quanto à ordenação e à decisão de compra, com AUC de 0,82 a 0,83 e 66\% de acerto no decil superior de $T+1$.
 Quanto à magnitude, ela é mais cautelosa, pois os maiores saltos seguem subestimados.
-A idade é o principal determinante, mas o desempenho em campo agrega poder preditivo ao Transfermarkt em $T+1$, sobretudo no auge da carreira.
+A idade é o principal determinante, mas o desempenho em campo agrega poder preditivo ao Transfermarkt em $T+1$, sobretudo no auge da carreira, fase em que o rendimento ainda parece sinalizar a trajetória futura do atleta.
 É nessa faixa que o modelo acrescenta algo à compra dos mais jovens: 38\% a 43\% de acerto no decil superior, contra 19\% a 26\%.
 Um modelo único com interações restritas tratou melhor as diferenças por idade e posição do que 12 modelos separados.
 No plano metodológico, previsões de valorização devem ser avaliadas como regra de compra, com limiar derivado dos custos e comparação direta com a heurística de idade.
@@ -494,7 +506,7 @@ Entre as limitações, o valor do Transfermarkt é apenas uma \textit{proxy} do 
 Os dois testes são semi-independentes, porque os autores já conheciam seus resultados de versões anteriores do estudo; faltam ao modelo o histórico contratual, as convocações e a forma por partida; e a revisão extraordinária de valores na pandemia afeta a amostra.
 Os resultados valem para o universo estudado e não podem ser estendidos, sem novo teste, a superestrelas, goleiros ou outras ligas.
 O próximo passo é testar o modelo em 2025/26, a primeira temporada inteiramente nova, com alvo em junho de 2027, data em que também se poderá verificar a lista prospectiva de 2024/25.
-Trabalhos futuros podem ainda incorporar contratos, convocações e forma por partida e modelar à parte os saltos extremos de valor.
+Trabalhos futuros podem incorporar contratos, convocações e forma por partida, ausentes desta versão, e tratar os saltos extremos de valor com um modelo próprio.
 
 \section*{Disponibilidade de dados e código}
 
